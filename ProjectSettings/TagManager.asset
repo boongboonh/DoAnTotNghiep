@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Bullet
+  - PlayerBullet
+  - Ground
+  - CheckPoint
+  - Thorn
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - Enviroment
+  - 
+  - Green
+  - Trap
+  - Enemy
+  - 
+  - Ground
+  - Player
+  - Item
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: rock
+    uniqueID: 1204949949
+    locked: 0
+  - name: green_Ani
+    uniqueID: 4292503605
+    locked: 0
+  - name: Player
+    uniqueID: 660700991
+    locked: 0
+  - name: green
+    uniqueID: 97146291
+    locked: 0

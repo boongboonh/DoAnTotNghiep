@@ -1,0 +1,497 @@
+fileFormatVersion: 2
+guid: 72eb510ffabefc64080e7a1b2427b63b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_0
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 1372
+        width: 577
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ab1b3a24e239384c8939bb5cd477eca
+      internalID: 1767437369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_1
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1373
+        width: 575
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9860c143999ed8744ad35b98d8bb2d0e
+      internalID: -1700090123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_2
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 1148
+        width: 573
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 570d29e5b59831d4d96e533c5ceb8892
+      internalID: 1336039926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_3
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 1296
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abb769c68641432438c6041a773ce2e6
+      internalID: 1331322986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_4
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 1252
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e561d4d84d4bb744f93992ff3b3129ef
+      internalID: -943613502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_5
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 1151
+        width: 577
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f40a4839de6c7347a010f56a341ed17
+      internalID: 2096460842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_6
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 1256
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06c379275bedd9b49b2f2a66f122f446
+      internalID: -1545100713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_7
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 1251
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd0823e5c093f1c499c5250434f4f69d
+      internalID: -1081461173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_8
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1253
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4984566e003a0e34c8a7ea7dd64329c0
+      internalID: -232392011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_9
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 916
+        width: 576
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e60b129aeb2d22e4c96b69415278cc81
+      internalID: 2032759457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_10
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 916
+        width: 592
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d9564a9ceeb58f42a447686e9132c20
+      internalID: 749520571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_11
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 660
+        width: 574
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fcc61a35110a5c4f888ac401dedd95d
+      internalID: 480443185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_12
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 660
+        width: 584
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40719d61ac8d9d24b825344675b624a2
+      internalID: -1810944418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_13
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 437
+        width: 572
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd942c5f32c531b41835784022f60c5e
+      internalID: 1896347128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_14
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 436
+        width: 575
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6edbad083126124f9d3c5dfdbb2b1df
+      internalID: -910968835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_15
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 184
+        width: 571
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc1399735c098f340a11f4bbaa7a4ff3
+      internalID: 815356742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_16
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 184
+        width: 581
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e422e1b9ab7ad1b458e0bbff53ad8e1f
+      internalID: -452876240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_13: 1896347128
+      depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_9: 2032759457
+      depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_4: -943613502
+      depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_6: -1545100713
+      depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_8: -232392011
+      depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_15: 815356742
+      depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_12: -1810944418
+      depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_2: 1336039926
+      depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_7: -1081461173
+      depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_5: 2096460842
+      depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_10: 749520571
+      depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_3: 1331322986
+      depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_14: -910968835
+      depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_11: 480443185
+      depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_1: -1700090123
+      depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_16: -452876240
+      depositphotos_279884882-stock-illustration-set-of-seamless-game-landscape_0: 1767437369
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
