@@ -77,7 +77,7 @@ public class HealthPlayer : BinhBehaviour
         }
     }
 
-    void takeDame(int dameTake)
+    public void takeDame(int dameTake)
     {
 
         if (checkHealth())
