@@ -8,13 +8,13 @@ public class BulletTaget : MonoBehaviour
     [SerializeField] float timeMaintain = 6f;
     private Rigidbody2D rb;
 
-    private PlayerMove playerTaget;
+    private Transform playerTaget;
     private Vector2 moveDirection;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerTaget = GameObject.FindObjectOfType<PlayerMove>();
+        playerTaget = GetPosPlayer.Instance.PlayerPos;
         moveDirection = (playerTaget.transform.position - transform.position).normalized * moveSpeed;
         rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
         Destroy(gameObject, timeMaintain);

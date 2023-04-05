@@ -3,7 +3,7 @@
 public class TagetJump : MonoBehaviour
 {
 
-    [SerializeField] GameObject Player;
+    Transform Player;
     private Transform playerpos;
 
     private Rigidbody2D rb;
@@ -12,8 +12,8 @@ public class TagetJump : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-     
-        Player = GameObject.FindGameObjectWithTag("Player");
+
+        Player = GetPosPlayer.Instance.PlayerPos;
 
         playerpos = Player.transform;
         attack = true;
