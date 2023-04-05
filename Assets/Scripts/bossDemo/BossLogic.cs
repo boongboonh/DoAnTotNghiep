@@ -11,6 +11,9 @@ public class BossLogic : MonoBehaviour
     private bool isDropAttack = false;
 
     public float speedDrop = 5f;
+    [SerializeField] float timeDelayAttackDrop = 0.5f;
+    [SerializeField] float heightDropAttack = 6f;           //do cao tan cong
+
     private void Start()
     {
         coll = GetComponent<BoxCollider2D>();
@@ -19,41 +22,42 @@ public class BossLogic : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.G) && !isDropAttack)
         {
             //wayShockBoss(); //done
-           
-            tele();
-            isDropAttack = true;
+            //pattenAttackDrop();// done with dropattacklogic
+            
         }
 
         dropAtackLogic();
     }
 
+    
+    //goi de thuc hien tan cong dap goi 1 lan
+    private void pattenAttackDrop()
+    {
+        tele();
+        StartCoroutine(attackDelayDrop());
+    }
+
+    // dung 1 nhip roi lao xuong
+    IEnumerator attackDelayDrop()
+    {
+        yield return new WaitForSeconds(timeDelayAttackDrop);
+        isDropAttack = true;
+    }
+
+    // logic tan cong khi dap
     private void dropAtackLogic()
     {
 
         if (!isDropAttack) return;
 
-        drop();
+        dropAttack();
 
         if (!IsGround()) return;
-        
+
         isDropAttack = false;
-        Debug.Log("drop attack comple");
-    }
-
-    private void drop()
-    {
-        transform.parent.Translate(Vector2.down * Time.deltaTime * speedDrop);
-    }
-
-    //check cham dat
-    public bool IsGround()
-    {
-        float ExtraHight = 0.03f;
-        RaycastHit2D raycastHit2D = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, ExtraHight, layerMask);
-        return raycastHit2D.collider != null;
     }
 
 
@@ -67,7 +71,7 @@ public class BossLogic : MonoBehaviour
     //dich chuyen den vi tri nguoi choi
     private void tele()
     {
-        transform.parent.position = new Vector2(getPlayerPos().position.x, 6);
+        transform.parent.position = new Vector2(getPlayerPos().position.x, heightDropAttack);
     }
 
     private Transform getPlayerPos()
@@ -83,22 +87,27 @@ public class BossLogic : MonoBehaviour
 
     private void dropAttack()
     {
+        transform.parent.Translate(Vector2.down * Time.deltaTime * speedDrop);
+    }
+
+   
+
+    //trieu hoi 3 thanh kiem lao toi nguoi choi
+    private void threeSword()
+    {
 
     }
+    //done
+
+
 
     //ban song 
     private void wayShockBoss()
     {
         for (int i = 0; i < listWayShock.Count; i++)
         {
-            Instantiate(listWayShock[i], gameObject.transform.position , Quaternion.identity);
+            Instantiate(listWayShock[i], gameObject.transform.position, Quaternion.identity);
         }
-    }
-
-    //chem lieen tuc xung quanh
-    private void chop()
-    {
-
     }
 
 
@@ -108,5 +117,13 @@ public class BossLogic : MonoBehaviour
         {
             collision.gameObject.GetComponent<HealthPlayer>().takeDame(2);
         }
+    }
+
+    //check cham dat
+    public bool IsGround()// tra ve true neu cham dat
+    {
+        float ExtraHight = 0.03f;
+        RaycastHit2D raycastHit2D = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, ExtraHight, layerMask);
+        return raycastHit2D.collider != null;
     }
 }
