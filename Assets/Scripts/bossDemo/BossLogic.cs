@@ -12,10 +12,17 @@ public class BossLogic : MonoBehaviour
 
     public float speedDrop = 5f;
     [SerializeField] float timeDelayAttackDrop = 0.5f;
-    [SerializeField] float heightDropAttack = 6f;           //do cao tan cong
+    [SerializeField] float heightDropAttack = 5f;           //do cao tan cong
+
+    [SerializeField] List<Transform> pointSpawnkunai;
+    [SerializeField] GameObject kunai;
+
+    private bool isChangePattenBoss = false;
+    private Rigidbody2D rb;
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
     }
 
@@ -24,27 +31,92 @@ public class BossLogic : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G) && !isDropAttack)
         {
-            //wayShockBoss(); //done
-            //pattenAttackDrop();// done with dropattacklogic
-            
+            isChangePattenBoss = true;
+        }
+
+        if (isChangePattenBoss)
+        {
+            isChangePattenBoss = false;
+
+            float[] attackWeights = new float[] { 0.4f, 0.4f, 0.2f }; // trong so random <song, dap, kiem>
+            int attackIndex = WeightedRandom(attackWeights);
+
+            switch (attackIndex)
+            {
+                case 0:
+                    pattenWayShockBoss();
+                    break;
+                case 1:
+                    pattenAttackDrop();
+                    break;
+                case 2:
+                    pattenThreeSword();
+                    break;
+            }
         }
 
         dropAtackLogic();
+
     }
 
     
+
+    int WeightedRandom(float[] weights)
+    {
+        float totalWeight = 0f;
+        foreach (float weight in weights)
+        {
+            totalWeight += weight;
+        }
+
+        float randomValue = Random.value * totalWeight;
+        for (int i = 0; i < weights.Length; i++)
+        {
+            if (randomValue < weights[i])
+            {
+                return i;
+            }
+
+            randomValue -= weights[i];
+        }
+
+        return weights.Length - 1;
+    }
+
+
+    // trang thai boss
+
+    private void logicBoss()
+    {
+
+    }
+
+
     //goi de thuc hien tan cong dap goi 1 lan
     private void pattenAttackDrop()
     {
-        tele();
         StartCoroutine(attackDelayDrop());
     }
 
     // dung 1 nhip roi lao xuong
     IEnumerator attackDelayDrop()
     {
-        yield return new WaitForSeconds(timeDelayAttackDrop);
-        isDropAttack = true;
+        rb.gravityScale = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            //doi den khi thuc hien xong lan tan cong truoc do moi tan cong tiep
+            yield return new WaitUntil(() => !isDropAttack);
+
+            tele(getPlayerPos().position.x);
+            yield return new WaitForSeconds(timeDelayAttackDrop);
+
+            isDropAttack = true;
+        }
+
+        rb.gravityScale = 1;
+        isChangePattenBoss = true;
+        Debug.Log("ket thu tan cong dap");
+
     }
 
     // logic tan cong khi dap
@@ -61,17 +133,12 @@ public class BossLogic : MonoBehaviour
     }
 
 
-    // trang thai boss
-
-    private void logicBoss()
-    {
-
-    }
+    
 
     //dich chuyen den vi tri nguoi choi
-    private void tele()
+    private void tele(float x)
     {
-        transform.parent.position = new Vector2(getPlayerPos().position.x, heightDropAttack);
+        transform.position = new Vector2(x, heightDropAttack);
     }
 
     private Transform getPlayerPos()
@@ -87,27 +154,62 @@ public class BossLogic : MonoBehaviour
 
     private void dropAttack()
     {
-        transform.parent.Translate(Vector2.down * Time.deltaTime * speedDrop);
+        transform.Translate(Vector2.down * Time.deltaTime * speedDrop);
     }
-
+    
    
 
     //trieu hoi 3 thanh kiem lao toi nguoi choi
-    private void threeSword()
+    private void pattenThreeSword()
     {
-
+        StartCoroutine(spawSword());
     }
     //done
 
+    IEnumerator spawSword()
+    {
+        tele(0);
+        rb.gravityScale = 0;
+        for (int i = 0; i < pointSpawnkunai.Count; i++)
+        {
+            yield return new WaitForSeconds(.5f);    //doi .5 giay spawn 1 chiec
+            Instantiate(kunai, pointSpawnkunai[i].position, Quaternion.identity);
+        }
 
+        //doi 3 giay het patten
+        yield return new WaitForSeconds(3f);
+        rb.gravityScale = 1;
+        isChangePattenBoss = true;
+
+    }
 
     //ban song 
-    private void wayShockBoss()
+    private void pattenWayShockBoss()
     {
-        for (int i = 0; i < listWayShock.Count; i++)
+
+        StartCoroutine(spawnShockWay());
+    }
+
+    IEnumerator spawnShockWay()
+    {
+        yield return new WaitForSeconds(2f);
+
+        if (IsGround())
         {
-            Instantiate(listWayShock[i], gameObject.transform.position, Quaternion.identity);
+            for (int i = 0; i < listWayShock.Count; i++)
+            {
+                Instantiate(listWayShock[i], gameObject.transform.position, Quaternion.identity);
+            }
+
+            yield return new WaitForSeconds(1f);
+            isChangePattenBoss = true;
         }
+        else
+        {
+            yield return new WaitForSeconds(1f);
+            isChangePattenBoss = true;
+        }
+
     }
 
 

@@ -9,15 +9,29 @@ public class kunaiSword : MonoBehaviour
     [SerializeField] float timetaget = 1f;
     [SerializeField] float timeRotate = .5f;
     [SerializeField] GameObject pointAttack;
+    [SerializeField] GameObject ParentKunai;
 
     private bool isStartDrop = false;   //check duoc phep chay ham lao vao nguoi choi chua
     Transform playerPos;
+
+    private void OnEnable()
+    {
+        //transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
+        if (playerPos != null)
+        {
+            getPlayerPosition();
+            pointAttack.transform.position = playerPos.position;
+            StartCoroutine(rotatePlayer());
+        }
+        Debug.Log("run on enable");
+    }
 
     private void Start()
     {
         getPlayerPosition();
         pointAttack.transform.position = playerPos.position;
         StartCoroutine(rotatePlayer());
+        Debug.Log("run start");
     }
 
     void getPlayerPosition()
@@ -28,7 +42,7 @@ public class kunaiSword : MonoBehaviour
     void Update()
     {
         StartCoroutine(tagetPlayer());
-        Destroy(gameObject, time);
+        Destroy(transform.parent.gameObject, time);
     }
     IEnumerator rotatePlayer()
     {
@@ -39,8 +53,17 @@ public class kunaiSword : MonoBehaviour
 
     IEnumerator tagetPlayer()
     {
+
         yield return new WaitForSeconds(timetaget);
         move();
+
+        //tat hien thi sau time giay
+
+
+        //yield return new WaitForSeconds(time);
+
+        //ParentKunai.SetActive(false);
+        
     }
 
     void rotate()
@@ -71,7 +94,8 @@ public class kunaiSword : MonoBehaviour
             //neu cham vao player tru 1 hp
             collision.GetComponent<HealthPlayer>().takeDame(1);
 
-            //Destroy(gameObject);
+            //ParentKunai.SetActive(false);
+            Destroy(transform.parent.gameObject);
         }
     }
 
