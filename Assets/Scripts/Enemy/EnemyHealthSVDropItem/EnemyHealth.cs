@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int healthEnemyMax = 5;
-    [HideInInspector] public int healthEnemy; 
+    public int healthEnemy; 
     [SerializeField] protected GameObject[] ItemsDrop;
     [SerializeField] private int dameTake = 1 ;
     [SerializeField] private GameObject EffectRingEnemyDie;
@@ -32,7 +32,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    protected void EnemyTakeDame(int damePlayer)
+    public void EnemyTakeDame(int damePlayer)
     {
         
         if (healthEnemy <= 1)
