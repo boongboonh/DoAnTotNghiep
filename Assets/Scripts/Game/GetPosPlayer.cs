@@ -7,8 +7,9 @@ public class GetPosPlayer : MonoBehaviour
     protected static GetPosPlayer instance;
     public static GetPosPlayer Instance { get => instance; }// truyen du lieu
 
+    [SerializeField] private Transform playerGameObject;
 
-    [SerializeField] protected Transform playerPos;
+    protected Transform playerPos;
     public Transform PlayerPos { get => playerPos; }// truyen du lieu vi tri nguowi choi
 
     /*
@@ -42,8 +43,9 @@ public class GetPosPlayer : MonoBehaviour
 
     protected virtual void FindPlayerPos()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        //GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Transform player = playerGameObject;
         if (player == null) return;
-        playerPos = player.transform;
+        playerPos = player;
     }
 }

@@ -42,9 +42,10 @@ public class HealthPlayer : BinhBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Bullet"))
+
+        if (collision.CompareTag("Bullet"))
         {
-            Debug.Log("take dame trigger");
+            Debug.Log("player take dame trigger");
             takeDame(1);
         }
     }
@@ -53,7 +54,7 @@ public class HealthPlayer : BinhBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("take dame coli");
+            Debug.Log("player take dame coli");
             takeDame(1);
         }
     }

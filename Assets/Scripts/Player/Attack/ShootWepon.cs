@@ -10,55 +10,36 @@ public class ShootWepon : MonoBehaviour
     [SerializeField] private float distanceAttack = 5f;
     [SerializeField] private GameObject bulletPlayerShootPrfab;
     [SerializeField] private float speedFolow = 20f;
-    [SerializeField] private float colldown = 0.5f;
+    //[SerializeField] private float colldown = 0.5f;
 
-    private float timeColldown = 0;
-    private bool isAttack;
+    [SerializeField] public LayerMask layerMask;
+
+    /*private float timeColldown = 0;
+    private bool isAttack;*/
     [HideInInspector] public static int bulletType = 1;
     ManaManager mana;
     //test
-    private GameObject player;
+    [SerializeField] private GameObject player;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
         mana = player.GetComponent<ManaManager>();
-        isAttack = false;
-        timeColldown = 0;
-        //enemy = FindEnemy();
+       /* isAttack = false;
+        timeColldown = 0;*/
     }
 
 
-    public GameObject FindEnemy()
+    private void FixedUpdate()
     {
-        GameObject[] ene;
-        ene = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject closest = null;
-
-        float distance = Mathf.Infinity;
-        Vector3 position = transform.position;
-        foreach (GameObject go in ene)
-        {
-            Vector3 diff = go.transform.position - position;
-            float curDistance = diff.sqrMagnitude;
-            if (curDistance < distance)
-            {
-                closest = go;
-                distance = curDistance;
-            }
-        }
-        return closest;
+        followPlayer();
     }
-
 
     void Update()
     {
-        CaculationColldown();
-        followPlayer();
+        //CaculationColldown();
 
-        if (Input.GetMouseButtonDown(0) && isAttack)
+        /*if (Input.GetMouseButtonDown(0) && isAttack)
         {
-            enemy = FindEnemy();
 
             if (enemy != null && checkDistancePlayerEnemy())
             {
@@ -69,11 +50,15 @@ public class ShootWepon : MonoBehaviour
             }
 
         }
+        */
+
+        //findEnemyRaycast();
+
 
         //ki nawng e ban dan chum 5 vien
         if (Input.GetKeyDown(KeyCode.E) && mana.NowMana > 0)
         {
-            enemy = FindEnemy();
+            enemy = findEnemyRaycast();
             if (enemy != null && checkDistancePlayerEnemy())
             {
                 mana.UseMana();
@@ -81,6 +66,32 @@ public class ShootWepon : MonoBehaviour
             }
             
         }
+    }
+
+    //tim kiem enemy 
+    GameObject findEnemyRaycast()
+    {
+        Vector2 origin = transform.position; //vi tri ban
+
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(origin, distanceAttack,Vector2.zero, 0 , layerMask);
+
+        float closestDistance = Mathf.Infinity; // khoang cach den doi tuong gan nhat
+        GameObject closestObject = null; // doi tuong gan nhat
+
+        foreach (RaycastHit2D hit in hits)
+        {
+            // tinh khoang cach
+            float distance = Vector2.Distance(origin, hit.transform.position);
+
+            if (distance < closestDistance)
+            {
+                closestDistance = distance; // capp nhat lai khoang cach
+                closestObject = hit.transform.gameObject; // cap nhat doi tuong
+            }
+        }
+
+        return closestObject;
+
     }
 
     private void followPlayer()
@@ -97,7 +108,7 @@ public class ShootWepon : MonoBehaviour
         }
     }
     
-    private void CaculationColldown()
+    /*private void CaculationColldown()
     {
         if (timeColldown >= colldown)
         {
@@ -108,7 +119,7 @@ public class ShootWepon : MonoBehaviour
             timeColldown += Time.deltaTime;
             isAttack = false;
         }
-    }
+    }*/
 
     private bool checkDistancePlayerEnemy()
     {
@@ -121,6 +132,8 @@ public class ShootWepon : MonoBehaviour
             return false;
         }
     }
+
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;

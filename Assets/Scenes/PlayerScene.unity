@@ -5334,6 +5334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9676eccdbbd0f48a2c5ba114895377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerIMG: {fileID: 1896565352}
   jumpableGround:
     serializedVersion: 2
     m_Bits: 8192
@@ -5825,7 +5826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ad665db81f4904f88649976e345cc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 557996270}
+  playerGameObject: {fileID: 557996272}
 --- !u!4 &1368220405
 Transform:
   m_ObjectHideFlags: 0
@@ -6685,4 +6686,4 @@ MonoBehaviour:
   distanceAttack: 6
   bulletPlayerShootPrfab: {fileID: 2639302851973834049, guid: 5c70af6389c0b544f85ccf47be231f0a, type: 3}
   speedFolow: 8.5
-  colldown: 0.4
+  player: {fileID: 557996270}

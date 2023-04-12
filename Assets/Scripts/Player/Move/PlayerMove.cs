@@ -11,7 +11,9 @@ public class PlayerMove : MonoBehaviour
     private BoxCollider2D coll;
     private bool faceRight = true;
 
+
     public bool Direction => faceRight;
+    [SerializeField] private GameObject PlayerIMG;
 
     [SerializeField] private LayerMask jumpableGround;
 
@@ -43,14 +45,13 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         coll = GetComponent<BoxCollider2D>();
-        animator = GameObject.Find("PlayerImg").GetComponent<Animator>();
+        animator = PlayerIMG.GetComponent<Animator>();
     }
 
     private void Update()
     {
         //di chuyển trái phải
         dirX = Input.GetAxisRaw("Horizontal");
-
 
 
         //nhay
