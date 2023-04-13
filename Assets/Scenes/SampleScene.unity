@@ -14376,7 +14376,6 @@ MonoBehaviour:
   ANIMATORNAME: Idle
   canReceiveInput: 0
   inputReceived: 0
-  gravitySlow: 0
   timeEndCombo: 1
 --- !u!1 &2133015479
 GameObject:
