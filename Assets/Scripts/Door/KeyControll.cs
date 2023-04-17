@@ -8,8 +8,8 @@ public class KeyControll : MonoBehaviour
     [SerializeField] string nameDoorPlayerPrefs = "doorKey1";
     [SerializeField] string nameAnimatorKey = "OpenKey";
     [SerializeField] string nameAnimatorDoor = "OpenDoor";
-    [SerializeField] string nameAniKeyLoad = "KeyOpenForLoad";
-    [SerializeField] string nameAniDoorLoad = "DoorOpenForLoad";
+    [SerializeField] string nameAniKeyOpened = "OpenedKey";
+    [SerializeField] string nameAniDoorOpened = "OpenedDoor";
 
 
     [SerializeField] bool isOpen = false;
@@ -20,15 +20,14 @@ public class KeyControll : MonoBehaviour
     
     Animator animator;
 
-   
     private void Start()
     {
         animator = GetComponent<Animator>();
         Debug.Log(PlayerPrefs.GetInt(nameDoorPlayerPrefs));   //loi
         if (PlayerPrefs.GetInt(nameDoorPlayerPrefs) == 0) return;
-
-        animator.Play(nameAniKeyLoad);
-        door.GetComponent<Animator>().Play(nameAniDoorLoad);
+        isOpen = true;                                              //cua da mo
+        animator.SetTrigger(nameAniKeyOpened);                      //chay ani mo
+        door.GetComponent<Animator>().SetTrigger(nameAniDoorOpened);//chay ani mo
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,10 +48,15 @@ public class KeyControll : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 PlayerPrefs.SetInt(nameDoorPlayerPrefs, 1);
-                animator.SetTrigger(nameAnimatorKey);//chay animation mo khoa
-                door.GetComponent<Animator>().SetTrigger(nameAnimatorDoor); //chay animation mo cua
+                openDoor();
             }
         }
+    }
+
+    private void openDoor()
+    {
+        animator.SetTrigger(nameAnimatorKey);//chay animation mo khoa
+        door.GetComponent<Animator>().SetTrigger(nameAnimatorDoor); //chay animation mo cua
     }
 
     private void OnTriggerExit2D(Collider2D collision)
