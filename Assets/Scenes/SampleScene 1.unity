@@ -1586,6 +1586,7 @@ Transform:
   m_Children:
   - {fileID: 1698106023}
   - {fileID: 476111674}
+  - {fileID: 433355058}
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2461,6 +2462,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &433355057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 433355058}
+  m_Layer: 0
+  m_Name: HeightAttackKunai
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &433355058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433355057}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 8.67, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 319344411}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &436152744
 GameObject:
   m_ObjectHideFlags: 0
@@ -10422,7 +10454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1205106875
 Transform:
   m_ObjectHideFlags: 0
@@ -13427,12 +13459,14 @@ MonoBehaviour:
   speedDrop: 5
   timeDelayAttackDrop: 0.5
   heightDropAttack: 8
+  heightAttackKunai: {fileID: 433355058}
   pointSpawnkunai:
   - {fileID: 1176552604}
   - {fileID: 1669237180}
   - {fileID: 469605084}
   - {fileID: 2079600084}
   kunai: {fileID: 2564835996081816876, guid: 46f67c730b30e20499a52ba0418ba5b4, type: 3}
+  PattenOld: 0
 --- !u!50 &1698106026
 Rigidbody2D:
   serializedVersion: 4
