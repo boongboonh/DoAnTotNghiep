@@ -14,11 +14,16 @@ public class BossLogic : MonoBehaviour
     [SerializeField] float timeDelayAttackDrop = 0.5f;
     [SerializeField] float heightDropAttack = 5f;           //do cao tan cong
 
+    [SerializeField] Transform heightAttackKunai;           //do cao tan cong kunai
+
     [SerializeField] List<Transform> pointSpawnkunai;
     [SerializeField] GameObject kunai;
 
     private bool isChangePattenBoss = false;
     private Rigidbody2D rb;
+
+    [SerializeField] int PattenOld = -1;
+
 
     private void Start()
     {
@@ -38,8 +43,10 @@ public class BossLogic : MonoBehaviour
         {
             isChangePattenBoss = false;
 
-            float[] attackWeights = new float[] { 0.4f, 0.4f, 0.2f }; // trong so random <song, dap, kiem>
-            int attackIndex = WeightedRandom(attackWeights);
+            /*float[] attackWeights = new float[] { 0.4f, 0.4f, 0.2f }; // trong so random <song, dap, kiem>
+            int attackIndex = WeightedRandom(attackWeights);*/
+
+            int attackIndex = randomNoDuplicate();
 
             switch (attackIndex)
             {
@@ -52,6 +59,10 @@ public class BossLogic : MonoBehaviour
                 case 2:
                     pattenThreeSword();
                     break;
+
+                default:
+                    Debug.Log("khong co gia tri random dung");
+                    break;
             }
         }
 
@@ -59,7 +70,22 @@ public class BossLogic : MonoBehaviour
 
     }
 
-    
+    int randomNoDuplicate()
+    {
+        Debug.Log("chay ham random");
+        float[] attackWeights = new float[] { 0.4f, 0.4f, 0.2f }; // trong so random <song, dap, kiem>
+        int attackIndex = WeightedRandom(attackWeights);
+        if(attackIndex == PattenOld)
+        {
+            return randomNoDuplicate();
+        }
+        else
+        {
+            PattenOld = attackIndex; //luu patten vua thuc hien
+            return attackIndex;
+        }
+
+    }
 
     int WeightedRandom(float[] weights)
     {
@@ -83,14 +109,7 @@ public class BossLogic : MonoBehaviour
         return weights.Length - 1;
     }
 
-
-    // trang thai boss
-
-    private void logicBoss()
-    {
-
-    }
-
+   
 
     //goi de thuc hien tan cong dap goi 1 lan
     private void pattenAttackDrop()
@@ -116,7 +135,6 @@ public class BossLogic : MonoBehaviour
         rb.gravityScale = 1;
         isChangePattenBoss = true;
         Debug.Log("ket thu tan cong dap");
-
     }
 
     // logic tan cong khi dap
@@ -132,8 +150,6 @@ public class BossLogic : MonoBehaviour
         isDropAttack = false;
     }
 
-
-    
 
     //dich chuyen den vi tri nguoi choi
     private void tele(float x)
@@ -168,7 +184,7 @@ public class BossLogic : MonoBehaviour
 
     IEnumerator spawSword()
     {
-        tele(0);
+        tele(heightAttackKunai.position.x);
         rb.gravityScale = 0;
         for (int i = 0; i < pointSpawnkunai.Count; i++)
         {
