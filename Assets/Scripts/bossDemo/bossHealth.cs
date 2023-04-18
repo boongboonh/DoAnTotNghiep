@@ -4,50 +4,58 @@ using UnityEngine;
 
 public class bossHealth : MonoBehaviour
 {
-    public int healthBoss = 20;
+    [SerializeField] private GameObject effectBossDie;
+    [SerializeField] private int healthBossMax = 5;
 
-    public int currentHealthBoss = 0;
+    public int HealthBossMax => healthBossMax;
+
+    public int healthEnemy;
     [SerializeField] protected GameObject[] ItemsDrop;
-   
-    private void OnEnable()
+    [SerializeField] private int dameTake = 1;
+
+    protected virtual void OnEnable()
     {
-        currentHealthBoss = healthBoss;
+        healthEnemy = healthBossMax;
     }
 
     
-    void takeDame(int dame)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(currentHealthBoss > 1)
+        if (collision.CompareTag("PlayerBullet"))
         {
-            currentHealthBoss -= dame;
+            EnemyTakeDame(dameTake);
+        }
+    }
+
+    public void EnemyTakeDame(int damePlayer)
+    {
+
+        if (healthEnemy <= 1)
+        {
+            healthEnemy -= damePlayer;
+            enemyDie();
+
         }
         else
         {
-            bossDie();
+            healthEnemy -= damePlayer;
         }
     }
 
-    void bossDie()
+    protected void enemyDie()
     {
-        gameObject.transform.parent.gameObject.SetActive(false);
+        GameObject EffectEnemyClone = Instantiate(effectBossDie, transform.position, Quaternion.identity);
+        Destroy(EffectEnemyClone, 2f);
+        gameObject.SetActive(false);
+        dropItem();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //trung dan tru 1 hp
-        if (collision.gameObject.CompareTag("PlayerBullet"))
-        {
-            takeDame(1);
-        }
-    }
-
-    protected virtual void dropItem()
+    protected void dropItem()       
     {
         for (int i = 0; i < ItemsDrop.Length; i++)
         {
             Instantiate(ItemsDrop[i], transform.position + new Vector3(Random.Range(-0.7f, 0.7f), 1, 0), Quaternion.identity);
         }
     }
-
 
 }

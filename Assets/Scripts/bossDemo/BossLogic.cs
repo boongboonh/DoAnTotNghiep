@@ -189,7 +189,7 @@ public class BossLogic : MonoBehaviour
         for (int i = 0; i < pointSpawnkunai.Count; i++)
         {
             yield return new WaitForSeconds(.5f);    //doi .5 giay spawn 1 chiec
-            Instantiate(kunai, pointSpawnkunai[i].position, Quaternion.identity);
+            Instantiate(kunai, pointSpawnkunai[i].position, kunai.transform.rotation);
         }
 
         //doi 3 giay het patten
