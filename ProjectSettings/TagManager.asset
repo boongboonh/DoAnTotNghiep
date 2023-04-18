@@ -53,6 +53,9 @@ TagManager:
   - name: green_Ani
     uniqueID: 4292503605
     locked: 0
+  - name: Enemy
+    uniqueID: 2650754347
+    locked: 0
   - name: Player
     uniqueID: 660700991
     locked: 0
