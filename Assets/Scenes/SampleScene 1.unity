@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 14794389}
   m_Layer: 0
   m_Name: ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10408,7 +10408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1205106875
 Transform:
   m_ObjectHideFlags: 0
@@ -13481,7 +13481,7 @@ MonoBehaviour:
   - {fileID: 1669237180}
   - {fileID: 469605084}
   - {fileID: 2079600084}
-  kunai: {fileID: 2564835996081816876, guid: 46f67c730b30e20499a52ba0418ba5b4, type: 3}
+  kunai: {fileID: 1202520981399978437, guid: 46f67c730b30e20499a52ba0418ba5b4, type: 3}
   PattenOld: 0
 --- !u!50 &1698106026
 Rigidbody2D:
