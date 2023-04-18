@@ -70,7 +70,6 @@ public class PlayerMove : MonoBehaviour
         checkFlip();
     }
 
-
     private void Jump()
     {
         //điều khiển nhảy bằng nút space => trong edit> project setting

@@ -54,9 +54,28 @@ public class bulletPlayer : MonoBehaviour
 
         return rand;
     }
-    private void Update()
+    /*private void Update()
     {
         if (enemy == null || Vector2.Distance(gameObject.transform.position,enemy.transform.position)<0.1f)
+        {
+            destroyBullet();
+        }
+
+        playerX = bulletPosition.position.x;
+        enemyX = enemy.transform.position.x;
+
+        dist = enemyX - playerX;
+        nextX = Mathf.MoveTowards(transform.position.x, enemyX, speed * Time.deltaTime);
+        baseY = Mathf.Lerp(bulletPosition.position.y, enemy.transform.position.y, (nextX - playerX) / dist);
+        height = 2 * (nextX - playerX) * (nextX - enemyX) / (a * dist * dist);
+        Vector3 movePosition = new Vector3(nextX, baseY + height, transform.position.z);
+        transform.rotation = LookAtTarget(movePosition - transform.position);
+        transform.position = movePosition;
+    }*/
+
+    private void FixedUpdate()
+    {
+        if (enemy == null || Vector2.Distance(gameObject.transform.position, enemy.transform.position) < 0.1f)
         {
             destroyBullet();
         }

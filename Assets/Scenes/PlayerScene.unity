@@ -7057,5 +7057,5 @@ MonoBehaviour:
   speedFolow: 8.5
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   player: {fileID: 557996270}

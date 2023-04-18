@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int healthEnemyMax = 5;
-    public int healthEnemy; 
+
+    public int healthEnemy;
     [SerializeField] protected GameObject[] ItemsDrop;
     [SerializeField] private int dameTake = 1 ;
     [SerializeField] private GameObject EffectRingEnemyDie;
@@ -16,7 +17,7 @@ public class EnemyHealth : MonoBehaviour
     }
   
     //khi quai chet tao hieu ung song no. tat quai, doi vat pham
-    protected void enemyDie()
+    protected virtual void enemyDie()
     {
         GameObject EffectEnemyClone = Instantiate(EffectRingEnemyDie, transform.position, Quaternion.identity);
         Destroy(EffectEnemyClone, 2f);
