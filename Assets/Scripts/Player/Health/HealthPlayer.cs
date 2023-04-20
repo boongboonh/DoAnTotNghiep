@@ -12,11 +12,17 @@ public class HealthPlayer : BinhBehaviour
     [SerializeField] private GameObject ringWavePlayerDie; // hieu ung chet
     [SerializeField] private GameObject ringRevivalPlayer; // hieuj ung hoi sinh
 
+    
+
     private static HealthPlayer instance;
     public static HealthPlayer Instance { get => instance; }
-    public int HealthPlayerInfor { get => healthPlayerMax;}
+    public int HealthPlayerMax { get => healthPlayerMax;}
     public int NowHeal { get => nowHeal; }
 
+    [Header("Name PlayerPrefs")]
+    [SerializeField] private string FirstPlay = "FirstPlay"; //bien luu so lan choi
+    [SerializeField] string nameHPDataPlayerNow = "PlayerHPNow";
+    [SerializeField] string nameHPDataPlayerMax = "PlayerHPMax";
 
     protected override void OnEnable()
     {
@@ -37,7 +43,7 @@ public class HealthPlayer : BinhBehaviour
     protected override void Start()
     {
         base.Start();
-        nowHeal = healthPlayerMax;
+        setHPPlayeAgain();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -139,5 +145,21 @@ public class HealthPlayer : BinhBehaviour
     public void fullHP()
     {
         nowHeal = healthPlayerMax; // cai lai mau
+    }
+
+
+    //kiem tra lan choi va cai hp cu
+    private void setHPPlayeAgain()
+    {
+        if (PlayerPrefs.GetInt(FirstPlay) != 1) //neu lan choi thu nhat
+        {
+            nowHeal = healthPlayerMax;
+            return;
+        }
+        else
+        {
+            nowHeal = PlayerPrefs.GetInt(nameHPDataPlayerNow);
+            healthPlayerMax = PlayerPrefs.GetInt(nameHPDataPlayerMax);
+        }
     }
 }

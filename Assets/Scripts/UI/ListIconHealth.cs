@@ -20,7 +20,7 @@ public class ListIconHealth : ListIcon
     }
     protected virtual void AddIconHealth()
     {
-        playerHealthClone = HealthPlayer.Instance.HealthPlayerInfor;
+        playerHealthClone = HealthPlayer.Instance.HealthPlayerMax;
         playerHealthNowClone = playerHealthClone;
 
         for (int i = 0; i < playerHealthClone; i++)
@@ -50,7 +50,7 @@ public class ListIconHealth : ListIcon
             }
 
             // khi chi so mau chua nhan vat thay doi cap nhat lai icon ui
-        if (playerHealthClone == HealthPlayer.Instance.HealthPlayerInfor) return;
+        if (playerHealthClone == HealthPlayer.Instance.HealthPlayerMax) return;
             AddIconHealth();
     }
 }

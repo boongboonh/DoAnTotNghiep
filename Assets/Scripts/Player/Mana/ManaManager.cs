@@ -14,10 +14,14 @@ public class ManaManager : BinhBehaviour
     public int ManaPlayerMax { get => manaPlayerMax;}
     public int NowMana { get => nowMana; }
 
+    [Header("Name PlayerPrefs")]
+    [SerializeField] private string FirstPlay = "FirstPlay"; //bien luu so lan choi
+    [SerializeField] string nameMPDataPlayerNow = "PlayerMPNow";
+    [SerializeField] string nameMPDataPlayerMax = "PlayerMPMax";
 
     protected override void OnEnable()
     {
-        nowMana = manaPlayerMax;
+        fullMana();
     }
 
     protected override void Awake()
@@ -28,10 +32,10 @@ public class ManaManager : BinhBehaviour
     }
     protected override void Start()
     {
-        nowMana = manaPlayerMax;
+        setMPPlayeAgain();
 
     }
-    public bool checkMana()
+    /*public bool checkMana()
     {
         if(nowMana >=0)
         {
@@ -41,7 +45,7 @@ public class ManaManager : BinhBehaviour
         {
             return false;
         }
-    }
+    }*/
     public void ManaHealing()
     {
         if (nowMana < manaPlayerMax)
@@ -64,6 +68,27 @@ public class ManaManager : BinhBehaviour
         {
             manaPlayerMax++;
             nowMana++;
+        }
+    }
+
+    public void fullMana()
+    {
+        nowMana = manaPlayerMax;
+    }
+
+
+    //kiem tra lan choi va cai mana cu
+    private void setMPPlayeAgain()
+    {
+        if (PlayerPrefs.GetInt(FirstPlay) != 1) //neu lan choi thu nhat
+        {
+            nowMana = manaPlayerMax;
+            return;
+        }
+        else
+        {
+            nowMana = PlayerPrefs.GetInt(nameMPDataPlayerNow);
+            manaPlayerMax = PlayerPrefs.GetInt(nameMPDataPlayerMax);
         }
     }
 

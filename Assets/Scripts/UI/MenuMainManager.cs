@@ -34,6 +34,9 @@ public class MenuMainManager : MonoBehaviour
 
     private void startGame()
     {
+        PlayerPrefs.DeleteAll();                          // xoa toan bo du lieu truoc do 
+
+
         PlayerPrefs.SetInt(FirstPlay, 1);                 //neu choi game lan dau thi la 1
         PlayerPrefs.SetFloat("FirstPlayPosX", -34.42f);
         PlayerPrefs.SetFloat("FirstPlayPosY", -5f);

@@ -19,7 +19,6 @@ public class KeyControll : MonoBehaviour
 
     
     Animator animator;
-
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -35,7 +34,6 @@ public class KeyControll : MonoBehaviour
         if (isOpen) return;
         if (collision.CompareTag("Player"))
         {
-           
             clickButton.SetActive(true);
         }
     }
