@@ -20,8 +20,7 @@ public class HealthPlayer : BinhBehaviour
 
     protected override void OnEnable()
     {
-        nowHeal = healthPlayerMax; // cai lai mau
-
+        fullHP();
         //chay hieu ung
         GameObject EffectPlayerRevival = Instantiate(ringRevivalPlayer, transform.position, Quaternion.identity);
         Destroy(EffectPlayerRevival, 1f);
@@ -59,9 +58,9 @@ public class HealthPlayer : BinhBehaviour
         }
     }
 
-    public bool checkHealth()
+    public bool checkHealth(int dameTake)
     {
-        if (NowHeal > 1)
+        if (NowHeal > dameTake)
         {
             return true;
         }
@@ -81,7 +80,7 @@ public class HealthPlayer : BinhBehaviour
     public void takeDame(int dameTake)
     {
 
-        if (checkHealth())
+        if (checkHealth(dameTake))
         {
             nowHeal-= dameTake;
 
@@ -136,5 +135,9 @@ public class HealthPlayer : BinhBehaviour
         takeDame(nowHeal);
     }
 
-
+    //hoi toan bo hp khi o tru
+    public void fullHP()
+    {
+        nowHeal = healthPlayerMax; // cai lai mau
+    }
 }
