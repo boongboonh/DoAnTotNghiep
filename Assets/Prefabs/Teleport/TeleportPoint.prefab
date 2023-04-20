@@ -9822,7 +9822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247463780b6c724fb82d85f6405104f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameTele: teleMap1
+  nameTele: teleTree1
   clickTuto: {fileID: 7772098879295831519}
   EffectPower: {fileID: 7772098878881669683}
   isActive: 0

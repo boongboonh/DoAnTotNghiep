@@ -28,7 +28,7 @@ public class PlayerManager : MonoBehaviour
         PlayerPrefs.SetInt(nameMPDataPlayerMax, ManaManager.Instance.ManaPlayerMax);
 
         //luu vi tri
-        PlayerPrefs.SetFloat("playerPosX", GetPosPlayer.Instance.PlayerPos.position.x);
-        PlayerPrefs.SetFloat("playerPosY", GetPosPlayer.Instance.PlayerPos.position.y);
+        PlayerPrefs.SetFloat(playerPosX, GetPosPlayer.Instance.PlayerPos.position.x);
+        PlayerPrefs.SetFloat(playerPosY, GetPosPlayer.Instance.PlayerPos.position.y);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class telePoint : MonoBehaviour
 {
 
-    [SerializeField] string nameTele = "teleMap1";
+    [SerializeField] string nameTele = "teleTree1";
     [SerializeField] GameObject clickTuto;
     [SerializeField] GameObject EffectPower;
     [SerializeField] bool isActive = false;
