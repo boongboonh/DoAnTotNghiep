@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc3d64361a7ac934bb1f3ed0b6a0f0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthEnemyMax: 5
+  healthEnemyMax: 15
   healthEnemy: 0
   ItemsDrop:
   - {fileID: 4246345646950916832, guid: 091e0ffec2bf24f458556a9a6cc3f850, type: 3}

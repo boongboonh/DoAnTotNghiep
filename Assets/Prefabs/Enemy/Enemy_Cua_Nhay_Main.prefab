@@ -889,7 +889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21279163760cf6c4aa8817b6fbee47b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthEnemyMax: 3
+  healthEnemyMax: 5
   healthEnemy: 0
   ItemsDrop:
   - {fileID: 4246345646950916832, guid: 091e0ffec2bf24f458556a9a6cc3f850, type: 3}
@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1de675c5821fef4f9141c0311aefd06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthEnemyMax: 5
+  healthEnemyMax: 15
   healthEnemy: 0
   ItemsDrop:
   - {fileID: 1054023486375226980, guid: 56b891f55fe7b274191b2068f499a167, type: 3}
@@ -1395,7 +1395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21279163760cf6c4aa8817b6fbee47b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthEnemyMax: 3
+  healthEnemyMax: 5
   healthEnemy: 0
   ItemsDrop:
   - {fileID: 4246345646950916832, guid: 091e0ffec2bf24f458556a9a6cc3f850, type: 3}
@@ -1606,7 +1606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21279163760cf6c4aa8817b6fbee47b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthEnemyMax: 3
+  healthEnemyMax: 5
   healthEnemy: 0
   ItemsDrop:
   - {fileID: 4246345646950916832, guid: 091e0ffec2bf24f458556a9a6cc3f850, type: 3}
