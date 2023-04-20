@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
     [SerializeField] string nameHPDataPlayerNow = "PlayerHPNow";
     [SerializeField] string nameHPDataPlayerMax = "PlayerHPMax";
 

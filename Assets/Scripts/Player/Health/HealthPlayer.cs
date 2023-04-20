@@ -20,7 +20,7 @@ public class HealthPlayer : BinhBehaviour
     public int NowHeal { get => nowHeal; }
 
     [Header("Name PlayerPrefs")]
-    [SerializeField] private string FirstPlay = "FirstPlay"; //bien luu so lan choi
+    [SerializeField] private string NumberPlay = "NumberPlay";
     [SerializeField] string nameHPDataPlayerNow = "PlayerHPNow";
     [SerializeField] string nameHPDataPlayerMax = "PlayerHPMax";
 
@@ -44,6 +44,7 @@ public class HealthPlayer : BinhBehaviour
     {
         base.Start();
         setHPPlayeAgain();
+        Debug.Log("Player hP" + nowHeal);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -151,10 +152,9 @@ public class HealthPlayer : BinhBehaviour
     //kiem tra lan choi va cai hp cu
     private void setHPPlayeAgain()
     {
-        if (PlayerPrefs.GetInt(FirstPlay) != 1) //neu lan choi thu nhat
+        if (PlayerPrefs.GetInt(NumberPlay) != 1) //neu lan choi thu nhat
         {
             nowHeal = healthPlayerMax;
-            return;
         }
         else
         {

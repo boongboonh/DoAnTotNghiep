@@ -13,6 +13,7 @@ public class MenuMainManager : MonoBehaviour
 
 
     [SerializeField] private string FirstPlay = "FirstPlay";
+    [SerializeField] private string NumberPlay = "NumberPlay";
 
     List<AsyncOperation> scenesToLoad = new List<AsyncOperation>();
 
@@ -21,11 +22,12 @@ public class MenuMainManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt(FirstPlay) != 1) return;
         continuteButton.SetActive(true);                        //neu da choi truoc do => hien thi nut tiep tuc de choi
-
     }
 
     public void continuteGame()
     {
+        PlayerPrefs.SetInt(NumberPlay, 1);          //tang so lan choi
+
         scenesToLoad.Add(SceneManager.LoadSceneAsync("LoadMapScene"));
         scenesToLoad.Add(SceneManager.LoadSceneAsync("PlayerScene", LoadSceneMode.Additive));
         scenesToLoad.Add(SceneManager.LoadSceneAsync("UIScene", LoadSceneMode.Additive));
@@ -35,7 +37,6 @@ public class MenuMainManager : MonoBehaviour
     private void startGame()
     {
         PlayerPrefs.DeleteAll();                          // xoa toan bo du lieu truoc do 
-
 
         PlayerPrefs.SetInt(FirstPlay, 1);                 //neu choi game lan dau thi la 1
         PlayerPrefs.SetFloat("FirstPlayPosX", -34.42f);

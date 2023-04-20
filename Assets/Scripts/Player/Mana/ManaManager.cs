@@ -15,7 +15,7 @@ public class ManaManager : BinhBehaviour
     public int NowMana { get => nowMana; }
 
     [Header("Name PlayerPrefs")]
-    [SerializeField] private string FirstPlay = "FirstPlay"; //bien luu so lan choi
+    [SerializeField] private string NumberPlay = "NumberPlay";
     [SerializeField] string nameMPDataPlayerNow = "PlayerMPNow";
     [SerializeField] string nameMPDataPlayerMax = "PlayerMPMax";
 
@@ -80,10 +80,9 @@ public class ManaManager : BinhBehaviour
     //kiem tra lan choi va cai mana cu
     private void setMPPlayeAgain()
     {
-        if (PlayerPrefs.GetInt(FirstPlay) != 1) //neu lan choi thu nhat
+        if (PlayerPrefs.GetInt(NumberPlay) != 1) //neu lan choi thu nhat
         {
             nowMana = manaPlayerMax;
-            return;
         }
         else
         {
