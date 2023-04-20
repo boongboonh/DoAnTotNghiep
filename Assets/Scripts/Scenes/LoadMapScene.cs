@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class LoadMapScene : MonoBehaviour
 {
-    public string mapName = "";
+    //public string mapName = "";
+    [SerializeField] string mapNameToMiniMap = "Map1";
+
     public float timeOut = 4f;      //thoi gian gioi han ra khoi map se pha huy map
 
     private float timer;
@@ -19,7 +21,7 @@ public class LoadMapScene : MonoBehaviour
             for (int i = 0; i < SceneManager.sceneCount; i++)
             {
                 Scene scene = SceneManager.GetSceneAt(i);
-                if(scene.name == mapName)
+                if(scene.name == mapNameToMiniMap)
                 {
                     isLoaded = true;
                 }
@@ -36,6 +38,7 @@ public class LoadMapScene : MonoBehaviour
             playerInRange = true;
             timer = 0f;
             LoadMap();
+            openMiniMap();
         }
     }
 
@@ -73,7 +76,7 @@ public class LoadMapScene : MonoBehaviour
     {
         if (!isLoaded)
         {
-            SceneManager.LoadSceneAsync(mapName, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync(mapNameToMiniMap, LoadSceneMode.Additive);
             isLoaded = true;
         }
     }
@@ -83,8 +86,16 @@ public class LoadMapScene : MonoBehaviour
     {
         if (isLoaded)
         {
-            SceneManager.UnloadSceneAsync(mapName);
+            SceneManager.UnloadSceneAsync(mapNameToMiniMap);
             isLoaded = false;
         }
     }
+
+
+    private void openMiniMap()
+    {
+        if (PlayerPrefs.GetInt(mapNameToMiniMap) == 1) return;  //neu bang 1 da kich hoat return
+        PlayerPrefs.SetInt(mapNameToMiniMap, 1);                //luu bang 1 kich hoat
+    }
+
 }

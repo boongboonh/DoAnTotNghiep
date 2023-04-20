@@ -17,8 +17,6 @@ public class CreateCheckPoint : MonoBehaviour
         gameObject.transform.parent.position = new Vector2(PlayerPrefs.GetFloat("FirstPlayPosX"), PlayerPrefs.GetFloat("FirstPlayPosY"));
 
         timer = timeHolder;
-        
-       
     }
 
     private void Update()

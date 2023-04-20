@@ -5422,6 +5422,9 @@ MonoBehaviour:
   soul: {fileID: 576710838901535019}
   ringWavePlayerDie: {fileID: 3590321448362215563, guid: ffb65a624277b44459f644fb3c3ba4ad, type: 3}
   ringRevivalPlayer: {fileID: 5735514075051445400, guid: c6f339dca8d2d31409391b9f113da3b3, type: 3}
+  NumberPlay: NumberPlay
+  nameHPDataPlayerNow: PlayerHPNow
+  nameHPDataPlayerMax: PlayerHPMax
 --- !u!114 &557996278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5436,6 +5439,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manaPlayerMax: 3
   nowMana: 0
+  NumberPlay: NumberPlay
+  nameMPDataPlayerNow: PlayerMPNow
+  nameMPDataPlayerMax: PlayerMPMax
 --- !u!114 &557996279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5778,6 +5784,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1114757232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1114757234}
+  - component: {fileID: 1114757233}
+  m_Layer: 0
+  m_Name: PlayerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1114757233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114757232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34b51e62c5ed36f438f8bdf9572bd91e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameHPDataPlayerNow: PlayerHPNow
+  nameHPDataPlayerMax: PlayerHPMax
+  nameMPDataPlayerNow: PlayerMPNow
+  nameMPDataPlayerMax: PlayerMPMax
+--- !u!4 &1114757234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114757232}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1131916339
 GameObject:
   m_ObjectHideFlags: 0

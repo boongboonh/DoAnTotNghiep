@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject miniMap;
+    bool isShow = false;
+    private void Update()
     {
-        
+        if (isShow) return;
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            isShow = true;
+            miniMap.SetActive(true);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ExitMinimap()
     {
-        
+        isShow = false;
+        miniMap.SetActive(false);
     }
 }
