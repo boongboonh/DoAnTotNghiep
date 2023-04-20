@@ -21,7 +21,7 @@ public class bossHealth : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("PlayerBullet"))
+        if (collision.CompareTag("PlayerBullet")||collision.CompareTag("PlayerSword"))
         {
             EnemyTakeDame(dameTake);
         }
@@ -30,7 +30,7 @@ public class bossHealth : MonoBehaviour
     public void EnemyTakeDame(int damePlayer)
     {
 
-        if (healthEnemy <= 1)
+        if (healthEnemy <= damePlayer)
         {
             healthEnemy -= damePlayer;
             enemyDie();

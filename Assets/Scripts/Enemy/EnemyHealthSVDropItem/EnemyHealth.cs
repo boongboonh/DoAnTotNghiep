@@ -36,7 +36,7 @@ public class EnemyHealth : MonoBehaviour
     public void EnemyTakeDame(int damePlayer)
     {
         
-        if (healthEnemy <= 1)
+        if (healthEnemy <= damePlayer)
         {
             healthEnemy -= damePlayer;
             enemyDie();
