@@ -8,6 +8,7 @@ public class PlayerDash : MonoBehaviour
     private Rigidbody2D _rb;
     private PlayerMove _player;
     [SerializeField] private GameObject EffectDash;
+    bool inputON = false;
 
     private float _baseGravity;
 
@@ -38,10 +39,17 @@ public class PlayerDash : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1)&& _canDash)
         {
-            StartCoroutine(Dash());
+            //StartCoroutine(Dash());
+            inputON = true;
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (!inputON) return;
+        StartCoroutine(Dash());
+        
+    }
     private int playerDirection(bool faceRight)
     {
         if (faceRight)
@@ -55,6 +63,7 @@ public class PlayerDash : MonoBehaviour
     }
     private IEnumerator Dash()
     {
+        inputON = false;
         EffectDash.SetActive(true);
         _isDashing = true;
         _canDash = false;
@@ -72,8 +81,10 @@ public class PlayerDash : MonoBehaviour
 
     private void endDash()
     {
+        _canDash = true;
         EffectDash.SetActive(false);
         _isDashing = false;
+        if (_rb.gravityScale != 0) return;
         _rb.gravityScale = _baseGravity;
     }
 }

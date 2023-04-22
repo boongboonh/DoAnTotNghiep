@@ -29,6 +29,6 @@ public class PlayerManager : MonoBehaviour
 
         //luu vi tri
         PlayerPrefs.SetFloat(playerPosX, GetPosPlayer.Instance.PlayerPos.position.x);
-        PlayerPrefs.SetFloat(playerPosY, GetPosPlayer.Instance.PlayerPos.position.y);
+        PlayerPrefs.SetFloat(playerPosY, GetPosPlayer.Instance.PlayerPos.position.y + 1); //tang khoang cach len cao 1 don vi
     }
 }

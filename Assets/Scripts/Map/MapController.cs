@@ -5,7 +5,9 @@ using UnityEngine;
 public class MapController : MonoBehaviour
 {
     [SerializeField] GameObject miniMap;
+    [SerializeField] GameObject teleButton;
     bool isShow = false;
+
     private void Update()
     {
         if (isShow) return;
@@ -19,6 +21,7 @@ public class MapController : MonoBehaviour
     public void ExitMinimap()
     {
         isShow = false;
-        miniMap.SetActive(false);
+        teleButton.SetActive(false);        //tat nut dich chuyen khi khong dich chuyen
+        miniMap.SetActive(false);           //tat hien thi map
     }
 }

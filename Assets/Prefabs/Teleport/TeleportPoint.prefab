@@ -9823,6 +9823,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameTele: teleTree1
+  TelePostX: tree1PostX
+  TelePostY: tree1PostY
   clickTuto: {fileID: 7772098879295831519}
   EffectPower: {fileID: 7772098878881669683}
   isActive: 0

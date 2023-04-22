@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class telePoint : MonoBehaviour
 {
+    [Header("name data")]
+    [SerializeField] string nameTele = "teleTree1";     //ten luu du lieu
+    [SerializeField] string TelePostX = "tree1PostX";   //vi tri x dich chuyen player
+    [SerializeField] string TelePostY = "tree1PostY";   //vi tri y dich chuy player
 
-    [SerializeField] string nameTele = "teleTree1";
+
+    [Header("setting")]
     [SerializeField] GameObject clickTuto;
     [SerializeField] GameObject EffectPower;
     [SerializeField] bool isActive = false;
@@ -36,12 +41,13 @@ public class telePoint : MonoBehaviour
             isActive = true;
             EffectPower.SetActive(true);
             PlayerPrefs.SetInt(nameTele, 1);
+
+            PlayerPrefs.SetFloat(TelePostX, transform.parent.position.x);
+            PlayerPrefs.SetFloat(TelePostY, transform.parent.position.y + 1);
         }
-        
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (isActive) return;
         if (collision.CompareTag("Player"))
         {
             clickTuto.SetActive(false);

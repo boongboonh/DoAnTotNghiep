@@ -6,16 +6,15 @@ public class CreateCheckPoint : MonoBehaviour
 {
     public float timeHolder = 1f;
     public bool isDistanceToCreate = true;
+    [SerializeField] string isCreateCheckPoint = "isCreateCheckPoint";
 
     private float timer;
     private bool press = false;
-    private GameObject checkPointFind;
     ManaManager mana;
     private void Start()
     {
         mana = GetComponent<ManaManager>();
         gameObject.transform.parent.position = new Vector2(PlayerPrefs.GetFloat("FirstPlayPosX"), PlayerPrefs.GetFloat("FirstPlayPosY"));
-
         timer = timeHolder;
     }
 
@@ -54,10 +53,14 @@ public class CreateCheckPoint : MonoBehaviour
         {
             press = false;
             mana.UseMana();
-
+            
             //luu vi tri 
+
             PlayerPrefs.SetFloat("FirstPlayPosX", gameObject.transform.position.x);
             PlayerPrefs.SetFloat("FirstPlayPosY", gameObject.transform.position.y);
+
+            PlayerPrefs.SetInt(isCreateCheckPoint, 1);              //luu bien da tao diem luu game de checkpoin script tinh toan
+            Debug.Log("da tao diem luu game");
         }
 
     }

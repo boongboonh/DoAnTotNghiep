@@ -8,7 +8,16 @@ public class NPC : MonoBehaviour
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueText; // vawn banr ddoi thoai
     public string[] dialogue;
+
+    
+
     private int index = 0;
+    [SerializeField] private int numberShowOption;
+    [SerializeField] private GameObject optionChoose;
+
+    [SerializeField] private string[] dialogueOption1;
+    [SerializeField] private string[] dialogueOption2;
+     
 
     public float wordSpeed;
     public bool playerIsClose;
@@ -24,6 +33,7 @@ public class NPC : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.F) && playerIsClose)
         {
             playerInfor.SetActive(false);
@@ -40,17 +50,23 @@ public class NPC : MonoBehaviour
 
             
         }
+
+        //neu chay het chu thi hien thi nut tiep tuc
         if (dialogueText.text == dialogue[index])
         {
             continueButton.SetActive(true);
         }
 
+        //click phim Q de tat hoi thoai
         if (Input.GetKeyDown(KeyCode.Q) && dialoguePanel.activeInHierarchy)
         {
             RemoveText();
         }
     }
 
+
+
+    //tat hoi thoai
     public void RemoveText()
     {
         dialogueText.text = "";
@@ -58,9 +74,9 @@ public class NPC : MonoBehaviour
         dialoguePanel.SetActive(false);
     }
 
+    //tao chu hien thi tu tu
     IEnumerator Typing()
     {
-
         foreach (char letter in dialogue[index].ToCharArray())
         {
             dialogueText.text += letter;
@@ -100,7 +116,6 @@ public class NPC : MonoBehaviour
             RemoveText();
             IconTalk.SetActive(false);
             playerInfor.SetActive(true);
-
         }
     }
 

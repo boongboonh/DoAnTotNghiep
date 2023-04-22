@@ -72,6 +72,10 @@ public class PlayerMove : MonoBehaviour
 
     private void Jump()
     {
+
+        Debug.Log(_playerDash.IsDashing);
+
+
         //điều khiển nhảy bằng nút space => trong edit> project setting
         if (Input.GetKeyDown(KeyCode.Space) && IsGround())
         {
