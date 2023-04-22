@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8076078997741813580}
   - component: {fileID: 1602416314863998486}
   - component: {fileID: -8767513654115481646}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BulletCannon
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f96dc4d4b80f6d4db5452960b62a219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   time: 2
 --- !u!58 &8076078997741813580
 CircleCollider2D:

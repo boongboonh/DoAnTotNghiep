@@ -5,16 +5,18 @@ using UnityEngine;
 public class PlayerknockBack : MonoBehaviour
 {
 
-    public float knockbackForce = 10f;
+    public float knockbackForce = 20f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Bullet"))
         {
             //tinhs goc nhann dame
-            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
-            knockbackDirection.x *= -1;
-            GetComponent<Rigidbody2D>().AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+            Vector2 pushDirection = (transform.position - collision.transform.position).normalized;
+            //gameObject.GetComponent<Rigidbody2D>().AddForce(pushDirection * knockbackForce, ForceMode2D.Impulse);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.ClampMagnitude(pushDirection * knockbackForce, 15f), ForceMode2D.Impulse);
         }
     }
+
+    
 }

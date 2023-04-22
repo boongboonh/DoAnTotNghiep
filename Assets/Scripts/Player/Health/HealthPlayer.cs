@@ -12,8 +12,6 @@ public class HealthPlayer : BinhBehaviour
     [SerializeField] private GameObject ringWavePlayerDie; // hieu ung chet
     [SerializeField] private GameObject ringRevivalPlayer; // hieuj ung hoi sinh
 
-    
-
     private static HealthPlayer instance;
     public static HealthPlayer Instance { get => instance; }
     public int HealthPlayerMax { get => healthPlayerMax;}
@@ -90,15 +88,22 @@ public class HealthPlayer : BinhBehaviour
         if (checkHealth(dameTake))
         {
             nowHeal-= dameTake;
-
-            /* //chay hieu ung stop hit
-             gameObject.GetComponent<HitStop>().StopTimeCall();*/
+            StartCoroutine(noDame());
         }
         else
         {
             nowHeal = 0;
             diePlayer();
         }
+    }
+
+    IEnumerator noDame()
+    {
+        Physics2D.IgnoreLayerCollision(14, 11, true);       //lowp enemy
+        Physics2D.IgnoreLayerCollision(14, 9, true);        //lop bullet chieu thuc boss
+        yield return new WaitForSeconds(1f);
+        Physics2D.IgnoreLayerCollision(14, 11, false);
+        Physics2D.IgnoreLayerCollision(14, 9, false);
     }
 
     public void addHealth()
@@ -111,7 +116,7 @@ public class HealthPlayer : BinhBehaviour
         }
     }
 
-    private void diePlayer()
+    public void diePlayer()
     {
         soul.SetActive(false);
         gameObject.SetActive(false);
@@ -119,22 +124,18 @@ public class HealthPlayer : BinhBehaviour
         Destroy(EffectPlayerDieClone, 1f);
 
 
-        //chuyeenr hamf ddee cammera goi ho
-        MonoBehaviour camMono = Camera.main.GetComponent<MonoBehaviour>();
-        camMono.StartCoroutine(playerDieCamCall());
+        Invoke("playerDieIvokeCall", 2);        //goi ham hoi sinh sau 2 giay
 
     }
 
     //delay chuyen man
-    IEnumerator playerDieCamCall()
+    private void playerDieIvokeCall()
     {
-        yield return new WaitForSeconds(2f);
         gameObject.transform.position = new Vector2(PlayerPrefs.GetFloat("FirstPlayPosX"), PlayerPrefs.GetFloat("FirstPlayPosY"));
         soul.transform.position = gameObject.transform.position;
         gameObject.SetActive(true);
         soul.SetActive(true);
     }
-
 
     //dung cho cacs ddoi tuwong tieu diet player ngay lap tuc
     public void killPlayer()

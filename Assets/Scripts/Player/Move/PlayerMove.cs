@@ -21,6 +21,10 @@ public class PlayerMove : MonoBehaviour
     //chỉ số di chuyển
     private float dirX = 0f;
 
+    //chay animation nhan doi
+    [SerializeField] private float timeStartIdleSpecial = 10f;
+    float timeCountDown = 0f;
+
 
     //tốc độ di chuyển 
     [SerializeField] private float speedMove = 7f;
@@ -34,18 +38,21 @@ public class PlayerMove : MonoBehaviour
 
 
     //biến trạng thái
-    private enum MovementState { idle, run, jump, fall, dash }
+    private enum MovementState { idle, run, jump, fall, dash ,specialIdle }
 
     private void Awake()
     {
         _playerDash = GetComponent<PlayerDash>();
         rb = GetComponent<Rigidbody2D>();
+        animator = PlayerIMG.GetComponent<Animator>();
     }
+
 
     private void Start()
     {
         coll = GetComponent<BoxCollider2D>();
-        animator = PlayerIMG.GetComponent<Animator>();
+        
+        //animator = gameObject.GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -66,15 +73,20 @@ public class PlayerMove : MonoBehaviour
             Move();
         }
 
-        updateAnimation();
+        
         checkFlip();
     }
 
+    private void FixedUpdate()
+    {
+        if (Input.anyKeyDown)
+        {
+            timeCountDown = 0f;
+        }
+        updateAnimation();
+    }
     private void Jump()
     {
-
-        Debug.Log(_playerDash.IsDashing);
-
 
         //điều khiển nhảy bằng nút space => trong edit> project setting
         if (Input.GetKeyDown(KeyCode.Space) && IsGround())
@@ -163,14 +175,36 @@ public class PlayerMove : MonoBehaviour
             state = MovementState.fall;
         }
 
+        //animation dash
         if (_playerDash.IsDashing)
         {
             state = MovementState.dash;
         }
 
+
+        if (rb.velocity == Vector2.zero && CheckTime())
+        {
+            Debug.Log("chay animtion dacj biet");
+            state = MovementState.specialIdle;
+        }
+
         animator.SetInteger("state", (int)state);
     }
 
+    bool CheckTime()
+    {
+        if (timeStartIdleSpecial > timeCountDown)
+        {
+            timeCountDown += Time.fixedDeltaTime;
+        }
+        else
+        {
+            timeCountDown = 0f;
+            return true;
+        }
+        return false;
+    }
+    
     //check mặt đất 
     public bool IsGround()
     {

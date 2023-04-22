@@ -14,7 +14,7 @@ public class CreateCheckPoint : MonoBehaviour
     private void Start()
     {
         mana = GetComponent<ManaManager>();
-        gameObject.transform.parent.position = new Vector2(PlayerPrefs.GetFloat("FirstPlayPosX"), PlayerPrefs.GetFloat("FirstPlayPosY"));
+        gameObject.transform.position = new Vector2(PlayerPrefs.GetFloat("FirstPlayPosX"), PlayerPrefs.GetFloat("FirstPlayPosY"));
         timer = timeHolder;
     }
 

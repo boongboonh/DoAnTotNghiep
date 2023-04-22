@@ -12,8 +12,8 @@ public class NPC : MonoBehaviour
     
 
     private int index = 0;
-    [SerializeField] private int numberShowOption;
-    [SerializeField] private GameObject optionChoose;
+    //[SerializeField] private int numberShowOption;
+    //[SerializeField] private GameObject optionChoose;
 
     [SerializeField] private string[] dialogueOption1;
     [SerializeField] private string[] dialogueOption2;
@@ -99,18 +99,19 @@ public class NPC : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             playerIsClose = true;
             IconTalk.SetActive(true);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             playerIsClose = false;
             RemoveText();
@@ -118,6 +119,4 @@ public class NPC : MonoBehaviour
             playerInfor.SetActive(true);
         }
     }
-
-    
 }
