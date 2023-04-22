@@ -11,7 +11,6 @@ public class EnemyCuaNhayAI : MonoBehaviour
 
     public Transform LimitRight;
     public Transform LimitLeft;
-    float distanRightLeft;
 
     private Transform targetObj;
 
@@ -21,6 +20,12 @@ public class EnemyCuaNhayAI : MonoBehaviour
     private Rigidbody2D _rb;
     public LayerMask layerGround;
     Collider2D colli;
+
+    private void OnEnable()
+    {
+        targetObj = LimitRight;
+    }
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -28,16 +33,26 @@ public class EnemyCuaNhayAI : MonoBehaviour
         colli = GetComponent<Collider2D>();
 
         targetObj = LimitRight;
-        distanRightLeft = Mathf.Abs(LimitLeft.position.x - LimitRight.position.x);
     }
+
 
     void Update()
     {
+        /*if (targetObj == null && inRange)
+        {
+            targetObj = GetPosPlayer.Instance.PlayerPos;
+            return;
+        }*/
+
         updateAnimation();
         if (!IsGround()) return;
         if (inRange)//neu trong player trong khu vuc thi nhayr dden nguoi choi
         {
+
             targetObj = GetPosPlayer.Instance.PlayerPos;
+
+            if (targetObj == null) return;
+
             jump(checkDirectionTarget(direction));
         }
 

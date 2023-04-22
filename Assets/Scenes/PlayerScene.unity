@@ -5817,6 +5817,8 @@ MonoBehaviour:
   nameHPDataPlayerMax: PlayerHPMax
   nameMPDataPlayerNow: PlayerMPNow
   nameMPDataPlayerMax: PlayerMPMax
+  playerPosX: FirstPlayPosX
+  playerPosY: FirstPlayPosY
 --- !u!4 &1114757234
 Transform:
   m_ObjectHideFlags: 0
@@ -7023,7 +7025,7 @@ GameObject:
   - component: {fileID: 6415651023513092506}
   m_Layer: 14
   m_Name: BulletPlayer
-  m_TagString: Untagged
+  m_TagString: BulletPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

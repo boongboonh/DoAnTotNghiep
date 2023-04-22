@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TriggerAreaMoveCheck : MonoBehaviour
 {
-    private EnemyMoveAI enemyChildren;
+    private EnemyBoomMoveAI enemyChildren;
 
     private void Awake()
     {
-        enemyChildren = GetComponentInChildren<EnemyMoveAI>();
+        enemyChildren = GetComponentInChildren<EnemyBoomMoveAI>();
     }
 
 

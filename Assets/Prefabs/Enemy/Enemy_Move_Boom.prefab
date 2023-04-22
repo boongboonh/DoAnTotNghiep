@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8165543103297932967}
   - component: {fileID: 8165543103297932953}
-  - component: {fileID: 8165543103297932954}
-  m_Layer: 11
+  - component: {fileID: 7496902374978043408}
+  m_Layer: 0
   m_Name: Enemy1_Collider
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,22 +49,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!70 &8165543103297932954
-CapsuleCollider2D:
+--- !u!114 &7496902374978043408
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8165543103297932966}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.00000001473316, y: 0.123590715}
-  m_Size: {x: 1.0000002, y: 0.73577434}
-  m_Direction: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8daf9670527d041ad86b4655626e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8165543103462854071
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8165543104297956012}
   - component: {fileID: 8165543104297956014}
+  - component: {fileID: 3143853246938774436}
   - component: {fileID: 8165543104297956013}
   - component: {fileID: 8165543104297956015}
   - component: {fileID: 8165543104297956000}
@@ -280,6 +277,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!70 &3143853246938774436
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8165543104297956011}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.1}
+  m_Size: {x: 1.2413695, y: 0.7}
+  m_Direction: 1
 --- !u!114 &8165543104297956013
 MonoBehaviour:
   m_ObjectHideFlags: 0

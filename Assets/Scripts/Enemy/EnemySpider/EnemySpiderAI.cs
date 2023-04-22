@@ -26,6 +26,12 @@ public class EnemySpiderAI : MonoBehaviour
     }
     private void Update()
     {
+        if (playerTarget == null && inRange)
+        {
+            playerTarget = GetPosPlayer.Instance.PlayerPos;
+            return;
+        }
+
         updateHead();
         updateAnimation();
 

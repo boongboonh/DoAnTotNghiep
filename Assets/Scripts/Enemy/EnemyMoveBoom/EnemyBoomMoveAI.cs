@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class EnemyMoveAI : MonoBehaviour
+public class EnemyBoomMoveAI : MonoBehaviour
 {
     public float attackDistance = 2f;// gioi han tan cong
     public float moveSpeed;
@@ -13,35 +13,46 @@ public class EnemyMoveAI : MonoBehaviour
     [HideInInspector] public bool inRange = false;
     [HideInInspector] public Transform player;
 
-    private bool onAttackMode = false;
+    [SerializeField] private bool attackComple = true;
+
     private Animator anim;
+    private void OnEnable()
+    {
+        player = null;
+        attackComple = true;
+        if (moveSpeed != 0) return;
+
+        moveSpeed = moveSpeedClone;
+      
+    }
 
     private void Start()
     {
+        attackComple = true;
         target = LimitRight;
         anim = GetComponent<Animator>();
     }
     private void Update()
     {
-
-        if (!inRange)
+        if (player == null && inRange)
         {
-            
+            player = GetPosPlayer.Instance.PlayerPos;
+            return;
+        }
+
+        if (!attackComple) return; //bien check xem da thuc hien tan cong xong chua
+
+        if (!inRange)               //khong co player thuc hien run binh thuong
+        {
             Move();
+
+            SelectTarget();
         }
         else
         {
             player = GetPosPlayer.Instance.PlayerPos;
             EnemyLogic();
         }
-
-
-        if (onAttackMode)
-        {
-            anim.SetInteger("state", 2);
-        }
-
-        SelectTarget();
     }
 
     private void EnemyLogic()
@@ -52,11 +63,12 @@ public class EnemyMoveAI : MonoBehaviour
         }
         else
         {
-            anim.SetInteger("state", 1);
-           
+            Attack();
         }
     }
 
+
+    //kiem tra khoang cach de tan cong
     private bool checkAttackMode()
     {
         float distance = Vector2.Distance(transform.position, player.position);
@@ -64,24 +76,25 @@ public class EnemyMoveAI : MonoBehaviour
         {
             return false;
         }
-        else if (distance <= attackDistance)
+        if (distance <= attackDistance)
         {
             return true;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 
+
+    // di chuyen tuan tra
     private void Move()
     {
         transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), moveSpeed * Time.deltaTime);
     }
 
+
+    //doi huong khi di chuyen den gioi han khu vuc
     public void SelectTarget()
     {
-        if (Mathf.Abs(transform.position.x- LimitLeft.position.x) <= .1f)
+        if (Mathf.Abs(transform.position.x - LimitLeft.position.x) <= .1f)
         {
             target = LimitRight;
         }
@@ -99,8 +112,6 @@ public class EnemyMoveAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackDistance);
     }
 
-
-
     private void truyduoi()
     {
         transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.position.x, transform.position.y), moveSpeed * Time.deltaTime);
@@ -109,20 +120,25 @@ public class EnemyMoveAI : MonoBehaviour
 
     //goi trong animation
 
-    public void stopMoveDelayAttack()
+    private void Attack()
     {
-        moveSpeedClone = moveSpeed;
-        moveSpeed = 0;
+        anim.SetInteger("state", 1);
     }
 
-    public void StartAttack()
+    public void stopMoveDelayAttack()
     {
-        onAttackMode = true;
+        attackComple = false;
     }
-    public void EndAttack()
+    public void stopAttack()
     {
-        onAttackMode = false;
-        moveSpeed = moveSpeedClone;
+        
         anim.SetInteger("state", 0);
+        StartCoroutine(delay());
+    }
+
+    IEnumerator delay()
+    {
+        yield return new WaitForSeconds(1f);
+        attackComple = true;
     }
 }

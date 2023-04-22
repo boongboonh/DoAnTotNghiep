@@ -11,6 +11,7 @@ TagManager:
   - CheckPoint
   - Thorn
   - PlayerSword
+  - BulletPlayer
   layers:
   - Default
   - TransparentFX

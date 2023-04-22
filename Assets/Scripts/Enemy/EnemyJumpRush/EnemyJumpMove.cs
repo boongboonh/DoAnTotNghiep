@@ -38,13 +38,23 @@ public class EnemyJumpMove : MonoBehaviour
         gravity = _rb.gravityScale;
     }
 
+    private void OnEnable()
+    {
+        player = null;
+    }
+
     private void OnDisable()
     {
         _rb.gravityScale = gravity;
     }
-
     void Update()
     {
+        if (player == null && inRange)
+        {
+            player = GetPosPlayer.Instance.PlayerPos;
+            return;
+        }
+
         if (inRange && IsGround())//neu trong player trong khu vuc thi tan cong
         {
             player = GetPosPlayer.Instance.PlayerPos;

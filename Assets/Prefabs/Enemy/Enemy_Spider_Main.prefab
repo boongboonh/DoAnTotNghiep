@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1d0360268eb684e8582b91f715343b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeSpawn: 10
+  timeSpawn: 60
   enemyNeedSpawn: {fileID: 9022071694091283502}
   pointSpawn: {fileID: 9022071694192986533}
   hp: 0

@@ -385,6 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniMap: {fileID: 1757032229}
+  teleButton: {fileID: 733405340}
 --- !u!1 &117440627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,10 +1045,10 @@ RectTransform:
   m_Father: {fileID: 12629430}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -50}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &527230722
 GameObject:
@@ -1194,13 +1195,14 @@ GameObject:
   - component: {fileID: 733405344}
   - component: {fileID: 733405343}
   - component: {fileID: 733405342}
+  - component: {fileID: 733405345}
   m_Layer: 5
   m_Name: ButtonTele
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &733405341
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1265,7 +1267,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 733405343}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 733405345}
+        m_TargetAssemblyTypeName: TeleButton, Assembly-CSharp
+        m_MethodName: TeleTreePos
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &733405343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1304,6 +1318,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733405340}
   m_CullTransparentMesh: 1
+--- !u!114 &733405345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733405340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860abdb4f76e1a449a686a6d7666edb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treeNumber: -1
+  MapController: {fileID: 113327896}
+  TelePostX1: tree1PostX
+  TelePostY1: tree1PostY
+  TelePostX2: tree2PostX
+  TelePostY2: tree2PostY
 --- !u!1 &734018135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,7 +1353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &734018136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1409,56 +1441,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 1063}
   m_Pivot: {x: 0, y: 1}
---- !u!1 &927680353
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 927680354}
-  - component: {fileID: 927680355}
-  m_Layer: 5
-  m_Name: TeleController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &927680354
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 927680353}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1112042863}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &927680355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 927680353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 860abdb4f76e1a449a686a6d7666edb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttonTele: {fileID: 0}
 --- !u!1001 &962388762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1554,10 +1536,10 @@ RectTransform:
   m_Father: {fileID: 12629430}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -150}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1112042859
 GameObject:
@@ -1652,7 +1634,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1757032230}
-  - {fileID: 927680354}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2036,13 +2017,14 @@ GameObject:
   - component: {fileID: 1512150577}
   - component: {fileID: 1512150576}
   - component: {fileID: 1512150575}
+  - component: {fileID: 1512150578}
   m_Layer: 5
   m_Name: ButtonTreeTele1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1512150574
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2106,7 +2088,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1512150576}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1512150578}
+        m_TargetAssemblyTypeName: teleButtonIcon, Assembly-CSharp
+        m_MethodName: OpenTelebutton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1512150576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2145,6 +2139,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512150573}
   m_CullTransparentMesh: 1
+--- !u!114 &1512150578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512150573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e75c7731917329459f2e60d9059ba49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportButton: {fileID: 733405340}
+  numbertree: 1
 --- !u!1 &1521409944
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,6 +2298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1566868285}
   - component: {fileID: 1566868284}
+  - component: {fileID: 1566868286}
   m_Layer: 0
   m_Name: CheckPoint
   m_TagString: CheckPoint
@@ -2339,6 +2348,19 @@ Transform:
   m_Father: {fileID: 1928302038}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1566868286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566868283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c1a78df0b5eec1448c04eda2fa40c4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCreateCheckPoint: isCreateCheckPoint
 --- !u!1 &1601793713
 GameObject:
   m_ObjectHideFlags: 0
@@ -2392,7 +2414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!20 &1710385504
 Camera:
   m_ObjectHideFlags: 0
@@ -2663,7 +2685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1757032230
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3256,13 +3278,14 @@ GameObject:
   - component: {fileID: 2120563344}
   - component: {fileID: 2120563343}
   - component: {fileID: 2120563342}
+  - component: {fileID: 2120563345}
   m_Layer: 5
   m_Name: ButtonTreeTele2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2120563341
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3326,7 +3349,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2120563343}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2120563345}
+        m_TargetAssemblyTypeName: teleButtonIcon, Assembly-CSharp
+        m_MethodName: OpenTelebutton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2120563343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3365,6 +3400,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120563340}
   m_CullTransparentMesh: 1
+--- !u!114 &2120563345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120563340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e75c7731917329459f2e60d9059ba49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportButton: {fileID: 733405340}
+  numbertree: 2
 --- !u!1 &2121458660
 GameObject:
   m_ObjectHideFlags: 0

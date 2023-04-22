@@ -7551,6 +7551,14 @@ PrefabInstance:
       propertyPath: nameTele
       value: teleTree2
       objectReference: {fileID: 0}
+    - target: {fileID: 7772098879162320713, guid: c120b2f28228bf04085256e57e4ebbba, type: 3}
+      propertyPath: TelePostX
+      value: tree2PostX
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772098879162320713, guid: c120b2f28228bf04085256e57e4ebbba, type: 3}
+      propertyPath: TelePostY
+      value: tree2PostY
+      objectReference: {fileID: 0}
     - target: {fileID: 7772098879295831519, guid: c120b2f28228bf04085256e57e4ebbba, type: 3}
       propertyPath: m_IsActive
       value: 0

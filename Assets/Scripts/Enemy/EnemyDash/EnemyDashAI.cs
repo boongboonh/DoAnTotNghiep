@@ -24,6 +24,14 @@ public class EnemyDashAI : MonoBehaviour
     private Transform playerPos;
 
     Animator _animator;
+    private void OnEnable()
+    {
+        playerPos = null;
+        target = LimitLeft;
+
+        speed = speedDashMove;
+
+    }
 
     void Start()
     {
@@ -34,6 +42,12 @@ public class EnemyDashAI : MonoBehaviour
 
     void Update()
     {
+        if (playerPos == null && inRange)
+        {
+            playerPos = GetPosPlayer.Instance.PlayerPos;
+            return;
+        }
+
         if (!inRange)
         {
             newSpeed = speedDashMove;
