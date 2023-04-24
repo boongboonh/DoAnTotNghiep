@@ -60,6 +60,10 @@ public class CreateCheckPoint : MonoBehaviour
             PlayerPrefs.SetFloat("FirstPlayPosY", gameObject.transform.position.y);
 
             PlayerPrefs.SetInt(isCreateCheckPoint, 1);              //luu bien da tao diem luu game de checkpoin script tinh toan
+
+
+            //chay am thanh
+            PlayerSounds.instance.CheckpointSoundAudio();
             Debug.Log("da tao diem luu game");
         }
 

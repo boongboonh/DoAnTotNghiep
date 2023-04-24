@@ -14,6 +14,8 @@ public class WeaponAttack : MonoBehaviour
 
     private float time = 0f;
     private Animator animator;
+
+
     private void Awake()
     {
         instance = this;

@@ -12,10 +12,17 @@ public class HealthPlayer : BinhBehaviour
     [SerializeField] private GameObject ringWavePlayerDie; // hieu ung chet
     [SerializeField] private GameObject ringRevivalPlayer; // hieuj ung hoi sinh
 
+    private bool canTakeDamage = true;
+    [Header("sprite player")]
+    [SerializeField] SpriteRenderer sprite;
+
+
     private static HealthPlayer instance;
     public static HealthPlayer Instance { get => instance; }
     public int HealthPlayerMax { get => healthPlayerMax;}
     public int NowHeal { get => nowHeal; }
+
+
 
     [Header("Name PlayerPrefs")]
     [SerializeField] private string NumberPlay = "NumberPlay";
@@ -24,10 +31,14 @@ public class HealthPlayer : BinhBehaviour
 
     protected override void OnEnable()
     {
+        //tat trinh nghe cammera
+        Camera.main.GetComponent<AudioListener>().enabled = false;
+
         fullHP();
         //chay hieu ung
         GameObject EffectPlayerRevival = Instantiate(ringRevivalPlayer, transform.position, Quaternion.identity);
         Destroy(EffectPlayerRevival, 1f);
+
     }
 
     protected override void Awake()
@@ -84,27 +95,52 @@ public class HealthPlayer : BinhBehaviour
 
     public void takeDame(int dameTake)
     {
+        if (!canTakeDamage) return;
 
         if (checkHealth(dameTake))
         {
+            //chay am thanh
+            PlayerSounds.instance.HurtPlayerAudio();
+          
             nowHeal-= dameTake;
-            StartCoroutine(noDame());
+            StartCoroutine(DamageFlicker());
         }
         else
         {
+
+
+            //bat trinh nghe cammera
+            Camera.main.GetComponent<AudioListener>().enabled = true;
+
+            //chay am thanh
+            PlayerSounds.instance.DeathPlayerAudio();
+
             nowHeal = 0;
             diePlayer();
         }
     }
 
-    IEnumerator noDame()
+    IEnumerator DamageFlicker()
+    {
+        canTakeDamage = false;
+        for (int i = 0; i < 4; i++)
+        {
+            sprite.color = new Color(1f, 1f, 1f, .5f);
+            yield return new WaitForSeconds(.1f);
+            sprite.color = Color.white;
+            yield return new WaitForSeconds(.1f);
+        }
+        canTakeDamage = true;
+    }
+
+    /*IEnumerator noDame()
     {
         Physics2D.IgnoreLayerCollision(14, 11, true);       //lowp enemy
         Physics2D.IgnoreLayerCollision(14, 9, true);        //lop bullet chieu thuc boss
         yield return new WaitForSeconds(1f);
         Physics2D.IgnoreLayerCollision(14, 11, false);
         Physics2D.IgnoreLayerCollision(14, 9, false);
-    }
+    }*/
 
     public void addHealth()
     {

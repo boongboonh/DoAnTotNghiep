@@ -16,6 +16,10 @@ public class EnemyBoomMoveAI : MonoBehaviour
     [SerializeField] private bool attackComple = true;
 
     private Animator anim;
+
+    [Header("enemy boom attack sound")]
+    [SerializeField] private AudioSource boomEnemyAttackSound;
+
     private void OnEnable()
     {
         player = null;
@@ -140,5 +144,10 @@ public class EnemyBoomMoveAI : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         attackComple = true;
+    }
+
+    public void playSoundAttack()
+    {
+        boomEnemyAttackSound.Play();
     }
 }

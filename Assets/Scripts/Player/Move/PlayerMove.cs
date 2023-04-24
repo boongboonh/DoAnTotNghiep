@@ -10,8 +10,7 @@ public class PlayerMove : MonoBehaviour
     private Animator animator;
     private BoxCollider2D coll;
     private bool faceRight = true;
-
-
+    
     public bool Direction => faceRight;
     [SerializeField] private GameObject PlayerIMG;
 
@@ -36,7 +35,6 @@ public class PlayerMove : MonoBehaviour
     public float jumpTime;
     private bool isJumping;
 
-
     //biến trạng thái
     private enum MovementState { idle, run, jump, fall, dash ,specialIdle }
 
@@ -46,7 +44,6 @@ public class PlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = PlayerIMG.GetComponent<Animator>();
     }
-
 
     private void Start()
     {
@@ -71,8 +68,8 @@ public class PlayerMove : MonoBehaviour
         if (!_playerDash.IsDashing)
         {
             Move();
+           
         }
-
         
         checkFlip();
     }
@@ -91,6 +88,9 @@ public class PlayerMove : MonoBehaviour
         //điều khiển nhảy bằng nút space => trong edit> project setting
         if (Input.GetKeyDown(KeyCode.Space) && IsGround())
         {
+            //chay am thanh  nhay
+            effectSoundJump();
+
             isJumping = true;
             jumpTimeCounter = jumpTime;
             player_jump_acti(jumpStrong);
@@ -123,9 +123,6 @@ public class PlayerMove : MonoBehaviour
 
     public void player_jump_acti(float strong)
     {
-        //âm thanh
-        //jump_audio.Play();
-
         rb.velocity = new Vector3(0, strong , 0);
     }
 
@@ -158,7 +155,9 @@ public class PlayerMove : MonoBehaviour
         if (dirX != 0 && IsGround())
         {
             state = MovementState.run;
-            //effect_run();
+
+            //am thanh
+            effectSoundRun();
         }
         else
         {
@@ -224,5 +223,16 @@ public class PlayerMove : MonoBehaviour
 
         transform.Rotate(0f, 180f, 0f);
 
+    }
+
+    private void effectSoundRun()
+    {
+        //âm thanh
+        PlayerSounds.instance.PlayRunAudio();
+    }
+    private void effectSoundJump()
+    {
+        //âm thanh
+        PlayerSounds.instance.PlayJumpAudio();
     }
 }

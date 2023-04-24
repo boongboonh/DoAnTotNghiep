@@ -12,10 +12,13 @@ public class PlayerDash : MonoBehaviour
 
     private float _baseGravity;
 
+
     [Header("Setting Dash")]
     [SerializeField] private float _dashingTime = 0.3f;
     [SerializeField] private float _dashForce = 20f;
     [SerializeField] private float _timeCanDash = 0.5f;
+    
+
     private bool _isDashing;
     private bool _canDash = true;
     public bool IsDashing => _isDashing;
@@ -63,7 +66,10 @@ public class PlayerDash : MonoBehaviour
     }
     private IEnumerator Dash()
     {
-        inputON = false;
+        //chay am thanh dash
+        effecSoundDash();
+
+         inputON = false;
         EffectDash.SetActive(true);
         _isDashing = true;
         _canDash = false;
@@ -86,5 +92,10 @@ public class PlayerDash : MonoBehaviour
         _isDashing = false;
         if (_rb.gravityScale != 0) return;
         _rb.gravityScale = _baseGravity;
+    }
+
+    private void effecSoundDash()
+    {
+        PlayerSounds.instance.PlayDashAudio();
     }
 }

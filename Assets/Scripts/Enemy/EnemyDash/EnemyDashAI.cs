@@ -24,6 +24,11 @@ public class EnemyDashAI : MonoBehaviour
     private Transform playerPos;
 
     Animator _animator;
+
+    [Header("attack sound")]
+    [SerializeField] private AudioSource enemyDashAttack;
+
+
     private void OnEnable()
     {
         playerPos = null;
@@ -149,6 +154,7 @@ public class EnemyDashAI : MonoBehaviour
     public void startDelayAttack()
     {
         speed = 0f;
+        enemyDashAttack.Play();
     }
 
     public void endDelayAttack()

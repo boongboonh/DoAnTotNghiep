@@ -24,8 +24,6 @@ public class ShootWepon : MonoBehaviour
     void Start()
     {
         mana = player.GetComponent<ManaManager>();
-       /* isAttack = false;
-        timeColldown = 0;*/
     }
 
 
@@ -36,25 +34,6 @@ public class ShootWepon : MonoBehaviour
 
     void Update()
     {
-        //CaculationColldown();
-
-        /*if (Input.GetMouseButtonDown(0) && isAttack)
-        {
-
-            if (enemy != null && checkDistancePlayerEnemy())
-            {
-                timeColldown = 0;
-                PosBulletClone = gameObject.transform;
-
-                Instantiate(bulletPlayerShootPrfab, transform.position, Quaternion.identity);
-            }
-
-        }
-        */
-
-        //findEnemyRaycast();
-
-
         //ki nawng e ban dan chum 5 vien
         if (Input.GetKeyDown(KeyCode.E) && mana.NowMana > 0)
         {
@@ -102,6 +81,10 @@ public class ShootWepon : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
+            //am thanh
+            effectSoundShoot();
+
+
             PosBulletClone = gameObject.transform;
             Instantiate(bulletPlayerShootPrfab, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(0.2f);
@@ -133,10 +116,14 @@ public class ShootWepon : MonoBehaviour
         }
     }
 
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, distanceAttack);
+    }
+
+    private void effectSoundShoot()
+    {
+        PlayerSounds.instance.ShootAudio();
     }
 }

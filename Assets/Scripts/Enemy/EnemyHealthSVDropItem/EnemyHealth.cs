@@ -2,14 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public abstract class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private int healthEnemyMax = 5;
+    [SerializeField] private int healthEnemyMax = 10;
 
     public int healthEnemy;
     [SerializeField] protected GameObject[] ItemsDrop;
     [SerializeField] private int dameTake = 1 ;
     [SerializeField] private GameObject EffectRingEnemyDie;
+
+    [Header("audio enemy")]
+    [SerializeField] private AudioSource enemyHurtSound; 
+    [SerializeField] private AudioSource enemyDeathSound;
+
+    private AudioClip audioClipDeathClip;
+
+    private void Start()
+    {
+        audioClipDeathClip = enemyDeathSound.clip;
+    }
 
     protected virtual void OnEnable()
     {
@@ -38,13 +49,24 @@ public class EnemyHealth : MonoBehaviour
         
         if (healthEnemy <= damePlayer)
         {
+            //am thanh chet
+            PlayDieSound(audioClipDeathClip);
+
             healthEnemy -= damePlayer;
             enemyDie();
         }
         else
         {
+            //am thanh take dame
+            enemyHurtSound.Play();
+
             healthEnemy -= damePlayer;
         }
+    }
+
+    protected virtual void PlayDieSound(AudioClip clip)
+    {
+        AudioSource.PlayClipAtPoint(clip, this.gameObject.transform.position);
     }
 
     protected virtual void dropItem()

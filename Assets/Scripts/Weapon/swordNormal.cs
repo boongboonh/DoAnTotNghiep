@@ -12,6 +12,8 @@ public class swordNormal : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+           
+
             //neeu cham vao quai, quais awn 1 dame
             Debug.Log("enemyTakeDame");
             Vector2 posHit = gameObject.GetComponent<Collider2D>().ClosestPoint(collision.transform.position);
@@ -19,7 +21,10 @@ public class swordNormal : MonoBehaviour
             GameObject cloneEffectChop = Instantiate(effectChop, posHit, Quaternion.identity);
             Destroy(cloneEffectChop, 1f);
 
-            collision.GetComponent<EnemyHealth>().EnemyTakeDame(ATK); 
+            collision.GetComponent<EnemyHealth>().EnemyTakeDame(ATK);
+
+            //am thanh
+            PlayerSounds.instance.SwordHitAudio();
         }
     }
 }
