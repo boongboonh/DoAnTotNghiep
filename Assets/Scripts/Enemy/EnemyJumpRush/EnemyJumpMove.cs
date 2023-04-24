@@ -30,6 +30,13 @@ public class EnemyJumpMove : MonoBehaviour
     private Rigidbody2D _rb;
     public LayerMask layerGround;
     Collider2D colli;
+
+    [Header("sound enemy rush")]
+    [SerializeField] private AudioSource jumpMoveSound;
+    [SerializeField] private AudioSource attackSound;
+
+
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -103,13 +110,23 @@ public class EnemyJumpMove : MonoBehaviour
     void jumpNomal()
     {
         _rb.velocity = new Vector2(ForceJumpMovex* direction, ForceJumpMovey);
+
+        //chay am thanh nhay
+        playJumpMove();
+    }
+
+    //am thanh
+    private void playJumpMove()
+    {
+        if (jumpMoveSound.isPlaying) return;
+        jumpMoveSound.Play();
     }
 
  
     void JumpAttack()
     {
         _rb.velocity = new Vector2(ForceJumpx * checkdirection(direction), ForceJumpy);
-        // _rb.AddForce(new Vector2(ForceJumpx, ForceJumpy), ForceMode2D.Impulse);
+
     }
     
      void updateAnimation()
@@ -166,6 +183,10 @@ public class EnemyJumpMove : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         playerPosClone = player.position;// lay vi tri player
+
+        //chay am thanh tan cong
+        attackSound.Play();
+
 
         readyAttack = false;
         attackNow = true;

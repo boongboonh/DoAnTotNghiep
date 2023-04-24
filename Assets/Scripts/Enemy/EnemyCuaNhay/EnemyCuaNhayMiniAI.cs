@@ -15,6 +15,10 @@ public class EnemyCuaNhayMiniAI : MonoBehaviour
     private Rigidbody2D _rb;
     public LayerMask layerGround;
     Collider2D colli;
+
+    [Header("audio sound")]
+    [SerializeField] private AudioSource jumpEnemyMove;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -22,7 +26,8 @@ public class EnemyCuaNhayMiniAI : MonoBehaviour
         colli = GetComponent<Collider2D>();
     }
 
-    void Update()
+
+    private void FixedUpdate()
     {
         updateAnimation();
 
@@ -30,21 +35,29 @@ public class EnemyCuaNhayMiniAI : MonoBehaviour
 
         targetObj = GetPosPlayer.Instance.PlayerPos;
         if (targetObj == null) return;
-           
-        jump(checkDirectionTarget(direction));
 
+        jump(checkDirectionTarget(direction));
     }
 
-    public bool IsGround()
+    private bool IsGround()
     {
         float ExtraHight = 0.03f;
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(colli.bounds.center, colli.bounds.size, 0f, Vector2.down, ExtraHight, layerGround);
         return raycastHit2D.collider != null;
     }
 
-    void jump(float directionJump) // truyen vao huowng nhay - trai,+ phai;
+    private void jump(float directionJump) // truyen vao huowng nhay - trai,+ phai;
     {
         _rb.velocity = new Vector2(ForceJumpMovex * directionJump, Random.Range(0.1f, ForceJumpMovey));
+
+        //chay hieu ung am thanh
+        playSoundJump();
+    }
+
+    private void playSoundJump()
+    {
+        if (jumpEnemyMove.isPlaying) return;
+        jumpEnemyMove.Play();
     }
 
     private void updateAnimation()

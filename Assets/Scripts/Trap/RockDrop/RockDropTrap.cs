@@ -10,20 +10,35 @@ public class RockDropTrap : MonoBehaviour
     [SerializeField] Transform pointDown;
     bool drop;
 
+    [Header("sound trap")]
+    [SerializeField] private AudioSource rockMoveAudio;
+
     private void FixedUpdate()
     {
         logic();
     }
 
+
+
+    private void PlayRockMoveAudio()
+    {
+        rockMoveAudio.Play();
+    }
     private void logic()
     {
         if (transform.position.y >= pointUp.position.y)
         {
             drop = true;
+
+            //chay am thanh
+            //PlayRockMoveAudio();
         }
         if(transform.position.y <= pointDown.position.y)
         {
             drop = false;
+
+            //chay am thanh
+            PlayRockMoveAudio();
         }
         if (drop)
         {

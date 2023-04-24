@@ -31,20 +31,20 @@ public class CreateCheckPoint : MonoBehaviour
 
 
         //kiem tra nhan phim + chay time giu
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             press = true;
             timer = timeHolder;
         }
 
         //kiem tra giu phims
-        if (Input.GetKey(KeyCode.F) && timer > 0)
+        if (Input.GetKey(KeyCode.Z) && timer > 0)
         {
             timer -= Time.deltaTime;
         }
 
         //kiem tra nha nut
-        if (Input.GetKeyUp(KeyCode.F))
+        if (Input.GetKeyUp(KeyCode.Z))
         {
             press = false;
         }

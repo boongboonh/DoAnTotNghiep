@@ -12,12 +12,17 @@ public class EnemyShootAlway : MonoBehaviour
     private bool shoot = true;
     private Animator animator;
 
+    [Header("audio sound")]
+    [SerializeField] private AudioSource shootSound;
+    [SerializeField] private AudioSource idleSound;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    void Update()
+
+    private void FixedUpdate()
     {
         updateAnimation();
         if (shoot) return;
@@ -27,14 +32,19 @@ public class EnemyShootAlway : MonoBehaviour
             shoot = true;
             timer = 0f;
         }
-        
+
     }
 
     public void coolDown()
     {
-        timer += Time.deltaTime;
+        timer += Time.fixedDeltaTime;
     }
 
+    private void playIdleSound()
+    {
+        if (idleSound.isPlaying) return;
+        idleSound.Play();
+    }
    
 
     private void updateAnimation()
@@ -45,6 +55,9 @@ public class EnemyShootAlway : MonoBehaviour
         }
         else
         {
+            //chay am thanh idle khi khoong tan cong
+            playIdleSound();
+
             animator.SetInteger("state", 0);
         }
     }
@@ -58,6 +71,9 @@ public class EnemyShootAlway : MonoBehaviour
 
     public void AttackNow()
     {
+        //chay am thanh ban
+        shootSound.Play();
+
         Instantiate(BulletNomal, pointShoot.position, transform.parent.rotation);
     }
 }

@@ -7,11 +7,18 @@ public class ShootLaser : MonoBehaviour
     [SerializeField] LayerMask layerMaskToHit;
     [SerializeField] GameObject cube;
 
+    [Header("sound lazer")]
+    [SerializeField] AudioSource laserSound;
+
+
     private void Update()
     {
 
+        //chay am thanh
+        playSoundLaser();
+
         //tinhs lai goc
-        
+
         Vector2 dir = transform.position - cube.transform.position;
 
 
@@ -36,6 +43,13 @@ public class ShootLaser : MonoBehaviour
         }
     }
 
+    //chay am thanh
+    private void playSoundLaser()
+    {
+        if (laserSound.isPlaying) return;
+        laserSound.Play();
+
+    }
     private void scaleLaser(RaycastHit2D hit)
     {
         transform.localScale = new Vector3(hit.distance / 10, transform.localScale.y, 1);

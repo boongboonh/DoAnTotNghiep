@@ -13,7 +13,10 @@ public class telePoint : MonoBehaviour
     [Header("setting")]
     [SerializeField] GameObject clickTuto;
     [SerializeField] GameObject EffectPower;
-    [SerializeField] bool isActive = false;
+    private bool isActive = false;
+
+    [Header("audio sound tele tree")]
+    [SerializeField] private AudioSource openTree;
 
     private void Start()
     {
@@ -42,6 +45,12 @@ public class telePoint : MonoBehaviour
             EffectPower.SetActive(true);
             PlayerPrefs.SetInt(nameTele, 1);
 
+            //chay am thanh
+            openTree.Play();
+
+            clickTuto.SetActive(false);
+
+            //luu thong tin vi tri cay de teleport
             PlayerPrefs.SetFloat(TelePostX, transform.parent.position.x);
             PlayerPrefs.SetFloat(TelePostY, transform.parent.position.y + 1);
         }
@@ -53,5 +62,4 @@ public class telePoint : MonoBehaviour
             clickTuto.SetActive(false);
         }
     }
-
 }

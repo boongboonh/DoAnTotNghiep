@@ -13,14 +13,15 @@ public class EnemyCuaNhayMiniHealth : EnemyHealth
         timer = 0f;
     }
 
-    protected void Update()
+
+    private void FixedUpdate()
     {
         timeLife();
     }
 
     void timeLife()
     {
-        timer += Time.deltaTime;
+        timer += Time.fixedDeltaTime;
         if(timer>= timelife)
         {
             gameObject.SetActive(false);

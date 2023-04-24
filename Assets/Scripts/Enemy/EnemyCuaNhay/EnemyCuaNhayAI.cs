@@ -21,6 +21,9 @@ public class EnemyCuaNhayAI : MonoBehaviour
     public LayerMask layerGround;
     Collider2D colli;
 
+    [Header("audio sound")]
+    [SerializeField] private AudioSource jumpEnemyMove;
+
     private void OnEnable()
     {
         targetObj = LimitRight;
@@ -36,14 +39,20 @@ public class EnemyCuaNhayAI : MonoBehaviour
     }
 
 
-    void Update()
+ /*   void Update()
     {
-        /*if (targetObj == null && inRange)
+        *//*if (targetObj == null && inRange)
         {
             targetObj = GetPosPlayer.Instance.PlayerPos;
             return;
-        }*/
+        }*//*
 
+       
+        
+    }*/
+
+    private void FixedUpdate()
+    {
         updateAnimation();
         if (!IsGround()) return;
         if (inRange)//neu trong player trong khu vuc thi nhayr dden nguoi choi
@@ -61,10 +70,8 @@ public class EnemyCuaNhayAI : MonoBehaviour
             checkDirectionMove();
             jump(checkDirectionTarget(direction));
         }
-        
-        
-    }
 
+    }
     public bool IsGround()
     {
         float ExtraHight = 0.03f;
@@ -75,6 +82,16 @@ public class EnemyCuaNhayAI : MonoBehaviour
     void jump(float directionJump) // truyen vao huowng nhay - trai,+ phai;
     {
         _rb.velocity = new Vector2(ForceJumpMovex * directionJump, ForceJumpMovey);
+        
+        //chay am thanh nhay
+        playSoundJump();
+    }
+
+    //tao ham chay am thanh
+    private void playSoundJump()
+    {
+        if (jumpEnemyMove.isPlaying) return;
+        jumpEnemyMove.Play();
     }
 
     private void updateAnimation()

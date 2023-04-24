@@ -20,6 +20,11 @@ public class EnemySpiderAI : MonoBehaviour
 
     private Animator animator;
 
+    [Header("audio sound")]
+    [SerializeField] private AudioSource idleSound;
+    [SerializeField] private AudioSource AttackSound;
+
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -37,10 +42,12 @@ public class EnemySpiderAI : MonoBehaviour
 
 
         if (!inRange) return;
-       
+
+        playIdleSound();
 
         if (inRange && timer >= timeAttackRate)
         {
+           
             animator.SetInteger("state", 2);
         }
 
@@ -57,6 +64,12 @@ public class EnemySpiderAI : MonoBehaviour
             animator.SetInteger("state", 1);
             timer += Time.deltaTime;
         }
+    }
+
+    private void playIdleSound()
+    {
+        if (idleSound.isPlaying) return;
+        idleSound.Play();
     }
 
     // ham goi ben animation
@@ -82,8 +95,11 @@ public class EnemySpiderAI : MonoBehaviour
     {
         timer = 0f;
     }
+
+    
     public void Attack()
     {
+        AttackSound.Play();
         Instantiate(bullet, pointShooting.position,pointShooting.rotation);
     }
 }
