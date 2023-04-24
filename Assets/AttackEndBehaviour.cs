@@ -8,6 +8,7 @@ public class AttackEndBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         WeaponAttack.instance.canReceiveInput = true;
+        PlayerSounds.instance.SwordChopAudio();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
