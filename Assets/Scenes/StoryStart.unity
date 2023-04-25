@@ -226,18 +226,18 @@ MonoBehaviour:
   - "C\xE1c hi\u1EC3m h\u1ECDa c\xF3 th\u1EC3 b\u1EA5t ng\u1EDD sinh ra \u1EDF m\u1ED7i
     d\xF2ng th\u1EDDi gian kh\xE1c nhau. D\xF9 l\u1EDBn hay nh\u1ECF s\u1EBD \u0111em
     l\u1EA1i s\u1EF1 bi\u1EBFn \u0111\u1ED9ng kh\xF3 l\u01B0\u1EDDng cho t\u01B0\u01A1ng
-    lai.  "
+    lai."
   - "C\xF3 m\u1ED9t nh\xF3m nh\u1ECF nh\u1EEFng c\xE1 nh\xE2n xu\u1EA5t ch\xFAng
     s\u1EBD ph\u1EE5 tr\xE1ch x\u1EED l\xFD nh\u1EEFng bi\u1EBFn c\u1ED1 n\xE0y.
     \u0110em l\u1EA1i c\xE2n b\u1EB1ng cho th\u1EDDi gian."
   - "Dang Dang - M\u1ED9t ch\xFA m\xE8o \u0111\u1EB7c bi\u1EC7t l\xE0 th\xE0nh vi\xEAn
     \u01B0u t\xFA trong nh\xF3m. H\xE0nh tr\xECnh n\xE0y l\xE0 m\u1ED9t nhi\u1EC7m
-    v\u1EE5 nh\u1ECF b\u1EA5t ng\u1EDD \u0111\u01B0\u1EE3c giao cho c\u1EADu. "
+    v\u1EE5 nh\u1ECF b\u1EA5t ng\u1EDD \u0111\u01B0\u1EE3c giao cho c\u1EADu."
   - "H\xE3y \u0111\u1ED3ng h\xE0nh c\xF9ng ng\u01B0\u1EDDi b\u1EA1n nh\u1ECF n\xE0y
     \u0111\u1EC3 gi\xFAp c\u1EADu ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5 v\xE0 kh\xE1m
-    c\xE1c b\xED m\u1EADt trong n\xF3 nh\xE9. "
+    c\xE1c b\xED m\u1EADt trong n\xF3 nh\xE9."
   wordSpeed: 0.05
-  skipButton: {fileID: 938615246}
+  speedUpButton: {fileID: 938615246}
   textSound: {fileID: 1503136055}
 --- !u!4 &337882810
 Transform:
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "B\u1ECF qua"
+  m_text: "B\u1ECF Qua"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -534,12 +534,12 @@ MonoBehaviour:
   m_text: "C\xE1c hi\u1EC3m h\u1ECDa c\xF3 th\u1EC3 b\u1EA5t ng\u1EDD sinh ra \u1EDF
     m\u1ED7i d\xF2ng th\u1EDDi gian kh\xE1c nhau. D\xF9 l\u1EDBn hay nh\u1ECF s\u1EBD
     \u0111em l\u1EA1i s\u1EF1 bi\u1EBFn \u0111\u1ED9ng kh\xF3 l\u01B0\u1EDDng cho
-    t\u01B0\u01A1ng lai. \r\nC\xF3 m\u1ED9t nh\xF3m nh\u1ECF nh\u1EEFng c\xE1 nh\xE2n
+    t\u01B0\u01A1ng lai.\nC\xF3 m\u1ED9t nh\xF3m nh\u1ECF nh\u1EEFng c\xE1 nh\xE2n
     xu\u1EA5t ch\xFAng s\u1EBD ph\u1EE5 tr\xE1ch x\u1EED l\xFD nh\u1EEFng bi\u1EBFn
     c\u1ED1 n\xE0y. \u0110em l\u1EA1i c\xE2n b\u1EB1ng cho th\u1EDDi gian.\nDang
     Dang - M\u1ED9t ch\xFA m\xE8o \u0111\u1EB7c bi\u1EC7t l\xE0 th\xE0nh vi\xEAn
     \u01B0u t\xFA trong nh\xF3m. H\xE0nh tr\xECnh n\xE0y l\xE0 m\u1ED9t nhi\u1EC7m
-    v\u1EE5 nh\u1ECF b\u1EA5t ng\u1EDD \u0111\u01B0\u1EE3c giao cho c\u1EADu. \nH\xE3y
+    v\u1EE5 nh\u1ECF b\u1EA5t ng\u1EDD \u0111\u01B0\u1EE3c giao cho c\u1EADu.\nH\xE3y
     \u0111\u1ED3ng h\xE0nh c\xF9ng ng\u01B0\u1EDDi b\u1EA1n nh\u1ECF n\xE0y \u0111\u1EC3
     gi\xFAp c\u1EADu ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5 v\xE0 kh\xE1m c\xE1c b\xED
     m\u1EADt trong n\xF3 nh\xE9.\r\n"
@@ -632,7 +632,7 @@ GameObject:
   - component: {fileID: 938615249}
   - component: {fileID: 938615248}
   m_Layer: 5
-  m_Name: ButtonSkip
+  m_Name: ButtonSpeedUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -705,7 +705,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 337882809}
         m_TargetAssemblyTypeName: StoryRun, Assembly-CSharp
-        m_MethodName: NextLine
+        m_MethodName: SpeedUpButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
