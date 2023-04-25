@@ -19,6 +19,11 @@ public class KeyControll : MonoBehaviour
 
     
     Animator animator;
+    [Header("sound door")]
+    [SerializeField] private AudioSource KeyOpenSound;
+    [SerializeField] private AudioSource DoorOpenSound;
+
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -53,7 +58,10 @@ public class KeyControll : MonoBehaviour
 
     private void openDoor()
     {
+        KeyOpenSound.Play();
         animator.SetTrigger(nameAnimatorKey);//chay animation mo khoa
+
+        DoorOpenSound.Play();
         door.GetComponent<Animator>().SetTrigger(nameAnimatorDoor); //chay animation mo cua
     }
 

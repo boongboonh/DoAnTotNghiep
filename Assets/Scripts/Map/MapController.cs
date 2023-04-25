@@ -6,6 +6,8 @@ public class MapController : MonoBehaviour
 {
     [SerializeField] GameObject miniMap;
     [SerializeField] GameObject teleButton;
+    [SerializeField] GameObject iconInGame;
+
     bool isShow = false;
 
     private void Update()
@@ -13,9 +15,16 @@ public class MapController : MonoBehaviour
         if (isShow) return;
         if (Input.GetKeyDown(KeyCode.M))
         {
-            isShow = true;
-            miniMap.SetActive(true);
+            OpentMiniMap();
         }
+    }
+
+    public void OpentMiniMap()
+    {
+        iconInGame.SetActive(false);
+        isShow = true;
+
+        miniMap.SetActive(true);
     }
 
     public void ExitMinimap()
@@ -23,5 +32,15 @@ public class MapController : MonoBehaviour
         isShow = false;
         teleButton.SetActive(false);        //tat nut dich chuyen khi khong dich chuyen
         miniMap.SetActive(false);           //tat hien thi map
+
+        iconInGame.SetActive(true);         //hien thi cac nut icon tren man hinh game
+
+    }
+
+
+    //nut setting 
+    public void OpenSetting()
+    {
+
     }
 }

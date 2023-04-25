@@ -71,7 +71,7 @@ public class TeleButton : MonoBehaviour
     //dich chuyen doi tuong tim duoc den vi tri
     private void transformObject(GameObject other, string posX, string posY)
     {
-        other.transform.parent.position = new Vector2(PlayerPrefs.GetFloat(posX), PlayerPrefs.GetFloat(posY));
+        other.transform.position = new Vector2(PlayerPrefs.GetFloat(posX), PlayerPrefs.GetFloat(posY));
     }
 
 

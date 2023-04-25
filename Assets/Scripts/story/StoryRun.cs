@@ -17,6 +17,9 @@ public class StoryRun : MonoBehaviour
 
     public GameObject skipButton;
 
+    [Header("sound text story")]
+    [SerializeField] private AudioSource textSound;
+
 
     void Start()
     {
@@ -27,34 +30,25 @@ public class StoryRun : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-
             StartCoroutine(Typing());
             if (dialogueText.text == dialogue[index])
             {
                 NextLine();
             }
         }
-
-        //click phim Q de tat hoi thoai
-        if (Input.GetKeyDown(KeyCode.Q) && dialoguePanel.activeInHierarchy)
-        {
-            RemoveText();
-        }
     }
 
     //tat hoi thoai
-    public void RemoveText()
-    {
-        dialogueText.text = "";
-        index = 0;
-    }
-
     //tao chu hien thi tu tu
     IEnumerator Typing()
     {
         foreach (char letter in dialogue[index].ToCharArray())
         {
             dialogueText.text += letter;
+
+            //am thanh chay chu
+            textSound.Play();
+
             yield return new WaitForSeconds(wordSpeed);
         }
     }
@@ -66,10 +60,6 @@ public class StoryRun : MonoBehaviour
             index++;
             dialogueText.text = "";
             StartCoroutine(Typing());
-        }
-        else
-        {
-            RemoveText();
         }
     }
 }

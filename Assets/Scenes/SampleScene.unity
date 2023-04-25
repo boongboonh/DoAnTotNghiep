@@ -3472,7 +3472,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782784204}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c572a377914fee4ab7755b3aee17c33, type: 3}
   m_Name: 
@@ -3492,7 +3492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 903aced85f1857e4095a3912b4178351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackForce: 20
+  knockbackForce: 40
 --- !u!81 &782784214
 AudioListener:
   m_ObjectHideFlags: 0
@@ -10884,7 +10884,7 @@ AudioSource:
   m_GameObject: {fileID: 1306480767}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3030526409289438526, guid: 6540f14455582a041b51f249ec7e6359, type: 2}
   m_audioClip: {fileID: 8300000, guid: 46ae42bb0d0966145bb7f69f26abdbe2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -10980,7 +10980,7 @@ AudioSource:
   m_GameObject: {fileID: 1306480767}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3030526409289438526, guid: 6540f14455582a041b51f249ec7e6359, type: 2}
   m_audioClip: {fileID: 8300000, guid: 3e85184a1179584469ef57529de003b8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -11076,7 +11076,7 @@ AudioSource:
   m_GameObject: {fileID: 1306480767}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3030526409289438526, guid: 6540f14455582a041b51f249ec7e6359, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7fc57a76c53aeda4bae766d2d63c79ca, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.4
@@ -11209,7 +11209,7 @@ AudioSource:
   m_GameObject: {fileID: 1306480767}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3030526409289438526, guid: 6540f14455582a041b51f249ec7e6359, type: 2}
   m_audioClip: {fileID: 8300000, guid: 68a12178ac2007e4690f8d296b067e3d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -11305,7 +11305,7 @@ AudioSource:
   m_GameObject: {fileID: 1306480767}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3030526409289438526, guid: 6540f14455582a041b51f249ec7e6359, type: 2}
   m_audioClip: {fileID: 8300000, guid: d38ae4b2a460dcf4ba1bd5f242b53efb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -11401,7 +11401,7 @@ AudioSource:
   m_GameObject: {fileID: 1306480767}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3030526409289438526, guid: 6540f14455582a041b51f249ec7e6359, type: 2}
   m_audioClip: {fileID: 8300000, guid: 29ecdd84604a08e46912ebfd1e69119f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -11497,7 +11497,7 @@ AudioSource:
   m_GameObject: {fileID: 1306480767}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3030526409289438526, guid: 6540f14455582a041b51f249ec7e6359, type: 2}
   m_audioClip: {fileID: 8300000, guid: 794ecb9d48d6ce34f8ab31086c141438, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -11593,7 +11593,7 @@ AudioSource:
   m_GameObject: {fileID: 1306480767}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3030526409289438526, guid: 6540f14455582a041b51f249ec7e6359, type: 2}
   m_audioClip: {fileID: 8300000, guid: c07aaae78d21ba24585703d32b0e580f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.8
@@ -11689,10 +11689,10 @@ AudioSource:
   m_GameObject: {fileID: 1306480767}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3030526409289438526, guid: 6540f14455582a041b51f249ec7e6359, type: 2}
   m_audioClip: {fileID: 8300000, guid: d2c1260ece97a404292b01f2a1d10efe, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.9
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -11785,10 +11785,10 @@ AudioSource:
   m_GameObject: {fileID: 1306480767}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3030526409289438526, guid: 6540f14455582a041b51f249ec7e6359, type: 2}
   m_audioClip: {fileID: 8300000, guid: 64d1208db9cc38a448b38ccabb358b7f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.9
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -12590,9 +12590,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1446126825}
-  - component: {fileID: 1446126830}
-  - component: {fileID: 1446126829}
   - component: {fileID: 1446126826}
+  - component: {fileID: 1446126828}
+  - component: {fileID: 1446126827}
   m_Layer: 14
   m_Name: BulletPlayer
   m_TagString: BulletPlayer
@@ -12608,7 +12608,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1446126824}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.59, y: 3.34, z: 0}
+  m_LocalPosition: {x: 1.89, y: 3.34, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12635,7 +12635,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   player: {fileID: 782784204}
---- !u!96 &1446126829
+--- !u!96 &1446126827
 TrailRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
@@ -12656,7 +12656,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b033c15afd1779341b1161703757203e, type: 2}
+  - {fileID: 2100000, guid: 9ab142df3fb061b4e8b0b2dcdedaf4f4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12677,58 +12677,22 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.3
+  m_Time: 0.5
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.5
+    widthMultiplier: 0.4
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.026771545
-        value: 0.948925
+        time: 0
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.232225
-        value: 0.52953285
-        inSlope: -0.10453676
-        outSlope: -0.10453676
-        tangentMode: 0
-        weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.2947406
-      - serializedVersion: 3
-        time: 0.4478802
-        value: 0.7687489
-        inSlope: 0.003719448
-        outSlope: 0.003719448
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.35833427
-      - serializedVersion: 3
-        time: 0.6497069
-        value: 0.22454411
-        inSlope: -0.024468642
-        outSlope: -0.024468642
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.48533475
-      - serializedVersion: 3
-        time: 0.81876373
-        value: 0.43289813
-        inSlope: 0.031596787
-        outSlope: 0.031596787
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 1
+        outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
         value: 0
@@ -12743,17 +12707,17 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.40227598, b: 0, a: 1}
-      key1: {r: 0, g: 1, b: 0.6330502, a: 0}
-      key2: {r: 1, g: 0.94960225, b: 0, a: 0.78431374}
-      key3: {r: 0, g: 0, b: 0, a: 0.78431374}
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 32189
-      ctime2: 65535
+      ctime1: 65535
+      ctime2: 0
       ctime3: 0
       ctime4: 0
       ctime5: 0
@@ -12761,14 +12725,14 @@ TrailRenderer:
       ctime7: 0
       atime0: 0
       atime1: 65535
-      atime2: 65535
-      atime3: 65535
+      atime2: 0
+      atime3: 0
       atime4: 0
       atime5: 0
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_NumColorKeys: 3
+      m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
@@ -12779,7 +12743,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!212 &1446126830
+--- !u!212 &1446126828
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12817,8 +12781,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 660700991
-  m_SortingLayer: 4
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
