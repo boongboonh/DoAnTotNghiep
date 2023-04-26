@@ -34,7 +34,7 @@ public class MenuMainManager : MonoBehaviour
     }
 
 
-    private void startGame()
+    /*private void startGame()
     {
         PlayerPrefs.DeleteAll();                          // xoa toan bo du lieu truoc do 
 
@@ -49,18 +49,28 @@ public class MenuMainManager : MonoBehaviour
         
         scenesToLoad.Add(SceneManager.LoadSceneAsync("UIScene", LoadSceneMode.Additive));
 
-    }
+    }*/
+
+
 
     public void startButton()                   // gan trong button start
     {
         if(PlayerPrefs.GetInt(FirstPlay) != 1)  //neu nguoi choi chua choi thi bat dau game;
         {
-            startGame();
+            //startGame();
+            startStory();
+
         }
         else
         {
             openConfirmStart();                 //neu nguoi choi choi roi thi xac nhan co choi lai tu dau khong
         }
+    }
+
+    private void startStory()
+    {
+        Debug.Log("sceneName to load: StoryStart");         //tai cot truyen
+        SceneManager.LoadScene("StoryStart");
     }
 
     private void openConfirmStart()
@@ -77,6 +87,7 @@ public class MenuMainManager : MonoBehaviour
     
     public void YesStartConfirm()
     {
+        PlayerPrefs.DeleteAll();                // xoa toan bo du lieu truoc do 
         PlayerPrefs.SetInt(FirstPlay,0);        //dat lan choi ve 0 
         continuteButton.SetActive(false);       //an nut tiep tuc choi
         confirmStartNewGame.SetActive(false);   //tat xac nhan

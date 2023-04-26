@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class StoryRun : MonoBehaviour
 {
@@ -60,6 +61,8 @@ public class StoryRun : MonoBehaviour
         }
         else
         {
+            speedUpButton.SetActive(false);//tat button speed up
+
             //chuyen canh 
             runNextText = false;
             Debug.Log("end story");
@@ -71,7 +74,14 @@ public class StoryRun : MonoBehaviour
     //chuyen canh
     private void ChangeScene()
     {
+        BackToMenu();
         Debug.Log("chuyen den story 1");
+    }
+
+    private void BackToMenu()
+    {
+        Debug.Log("sceneName to load: Story1");         //quay ve menu
+        SceneManager.LoadScene("Story1");
     }
 
     //goi tron button
