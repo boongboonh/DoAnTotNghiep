@@ -167,7 +167,7 @@ public class HealthPlayer : BinhBehaviour
     //delay chuyen man
     private void playerDieIvokeCall()
     {
-        gameObject.transform.position = new Vector2(PlayerPrefs.GetFloat("FirstPlayPosX"), PlayerPrefs.GetFloat("FirstPlayPosY"));
+        gameObject.transform.position = new Vector2(PlayerPrefs.GetFloat("checkPointPosX"), PlayerPrefs.GetFloat("checkPointPosY"));        //dich chuyen den vi tri checkpoint
         soul.transform.position = gameObject.transform.position;
         gameObject.SetActive(true);
         soul.SetActive(true);

@@ -24,6 +24,8 @@ public class MenuMainManager : MonoBehaviour
         continuteButton.SetActive(true);                        //neu da choi truoc do => hien thi nut tiep tuc de choi
     }
 
+
+    //gawn trong button choi tiep
     public void continuteGame()
     {
         PlayerPrefs.SetInt(NumberPlay, 1);          //tang so lan choi
@@ -73,18 +75,21 @@ public class MenuMainManager : MonoBehaviour
         SceneManager.LoadScene("StoryStart");
     }
 
+    //mo cau hoi xac nhan choi moi
     private void openConfirmStart()
     {
         buttonMenu.SetActive(false);
         confirmStartNewGame.SetActive(true);
     }
 
+    //gan trong button khoong ddoong ys choi moi
     public void NoStartConfirm()
     {
         buttonMenu.SetActive(true);
         confirmStartNewGame.SetActive(false);
     }
     
+    //gan trong button dong y choi moi
     public void YesStartConfirm()
     {
         PlayerPrefs.DeleteAll();                // xoa toan bo du lieu truoc do 
@@ -95,18 +100,14 @@ public class MenuMainManager : MonoBehaviour
     }
 
 
-
-    public void settingGame()
-    {
-
-    }
-
+    //gan trong button dong y thoat game
     public void quitGame()
     {
         Debug.Log("Quit game");
         Application.Quit();
     }
 
+    //gan trong button thoat de mo cau hoi xac nhan
     public void openQuitConfirm()
     {
         buttonMenu.SetActive(false);
@@ -114,6 +115,7 @@ public class MenuMainManager : MonoBehaviour
     }
 
    
+    //gan trong button khong dong ys thoat game
     public void closeQuitConfirm()
     {
         buttonMenu.SetActive(true);

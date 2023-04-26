@@ -5,10 +5,18 @@ using UnityEngine;
 public class checkPoint : MonoBehaviour
 {
     [SerializeField] string isCreateCheckPoint = "isCreateCheckPoint";
+    [SerializeField] string CheckPointPosX = "checkPointPosX";
+    [SerializeField] string CheckPointPosY = "checkPointPosY";
+
 
     private void Start()
     {
-        updateNewPos();
+        if (PlayerPrefs.HasKey(CheckPointPosX))
+        {
+            transform.position = new Vector2(PlayerPrefs.GetFloat("FirstPlayPosX"), PlayerPrefs.GetFloat("FirstPlayPosY"));
+            return;
+        }
+        transform.position = new Vector2(PlayerPrefs.GetFloat(CheckPointPosX), PlayerPrefs.GetFloat(CheckPointPosY));
     }
 
     private void FixedUpdate()
@@ -24,6 +32,8 @@ public class checkPoint : MonoBehaviour
     private void updateNewPos()     //di chuyen diem luu game den vi tri nguowi choi luu
     {
         transform.position = new Vector2(PlayerPrefs.GetFloat("FirstPlayPosX"), PlayerPrefs.GetFloat("FirstPlayPosY"));
+        PlayerPrefs.SetFloat(CheckPointPosX, PlayerPrefs.GetFloat("FirstPlayPosX"));        //luu vitri checkpoint x
+        PlayerPrefs.SetFloat(CheckPointPosY, PlayerPrefs.GetFloat("FirstPlayPosY"));        //luu vitri y
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

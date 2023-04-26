@@ -51,7 +51,7 @@ public class StoryRun : MonoBehaviour
         runNextText = true;
     }
 
-    public void NextLine() // chuyen sang cau tiep theo
+    public virtual void NextLine() // chuyen sang cau tiep theo
     {
         if (index < dialogue.Count - 1)
         {
@@ -72,13 +72,14 @@ public class StoryRun : MonoBehaviour
     }
 
     //chuyen canh
-    private void ChangeScene()
+    protected virtual void ChangeScene()
     {
-        BackToMenu();
+        GoToStory1();
         Debug.Log("chuyen den story 1");
     }
 
-    private void BackToMenu()
+
+    private void GoToStory1()
     {
         Debug.Log("sceneName to load: Story1");         //quay ve menu
         SceneManager.LoadScene("Story1");
@@ -90,6 +91,8 @@ public class StoryRun : MonoBehaviour
         wordSpeed = 0;
         speedUpButton.SetActive(false);
     }
+
+
 }
 
 

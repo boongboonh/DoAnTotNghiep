@@ -11,6 +11,17 @@ public class CreateCheckPoint : MonoBehaviour
     private float timer;
     private bool press = false;
     ManaManager mana;
+
+    private void OnEnable()
+    {
+        gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
+        Invoke("reBackGravity", 1f);
+    }
+
+    private void reBackGravity()
+    {
+        gameObject.GetComponent<Rigidbody2D>().gravityScale = 3f;
+    }
     private void Start()
     {
         mana = GetComponent<ManaManager>();

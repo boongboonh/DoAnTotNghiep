@@ -36,6 +36,7 @@ public class NPC : MonoBehaviour
 
     [SerializeField] GameObject teleBox;
 
+    [SerializeField] private GameObject player;
 
     void Start()
     {
@@ -70,6 +71,7 @@ public class NPC : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             numberTalk = 1; //so lan noi chuyen la 1
+            player.GetComponent<PlayerMoveStory>().isMove = false;  //khong cho nguwoi choi di chuyen
 
             exitButton.SetActive(false);//khong cho thoat
 
@@ -97,6 +99,11 @@ public class NPC : MonoBehaviour
     private void FixedUpdate()
     {
         if (!playerIsClose) return;
+
+        if (!dialoguePanel.activeInHierarchy)
+        {
+            player.GetComponent<PlayerMoveStory>().isMove = true;
+        }
 
         //neu chay het chu thi hien thi nut tiep tuc
         if (dialogueText.text == currenDialogue[index])
@@ -153,6 +160,8 @@ public class NPC : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.name);
+
         if (collision.CompareTag("Player"))
         {
             playerIsClose = true;
@@ -173,6 +182,8 @@ public class NPC : MonoBehaviour
             IconTalk.SetActive(false);
         }
     }
+
+    //goi trong button
 
     public void AgreeOptionButton()       //dong y nhan nhiem vu
     {

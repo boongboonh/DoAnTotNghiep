@@ -36,11 +36,4 @@ public class MapController : MonoBehaviour
         iconInGame.SetActive(true);         //hien thi cac nut icon tren man hinh game
 
     }
-
-
-    //nut setting 
-    public void OpenSetting()
-    {
-
-    }
 }

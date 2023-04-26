@@ -74,7 +74,6 @@ public class TeleButton : MonoBehaviour
         other.transform.position = new Vector2(PlayerPrefs.GetFloat(posX), PlayerPrefs.GetFloat(posY));
     }
 
-
     //an nut dich chuyen
     private void hideButton()
     {
