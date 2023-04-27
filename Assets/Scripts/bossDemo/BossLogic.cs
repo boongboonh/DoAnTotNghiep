@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class BossLogic : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> listWayShock;
-    private BoxCollider2D coll;
+    [SerializeField] private GameObject WayShockRight;
+    [SerializeField] private GameObject WayShockLeft;
+    [SerializeField] private Transform pointShockWayRight;
+    [SerializeField] private Transform pointShockWayLeft;
 
+    public float distance = 1.78f;
     public LayerMask layerMask;
     private bool isDropAttack = false;
 
@@ -18,22 +21,25 @@ public class BossLogic : MonoBehaviour
 
     [SerializeField] List<Transform> pointSpawnkunai;
     [SerializeField] GameObject kunai;
+    bool isChangeAttack = false;
 
     private bool isChangePattenBoss = false;
     private Rigidbody2D rb;
 
     [SerializeField] int PattenOld = -1;
 
+    Animator animator;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        coll = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
 
     void Update()
     {
+       
         if (Input.GetKeyDown(KeyCode.G) && !isDropAttack)
         {
             isChangePattenBoss = true;
@@ -51,25 +57,41 @@ public class BossLogic : MonoBehaviour
             switch (attackIndex)
             {
                 case 0:
-                    pattenWayShockBoss();
+                    //pattenWayShockBoss();
+                    if (IsGround())
+                    {
+                        animator.SetInteger("StateBoss", 2);
+                    }
+                    else
+                    {
+                        animator.SetInteger("StateBoss", 0);
+                        Invoke("DelayChangePatten", 1f);
+                    }
                     break;
                 case 1:
-                    pattenAttackDrop();
+                    //pattenAttackDrop();
+                    tanCongDap();
+
                     break;
                 case 2:
-                    pattenThreeSword();
+                    //pattenSword
+
+                    tele(heightAttackKunai.position.x);                 //dich chuyen den vi tri spam kiem
+                    rb.gravityScale = 0;                                //treo ow do
+                    animator.SetInteger("StateBoss", 3);                //chay animation        //hanh dong tan cong duoc goi trong animation
+                    
                     break;
 
                 default:
                     Debug.Log("khong co gia tri random dung");
                     break;
             }
+
         }
-
         dropAtackLogic();
-
     }
 
+    //random ra 1 patten khong trung
     int randomNoDuplicate()
     {
         Debug.Log("chay ham random");
@@ -87,6 +109,7 @@ public class BossLogic : MonoBehaviour
 
     }
 
+    //random trong so
     int WeightedRandom(float[] weights)
     {
         float totalWeight = 0f;
@@ -109,34 +132,7 @@ public class BossLogic : MonoBehaviour
         return weights.Length - 1;
     }
 
-   
-
-    //goi de thuc hien tan cong dap goi 1 lan
-    private void pattenAttackDrop()
-    {
-        StartCoroutine(attackDelayDrop());
-    }
-
-    // dung 1 nhip roi lao xuong
-    IEnumerator attackDelayDrop()
-    {
-        rb.gravityScale = 0;
-        for (int i = 0; i < 3; i++)
-        {
-            //doi den khi thuc hien xong lan tan cong truoc do moi tan cong tiep
-            yield return new WaitUntil(() => !isDropAttack);
-
-            tele(getPlayerPos().position.x);
-            yield return new WaitForSeconds(timeDelayAttackDrop);
-
-            isDropAttack = true;
-        }
-
-        rb.gravityScale = 1;
-        isChangePattenBoss = true;
-        Debug.Log("ket thu tan cong dap");
-    }
-
+  
     // logic tan cong khi dap
     private void dropAtackLogic()
     {
@@ -155,6 +151,7 @@ public class BossLogic : MonoBehaviour
     private void tele(float x)
     {
         transform.position = new Vector2(x, heightDropAttack);
+        Debug.Log("dich chuyen ");
     }
 
     private Transform getPlayerPos()
@@ -174,74 +171,119 @@ public class BossLogic : MonoBehaviour
     }
     
    
-
-    //trieu hoi 3 thanh kiem lao toi nguoi choi
-    private void pattenThreeSword()
-    {
-        StartCoroutine(spawSword());
-    }
-    //done
-
-    IEnumerator spawSword()
-    {
-        tele(heightAttackKunai.position.x);
-        rb.gravityScale = 0;
-        for (int i = 0; i < pointSpawnkunai.Count; i++)
-        {
-            yield return new WaitForSeconds(.5f);    //doi .5 giay spawn 1 chiec
-            Instantiate(kunai, pointSpawnkunai[i].position, kunai.transform.rotation);
-        }
-
-        //doi 3 giay het patten
-        yield return new WaitForSeconds(3f);
-        rb.gravityScale = 1;
-        isChangePattenBoss = true;
-
-    }
-
-    //ban song 
-    private void pattenWayShockBoss()
-    {
-
-        StartCoroutine(spawnShockWay());
-    }
-
-    IEnumerator spawnShockWay()
-    {
-        yield return new WaitForSeconds(2f);
-
-        if (IsGround())
-        {
-            for (int i = 0; i < listWayShock.Count; i++)
-            {
-                Instantiate(listWayShock[i], gameObject.transform.position, Quaternion.identity);
-            }
-
-            yield return new WaitForSeconds(1f);
-            isChangePattenBoss = true;
-        }
-        else
-        {
-            yield return new WaitForSeconds(1f);
-            isChangePattenBoss = true;
-        }
-
-    }
-
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<HealthPlayer>().takeDame(2);
+            collision.gameObject.GetComponent<HealthPlayer>().takeDame(0);      //can sua 
         }
     }
 
-    //check cham dat
-    public bool IsGround()// tra ve true neu cham dat
+   
+    private bool IsGround()
     {
-        float ExtraHight = 0.03f;
-        RaycastHit2D raycastHit2D = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, ExtraHight, layerMask);
-        return raycastHit2D.collider != null;
+        Debug.DrawRay(transform.position, new Vector2(0, -distance), Color.green);
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, distance, layerMask);
+        if (hit.collider != null)
+        {
+            return true;
+        }
+        return false;
     }
+
+
+    //goi trong animation mua kiem
+
+
+    public void muaKiem()
+    {
+        isChangeAttack = false;
+        StartCoroutine(delayTaoKiem());
+    }
+    
+    IEnumerator delayTaoKiem()
+    {
+        for (int i = 0; i < pointSpawnkunai.Count; i++)
+        {
+            yield return new WaitForSeconds(.4f);    //doi .4 giay spawn 1 chiec
+            Instantiate(kunai, pointSpawnkunai[i].position, kunai.transform.rotation);
+        }
+
+        yield return new WaitUntil(() => isChangeAttack);           //doi den khi ischangeattack dung thi chay
+        animator.SetInteger("StateBoss", 0);
+
+        yield return new WaitForSeconds(1f);                        //doi them 1 giay roi dap dat
+        rb.gravityScale = 1;
+        
+        Invoke("DelayChangePatten", 2f);                             //delay 2 giay roi cho chuyen patten quai
+    }
+
+    //ham chuyen bien chuyen trang thai tan cong. de goi trong invoke
+    private void DelayChangePatten()
+    {
+        isChangePattenBoss = true;
+    }
+
+    //goi cuoi animation de thoat trang thai tan cong kiem
+    public void changeAttackMuaKiem()
+    {
+        isChangeAttack = true;
+    }
+
+
+    //spam song goi trong animation shock way patten
+    public void banSong()
+    {
+        Instantiate(WayShockLeft, pointShockWayLeft.position, Quaternion.identity);
+        Instantiate(WayShockRight, pointShockWayRight.position, Quaternion.identity);
+    }
+
+
+    //goi cuoi animation ban song de doi animation
+    public void outPattenBanSong()
+    {
+        //chay animation nhan doi
+        animator.SetInteger("StateBoss", 0);
+
+        //chuyen trang thai tan cong sau 2giay
+        Invoke("DelayChangePatten", 2f);
+    }
+
+
+
+    //tan cong khi dap// goi trong code
+    public void tanCongDap()
+    {
+        StartCoroutine(delayTanCongDap());
+    }
+
+    IEnumerator delayTanCongDap()
+    {
+        rb.gravityScale = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            //doi den khi thuc hien xong lan tan cong truoc do moi tan cong tiep
+            yield return new WaitUntil(() => !isDropAttack);
+
+            tele(getPlayerPos().position.x);
+
+            animator.SetInteger("StateBoss", 1);
+        }
+
+        rb.gravityScale = 1;
+        animator.SetInteger("StateBoss", 0);                //chay animation nghi
+
+        Debug.Log("ket thu tan cong dap");
+
+        Invoke("DelayChangePatten", 2f);                    //chuyen trang thai tan cong sau 2 giay nghi
+    }
+   
+
+    //goi cuoi hoat anh delay tan cong dap
+    public void attackDropActive()
+    {
+        isDropAttack = true;
+    }
+
 }
