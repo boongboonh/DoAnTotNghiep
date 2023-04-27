@@ -91,8 +91,6 @@ public class StoryRun : MonoBehaviour
         wordSpeed = 0;
         speedUpButton.SetActive(false);
     }
-
-
 }
 
 

@@ -11,12 +11,14 @@ public class checkPoint : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerPrefs.HasKey(CheckPointPosX))
+        if (!PlayerPrefs.HasKey(CheckPointPosX))
         {
             transform.position = new Vector2(PlayerPrefs.GetFloat("FirstPlayPosX"), PlayerPrefs.GetFloat("FirstPlayPosY"));
-            return;
         }
-        transform.position = new Vector2(PlayerPrefs.GetFloat(CheckPointPosX), PlayerPrefs.GetFloat(CheckPointPosY));
+        else
+        {
+            transform.position = new Vector2(PlayerPrefs.GetFloat(CheckPointPosX), PlayerPrefs.GetFloat(CheckPointPosY));
+        }
     }
 
     private void FixedUpdate()

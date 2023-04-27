@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class testJump2 : MonoBehaviour
 {
-    public Transform pos;
     private Rigidbody2D rb;
     [SerializeField] private float time = 3f;
 
@@ -14,12 +13,13 @@ public class testJump2 : MonoBehaviour
     }
     private void Update()
     {
-        Vector3 V0 = CalculateVelocity(pos.position, transform.position, time);
+        Vector3 V0 = CalculateVelocity(GetPosPlayer.Instance.PlayerPos.position, transform.position, time);
         if (Input.GetMouseButtonDown(1))
         {
             rb.velocity = V0;
         }
     }
+    
 
     Vector3 CalculateVelocity(Vector3 target, Vector3 origin, float time)
     {

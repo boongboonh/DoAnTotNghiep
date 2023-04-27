@@ -69,8 +69,18 @@ public class TeleBoxStory : MonoBehaviour
     //load man hinh game
     private void LoadGame()
     {
+        //lay thong so am thanh
+        float volumeBackground = PlayerPrefs.GetFloat("soundBackgroundMix");
+        float volumeEffect = PlayerPrefs.GetFloat("soundEffectMix");
+
+        //xoa toan bo du lieu
         PlayerPrefs.DeleteAll();                          // xoa toan bo du lieu truoc do 
 
+        //lu lai gia tri am thanh
+        PlayerPrefs.SetFloat("soundBackgroundMix", volumeBackground);
+        PlayerPrefs.SetFloat("soundEffectMix", volumeEffect);
+
+        //cai dat thong tin moi
         PlayerPrefs.SetInt(FirstPlay, 1);                 //neu choi game lan dau thi la 1
         PlayerPrefs.SetFloat("FirstPlayPosX", -34.42f);
         PlayerPrefs.SetFloat("FirstPlayPosY", -5f);

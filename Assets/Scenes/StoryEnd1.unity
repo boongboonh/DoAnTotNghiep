@@ -936,7 +936,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 337882811}
         m_TargetAssemblyTypeName: StoryRun, Assembly-CSharp
         m_MethodName: SpeedUpButton
         m_Mode: 1

@@ -26,7 +26,9 @@ public class NPC : MonoBehaviour
     bool isClicked = false;
 
     public float wordSpeed;
-    public bool playerIsClose;
+    private bool playerIsClose;
+
+    private bool hideContinue = false;
 
     public GameObject continueButton;
     public GameObject IconTalk;
@@ -105,6 +107,7 @@ public class NPC : MonoBehaviour
             player.GetComponent<PlayerMoveStory>().isMove = true;
         }
 
+        if (hideContinue) return;
         //neu chay het chu thi hien thi nut tiep tuc
         if (dialogueText.text == currenDialogue[index])
         {
@@ -116,9 +119,7 @@ public class NPC : MonoBehaviour
     {
         if (currenDialogue[index + 1] != "") return false;
         
-        continueButton.SetActive(false);
-        optionQuestion.SetActive(true);
-        Debug.Log("Chay lua chon");
+        
         return true;
  
     }
@@ -146,7 +147,13 @@ public class NPC : MonoBehaviour
         continueButton.SetActive(false);
         if (index < currenDialogue.Count - 1)
         {
-            if (checkOpenOption()) return;
+            if (checkOpenOption()) {
+                hideContinue = true;
+                continueButton.SetActive(false);
+                optionQuestion.SetActive(true);
+                Debug.Log("Chay lua chon");
+                return;
+            }
 
             index++;
             dialogueText.text = "";
@@ -187,6 +194,7 @@ public class NPC : MonoBehaviour
 
     public void AgreeOptionButton()       //dong y nhan nhiem vu
     {
+        hideContinue = false;
         currenDialogue = dialogueOption1;
         ActiveTeleBoxStart();
         RunText();
@@ -196,6 +204,7 @@ public class NPC : MonoBehaviour
 
     public void RejectOptionButton()        //tu choi nhan nhiem vu
     {
+        hideContinue = false;
         currenDialogue = dialogueOption2;
         ActiveTeleBoxEnd();
         RunText();
