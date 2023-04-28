@@ -12,20 +12,10 @@ public class CreateCheckPoint : MonoBehaviour
     private bool press = false;
     ManaManager mana;
 
-    private void OnEnable()
-    {
-        gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
-        Invoke("reBackGravity", 1f);
-    }
-
-    private void reBackGravity()
-    {
-        gameObject.GetComponent<Rigidbody2D>().gravityScale = 3f;
-    }
+   
     private void Start()
     {
         mana = GetComponent<ManaManager>();
-        gameObject.transform.position = new Vector2(PlayerPrefs.GetFloat("FirstPlayPosX"), PlayerPrefs.GetFloat("FirstPlayPosY") + 1f);// nang do cao len
         timer = timeHolder;
     }
 

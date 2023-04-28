@@ -9,13 +9,14 @@ public class BossLogic : MonoBehaviour
     [SerializeField] private Transform pointShockWayRight;
     [SerializeField] private Transform pointShockWayLeft;
 
+    float[] attackWeights = new float[] { 0.4f, 0.4f, 0.2f }; // trong so random <song, dap, kiem>
+
     public float distance = 1.78f;
     public LayerMask layerMask;
-    private bool isDropAttack = false;
 
     public float speedDrop = 5f;
-    [SerializeField] float timeDelayAttackDrop = 0.5f;
     [SerializeField] float heightDropAttack = 5f;           //do cao tan cong
+    bool delayDropAttack = false;
 
     [SerializeField] Transform heightAttackKunai;           //do cao tan cong kunai
 
@@ -30,29 +31,46 @@ public class BossLogic : MonoBehaviour
 
     Animator animator;
 
+    public bool inRanger = false;                       //bien kiem tra trang thai nguoi choi co ow trong vung tan cong khong.
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
+    //ham goi trong trigger area cho phep tan cong khi vao khu vuc
+    public void ActiveAttackBoss()
+    {
+        Invoke("DelayAttackBoss", 2f);
+    }
+
+    private void DelayAttackBoss()
+    {
+        isChangePattenBoss = true;
+    }
 
     void Update()
     {
-       
-        if (Input.GetKeyDown(KeyCode.G) && !isDropAttack)
+
+        /*if (Input.GetKeyDown(KeyCode.G))
         {
             isChangePattenBoss = true;
+        }*/
+
+        if (!inRanger)
+        {
+            animator.SetInteger("StateBoss", 0);
+            return;
         }
+
+        Debug.Log("trong vung");
 
         if (isChangePattenBoss)
         {
             isChangePattenBoss = false;
 
-            /*float[] attackWeights = new float[] { 0.4f, 0.4f, 0.2f }; // trong so random <song, dap, kiem>
-            int attackIndex = WeightedRandom(attackWeights);*/
-
-            int attackIndex = randomNoDuplicate();
+            int attackIndex = randomNoDuplicate();                  //random 1 kieu tan cong khong trung lap
 
             switch (attackIndex)
             {
@@ -95,7 +113,7 @@ public class BossLogic : MonoBehaviour
     int randomNoDuplicate()
     {
         Debug.Log("chay ham random");
-        float[] attackWeights = new float[] { 0.4f, 0.4f, 0.2f }; // trong so random <song, dap, kiem>
+       
         int attackIndex = WeightedRandom(attackWeights);
         if(attackIndex == PattenOld)
         {
@@ -133,19 +151,7 @@ public class BossLogic : MonoBehaviour
     }
 
   
-    // logic tan cong khi dap
-    private void dropAtackLogic()
-    {
-
-        if (!isDropAttack) return;
-
-        dropAttack();
-
-        if (!IsGround()) return;
-
-        isDropAttack = false;
-    }
-
+   
 
     //dich chuyen den vi tri nguoi choi
     private void tele(float x)
@@ -261,29 +267,43 @@ public class BossLogic : MonoBehaviour
     IEnumerator delayTanCongDap()
     {
         rb.gravityScale = 0;
+
         for (int i = 0; i < 3; i++)
         {
-            //doi den khi thuc hien xong lan tan cong truoc do moi tan cong tiep
-            yield return new WaitUntil(() => !isDropAttack);
-
             tele(getPlayerPos().position.x);
 
             animator.SetInteger("StateBoss", 1);
+
+            yield return new WaitUntil(() => IsGround());
+
         }
-
+        
+        
         rb.gravityScale = 1;
-        animator.SetInteger("StateBoss", 0);                //chay animation nghi
 
+        animator.SetInteger("StateBoss", 0);
         Debug.Log("ket thu tan cong dap");
 
         Invoke("DelayChangePatten", 2f);                    //chuyen trang thai tan cong sau 2 giay nghi
     }
-   
 
-    //goi cuoi hoat anh delay tan cong dap
-    public void attackDropActive()
+    // logic tan cong khi dap
+    private void dropAtackLogic()
     {
-        isDropAttack = true;
+        if (!delayDropAttack) return;
+
+        dropAttack();
+
+        if (!IsGround()) return;
+
+        delayDropAttack = false;
+    }
+
+    //goi o cuoi hoat anh de drop
+    public void activeDrop()
+    {
+        delayDropAttack = true;
+        animator.SetInteger("StateBoss", 4);
     }
 
 }
