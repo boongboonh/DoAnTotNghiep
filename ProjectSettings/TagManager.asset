@@ -12,6 +12,7 @@ TagManager:
   - Thorn
   - PlayerSword
   - BulletPlayer
+  - Boss
   layers:
   - Default
   - TransparentFX

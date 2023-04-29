@@ -13,6 +13,17 @@ public class bossHealth : MonoBehaviour
     [SerializeField] protected GameObject[] ItemsDrop;
     [SerializeField] private int dameTake = 1;
 
+    [Header("sound setting")]
+    [SerializeField] AudioSource hurtBossSound;
+    [SerializeField] AudioSource dieBossSound;
+
+    private AudioClip audioClipDeathClip;
+
+    private void Start()
+    {
+        audioClipDeathClip = dieBossSound.clip;
+    }
+
     protected virtual void OnEnable()
     {
         healthEnemy = healthBossMax;
@@ -29,6 +40,8 @@ public class bossHealth : MonoBehaviour
 
     public void EnemyTakeDame(int damePlayer)
     {
+        //am thanh
+        soundHurt();
 
         if (healthEnemy <= damePlayer)
         {
@@ -44,6 +57,10 @@ public class bossHealth : MonoBehaviour
 
     protected void enemyDie()
     {
+        //am thanh
+        soundDie();
+
+
         GameObject EffectEnemyClone = Instantiate(effectBossDie, transform.position, Quaternion.identity);
         Destroy(EffectEnemyClone, 2f);
         gameObject.SetActive(false);
@@ -56,6 +73,17 @@ public class bossHealth : MonoBehaviour
         {
             Instantiate(ItemsDrop[i], transform.position + new Vector3(Random.Range(-0.7f, 0.7f), 1, 0), Quaternion.identity);
         }
+    }
+
+    private void soundHurt()
+    {
+        if (hurtBossSound.isPlaying) return;
+        hurtBossSound.Play();
+    }
+
+    private void soundDie()
+    {
+        AudioSource.PlayClipAtPoint(audioClipDeathClip, gameObject.transform.position);
     }
 
 }

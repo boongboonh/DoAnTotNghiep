@@ -53,18 +53,17 @@ public class BossLogic : MonoBehaviour
     void Update()
     {
 
-        /*if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             isChangePattenBoss = true;
-        }*/
+        }
 
-        if (!inRanger)
+        /*if (!inRanger)
         {
             animator.SetInteger("StateBoss", 0);
             return;
-        }
+        }*/
 
-        Debug.Log("trong vung");
 
         if (isChangePattenBoss)
         {

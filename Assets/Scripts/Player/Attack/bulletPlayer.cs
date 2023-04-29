@@ -102,6 +102,14 @@ public class bulletPlayer : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             Debug.Log("hit enemy");
+            collision.GetComponent<EnemyHealth>().EnemyTakeDame(1);
+            destroyBullet();
+        }
+
+        if (collision.CompareTag("Boss"))
+        {
+            Debug.Log("hit Boss");
+            collision.GetComponent<bossHealth>().EnemyTakeDame(1);
             destroyBullet();
         }
     }

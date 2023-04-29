@@ -25,6 +25,21 @@ public class swordNormal : MonoBehaviour
 
             //am thanh
             PlayerSounds.instance.SwordHitAudio();
+            return;
+        }
+
+        if (collision.CompareTag("Boss"))
+        {
+            Debug.Log("BossTakeDame");
+            Vector2 posHit = gameObject.GetComponent<Collider2D>().ClosestPoint(collision.transform.position);
+
+            GameObject cloneEffectChop = Instantiate(effectChop, posHit, Quaternion.identity);
+            Destroy(cloneEffectChop, 1f);
+
+            collision.GetComponent<bossHealth>().EnemyTakeDame(ATK);
+
+            //am thanh
+            PlayerSounds.instance.SwordHitAudio();
         }
     }
 }
