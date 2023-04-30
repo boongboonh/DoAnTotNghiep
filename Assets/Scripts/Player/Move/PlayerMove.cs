@@ -43,15 +43,16 @@ public class PlayerMove : MonoBehaviour
         _playerDash = GetComponent<PlayerDash>();
         rb = GetComponent<Rigidbody2D>();
         animator = PlayerIMG.GetComponent<Animator>();
+        animator.keepAnimatorControllerStateOnDisable = true;               //dat gia tri animation mac dinh de khi set active thi no dat ve mac dinh
     }
 
+   
     private void Start()
     {
-        coll = GetComponent<BoxCollider2D>();
+       coll = GetComponent<BoxCollider2D>();
         
-        //animator = gameObject.GetComponentInChildren<Animator>();
     }
-
+ 
     private void Update()
     {
         //di chuyển trái phải

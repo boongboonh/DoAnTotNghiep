@@ -26,7 +26,6 @@ public class ShootWepon : MonoBehaviour
         mana = player.GetComponent<ManaManager>();
     }
 
-
     private void FixedUpdate()
     {
         followPlayer();

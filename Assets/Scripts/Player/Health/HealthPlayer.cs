@@ -133,15 +133,6 @@ public class HealthPlayer : BinhBehaviour
         canTakeDamage = true;
     }
 
-    /*IEnumerator noDame()
-    {
-        Physics2D.IgnoreLayerCollision(14, 11, true);       //lowp enemy
-        Physics2D.IgnoreLayerCollision(14, 9, true);        //lop bullet chieu thuc boss
-        yield return new WaitForSeconds(1f);
-        Physics2D.IgnoreLayerCollision(14, 11, false);
-        Physics2D.IgnoreLayerCollision(14, 9, false);
-    }*/
-
     public void addHealth()
     {
         //max 9 mau
@@ -167,7 +158,7 @@ public class HealthPlayer : BinhBehaviour
     //delay chuyen man
     private void playerDieIvokeCall()
     {
-        gameObject.transform.position = new Vector2(PlayerPrefs.GetFloat("checkPointPosX"), PlayerPrefs.GetFloat("checkPointPosY"));        //dich chuyen den vi tri checkpoint
+        gameObject.transform.position = new Vector2(PlayerPrefs.GetFloat("FirstPlayPosX"), PlayerPrefs.GetFloat("FirstPlayPosY"));        //dich chuyen den vi tri da luu
         soul.transform.position = gameObject.transform.position;
         gameObject.SetActive(true);
         soul.SetActive(true);

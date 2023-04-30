@@ -15,12 +15,14 @@ public class healthBar : MonoBehaviour
 
     public event HealthChangedEventHandler OnHealthChanged;
 
+
     private void Start()
     {
         int hp = boss.GetComponent<bossHealth>().HealthBossMax;
         setMaxHealth(hp);
     }
 
+    
     private void Update()
     {
         int updateHP = boss.GetComponent<bossHealth>().healthEnemy;

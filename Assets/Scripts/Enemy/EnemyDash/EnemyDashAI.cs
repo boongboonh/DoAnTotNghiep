@@ -28,7 +28,11 @@ public class EnemyDashAI : MonoBehaviour
     [Header("attack sound")]
     [SerializeField] private AudioSource enemyDashAttack;
 
-
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        _animator.keepAnimatorControllerStateOnDisable = true;
+    }
     private void OnEnable()
     {
         playerPos = null;
@@ -41,7 +45,6 @@ public class EnemyDashAI : MonoBehaviour
     void Start()
     {
         target = LimitLeft;
-        _animator = GetComponent<Animator>();
         speed = speedDashMove;
     }
 

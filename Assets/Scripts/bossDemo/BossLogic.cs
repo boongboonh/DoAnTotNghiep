@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BossLogic : MonoBehaviour
 {
+    [SerializeField] private Transform pointAppear;
+
     [SerializeField] private GameObject WayShockRight;
     [SerializeField] private GameObject WayShockLeft;
     [SerializeField] private Transform pointShockWayRight;
@@ -33,37 +35,53 @@ public class BossLogic : MonoBehaviour
 
     public bool inRanger = false;                       //bien kiem tra trang thai nguoi choi co ow trong vung tan cong khong.
 
-    private void Start()
+    [Header("audio patten")]
+    [SerializeField] public AudioSource pattenSword;
+    [SerializeField] public AudioSource pattenDrop;
+    [SerializeField] public AudioSource pattenShockWay;
+
+
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        animator.keepAnimatorControllerStateOnDisable = true;
+        
+    }
+    private void OnEnable()
+    {
+        rb.gravityScale = 0f;
+        PattenOld = -1;
+        gameObject.transform.SetPositionAndRotation(pointAppear.position, Quaternion.identity);
+    }
+
+    private void Start()
+    {
+        
     }
 
     //ham goi trong trigger area cho phep tan cong khi vao khu vuc
     public void ActiveAttackBoss()
     {
-        Invoke("DelayAttackBoss", 2f);
+        //Invoke("DelayAttackBoss", 2f);
+        DelayAttackBoss();
     }
 
     private void DelayAttackBoss()
     {
+        inRanger = true;
         isChangePattenBoss = true;
     }
 
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            isChangePattenBoss = true;
-        }
-
         /*if (!inRanger)
         {
             animator.SetInteger("StateBoss", 0);
             return;
-        }*/
-
+        }
+*/
 
         if (isChangePattenBoss)
         {
@@ -95,6 +113,9 @@ public class BossLogic : MonoBehaviour
 
                     tele(heightAttackKunai.position.x);                 //dich chuyen den vi tri spam kiem
                     rb.gravityScale = 0;                                //treo ow do
+                    
+                    //am thanh
+                    pattenSword.Play();
                     animator.SetInteger("StateBoss", 3);                //chay animation        //hanh dong tan cong duoc goi trong animation
                     
                     break;
@@ -240,6 +261,9 @@ public class BossLogic : MonoBehaviour
     //spam song goi trong animation shock way patten
     public void banSong()
     {
+        //chay am thanh
+        pattenShockWay.Play();
+
         Instantiate(WayShockLeft, pointShockWayLeft.position, Quaternion.identity);
         Instantiate(WayShockRight, pointShockWayRight.position, Quaternion.identity);
     }
@@ -271,7 +295,11 @@ public class BossLogic : MonoBehaviour
         {
             tele(getPlayerPos().position.x);
 
+
             animator.SetInteger("StateBoss", 1);
+
+            //chay am thanh chuan bi tan cong
+            pattenDrop.Play();
 
             yield return new WaitUntil(() => IsGround());
 
@@ -301,6 +329,7 @@ public class BossLogic : MonoBehaviour
     //goi o cuoi hoat anh de drop
     public void activeDrop()
     {
+
         delayDropAttack = true;
         animator.SetInteger("StateBoss", 4);
     }
