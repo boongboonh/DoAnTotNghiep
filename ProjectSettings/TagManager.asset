@@ -50,6 +50,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: HideRock
+    uniqueID: 1808681825
+    locked: 0
   - name: rock
     uniqueID: 1204949949
     locked: 0
