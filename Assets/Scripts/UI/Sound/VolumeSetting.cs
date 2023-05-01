@@ -6,6 +6,8 @@ using UnityEngine.Audio;
 
 public class VolumeSetting : MonoBehaviour
 {
+    //ham goi trong menu
+
     [SerializeField] AudioMixer musicMixer;
     [SerializeField] Slider backgroundSlider;
     [SerializeField] Slider effectSlider;

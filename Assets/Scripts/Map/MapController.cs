@@ -25,6 +25,8 @@ public class MapController : MonoBehaviour
         isShow = true;
 
         miniMap.SetActive(true);
+
+        Time.timeScale = 0f;
     }
 
     public void ExitMinimap()
@@ -35,5 +37,6 @@ public class MapController : MonoBehaviour
 
         iconInGame.SetActive(true);         //hien thi cac nut icon tren man hinh game
 
+        Time.timeScale = 1f;
     }
 }
