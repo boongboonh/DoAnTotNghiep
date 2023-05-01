@@ -8,7 +8,6 @@ public abstract class EnemyHealth : MonoBehaviour
 
     public int healthEnemy;
     [SerializeField] protected GameObject[] ItemsDrop;
-    [SerializeField] private int dameTake = 1 ;
     [SerializeField] private GameObject EffectRingEnemyDie;
 
     [Header("audio enemy")]

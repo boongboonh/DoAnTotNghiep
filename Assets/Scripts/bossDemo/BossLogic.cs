@@ -55,10 +55,6 @@ public class BossLogic : MonoBehaviour
         gameObject.transform.SetPositionAndRotation(pointAppear.position, Quaternion.identity);
     }
 
-    private void Start()
-    {
-        
-    }
 
     //ham goi trong trigger area cho phep tan cong khi vao khu vuc
     public void ActiveAttackBoss()

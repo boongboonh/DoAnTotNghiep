@@ -65,6 +65,7 @@ public class bossHealth : MonoBehaviour
         Destroy(EffectEnemyClone, 2f);
         gameObject.SetActive(false);
         dropItem();
+
     }
 
     protected void dropItem()       
