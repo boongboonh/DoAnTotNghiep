@@ -97,7 +97,7 @@ public class bulletPlayer : MonoBehaviour
         }
     }
 
-    private void destroyBullet()
+    public void destroyBullet()
     {
         Destroy(gameObject);
         GameObject EffectClone = Instantiate(effectBullet, transform.position, Quaternion.identity);

@@ -55,4 +55,22 @@ public class EventManager : MonoBehaviour
         }
     }
 
+
+    //su kien dong mo cua boss
+
+    public delegate void DoorEvent();
+    public event DoorEvent DoorOpened;
+    public event DoorEvent DoorClosed;
+
+    public void OpenDoor()
+    {
+        if (DoorOpened != null)
+            DoorOpened();
+    }
+
+    public void CloseDoor()
+    {
+        if (DoorClosed != null)
+            DoorClosed();
+    }
 }
