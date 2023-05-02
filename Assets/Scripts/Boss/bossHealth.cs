@@ -6,12 +6,12 @@ public class bossHealth : MonoBehaviour
 {
     [SerializeField] private GameObject effectBossDie;
     [SerializeField] private int healthBossMax = 5;
+    [SerializeField] private GameObject triggerBoss;
 
     public int HealthBossMax => healthBossMax;
 
-    public int healthEnemy;
+    public int healthBoss;
     [SerializeField] protected GameObject[] ItemsDrop;
-    [SerializeField] private int dameTake = 1;
 
     [Header("sound setting")]
     [SerializeField] AudioSource hurtBossSound;
@@ -26,32 +26,32 @@ public class bossHealth : MonoBehaviour
 
     protected virtual void OnEnable()
     {
-        healthEnemy = healthBossMax;
+        healthBoss = healthBossMax;
     }
 
     
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("PlayerBullet")||collision.CompareTag("PlayerSword"))
         {
             EnemyTakeDame(dameTake);
         }
-    }
+    }*/
 
     public void EnemyTakeDame(int damePlayer)
     {
         //am thanh
         soundHurt();
 
-        if (healthEnemy <= damePlayer)
+        if (healthBoss <= damePlayer)
         {
-            healthEnemy -= damePlayer;
+            healthBoss -= damePlayer;
             enemyDie();
 
         }
         else
         {
-            healthEnemy -= damePlayer;
+            healthBoss -= damePlayer;
         }
     }
 
@@ -65,7 +65,10 @@ public class bossHealth : MonoBehaviour
         Destroy(EffectEnemyClone, 2f);
         gameObject.SetActive(false);
         dropItem();
+        triggerBoss.SetActive(false);
 
+        PlayerPrefs.SetInt("BoosDie", 1);           //luu gia tri boss da bi tieu diet 1 lan
+        EventManager.Instance.OpenDoor();           //goi su kien mo cua khi boss chet
     }
 
     protected void dropItem()       

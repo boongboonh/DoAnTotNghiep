@@ -25,7 +25,7 @@ public class healthBar : MonoBehaviour
     
     private void Update()
     {
-        int updateHP = boss.GetComponent<bossHealth>().healthEnemy;
+        int updateHP = boss.GetComponent<bossHealth>().healthBoss;
         if (updateHP == currentHP) return;
         currentHP = updateHP;
         HealthValueBoss = updateHP;

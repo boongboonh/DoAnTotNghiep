@@ -6,22 +6,25 @@ public class triggerAreaBoss : MonoBehaviour
 {
     [SerializeField] GameObject bossCore;
     [SerializeField] GameObject healthBar;
-    private string nameBossPlayerPrefs = "BossPlayerPrefs";      //bien luu trang thai da danh bai boss
-    private bool bossDie = false;
+    bool activeBoss = true;
 
-    private void Start()
+    private void OnEnable()
     {
-
-
+        if (PlayerPrefs.GetInt("BoosDie") == 1)         //kiem tra boss da bi tieu diet lan nao chua
+        {
+            activeBoss = false;
+        }
+        else
+        {
+            activeBoss = true;
+        }
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!activeBoss) return;
+
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<CreateCheckPoint>().isDistanceToCreate = false;      //khong cho tao diem luu game
-
-
             //kich hoat boss
             bossCore.SetActive(true);
             healthBar.SetActive(true);
@@ -34,14 +37,16 @@ public class triggerAreaBoss : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (!activeBoss) return;
+
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<CreateCheckPoint>().isDistanceToCreate = true;      //khong cho tao diem luu game
-
             bossCore.GetComponent<BossLogic>().inRanger = false;
             //vo hieu hoa boss
             bossCore.SetActive(false);
             healthBar.SetActive(false);
         }
     }
+
+    
 }

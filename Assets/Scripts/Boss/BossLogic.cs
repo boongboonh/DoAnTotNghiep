@@ -50,6 +50,7 @@ public class BossLogic : MonoBehaviour
     }
     private void OnEnable()
     {
+        //CancelInvoke("DelayChangePatten");      //huy trang thai tao lai patten
         rb.gravityScale = 0f;
         PattenOld = -1;
         gameObject.transform.SetPositionAndRotation(pointAppear.position, Quaternion.identity);
@@ -59,8 +60,8 @@ public class BossLogic : MonoBehaviour
     //ham goi trong trigger area cho phep tan cong khi vao khu vuc
     public void ActiveAttackBoss()
     {
-        //Invoke("DelayAttackBoss", 2f);
-        DelayAttackBoss();
+        Invoke("DelayAttackBoss", 2f);
+        //DelayAttackBoss();
     }
 
     private void DelayAttackBoss()
