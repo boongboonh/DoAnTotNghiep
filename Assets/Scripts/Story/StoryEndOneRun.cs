@@ -27,7 +27,6 @@ public class StoryEndOneRun : StoryRun
         PlayerPrefs.SetFloat("soundBackgroundMix", volumeBackground);
         PlayerPrefs.SetFloat("soundEffectMix", volumeEffect);
 
-
         Debug.Log("chuyen ve menu- ket thuc end story 1");
         SceneManager.LoadScene("Menu");
     }

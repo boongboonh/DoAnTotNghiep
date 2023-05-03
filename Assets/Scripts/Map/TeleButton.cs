@@ -16,26 +16,60 @@ public class TeleButton : MonoBehaviour
     [Header("name tree 2")]
     [SerializeField] string TelePostX2 = "tree2PostX";   //vi tri x dich chuyen player
     [SerializeField] string TelePostY2 = "tree2PostY";   //vi tri y dich chuy player
+    
+    
+    [Header("name tree 3")]
+    [SerializeField] string TelePostX3 = "tree3PostX";   //vi tri x dich chuyen player
+    [SerializeField] string TelePostY3 = "tree3PostY";   //vi tri y dich chuy player
 
+    [Header("name tree 4")]
+    [SerializeField] string TelePostX4 = "tree4PostX";   //vi tri x dich chuyen player
+    [SerializeField] string TelePostY4 = "tree4PostY";   //vi tri y dich chuy player
 
+    [Header("name tree 5")]
+    [SerializeField] string TelePostX5 = "tree5PostX";   //vi tri x dich chuyen player
+    [SerializeField] string TelePostY5 = "tree5PostY";   //vi tri y dich chuy player
 
     public void TeleTreePos()
     {
         if (treeNumber == -1) return;
-        if(treeNumber == 1)
-        {
-            TeleToTree1();
-        }
 
-        if(treeNumber == 2)
+        switch (treeNumber)
         {
-            TeleTotree2();
+            case 1:
+                {
+                    TeleToTree(TelePostX1, TelePostY1);
+                    break;
+                }
+            case 2:
+                {
+                    TeleToTree(TelePostX2, TelePostY2);
+                    break;
+                }
+            case 3:
+                {
+                    TeleToTree(TelePostX3, TelePostY3);
+                    break;
+                }
+            case 4:
+                {
+                    TeleToTree(TelePostX4, TelePostY4);
+                    break;
+                }
+            case 5:
+                {
+                    TeleToTree(TelePostX5, TelePostY5);
+                    break;
+                }
+            default:
+                {
+                    Debug.Log("loi tham so tree tele");
+                    break;
+                }
         }
-
-        //bo xung
     }
 
-    private void TeleToTree1()
+   /* private void TeleToTree1()
     {
         findPlayer(TelePostX1, TelePostY1);
         hideButton();
@@ -47,9 +81,19 @@ public class TeleButton : MonoBehaviour
         hideButton();
         exit();
     }
-
-    //bo xung them cac cay
-
+    private void TeleTotree2()
+    {
+        findPlayer(TelePostX2, TelePostY2);
+        hideButton();
+        exit();
+    }
+*/
+    private void TeleToTree(string xTree, string yTree)
+    {
+        findPlayer(xTree, yTree);
+        hideButton();
+        exit();
+    }
 
     private void exit()//tat hien thi mini map
     {
@@ -79,5 +123,4 @@ public class TeleButton : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-
 }
