@@ -54,8 +54,18 @@ public class BossLogic : MonoBehaviour
         rb.gravityScale = 0f;
         PattenOld = -1;
         gameObject.transform.SetPositionAndRotation(pointAppear.position, Quaternion.identity);
+
+        Debug.Log("bat nhac chien dau");
+        EventManager.Instance.onMusicFighting();                        //bat nhac chien dau
+
     }
 
+    private void OnDisable()
+    {
+
+        Debug.Log("tat nhac chien dau");
+        EventManager.Instance.offMusicFighting();       //tat nhac chien dau
+    }
 
     //ham goi trong trigger area cho phep tan cong khi vao khu vuc
     public void ActiveAttackBoss()

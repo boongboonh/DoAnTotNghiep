@@ -73,4 +73,25 @@ public class EventManager : MonoBehaviour
         if (DoorClosed != null)
             DoorClosed();
     }
+
+
+    //nhac chien dau
+    public delegate void fighttingMusic();
+    public fighttingMusic onMusicFighting;
+
+    public fighttingMusic offMusicFighting;
+    public void TurnOnMusicFightting()
+    {
+        if (onMusicFighting != null)
+        {
+            onMusicFighting();
+        }
+    }
+    public void TurnOffMusicFightting()
+    {
+        if (offMusicFighting != null)
+        {
+            offMusicFighting();
+        }
+    }
 }

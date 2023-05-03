@@ -36,11 +36,11 @@ EditorBuildSettings:
     path: Assets/Scenes/StoryStart.unity
     guid: 2e7192f315c3ab14cb03c389d8e591cc
   - enabled: 1
-    path: Assets/Scenes/StoryEnd1.unity
-    guid: 65ed2a46b62787d459e58005a2c9e8bf
-  - enabled: 1
     path: Assets/Scenes/Story1.unity
     guid: 6f412393713c17b47abfd92ea77e0633
+  - enabled: 1
+    path: Assets/Scenes/StoryEnd1.unity
+    guid: 65ed2a46b62787d459e58005a2c9e8bf
   - enabled: 1
     path: Assets/Scenes/StoryEnd2.unity
     guid: 13529668afec2204bba33761552e5966

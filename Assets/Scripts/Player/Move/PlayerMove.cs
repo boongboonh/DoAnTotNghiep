@@ -24,6 +24,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float timeStartIdleSpecial = 10f;
     float timeCountDown = 0f;
 
+    [Header("move setting")]
+    [HideInInspector] public bool canMove = true;
 
     //tốc độ di chuyển 
     [SerializeField] private float speedMove = 7f;
@@ -40,6 +42,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Awake()
     {
+        canMove = true;
         _playerDash = GetComponent<PlayerDash>();
         rb = GetComponent<Rigidbody2D>();
         animator = PlayerIMG.GetComponent<Animator>();
@@ -55,6 +58,8 @@ public class PlayerMove : MonoBehaviour
  
     private void Update()
     {
+        if (!canMove) return;
+
         //di chuyển trái phải
         dirX = Input.GetAxisRaw("Horizontal");
 

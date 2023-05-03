@@ -9,13 +9,13 @@ public class SoundMenuController : MonoBehaviour
     bool startRandomSound = true;
     int numberSoundRun = -1;
 
-    private void Start()
+    protected virtual void Start()
     {
         numberSoundRun = RandomNotDuplicate(listSound.Count);   //lay 1 bien dau vao
         playSound(numberSoundRun);                              //chay nhac
         startRandomSound = false;                               //khong cho random nua
     }
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (listSound[numberSoundRun].isPlaying) return;        //kiem tra da phat het nhac chua;
         startRandomSound = true;
@@ -60,4 +60,10 @@ public class SoundMenuController : MonoBehaviour
         }
     }
 
+
+    //goi trong ham con de tawt am thanh hien tai
+    public void StopSoundCurrent()
+    {
+        listSound[numberSoundRun].Stop();
+    }
 }
