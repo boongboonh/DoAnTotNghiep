@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuMainManager : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class MenuMainManager : MonoBehaviour
     [SerializeField] private GameObject confirmQuit;                    // nut hien thi cau hoi xac nhan thoat
     [SerializeField] private GameObject continuteButton;                // nut choi tiep
     [SerializeField] private GameObject confirmStartNewGame;            // nut hien thi cau hoi xac nhan choi lai game
+
+
+    [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private Image sliderLoading;
 
 
     [SerializeField] private string FirstPlay = "FirstPlay";
@@ -28,11 +33,46 @@ public class MenuMainManager : MonoBehaviour
     //gawn trong button choi tiep
     public void continuteGame()
     {
+        
+        HideMenu();
+        ShowLoadingScreen();
+
         PlayerPrefs.SetInt(NumberPlay, 1);          //tang so lan choi
+
 
         scenesToLoad.Add(SceneManager.LoadSceneAsync("LoadMapScene"));
         scenesToLoad.Add(SceneManager.LoadSceneAsync("PlayerScene", LoadSceneMode.Additive));
         scenesToLoad.Add(SceneManager.LoadSceneAsync("UIScene", LoadSceneMode.Additive));
+
+        StartCoroutine(LoadingScreen());
+    }
+
+    private void HideMenu()
+    {
+        buttonMenu.SetActive(false);
+    }
+
+    private void ShowLoadingScreen()
+    {
+        loadingScreen.SetActive(true);
+    }
+
+    IEnumerator LoadingScreen()
+    {
+        
+        Debug.Log("scene Can load " + scenesToLoad.Count);
+        float totalProgress = 0;
+        for (int i = 0; i < scenesToLoad.Count; i++)
+        {
+            while (!scenesToLoad[i].isDone)
+            {
+                totalProgress += scenesToLoad[i].progress;
+                sliderLoading.fillAmount = totalProgress / scenesToLoad.Count;
+                yield return null;
+            }
+        }
+
+        //yield return new WaitForSeconds(1f);
     }
 
 
@@ -72,7 +112,16 @@ public class MenuMainManager : MonoBehaviour
     private void startStory()
     {
         Debug.Log("sceneName to load: StoryStart");         //tai cot truyen
-        SceneManager.LoadScene("StoryStart");
+
+        HideMenu();
+        ShowLoadingScreen();
+        scenesToLoad.Add(SceneManager.LoadSceneAsync("StoryStart"));
+
+
+        //SceneManager.LoadScene("StoryStart");
+
+        StartCoroutine(LoadingScreen());
+
     }
 
     //mo cau hoi xac nhan choi moi

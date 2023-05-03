@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class TeleBoxStory : MonoBehaviour
 {
     [SerializeField] private GameObject TextTuto;
+    
 
     [SerializeField] AudioSource openBoxSound;
     [SerializeField] AudioSource closeBoxSound;
+
+    [SerializeField] private GameObject iconOut;
+    [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private Image fillLoading;
 
     List<AsyncOperation> scenesToLoad = new List<AsyncOperation>();
 
@@ -38,9 +44,10 @@ public class TeleBoxStory : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
+                isActive = true;
                 collision.GetComponent<PlayerMoveStory>().isMove = false;       //dung di chuyen
                 TextTuto.SetActive(false);
-                isActive = true;
+                
                 switch (statusBox)
                 {
                     case 1:
@@ -85,19 +92,57 @@ public class TeleBoxStory : MonoBehaviour
         PlayerPrefs.SetFloat("FirstPlayPosX", -34.42f);
         PlayerPrefs.SetFloat("FirstPlayPosY", -5f);
 
+        //hien thi man hinh load game
+        HideIconOut();
+        ShowLoadingScreen();
+        
 
+        //load scene khong dong bo
         scenesToLoad.Add(SceneManager.LoadSceneAsync("Map1"));
         scenesToLoad.Add(SceneManager.LoadSceneAsync("LoadMapScene", LoadSceneMode.Additive));
         scenesToLoad.Add(SceneManager.LoadSceneAsync("PlayerScene", LoadSceneMode.Additive));
 
         scenesToLoad.Add(SceneManager.LoadSceneAsync("UIScene", LoadSceneMode.Additive));
+
+        StartCoroutine(LoadingScreen());
     }
 
     private void loadEndGame1()
     {
-        SceneManager.LoadScene("StoryEnd1");
+        //hien thi man hinh load game
+        HideIconOut();
+        ShowLoadingScreen();
+
+        //SceneManager.LoadScene("StoryEnd1");
+        scenesToLoad.Add(SceneManager.LoadSceneAsync("StoryEnd1"));
+        StartCoroutine(LoadingScreen());
     }
 
+    private void HideIconOut()
+    {
+        iconOut.SetActive(false);
+    }
+
+    private void ShowLoadingScreen()
+    {
+        loadingScreen.SetActive(true);
+    }
+
+    IEnumerator LoadingScreen()
+    {
+        float totalProgress = 0;
+        for (int i = 0; i < scenesToLoad.Count; i++)
+        {
+            while (!scenesToLoad[i].isDone)
+            {
+                totalProgress += scenesToLoad[i].progress;
+                fillLoading.fillAmount = totalProgress / scenesToLoad.Count;
+                yield return null;
+            }
+        }
+
+        //yield return new WaitForSeconds(1f);
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -14,10 +15,16 @@ public class StoryRun : MonoBehaviour
     public float wordSpeed;
     public GameObject speedUpButton;
 
+    [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private Image sliderLoading;
+
     private bool runNextText;
 
     [Header("sound text story")]
     [SerializeField] private AudioSource textSound;
+
+
+    List<AsyncOperation> scenesToLoad = new List<AsyncOperation>();
 
     void Start()
     {
@@ -81,8 +88,35 @@ public class StoryRun : MonoBehaviour
 
     private void GoToStory1()
     {
-        Debug.Log("sceneName to load: Story1");         //quay ve menu
-        SceneManager.LoadScene("Story1");
+        Debug.Log("sceneName to load: Story1");         //chay cot chuyen 1
+        ShowLoadingScreen();
+
+        scenesToLoad.Add(SceneManager.LoadSceneAsync("Story1"));
+        //SceneManager.LoadScene("Story1");
+
+        StartCoroutine(LoadingScreen());
+
+    }
+
+    private void ShowLoadingScreen()
+    {
+        loadingScreen.SetActive(true);
+    }
+
+    IEnumerator LoadingScreen()
+    {
+        float totalProgress = 0;
+        for (int i = 0; i < scenesToLoad.Count; i++)
+        {
+            while (!scenesToLoad[i].isDone)
+            {
+                totalProgress += scenesToLoad[i].progress;
+                sliderLoading.fillAmount = totalProgress / scenesToLoad.Count;
+                yield return null;
+            }
+        }
+
+        //yield return new WaitForSeconds(1f);
     }
 
     //goi tron button

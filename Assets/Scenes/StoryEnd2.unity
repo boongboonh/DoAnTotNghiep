@@ -248,6 +248,8 @@ MonoBehaviour:
   - End story 2...
   wordSpeed: 0.05
   speedUpButton: {fileID: 938615246}
+  loadingScreen: {fileID: 0}
+  sliderLoading: {fileID: 0}
   textSound: {fileID: 1503136055}
   BackMenuButton: {fileID: 858528455}
 --- !u!1 &358728028
@@ -626,11 +628,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Nhi\u1EC7m v\u1EE5 \u0111\xE3 ho\xE0n t\u1EA5t. S\u1EF1 c\u1ED1 \u0111\xE3
     \u0111\u01B0\u1EE3c kh\u1EAFc ph\u1EE5c.\n\nH\xE3y \u0111\u1ED3ng h\xE0nh c\xF9ng
-    Dang Dang \u1EDF nh\u1EEFng cu\u1ED9c phi\xEAu l\u01B0u ti\u1EBFp theo nh\xE9.\n
-    \nC\u1EA3m \u01A1n b\u1EA1n \u0111\xE3 tr\u1EA3i nghi\u1EC7m tr\xF2 ch\u01A1i
-    n\xE0y.\nHy v\u1ECDng b\u1EA1n c\xF3 th\u1EC3 g\xF3p \xFD \u0111\u1EC3 tr\xF2
-    ch\u01A1i tr\u1EDF l\xEAn ho\xE0n thi\u1EC7n h\u01A1n trong t\u01B0\u01A1ng lai.\n\nEnd
-    story 2\n"
+    Dang Dang \u1EDF nh\u1EEFng cu\u1ED9c phi\xEAu l\u01B0u ti\u1EBFp theo nh\xE9.\n\nC\u1EA3m
+    \u01A1n b\u1EA1n \u0111\xE3 tr\u1EA3i nghi\u1EC7m tr\xF2 ch\u01A1i n\xE0y.\nHy
+    v\u1ECDng b\u1EA1n c\xF3 th\u1EC3 g\xF3p \xFD \u0111\u1EC3 tr\xF2 ch\u01A1i tr\u1EDF
+    l\xEAn ho\xE0n thi\u1EC7n h\u01A1n trong t\u01B0\u01A1ng lai.\n\nEnd story 2"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
