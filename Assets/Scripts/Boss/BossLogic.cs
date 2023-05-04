@@ -17,7 +17,8 @@ public class BossLogic : MonoBehaviour
     public LayerMask layerMask;
 
     public float speedDrop = 5f;
-    [SerializeField] float heightDropAttack = 5f;           //do cao tan cong
+    //[SerializeField] float heightDropAttack = 5f;           //do cao tan cong
+    [SerializeField] Transform heightDropAttack;         //do cao tan cong
     bool delayDropAttack = false;
 
     [SerializeField] Transform heightAttackKunai;           //do cao tan cong kunai
@@ -50,7 +51,7 @@ public class BossLogic : MonoBehaviour
     }
     private void OnEnable()
     {
-        //CancelInvoke("DelayChangePatten");      //huy trang thai tao lai patten
+        
         rb.gravityScale = 0f;
         PattenOld = -1;
         gameObject.transform.SetPositionAndRotation(pointAppear.position, Quaternion.identity);
@@ -62,7 +63,7 @@ public class BossLogic : MonoBehaviour
 
     private void OnDisable()
     {
-
+        CancelInvoke("DelayChangePatten");      //huy trang thai tao lai patten
         Debug.Log("tat nhac chien dau");
         EventManager.Instance.offMusicFighting();       //tat nhac chien dau
     }
@@ -183,7 +184,7 @@ public class BossLogic : MonoBehaviour
     //dich chuyen den vi tri nguoi choi
     private void tele(float x)
     {
-        transform.position = new Vector2(x, heightDropAttack);
+        transform.position = new Vector2(x, heightDropAttack.position.y);
         Debug.Log("dich chuyen ");
     }
 
@@ -301,7 +302,6 @@ public class BossLogic : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             tele(getPlayerPos().position.x);
-
 
             animator.SetInteger("StateBoss", 1);
 

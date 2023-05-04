@@ -14,6 +14,7 @@ public class triggerMiniMap : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             PlayerPrefs.SetInt(mapPlayerprefs, NumberMap);
+            PlayerPrefs.SetString("nameMapCurrent", "Map" + NumberMap);
         }
     }
 }

@@ -44,7 +44,12 @@ public class kunaiSword : MonoBehaviour
         }
 
         if(collision.CompareTag("Ground")){
-            isMove = false;
+            StartCoroutine(stopMove());
         }
+    }
+    IEnumerator stopMove()
+    {
+        yield return new WaitForSeconds(0.2f);
+        isMove = false;
     }
 }

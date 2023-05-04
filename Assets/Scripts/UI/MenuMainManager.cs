@@ -39,12 +39,18 @@ public class MenuMainManager : MonoBehaviour
 
         PlayerPrefs.SetInt(NumberPlay, 1);          //tang so lan choi
 
-
-        scenesToLoad.Add(SceneManager.LoadSceneAsync("LoadMapScene"));
-        scenesToLoad.Add(SceneManager.LoadSceneAsync("PlayerScene", LoadSceneMode.Additive));
-        scenesToLoad.Add(SceneManager.LoadSceneAsync("UIScene", LoadSceneMode.Additive));
+        scenesToLoad.Add(SceneManager.LoadSceneAsync("LoadMapScene"));                                  //load giao dien game 
+        scenesToLoad.Add(SceneManager.LoadSceneAsync("PlayerScene", LoadSceneMode.Additive));           //load nhan vat
+        scenesToLoad.Add(SceneManager.LoadSceneAsync("UIScene", LoadSceneMode.Additive));               //load giao dien HP MP
+        if (PlayerPrefs.HasKey("nameMapCurrent"))
+        {
+            string name = PlayerPrefs.GetString("nameMapCurrent");
+            Debug.Log(name);
+            scenesToLoad.Add(SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive));        //load map hien tai
+        }
 
         StartCoroutine(LoadingScreen());
+        
     }
 
     private void HideMenu()
@@ -57,22 +63,24 @@ public class MenuMainManager : MonoBehaviour
         loadingScreen.SetActive(true);
     }
 
+   
     IEnumerator LoadingScreen()
     {
-        
         Debug.Log("scene Can load " + scenesToLoad.Count);
-        float totalProgress = 0;
-        for (int i = 0; i < scenesToLoad.Count; i++)
+
+        float totalProgress = 0f;
+        for (int i = 0; i < scenesToLoad.Count; ++i)
         {
+            Debug.Log("scene " + i);
             while (!scenesToLoad[i].isDone)
             {
                 totalProgress += scenesToLoad[i].progress;
+
                 sliderLoading.fillAmount = totalProgress / scenesToLoad.Count;
+
                 yield return null;
             }
         }
-
-        //yield return new WaitForSeconds(1f);
     }
 
 

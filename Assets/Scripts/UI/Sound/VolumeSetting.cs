@@ -19,7 +19,7 @@ public class VolumeSetting : MonoBehaviour
     void Start()
     {
         //kiem tra bien ton tai chua
-        if (PlayerPrefs.HasKey("musicVolume"))
+        if (PlayerPrefs.HasKey("soundBackgroundMix"))
         {
             //load du lieu
             loadVolume();
