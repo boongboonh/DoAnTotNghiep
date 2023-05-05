@@ -11834,11 +11834,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8535098754743113411, guid: 0353bb2a916e5634386ed6bf7a4023bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.71
+      value: 14.02
       objectReference: {fileID: 0}
     - target: {fileID: 8535098755400438138, guid: 0353bb2a916e5634386ed6bf7a4023bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.76
+      value: -12.79
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0353bb2a916e5634386ed6bf7a4023bd, type: 3}
@@ -14510,6 +14510,30 @@ PrefabInstance:
       propertyPath: TelePostY
       value: tree4PostY
       objectReference: {fileID: 0}
+    - target: {fileID: 7772098879234839568, guid: c120b2f28228bf04085256e57e4ebbba, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+    - target: {fileID: 7772098879234839570, guid: c120b2f28228bf04085256e57e4ebbba, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772098879234839571, guid: c120b2f28228bf04085256e57e4ebbba, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+    - target: {fileID: 7772098879234839571, guid: c120b2f28228bf04085256e57e4ebbba, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772098879234839571, guid: c120b2f28228bf04085256e57e4ebbba, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+    - target: {fileID: 7772098879234839573, guid: c120b2f28228bf04085256e57e4ebbba, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7772098879295831519, guid: c120b2f28228bf04085256e57e4ebbba, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -15650,11 +15674,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3707921601606616466, guid: 3a4beda8924f36540a897ff3735b344c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.52
+      value: -7.76
       objectReference: {fileID: 0}
     - target: {fileID: 3707921602031192285, guid: 3a4beda8924f36540a897ff3735b344c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.36
+      value: 12.55
       objectReference: {fileID: 0}
     - target: {fileID: 3707921602447659016, guid: 3a4beda8924f36540a897ff3735b344c, type: 3}
       propertyPath: m_Size.x

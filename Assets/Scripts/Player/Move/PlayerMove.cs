@@ -177,6 +177,7 @@ public class PlayerMove : MonoBehaviour
         }
         else if (rb.velocity.y < -0.2f)
         {
+     
             state = MovementState.fall;
         }
 
@@ -194,6 +195,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         animator.SetInteger("state", (int)state);
+
     }
 
     bool CheckTime()

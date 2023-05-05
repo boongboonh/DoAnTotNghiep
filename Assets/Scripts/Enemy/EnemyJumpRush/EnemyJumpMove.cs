@@ -102,7 +102,7 @@ public class EnemyJumpMove : MonoBehaviour
     }
     void checkDistancePlayer()
     {
-        if (Vector2.Distance(transform.position, playerPosClone) < 0.1f)
+        if (Vector2.Distance(transform.position, playerPosClone) < 0.1f || Vector2.Distance(transform.position, playerPosClone) >= 13f)
         {
             attackNow = false;
         }
@@ -194,5 +194,10 @@ public class EnemyJumpMove : MonoBehaviour
         
     }
 
-    
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, 13f);
+    }
+
 }
