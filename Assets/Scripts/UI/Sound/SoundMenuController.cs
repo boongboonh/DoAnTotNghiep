@@ -20,6 +20,7 @@ public class SoundMenuController : MonoBehaviour
         if (listSound[numberSoundRun].isPlaying) return;        //kiem tra da phat het nhac chua;
         startRandomSound = true;
         Debug.Log("ket thuc bai");
+        listSound[numberSoundRun].Stop();
         //random so bai
         starRandom();
 
@@ -37,7 +38,7 @@ public class SoundMenuController : MonoBehaviour
     private void starRandom()
     {
         if (!startRandomSound) return;
-
+        
         numberSoundRun = RandomNotDuplicate(listSound.Count);
         Debug.Log("so sound background : "+ listSound.Count);
     }

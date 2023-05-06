@@ -12,7 +12,11 @@ public class StoryController : MonoBehaviour
     public void ExitOpenConfirmOut()
     {
         ExitButton.SetActive(false);
+        confirmOut.transform.localScale = new Vector3(0, 0, 0);
+        
         confirmOut.SetActive(true);
+
+        LeanTween.scale(confirmOut, new Vector3(1, 1, 1), 0.5f);
     }
 
 
@@ -25,7 +29,9 @@ public class StoryController : MonoBehaviour
 
     public void NoOutCurrenGame()
     {
-        confirmOut.SetActive(false);
+        //confirmOut.SetActive(false);
+        LeanTween.scale(confirmOut, new Vector3(0, 0, 0), 0.5f).setOnComplete(destroyConfirmOut);
+
         ExitButton.SetActive(true);
     }
     private void BackToMenu()
@@ -34,4 +40,9 @@ public class StoryController : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
+
+    private void destroyConfirmOut()
+    {
+        confirmOut.SetActive(false);
+    }
 }

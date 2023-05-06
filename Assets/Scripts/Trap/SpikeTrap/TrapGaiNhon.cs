@@ -8,6 +8,7 @@ public class TrapGaiNhon : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            collision.GetComponent<PlayerknockBack>().knockBackFuntion(transform);
             collision.GetComponent<HealthPlayer>().takeDame(1);
         }
     }

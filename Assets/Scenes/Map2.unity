@@ -146,6 +146,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6035070870038101857, guid: 5c459c1cc6a4fe8478544b3cb13f98d5, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6035070870038101884, guid: 5c459c1cc6a4fe8478544b3cb13f98d5, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -180,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6035070870296267066, guid: 5c459c1cc6a4fe8478544b3cb13f98d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.63
+      value: 11.06
       objectReference: {fileID: 0}
     - target: {fileID: 6035070871155660756, guid: 5c459c1cc6a4fe8478544b3cb13f98d5, type: 3}
       propertyPath: m_Name
@@ -236,7 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6035070871222917482, guid: 5c459c1cc6a4fe8478544b3cb13f98d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.09
+      value: -4.57
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c459c1cc6a4fe8478544b3cb13f98d5, type: 3}
@@ -3847,6 +3851,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -13, y: 8, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -12, y: 8, z: 0}
     second:
       serializedVersion: 2
@@ -5429,21 +5443,21 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 458
+  - m_RefCount: 459
     m_Data: {fileID: 11400000, guid: 76208140ff95ea84fa1b8c8858dcb8d2, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 458
+  - m_RefCount: 459
     m_Data: {fileID: -704231745, guid: 3c8fd5191517e4842b08676337a1e36e, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileMatrixArray:
-  - m_RefCount: 458
+  - m_RefCount: 459
     m_Data:
       e00: 1
       e01: 0
@@ -5462,7 +5476,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 458
+  - m_RefCount: 459
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -5823,8 +5837,14 @@ CompositeCollider2D:
       - X: -120075972
         Y: 100080577
       - X: -120075972
+        Y: 90080636
+      - X: -130075913
+        Y: 90080636
+      - X: -130075972
+        Y: 90080577
+      - X: -130075972
         Y: 79931775
-      - X: -120075913
+      - X: -130075913
         Y: 79931716
       - X: -80075972
         Y: 79931716
@@ -6074,7 +6094,9 @@ CompositeCollider2D:
       - {x: 1.0072943, y: 9.008093}
       - {x: 1.0072591, y: 10.008064}
       - {x: -12.007597, y: 10.008029}
-      - {x: -12.007562, y: 7.993171}
+      - {x: -12.007627, y: 9.008064}
+      - {x: -13.007597, y: 9.008029}
+      - {x: -13.007562, y: 7.993171}
       - {x: -8.007597, y: 7.9931426}
       - {x: -8.007562, y: 6.993171}
       - {x: -7.0075984, y: 6.9931426}
@@ -7708,6 +7730,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1958901177}
     m_Modifications:
+    - target: {fileID: 8075327628032125754, guid: b6ebaf57e4a35954591305d076b2f8e7, type: 3}
+      propertyPath: delayBetweenShoot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8075327628283794580, guid: b6ebaf57e4a35954591305d076b2f8e7, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -8944,6 +8970,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1958901177}
     m_Modifications:
+    - target: {fileID: 8075327628032125754, guid: b6ebaf57e4a35954591305d076b2f8e7, type: 3}
+      propertyPath: delayBetweenShoot
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8075327628283794580, guid: b6ebaf57e4a35954591305d076b2f8e7, type: 3}
       propertyPath: m_RootOrder
       value: 6

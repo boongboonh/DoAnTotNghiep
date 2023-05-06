@@ -2407,6 +2407,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493626227}
   m_CullTransparentMesh: 1
+--- !u!4 &514834378 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6035070871222917482, guid: 5c459c1cc6a4fe8478544b3cb13f98d5, type: 3}
+  m_PrefabInstance: {fileID: 554747565}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &532639951
 GameObject:
   m_ObjectHideFlags: 0
@@ -2499,6 +2504,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6035070870038101857, guid: 5c459c1cc6a4fe8478544b3cb13f98d5, type: 3}
+      propertyPath: waypointUp
+      value: 
+      objectReference: {fileID: 1740810692}
+    - target: {fileID: 6035070870038101857, guid: 5c459c1cc6a4fe8478544b3cb13f98d5, type: 3}
+      propertyPath: waypointDown
+      value: 
+      objectReference: {fileID: 514834378}
     - target: {fileID: 6035070870038101887, guid: 5c459c1cc6a4fe8478544b3cb13f98d5, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2506,7 +2519,7 @@ PrefabInstance:
     - target: {fileID: 6035070870038101887, guid: 5c459c1cc6a4fe8478544b3cb13f98d5, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6200000, guid: ebb0b15b0fc3ad742ab2fc38fb841fc6, type: 2}
     - target: {fileID: 6035070870296267066, guid: 5c459c1cc6a4fe8478544b3cb13f98d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2571,7 +2584,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.19
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1291767117228093538, guid: 5c459c1cc6a4fe8478544b3cb13f98d5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5c459c1cc6a4fe8478544b3cb13f98d5, type: 3}
 --- !u!1 &582578916
 GameObject:
@@ -3692,23 +3706,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796491512}
   m_CullTransparentMesh: 1
---- !u!1 &798172709 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6035070870038101859, guid: 5c459c1cc6a4fe8478544b3cb13f98d5, type: 3}
-  m_PrefabInstance: {fileID: 554747565}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &798172716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798172709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2e975dbfaf6fe34b89a873fdcf44853, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &802000374
 GameObject:
   m_ObjectHideFlags: 0
@@ -14436,6 +14433,11 @@ Transform:
   m_Father: {fileID: 1105352424}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1740810692 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6035070870296267066, guid: 5c459c1cc6a4fe8478544b3cb13f98d5, type: 3}
+  m_PrefabInstance: {fileID: 554747565}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1751734317
 GameObject:
   m_ObjectHideFlags: 3

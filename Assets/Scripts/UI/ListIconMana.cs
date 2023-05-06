@@ -41,6 +41,7 @@ public class ListIconMana : ListIcon
                 if (i < ManaManager.Instance.NowMana)
                 {
                     icons[i].GetComponent<Image>().color = Color.white;
+                    LeanTween.scale(icons[i], new Vector3(1.5f, 1.5f, 1f), 0.25f).setEaseShake();
                 }
                 else
                 {

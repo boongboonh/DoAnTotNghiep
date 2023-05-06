@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WayPoint : MonoBehaviour
 {
-    private SpriteRenderer sprite;
     [SerializeField] private GameObject[] waypoints;
     //khởi tạo vị trí hiện tại đang tiến đến
 

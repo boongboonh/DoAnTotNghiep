@@ -25,7 +25,7 @@ public class MapController : MonoBehaviour
         isShow = true;
 
         miniMap.SetActive(true);
-
+        EventManager.Instance.OnHideInfor();    //an thong tin hp mp nguwoif choi
         Time.timeScale = 0f;
     }
 
@@ -36,7 +36,7 @@ public class MapController : MonoBehaviour
         miniMap.SetActive(false);           //tat hien thi map
 
         iconInGame.SetActive(true);         //hien thi cac nut icon tren man hinh game
-
+        EventManager.Instance.OnShowInfor();    //hien thong tin hp mp nguwoif choi
         Time.timeScale = 1f;
     }
 }

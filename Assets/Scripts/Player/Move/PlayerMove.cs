@@ -171,13 +171,14 @@ public class PlayerMove : MonoBehaviour
         }
 
         //animation jump
+
         if (rb.velocity.y > 0.2f)
-        {
+        {   
             state = MovementState.jump;
         }
         else if (rb.velocity.y < -0.2f)
         {
-     
+            
             state = MovementState.fall;
         }
 

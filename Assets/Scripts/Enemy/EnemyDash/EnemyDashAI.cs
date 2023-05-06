@@ -31,7 +31,7 @@ public class EnemyDashAI : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        _animator.keepAnimatorControllerStateOnDisable = true;
+        //_animator.keepAnimatorControllerStateOnDisable = true;
     }
     private void OnEnable()
     {

@@ -33,6 +33,7 @@ public class wayShock : MonoBehaviour
         {
             //neu cham vao player tru 1 hp
             collision.GetComponent<HealthPlayer>().takeDame(1);
+            collision.GetComponent<PlayerknockBack>().knockBackFuntion(transform);
         }
     }
 }

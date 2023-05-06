@@ -28,7 +28,7 @@ public class NPC : MonoBehaviour
     public float wordSpeed;
     private bool playerIsClose;
 
-    private bool hideContinue = false;
+    private bool hideContinue = true;
 
     public GameObject continueButton;
     public GameObject IconTalk;
@@ -72,9 +72,10 @@ public class NPC : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
+            
             numberTalk = 1; //so lan noi chuyen la 1
             player.GetComponent<PlayerMoveStory>().isMove = false;  //khong cho nguwoi choi di chuyen
-
+            hideContinue = false;
             exitButton.SetActive(false);//khong cho thoat
 
             isClicked = true;
