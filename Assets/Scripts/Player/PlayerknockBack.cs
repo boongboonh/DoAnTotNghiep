@@ -24,7 +24,6 @@ public class PlayerknockBack : MonoBehaviour
         //pushDirection = new Vector2(Mathf.Clamp(pushDirection.x, -0.8f, 0.8f), Mathf.Clamp(pushDirection.y, 0.2f, 0.8f));
         //dat gravity ve nhu cu
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 3f;
-
         gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.ClampMagnitude(pushDirection * knockbackForce, 15f), ForceMode2D.Impulse);
     }
 }

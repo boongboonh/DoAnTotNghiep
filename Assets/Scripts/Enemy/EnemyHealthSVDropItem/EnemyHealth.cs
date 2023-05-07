@@ -43,7 +43,7 @@ public abstract class EnemyHealth : MonoBehaviour
         }
     }*/
 
-    public void EnemyTakeDame(int damePlayer)
+    public virtual void EnemyTakeDame(int damePlayer)
     {
         
         if (healthEnemy <= damePlayer)

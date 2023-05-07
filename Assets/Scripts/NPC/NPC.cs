@@ -84,6 +84,7 @@ public class NPC : MonoBehaviour
         }
     }
 
+
     private void RunText()
     {
         RemoveText();   //lam moi bang ghi
@@ -91,6 +92,7 @@ public class NPC : MonoBehaviour
         if (!dialoguePanel.activeInHierarchy)
         {
             dialoguePanel.SetActive(true);
+
             StartCoroutine(Typing());
         }
         else if (dialogueText.text == currenDialogue[index])
@@ -195,20 +197,24 @@ public class NPC : MonoBehaviour
 
     public void AgreeOptionButton()       //dong y nhan nhiem vu
     {
+
         hideContinue = false;
         currenDialogue = dialogueOption1;
         ActiveTeleBoxStart();
         RunText();
+
 
         optionQuestion.SetActive(false);
     }
 
     public void RejectOptionButton()        //tu choi nhan nhiem vu
     {
+
         hideContinue = false;
         currenDialogue = dialogueOption2;
         ActiveTeleBoxEnd();
         RunText();
+
 
         optionQuestion.SetActive(false);
     }

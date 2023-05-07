@@ -33,8 +33,8 @@ public class MenuMainManager : MonoBehaviour
     //gawn trong button choi tiep
     public void continuteGame()
     {
-        
-        HideMenu();
+
+        HideTween(buttonMenu);
         ShowLoadingScreen();
 
         PlayerPrefs.SetInt(NumberPlay, 1);          //tang so lan choi
@@ -53,9 +53,24 @@ public class MenuMainManager : MonoBehaviour
         
     }
 
-    private void HideMenu()
+
+    private void HideTween(GameObject gameObject)
     {
-        buttonMenu.SetActive(false);
+        LeanTween.scale(gameObject, new Vector3(0, 1, 1), 0.25f).setOnComplete(() => Hide(gameObject));
+    }
+    
+    private void ShowTween(GameObject gameObject)
+    {
+        LeanTween.scale(gameObject, new Vector3(1, 1, 1), 0.25f).setOnComplete(() => Show(gameObject));
+    }
+    private void Hide(GameObject gameObject)
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void Show(GameObject gameObject)
+    {
+        gameObject.SetActive(true);
     }
 
     private void ShowLoadingScreen()
@@ -121,7 +136,7 @@ public class MenuMainManager : MonoBehaviour
     {
         Debug.Log("sceneName to load: StoryStart");         //tai cot truyen
 
-        HideMenu();
+        HideTween(buttonMenu);
         ShowLoadingScreen();
         scenesToLoad.Add(SceneManager.LoadSceneAsync("StoryStart"));
 
@@ -135,15 +150,17 @@ public class MenuMainManager : MonoBehaviour
     //mo cau hoi xac nhan choi moi
     private void openConfirmStart()
     {
-        buttonMenu.SetActive(false);
-        confirmStartNewGame.SetActive(true);
+        HideTween(buttonMenu);
+        ShowTween(confirmStartNewGame);
+        //confirmStartNewGame.SetActive(true);
     }
 
     //gan trong button khoong ddoong ys choi moi
     public void NoStartConfirm()
     {
-        buttonMenu.SetActive(true);
-        confirmStartNewGame.SetActive(false);
+        ShowTween(buttonMenu);
+        //confirmStartNewGame.SetActive(false);
+        HideTween(confirmStartNewGame);
     }
     
     //gan trong button dong y choi moi
@@ -152,8 +169,11 @@ public class MenuMainManager : MonoBehaviour
         PlayerPrefs.DeleteAll();                // xoa toan bo du lieu truoc do 
         PlayerPrefs.SetInt(FirstPlay,0);        //dat lan choi ve 0 
         continuteButton.SetActive(false);       //an nut tiep tuc choi
-        confirmStartNewGame.SetActive(false);   //tat xac nhan
-        buttonMenu.SetActive(true);             //hien thi lai menu
+
+        HideTween(confirmStartNewGame);
+
+        //confirmStartNewGame.SetActive(false);   //tat xac nhan
+        ShowTween(buttonMenu);             //hien thi lai menu
     }
 
 
@@ -167,16 +187,20 @@ public class MenuMainManager : MonoBehaviour
     //gan trong button thoat de mo cau hoi xac nhan
     public void openQuitConfirm()
     {
-        buttonMenu.SetActive(false);
-        confirmQuit.SetActive(true);
+        HideTween(buttonMenu);
+
+        ShowTween(confirmQuit);
+        //confirmQuit.SetActive(true);
     }
 
    
     //gan trong button khong dong ys thoat game
     public void closeQuitConfirm()
     {
-        buttonMenu.SetActive(true);
-        confirmQuit.SetActive(false);
+        ShowTween(buttonMenu);
+
+        HideTween(confirmQuit);
+        //confirmQuit.SetActive(false);
     }
 
 

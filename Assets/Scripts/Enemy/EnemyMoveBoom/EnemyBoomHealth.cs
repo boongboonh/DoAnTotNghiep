@@ -12,4 +12,10 @@ public class EnemyBoomHealth : EnemyHealth
         AudioSource.PlayClipAtPoint(clip, pointPlayDeathSound.position);
         //enemyDeathSound.Play();
     }
+
+    public override void EnemyTakeDame(int damePlayer)
+    {
+        LeanTween.moveLocalY(gameObject, 0.1f, 0.1f).setEaseShake();
+        base.EnemyTakeDame(damePlayer);
+    }
 }

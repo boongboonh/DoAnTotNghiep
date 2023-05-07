@@ -26,4 +26,10 @@ public class EnemyBarrieAll : EnemyHealth
         AudioSource.PlayClipAtPoint(clip, pointPlayDeathSound.position);
         //enemyDeathSound.Play();
     }
+
+    public override void EnemyTakeDame(int damePlayer)
+    {
+        LeanTween.moveLocalX(gameObject, 0.2f,0.1f).setEaseShake();
+        base.EnemyTakeDame(damePlayer);
+    }
 }

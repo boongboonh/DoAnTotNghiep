@@ -12,11 +12,16 @@ public class StoryController : MonoBehaviour
     public void ExitOpenConfirmOut()
     {
         ExitButton.SetActive(false);
-        confirmOut.transform.localScale = new Vector3(0, 0, 0);
+        confirmOut.transform.localScale = new Vector3(0, 1, 1);
         
         confirmOut.SetActive(true);
 
-        LeanTween.scale(confirmOut, new Vector3(1, 1, 1), 0.5f);
+        LeanTween.scale(confirmOut, new Vector3(1, 1 ,1), 0.3f).setOnComplete(shockConfirmEffect);
+    }
+
+    private void shockConfirmEffect()
+    {
+        LeanTween.scale(confirmOut, new Vector3(1.2f, 1, 1), 0.1f).setEaseShake();
     }
 
 
@@ -30,7 +35,7 @@ public class StoryController : MonoBehaviour
     public void NoOutCurrenGame()
     {
         //confirmOut.SetActive(false);
-        LeanTween.scale(confirmOut, new Vector3(0, 0, 0), 0.5f).setOnComplete(destroyConfirmOut);
+        LeanTween.scale(confirmOut, new Vector3(0, 1, 1), 0.3f).setOnComplete(destroyConfirmOut);
 
         ExitButton.SetActive(true);
     }

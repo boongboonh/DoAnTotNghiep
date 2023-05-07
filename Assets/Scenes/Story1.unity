@@ -778,7 +778,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &157285726
@@ -975,8 +975,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 39.501526, y: 5.7062263}
-  m_SizeDelta: {x: 1079.003, y: 108.58755}
+  m_AnchoredPosition: {x: 39.5, y: 5.5}
+  m_SizeDelta: {x: 1079, y: 109}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &296769723
 MonoBehaviour:
