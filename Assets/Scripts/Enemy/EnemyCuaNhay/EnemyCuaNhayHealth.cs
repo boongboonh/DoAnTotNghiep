@@ -28,4 +28,5 @@ public class EnemyCuaNhayHealth : EnemyHealth
     {
         AudioSource.PlayClipAtPoint(clip, pointPlayDeathSound.position);
     }
+
 }

@@ -41,7 +41,8 @@ public class ListIconHealth : ListIcon
                 if (i < HealthPlayer.Instance.NowHeal)
                 {
                     icons[i].GetComponent<Image>().color = Color.white;
-                    LeanTween.scale(icons[i], new Vector3(1.5f, 1.5f, 1f), 0.25f).setEaseShake();
+                    LeanTween.cancel(icons[i]);
+                    LeanTween.scale(icons[i], new Vector3(1.5f, 1.5f, 1f), 0.25f).setEaseShake().setIgnoreTimeScale(true);
                 }
                 else
                 {

@@ -11,4 +11,10 @@ public class EnemySpiderHealth : EnemyHealth
     {
         AudioSource.PlayClipAtPoint(clip, pointPlayDeathSound.position);
     }
+
+    public override void EnemyTakeDame(int damePlayer)
+    {
+        LeanTween.moveLocalX(gameObject, 0.4f, 0.2f).setEaseShake();
+        base.EnemyTakeDame(damePlayer);
+    }
 }
