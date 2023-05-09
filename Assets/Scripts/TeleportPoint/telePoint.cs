@@ -55,6 +55,9 @@ public class telePoint : MonoBehaviour
             PlayerPrefs.SetFloat(TelePostY, transform.parent.position.y + 1);
         }
     }
+
+
+    
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
