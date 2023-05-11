@@ -232,8 +232,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76591617}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45.8219, y: 8.3462, z: 0}
-  m_LocalScale: {x: 2.5869591, y: 8.279973, z: 1}
+  m_LocalPosition: {x: 46.9883, y: 10.4807, z: 0}
+  m_LocalScale: {x: 2.438209, y: 12.307352, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1455783181}
@@ -8910,8 +8910,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185810374}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 46.2394, y: -10.4244, z: 0}
-  m_LocalScale: {x: 2.6428375, y: 12.601484, z: 1}
+  m_LocalPosition: {x: 42.5068, y: -13.2821, z: 0}
+  m_LocalScale: {x: 3.1185482, y: 17.993658, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1455783181}
@@ -9138,8 +9138,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305944721}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45.9, y: -0.4, z: 0}
-  m_LocalScale: {x: 2.5869591, y: 8.279973, z: 1}
+  m_LocalPosition: {x: 42.1091, y: -0.4, z: 0}
+  m_LocalScale: {x: 3.070203, y: 8.279973, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1455783181}
@@ -9810,8 +9810,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625542693}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.4215, y: 8.6881, z: -1.98}
-  m_LocalScale: {x: 2.868004, y: 10.718046, z: 1}
+  m_LocalPosition: {x: 18.9224, y: 10.3137, z: -1.98}
+  m_LocalScale: {x: 3.628025, y: 12.31182, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1455783181}
@@ -9855,9 +9855,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1808681825
-  m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 211153260, guid: a5fe8a3834fe9ca48b9501e71a56f5be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

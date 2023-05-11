@@ -44,6 +44,14 @@ public class ShootWepon : MonoBehaviour
             }
             
         }
+/*
+
+        //ki nang Q tao tinh linh ban dan
+
+        if(Input.GetKeyDown(KeyCode.Q)&& mana.NowMana > 1)
+        {
+
+        }*/
     }
 
     //tim kiem enemy 
