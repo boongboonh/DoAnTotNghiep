@@ -24,7 +24,7 @@ public class TagetJump : MonoBehaviour
         if (attack)
         {
             attack = false;
-            rb.velocity = V0;
+            rb.linearVelocity = V0;
 
         }
         Destroy(gameObject,5f);

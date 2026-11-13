@@ -48,7 +48,7 @@ public class EnemyCuaNhayMiniAI : MonoBehaviour
 
     private void jump(float directionJump) // truyen vao huowng nhay - trai,+ phai;
     {
-        _rb.velocity = new Vector2(ForceJumpMovex * directionJump, Random.Range(0.1f, ForceJumpMovey));
+        _rb.linearVelocity = new Vector2(ForceJumpMovex * directionJump, Random.Range(0.1f, ForceJumpMovey));
 
         //chay hieu ung am thanh
         playSoundJump();
@@ -62,12 +62,12 @@ public class EnemyCuaNhayMiniAI : MonoBehaviour
 
     private void updateAnimation()
     {
-        if (_rb.velocity.y > .1f)
+        if (_rb.linearVelocity.y > .1f)
         {
             _animator.SetInteger("state", 0);
         }
 
-        if (_rb.velocity.y < -.1f)
+        if (_rb.linearVelocity.y < -.1f)
         {
             _animator.SetInteger("state", 1);
         }

@@ -112,12 +112,12 @@ public class PlayerMoveStory : MonoBehaviour
 
     private void Move()
     {
-        rb.velocity = new Vector2(dirX * speedMove, rb.velocity.y);
+        rb.linearVelocity = new Vector2(dirX * speedMove, rb.linearVelocity.y);
     }
 
     public void player_jump_acti(float strong)
     {
-        rb.velocity = new Vector3(0, strong, 0);
+        rb.linearVelocity = new Vector3(0, strong, 0);
     }
 
     private void checkFlip()
@@ -156,16 +156,16 @@ public class PlayerMoveStory : MonoBehaviour
         }
 
         //animation jump
-        if (rb.velocity.y > 0.2f)
+        if (rb.linearVelocity.y > 0.2f)
         {
             state = MovementState.jump;
         }
-        else if (rb.velocity.y < -0.2f)
+        else if (rb.linearVelocity.y < -0.2f)
         {
             state = MovementState.fall;
         }
 
-        if (rb.velocity == Vector2.zero && CheckTime())
+        if (rb.linearVelocity == Vector2.zero && CheckTime())
         {
             Debug.Log("chay animtion dacj biet");
             state = MovementState.specialIdle;

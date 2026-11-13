@@ -8,7 +8,7 @@ public class ButtonAniController : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        animator.keepAnimatorControllerStateOnDisable = true;
+        animator.keepAnimatorStateOnDisable = true;
     }
 
 }

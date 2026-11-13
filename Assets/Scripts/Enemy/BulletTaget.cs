@@ -16,7 +16,7 @@ public class BulletTaget : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerTaget = GetPosPlayer.Instance.PlayerPos;
         moveDirection = (playerTaget.transform.position - transform.position).normalized * moveSpeed;
-        rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
+        rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y);
         Destroy(gameObject, timeMaintain);
 
 

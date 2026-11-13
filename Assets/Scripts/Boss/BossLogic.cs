@@ -46,7 +46,7 @@ public class BossLogic : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        animator.keepAnimatorControllerStateOnDisable = true;
+        animator.keepAnimatorStateOnDisable = true;
         
     }
     private void OnEnable()

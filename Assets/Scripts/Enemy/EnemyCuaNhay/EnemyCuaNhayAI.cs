@@ -81,7 +81,7 @@ public class EnemyCuaNhayAI : MonoBehaviour
 
     void jump(float directionJump) // truyen vao huowng nhay - trai,+ phai;
     {
-        _rb.velocity = new Vector2(ForceJumpMovex * directionJump, ForceJumpMovey);
+        _rb.linearVelocity = new Vector2(ForceJumpMovex * directionJump, ForceJumpMovey);
         
         //chay am thanh nhay
         playSoundJump();
@@ -96,12 +96,12 @@ public class EnemyCuaNhayAI : MonoBehaviour
 
     private void updateAnimation()
     {
-        if (_rb.velocity.y > .1f)
+        if (_rb.linearVelocity.y > .1f)
         {
             _animator.SetInteger("state", 0);
         }
         
-        if (_rb.velocity.y < -.1f)
+        if (_rb.linearVelocity.y < -.1f)
         {
             _animator.SetInteger("state", 1);
         }

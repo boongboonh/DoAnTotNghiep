@@ -109,7 +109,7 @@ public class EnemyJumpMove : MonoBehaviour
     }
     void jumpNomal()
     {
-        _rb.velocity = new Vector2(ForceJumpMovex* direction, ForceJumpMovey);
+        _rb.linearVelocity = new Vector2(ForceJumpMovex* direction, ForceJumpMovey);
 
         //chay am thanh nhay
         playJumpMove();
@@ -125,18 +125,18 @@ public class EnemyJumpMove : MonoBehaviour
  
     void JumpAttack()
     {
-        _rb.velocity = new Vector2(ForceJumpx * checkdirection(direction), ForceJumpy);
+        _rb.linearVelocity = new Vector2(ForceJumpx * checkdirection(direction), ForceJumpy);
 
     }
     
      void updateAnimation()
     {
-        if (_rb.velocity.y > .1f)
+        if (_rb.linearVelocity.y > .1f)
         {
             _animator.SetBool("EnemyRushIdle", false);
             _animator.SetBool("EnemyRushJump",true);
         }
-        else if(_rb.velocity.y<-.1f)
+        else if(_rb.linearVelocity.y<-.1f)
         {
             _animator.SetBool("EnemyRushIdle", true);
             _animator.SetBool("EnemyRushJump", false);
@@ -168,10 +168,10 @@ public class EnemyJumpMove : MonoBehaviour
     }
     void Attack()
     {
-        if (_rb.velocity.y < -0.2f && isattack)
+        if (_rb.linearVelocity.y < -0.2f && isattack)
         {
             isattack = false;
-            _rb.velocity = Vector2.zero;
+            _rb.linearVelocity = Vector2.zero;
             StartCoroutine(AttackRush());
         }
     }

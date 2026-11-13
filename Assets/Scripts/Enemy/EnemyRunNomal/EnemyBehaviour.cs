@@ -16,11 +16,11 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (IsFacingRight())
         {
-            _rb.velocity = new Vector2(moveSpeed, 0f);
+            _rb.linearVelocity = new Vector2(moveSpeed, 0f);
         }
         else
         {
-            _rb.velocity = new Vector2(-moveSpeed, 0f);
+            _rb.linearVelocity = new Vector2(-moveSpeed, 0f);
         }
 
     }
@@ -31,7 +31,7 @@ public class EnemyBehaviour : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
        
-       transform.localScale = new Vector2(-(Mathf.Sign(_rb.velocity.x)), transform.localScale.y);
+       transform.localScale = new Vector2(-(Mathf.Sign(_rb.linearVelocity.x)), transform.localScale.y);
       
     }
 }

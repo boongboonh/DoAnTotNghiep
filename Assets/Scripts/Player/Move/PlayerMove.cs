@@ -46,7 +46,7 @@ public class PlayerMove : MonoBehaviour
         _playerDash = GetComponent<PlayerDash>();
         rb = GetComponent<Rigidbody2D>();
         animator = PlayerIMG.GetComponent<Animator>();
-        animator.keepAnimatorControllerStateOnDisable = true;               //dat gia tri animation mac dinh de khi set active thi no dat ve mac dinh
+        animator.keepAnimatorStateOnDisable = true;               //dat gia tri animation mac dinh de khi set active thi no dat ve mac dinh
     }
 
    
@@ -123,13 +123,13 @@ public class PlayerMove : MonoBehaviour
 
     private void Move()
     {
-        rb.velocity = new Vector2(dirX * speedMove , rb.velocity.y);
+        rb.linearVelocity = new Vector2(dirX * speedMove , rb.linearVelocity.y);
     }
 
 
     public void player_jump_acti(float strong)
     {
-        rb.velocity = new Vector3(0, strong , 0);
+        rb.linearVelocity = new Vector3(0, strong , 0);
     }
 
 
@@ -172,11 +172,11 @@ public class PlayerMove : MonoBehaviour
 
         //animation jump
 
-        if (rb.velocity.y > 0.2f)
+        if (rb.linearVelocity.y > 0.2f)
         {   
             state = MovementState.jump;
         }
-        else if (rb.velocity.y < -0.2f)
+        else if (rb.linearVelocity.y < -0.2f)
         {
             
             state = MovementState.fall;
@@ -189,7 +189,7 @@ public class PlayerMove : MonoBehaviour
         }
 
 
-        if (rb.velocity == Vector2.zero && CheckTime())
+        if (rb.linearVelocity == Vector2.zero && CheckTime())
         {
             Debug.Log("chay animtion dacj biet");
             state = MovementState.specialIdle;

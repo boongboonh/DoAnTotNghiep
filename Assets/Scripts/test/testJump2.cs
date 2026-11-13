@@ -16,7 +16,7 @@ public class testJump2 : MonoBehaviour
         Vector3 V0 = CalculateVelocity(GetPosPlayer.Instance.PlayerPos.position, transform.position, time);
         if (Input.GetMouseButtonDown(1))
         {
-            rb.velocity = V0;
+            rb.linearVelocity = V0;
         }
     }
     

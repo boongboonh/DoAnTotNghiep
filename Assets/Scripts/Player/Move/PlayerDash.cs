@@ -74,7 +74,7 @@ public class PlayerDash : MonoBehaviour
         _isDashing = true;
         _canDash = false;
         _rb.gravityScale = 0f;
-        _rb.velocity = new Vector2(playerDirection(_player.Direction) * _dashForce, 0f);
+        _rb.linearVelocity = new Vector2(playerDirection(_player.Direction) * _dashForce, 0f);
         yield return new WaitForSeconds(_dashingTime);
 
         endDash();

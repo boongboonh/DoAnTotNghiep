@@ -24,9 +24,9 @@ public class KnockBack : MonoBehaviour
         Vector2 forceDirection = objectKnockBack.transform.position - transform.position;
         Vector2 force = forceDirection.normalized * thrust;
 
-        objectKnockBack.velocity = force;
+        objectKnockBack.linearVelocity = force;
         yield return new WaitForSeconds(timeKnockBack);
 
-        objectKnockBack.velocity = new Vector2();
+        objectKnockBack.linearVelocity = new Vector2();
     }
 }

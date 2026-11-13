@@ -31,7 +31,7 @@ public class EnemyJump : MonoBehaviour
         if (isAttack)
         {
             AttackEnd = false;
-            rb.velocity = V0;
+            rb.linearVelocity = V0;
         }
 
         if(AttackEnd)

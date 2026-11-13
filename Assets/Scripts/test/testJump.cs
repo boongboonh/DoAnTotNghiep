@@ -28,8 +28,8 @@ public class testJump : MonoBehaviour
     {
         Physics.gravity = Vector3.up * gravity;
         rd.gravityScale = 1;
-        rd.velocity= CalcylateLauchVelocity();
-        Debug.Log(rd.velocity);
+        rd.linearVelocity= CalcylateLauchVelocity();
+        Debug.Log(rd.linearVelocity);
 
     }
     Vector3 CalcylateLauchVelocity()
