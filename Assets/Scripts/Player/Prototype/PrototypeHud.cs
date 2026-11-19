@@ -245,6 +245,27 @@ public sealed class PrototypeHud : MonoBehaviour
             }
         }
 
+        // --- Boss thu 2 (Stormwing): cung kieu thanh mau ---
+        var sky = arena.SkyBoss;
+        if (sky != null && sky.Active)
+        {
+            Threat(sky.Position, sky.State, playerPos, s, w, h, t, 14f);
+            float frac = Mathf.Clamp01(sky.Health / (float)PrototypeStormBoss.MaxHealth);
+            float bw = Mathf.Min(900f, w - 200f);
+            float bx = (w - bw) / 2f;
+            Box(new Rect(bx - 4, 60, bw + 8, 30), new Color(0f, 0f, 0f, .75f));
+            Box(new Rect(bx, 64, bw * frac, 22), sky.Phase == 2 ? new Color(.9f, .3f, .5f) : new Color(.3f, .8f, .9f));
+            Box(new Rect(bx + bw * .5f - 2, 60, 4, 30), new Color(1f, 1f, 1f, .5f));
+            var nameStyle = new GUIStyle(small) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold };
+            GUI.Label(new Rect(bx, 30, bw, 28), "THE STORMWING" + (sky.Phase == 2 ? "  -  ENRAGED" : ""), nameStyle);
+            if (sky.Current == PrototypeStormBoss.Mode.Stagger || sky.Current == PrototypeStormBoss.Mode.Recovery)
+            {
+                var hit = new GUIStyle(small) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold };
+                hit.normal.textColor = new Color(.5f, .9f, 1f);
+                GUI.Label(new Rect(bx, 94, bw, 28), sky.Current == PrototypeStormBoss.Mode.Stagger ? "STUNNED" : "GROUNDED - STRIKE!", hit);
+            }
+        }
+
         // --- Dan dich dang bay ---
         foreach (var p in shots)
         {

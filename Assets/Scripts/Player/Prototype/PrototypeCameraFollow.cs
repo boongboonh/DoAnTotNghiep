@@ -13,7 +13,7 @@ public sealed class PrototypeCameraFollow
     public float smoothTime = .18f;
     public float lookSmoothTime = .3f;
     public Vector2 minBounds = new Vector2(-16f, 2f);
-    public Vector2 maxBounds = new Vector2(91f, 8f);
+    public Vector2 maxBounds = new Vector2(127f, 8f);
 
     private Vector3 velocity;
     private float lookX;

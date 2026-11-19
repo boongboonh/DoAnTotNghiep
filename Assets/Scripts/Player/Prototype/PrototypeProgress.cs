@@ -28,6 +28,7 @@ public sealed class PrototypeProgress : MonoBehaviour
     public const string ShortcutDoorId = "shortcut_door";
     public const string TrialClearId = "combat_trial_clear";
     public const string BossDefeatedId = "boss_warden";
+    public const string SkyBossDefeatedId = "boss_stormwing";
 
     [Tooltip("Chi de debug: mo Bash trong bo nho, KHONG ghi vao save thuong.")]
     [SerializeField] private bool debugUnlockBash;

@@ -37,7 +37,17 @@ public sealed class PrototypePlayground : MonoBehaviour
     {
         if (progress != null) progress.SetCheckpoint(id);
         if (bossArena != null) bossArena.SetCheckpointActive(id == PrototypeBossArena.BossCheckpointId);
+        if (skyArena != null) skyArena.SetCheckpointActive(id == PrototypeSkyArena.CheckpointId);
     }
+
+    private void OnSkyBossDefeated()
+    {
+        if (progress != null) progress.CollectItem(PrototypeProgress.SkyBossDefeatedId);
+    }
+
+    private PrototypeSkyArena skyArena;
+    public PrototypeStormBoss SkyBoss => skyArena != null ? skyArena.Boss : null;
+    private bool SkyDone => progress != null && progress.HasItem(PrototypeProgress.SkyBossDefeatedId);
 
     private void OnBossDefeated()
     {
@@ -48,7 +58,9 @@ public sealed class PrototypePlayground : MonoBehaviour
     public PrototypeBoss Boss => bossArena != null ? bossArena.Boss : null;
     private bool BossDone => progress != null && progress.HasItem(PrototypeProgress.BossDefeatedId);
     private bool resetting;
-    public Vector2 RespawnPosition => progress != null && progress.CheckpointId == PrototypeBossArena.BossCheckpointId
+    public Vector2 RespawnPosition => progress != null && progress.CheckpointId == PrototypeSkyArena.CheckpointId
+        ? PrototypeSkyArena.CheckpointSpawn
+        : progress != null && progress.CheckpointId == PrototypeBossArena.BossCheckpointId
         ? PrototypeBossArena.CheckpointSpawn
         : terrain != null && terrain.CheckpointActive ? terrain.CheckpointSpawn : spawn;
 
@@ -135,6 +147,9 @@ public sealed class PrototypePlayground : MonoBehaviour
         bossArena = gameObject.AddComponent<PrototypeBossArena>();
         bossArena.Initialize(player, health, square, OnCheckpointActivated, OnBossDefeated);
         bossArena.ResetArena(BossDone);
+        skyArena = gameObject.AddComponent<PrototypeSkyArena>();
+        skyArena.Initialize(player, health, square, OnCheckpointActivated, OnSkyBossDefeated);
+        skyArena.ResetArena(SkyDone);
         // Checkpoint khong con ton tai trong save -> ve diem dau an toan va xoa dau cu.
         if (progress.CheckpointId == PrototypeTerrain.MainCheckpointId) terrain.RestoreCheckpoint();
         else if (progress.CheckpointId == PrototypeBossArena.BossCheckpointId)
@@ -142,13 +157,18 @@ public sealed class PrototypePlayground : MonoBehaviour
             terrain.RestoreCheckpoint();
             bossArena.SetCheckpointActive(true);
         }
+        else if (progress.CheckpointId == PrototypeSkyArena.CheckpointId)
+        {
+            terrain.RestoreCheckpoint();
+            skyArena.SetCheckpointActive(true);
+        }
         else if (!string.IsNullOrEmpty(progress.CheckpointId)) progress.ClearCheckpoint();
         ApplyProgress();
         hazards = gameObject.AddComponent<PrototypeHazards>();
         hazards.Initialize(player, health, square);
         var finishObject = new GameObject("Finish Flag");
         finishObject.transform.SetParent(transform, false);
-        finishObject.transform.position = new Vector2(98.4f, .1f);
+        finishObject.transform.position = new Vector2(133.6f, .1f);
         finishObject.AddComponent<PrototypeFinish>().Initialize(square, this, player);
         pause = gameObject.AddComponent<PrototypePause>();
         pause.Initialize(this, player);
@@ -203,7 +223,7 @@ public sealed class PrototypePlayground : MonoBehaviour
     public bool DebugVisible { get; private set; }
     public event System.Action Finished;
     public bool CanFinish => !Completed && !player.IsDead && progress != null
-        && progress.HasItem(PrototypeProgress.TrialClearId) && BossDone;
+        && progress.HasItem(PrototypeProgress.TrialClearId) && BossDone && SkyDone;
 
     public string ObjectiveText
     {
@@ -217,6 +237,7 @@ public sealed class PrototypePlayground : MonoBehaviour
             if (!progress.IsDoorOpen(PrototypeProgress.ShortcutDoorId))
                 return "Cross the gap with Bash, break the gate with a returned shot, pass the door.";
             if (!BossDone) return "Enter the arena and defeat the Warden. Bash its purple shots back.";
+            if (!SkyDone) return "The east wall is open. Defeat the Stormwing in the sky arena.";
             return "Reach the flag at the end.";
         }
     }
@@ -238,7 +259,8 @@ public sealed class PrototypePlayground : MonoBehaviour
             else position = new Vector2(63f, 1.45f);
         }
         else if (!BossDone) position = new Vector2(Mathf.Max(80f, x), .6f);
-        else position = new Vector2(98.4f, .1f);
+        else if (!SkyDone) position = new Vector2(Mathf.Max(106f, x), .6f);
+        else position = new Vector2(133.6f, .1f);
         return true;
     }
 
@@ -290,6 +312,7 @@ public sealed class PrototypePlayground : MonoBehaviour
             if (smash != null) smash.Cancel();
             if (sentry != null) sentry.Clear();
             if (bossArena != null) bossArena.ResetArena(BossDone);
+            if (skyArena != null) skyArena.ResetArena(SkyDone);
             respawnAt = float.PositiveInfinity;
             // Hoi sinh: snap camera va xoa smoothing cu.
             followCamera.transform.position = cameraRig.Snap(destination, 1);
@@ -307,6 +330,7 @@ public sealed class PrototypePlayground : MonoBehaviour
         if (progress != null) progress.ResetAll();
         if (terrain != null) terrain.ClearCheckpoint();
         if (bossArena != null) bossArena.SetCheckpointActive(false);
+        if (skyArena != null) skyArena.SetCheckpointActive(false);
         ApplyProgress();
         if (combatRoom != null) combatRoom.ResetRoom(true);
         ResetRun();

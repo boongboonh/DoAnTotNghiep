@@ -15,6 +15,7 @@ public sealed class PrototypeBossArena : MonoBehaviour
     private PlayerController player;
     private PrototypeBoss boss;
     private GameObject gate;
+    private GameObject exitWall;
     private SpriteRenderer padShape;
     private TextMesh padLabel;
     private TextMesh status;
@@ -30,7 +31,8 @@ public sealed class PrototypeBossArena : MonoBehaviour
         player = controller; onCheckpoint = checkpointActivated; onDefeated = defeated;
         var ground = new Color(.25f, .28f, .3f);
         Block(square, "Boss Arena Floor", new Vector2(30f, 1f), new Vector2(85f, -.65f), ground);
-        Block(square, "Boss Arena Right Wall", new Vector2(.6f, 14f), new Vector2(100.3f, 5f), ground);
+        // Tuong phai la cua ra: mo sau khi ha Warden de di tiep sang khu Sky.
+        exitWall = Block(square, "Boss Arena Right Wall", new Vector2(.6f, 14f), new Vector2(100.3f, 5f), ground).gameObject;
         gate = Block(square, "Boss Arena Gate", new Vector2(.6f, 12f), new Vector2(71.8f, 5f), new Color(.6f, .2f, .3f)).gameObject;
 
         padShape = PrototypeGeometry.Rectangle(transform, square, "Boss Checkpoint", new Vector2(.6f, 1.6f), new Vector2(73.6f, .65f), Color.yellow, 0);
@@ -68,9 +70,10 @@ public sealed class PrototypeBossArena : MonoBehaviour
     {
         if (boss == null) return;
         gate.SetActive(boss.Active);
+        exitWall.SetActive(!boss.Defeated);
         padShape.color = padActive ? Color.green : Color.yellow;
         padLabel.text = padActive ? "BOSS CHECKPOINT ACTIVE" : "BOSS CHECKPOINT\nE: Activate";
-        status.text = boss.Defeated ? "WARDEN DEFEATED\nGo to the flag"
+        status.text = boss.Defeated ? "WARDEN DEFEATED\nThe east wall is open >"
             : boss.Active ? "WARDEN\nDodge the telegraphs, hit when it recovers.\nBash a purple shot back for big damage"
             : "BOSS ARENA >\nCross the line to start the fight";
     }
