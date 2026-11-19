@@ -24,7 +24,7 @@ public sealed class PrototypeFinish : MonoBehaviour
         bool ready = arena.CanFinish;
         flag.color = arena.Completed ? Color.green : ready ? Color.yellow : Color.gray;
         label.text = arena.Completed ? "ROUTE COMPLETE"
-            : ready ? "FINISH\nTouch the flag" : "FINISH\nDefeat both bosses first";
+            : ready ? "FINISH\nTouch the flag" : "FINISH\nDefeat all three bosses first";
         if (!ready) return;
         Vector2 delta = player.Motor.Position - (Vector2)transform.position;
         if (Mathf.Abs(delta.x) < .9f && Mathf.Abs(delta.y) < 1.8f) arena.Complete();

@@ -15,6 +15,7 @@ public sealed class PrototypeSkyArena : MonoBehaviour
     private PlayerController player;
     private PrototypeStormBoss boss;
     private GameObject gate;
+    private GameObject exitWall;
     private SpriteRenderer padShape;
     private TextMesh padLabel;
     private TextMesh status;
@@ -30,7 +31,8 @@ public sealed class PrototypeSkyArena : MonoBehaviour
         player = controller; onCheckpoint = checkpointActivated; onDefeated = defeated;
         var ground = new Color(.2f, .3f, .34f);
         Block(square, "Sky Arena Floor", new Vector2(36f, 1f), new Vector2(118f, -.65f), ground);
-        Block(square, "Sky Arena Right Wall", new Vector2(.6f, 16f), new Vector2(136.3f, 6f), ground);
+        // Tuong phai la cua ra: mo sau khi ha Stormwing de di tiep sang khu Root.
+        exitWall = Block(square, "Sky Arena Right Wall", new Vector2(.6f, 16f), new Vector2(136.3f, 6f), ground).gameObject;
         gate = Block(square, "Sky Arena Gate", new Vector2(.6f, 14f), new Vector2(103.6f, 6f), new Color(.2f, .5f, .6f)).gameObject;
 
         padShape = PrototypeGeometry.Rectangle(transform, square, "Sky Checkpoint", new Vector2(.6f, 1.6f), new Vector2(CheckpointSpawn.x, .65f), Color.yellow, 0);
@@ -68,9 +70,10 @@ public sealed class PrototypeSkyArena : MonoBehaviour
     {
         if (boss == null) return;
         gate.SetActive(boss.Active);
+        exitWall.SetActive(!boss.Defeated);
         padShape.color = padActive ? Color.green : Color.yellow;
         padLabel.text = padActive ? "SKY CHECKPOINT ACTIVE" : "SKY CHECKPOINT\nE: Activate";
-        status.text = boss.Defeated ? "STORMWING DEFEATED\nGo to the flag"
+        status.text = boss.Defeated ? "STORMWING DEFEATED\nThe east wall is open >"
             : boss.Active ? "STORMWING\nDodge the dive line. It lands after a swoop - strike then.\nArc / Sentry reach it in the air"
             : "SKY ARENA >\nCross the line to start the fight";
     }

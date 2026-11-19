@@ -266,6 +266,24 @@ public sealed class PrototypeHud : MonoBehaviour
             }
         }
 
+        // --- Boss thu 3 (Gloomroot): thanh mau + trang thai vo / loi ---
+        var root = arena.RootBoss;
+        if (root != null && root.Active)
+        {
+            Threat(root.Position, root.State, playerPos, s, w, h, t, 14f);
+            float frac = Mathf.Clamp01(root.Health / (float)PrototypeRootBoss.MaxHealth);
+            float bw = Mathf.Min(900f, w - 200f);
+            float bx = (w - bw) / 2f;
+            Box(new Rect(bx - 4, 60, bw + 8, 30), new Color(0f, 0f, 0f, .75f));
+            Box(new Rect(bx, 64, bw * frac, 22), root.Shielded ? new Color(.55f, .6f, .65f) : new Color(.95f, .6f, .2f));
+            Box(new Rect(bx + bw * .5f - 2, 60, 4, 30), new Color(1f, 1f, 1f, .5f));
+            var nameStyle = new GUIStyle(small) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold };
+            GUI.Label(new Rect(bx, 30, bw, 28), "THE GLOOMROOT" + (root.Phase == 2 ? "  -  ENRAGED" : ""), nameStyle);
+            var hit = new GUIStyle(small) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold };
+            hit.normal.textColor = root.Shielded ? new Color(.8f, .85f, .95f) : new Color(1f, .8f, .4f);
+            GUI.Label(new Rect(bx, 94, bw, 28), root.Shielded ? "SHELL - Smash / Bash to crack" : "CORE OPEN  " + root.OpenRemaining.ToString("0.0") + "s - ATTACK!", hit);
+        }
+
         // --- Dan dich dang bay ---
         foreach (var p in shots)
         {
