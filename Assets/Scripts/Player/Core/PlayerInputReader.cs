@@ -78,6 +78,9 @@ public class PlayerInputReader : MonoBehaviour
         || (Gamepad.current != null && Gamepad.current.leftTrigger.isPressed));
     public bool ArcPressed => AcceptInput && ((Keyboard.current != null && Keyboard.current.qKey.wasPressedThisFrame)
         || (Gamepad.current != null && Gamepad.current.leftTrigger.wasPressedThisFrame));
+    /// <summary>Spirit Smash (bua): F hoac nut B tay cam.</summary>
+    public bool SmashPressed => AcceptInput && ((Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame)
+        || (Gamepad.current != null && Gamepad.current.buttonEast.wasPressedThisFrame));
     /// <summary>Bam tuong (Climb, kieu Ori): giu Shift hoac RT tay cam.</summary>
     public bool GrabHeld => AcceptInput && ((Keyboard.current != null
             && (Keyboard.current.leftShiftKey.isPressed || Keyboard.current.rightShiftKey.isPressed))

@@ -54,6 +54,8 @@ public sealed class PrototypePlayground : MonoBehaviour
 
     private PrototypeSpiritArc arc;
     public PrototypeSpiritArc Arc => arc;
+    private PrototypeSpiritSmash smash;
+    public PrototypeSpiritSmash Smash => smash;
     private PrototypeHazards hazards;
     public PrototypeHazards Hazards => hazards;
     private int previousFrameRate;
@@ -113,6 +115,9 @@ public sealed class PrototypePlayground : MonoBehaviour
         arc = player.GetComponent<PrototypeSpiritArc>();
         if (arc == null) arc = player.gameObject.AddComponent<PrototypeSpiritArc>();
         arc.Initialize(player, followCamera, square);
+        smash = player.GetComponent<PrototypeSpiritSmash>();
+        if (smash == null) smash = player.gameObject.AddComponent<PrototypeSpiritSmash>();
+        smash.Initialize(player, square);
         progress = gameObject.AddComponent<PrototypeProgress>();
         progress.Load();
         bashCourse = gameObject.AddComponent<PrototypeBashCourse>();
@@ -272,6 +277,7 @@ public sealed class PrototypePlayground : MonoBehaviour
             if (bashCourse != null) bashCourse.ResetCourse();
             if (hazards != null) hazards.ResetAll();
             if (arc != null) arc.ResetEnergy();
+            if (smash != null) smash.Cancel();
             if (bossArena != null) bossArena.ResetArena(BossDone);
             respawnAt = float.PositiveInfinity;
             // Hoi sinh: snap camera va xoa smoothing cu.
