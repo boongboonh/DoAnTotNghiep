@@ -1,58 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundInGameController : SoundMenuController
 {
-    private bool isFighting = false;
+    [SerializeField, HideInInspector] private AudioSource soundFighting;
+    protected override AudioSource LegacyCombatSource => soundFighting;
 
-    [Header("sound fighting")]
-
-    [SerializeField] private AudioSource soundFighting;
-
+    private EventManager events;
+    private bool started;
 
     protected override void Start()
     {
-        EventManager.Instance.onMusicFighting += runMusicFighting;
-        EventManager.Instance.offMusicFighting += stopMusicFighting;
-
-        isFighting = false;
         base.Start();
+        started = true;
+        Subscribe();
     }
-    protected override void FixedUpdate()
+
+    private void OnEnable()
     {
-        if (isFighting)
+        if (started) Subscribe();
+    }
+
+    protected override void OnDisable()
+    {
+        if (events != null)
         {
-            runFightingSound();                     //neu trong trang thai chien dau thi bat nhac chien dau
+            events.onMusicFighting -= StartCombatMusic;
+            events.offMusicFighting -= StopCombatMusic;
         }
-        else
-        {
-            base.FixedUpdate();                     //neu khong thi thoi
-        }
+        events = null;
+        base.OnDisable();
     }
 
-
-    private void runFightingSound()
+    private void Subscribe()
     {
-        if (soundFighting.isPlaying) return;
-        soundFighting.Play();
+        events = EventManager.Instance;
+        if (events == null) return;
+        events.onMusicFighting += StartCombatMusic;
+        events.offMusicFighting += StopCombatMusic;
     }
 
-    private void runMusicFighting()
-    {
-
-        StopSoundCurrent();         //tat am thanh hien tai
-        isFighting = true;
-    }
-    private void stopMusicFighting()
-    {
-        soundFighting.Stop();         //tat am thanh hien tai
-        isFighting = false;
-    }
-
-    private void OnDestroy()
-    {
-        EventManager.Instance.onMusicFighting -= runMusicFighting;
-        EventManager.Instance.offMusicFighting -= stopMusicFighting;
-    }
+    private void StartCombatMusic() => SetFighting(true);
+    private void StopCombatMusic() => SetFighting(false);
 }

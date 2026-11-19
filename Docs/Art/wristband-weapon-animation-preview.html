@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="vi">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dang Dang · Hoạt ảnh vũ khí</title>
+<style>
+  :root { color-scheme: dark; font-family: "Segoe UI", sans-serif; background: #14151f; color: #faf1e6 }
+  body { max-width: 920px; margin: 28px auto; padding: 0 16px }
+  h1 { font-size: 24px; margin: 0 0 12px }
+  canvas { width: 100%; display: block; border-radius: 12px; background: #282739 }
+  .controls, nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; align-items: center }
+  button, select { background: #252639; color: inherit; border: 1px solid #52536a; border-radius: 7px; padding: 8px 12px; font: inherit }
+  button[aria-pressed="true"] { background: #cde8dc; color: #18251f; border-color: #cde8dc }
+  input { flex: 1; min-width: 120px; accent-color: #cde8dc }
+  #caption { color: #e0d4e9; min-height: 1.5em }
+</style>
+<h1>Dang Dang · Hoạt ảnh vũ khí</h1>
+<canvas width="840" height="380" aria-label="Hoạt ảnh nhân vật và vũ khí"></canvas>
+<div class="controls">
+  <button id="play">Tạm dừng</button>
+  <input id="scrub" type="range" min="0" max="1000" value="0" aria-label="Vị trí phát">
+  <select id="speed" aria-label="Tốc độ"><option value="1">1×</option><option value=".5">0,5×</option><option value=".25">0,25×</option></select>
+</div>
+<nav aria-label="Chọn vũ khí"></nav>
+<p id="caption"></p>
+<script>
+const canvas = document.querySelector('canvas');
+const ctx = canvas.getContext('2d');
+const play = document.querySelector('#play');
+const scrub = document.querySelector('#scrub');
+const speed = document.querySelector('#speed');
+const caption = document.querySelector('#caption');
+const nav = document.querySelector('nav');
+
+// Tọa độ vòng tay trên từng sprite, theo tỉ lệ kích thước ảnh nguồn.
+const poses = {
+  idle: ['Idle', .43, .63, 238],
+  brace: ['Land', .34, .50, 203],
+  dash: ['Dash', .43, .36, 204],
+  step: ['Run02', .39, .51, 225]
+};
+const rows = [
+  ['Vuốt Sáng', 'Dồn người tới và cào ngang.', [10,40,335,295], 103, '#d9f1ff', 'dash'],
+  ['Lưỡi Trăng', 'Lấy đà rồi chém một cung dài từ cao xuống.', [370,4,325,342], 175, '#bfc7ff', 'step'],
+  ['Chùy Tinh', 'Nhấc chùy qua đầu, dập xuống và ghìm lại.', [770,6,271,334], 137, '#d2a6ff', 'brace'],
+  ['Xích Sao Chổi', 'Quất móc ra xa rồi kéo ngược về tay.', [1100,22,347,325], 144, '#b7ffdc', 'step'],
+  ['Cầu quỹ đạo', 'Ba mảnh năng lượng tách ra và quay quanh người.', [40,385,280,300], 54, '#acf7ee', 'idle'],
+  ['Cung sao', 'Hạ trọng tâm, giương cung và nhả tên.', [375,350,335,365], 131, '#9cf5f2', 'brace'],
+  ['Khiên mặt trời', 'Bước vào thế thủ, dựng khiên và đẩy trả.', [785,362,236,350], 104, '#ffd29b', 'brace'],
+  ['Lưỡi liềm trăng', 'Ném liềm vòng ra trước rồi bắt lại.', [1105,410,327,270], 100, '#dfbaff', 'step'],
+  ['Lỗ đen thu nhỏ', 'Đặt xoáy trước mặt, giữ lực hút rồi thu lại.', [10,800,342,200], 143, '#ca9af7', 'brace'],
+  ['Kim Hồi', 'Phóng kim theo đường thẳng, gọi về trên cùng đường bay.', [374,830,342,125], 135, '#aefaff', 'dash'],
+  ['Dấu Vọng', 'Đặt dấu chém trên mặt đất, rồi dấu chém lặp lại.', [750,727,293,353], 116, '#f0bcff', 'step'],
+  ['Neo Khoảnh Khắc', 'Hai ngàm khép quanh điểm neo, giữ lại một nhịp rồi mở.', [1080,760,367,254], 145, '#bdf3e1', 'brace']
+];
+const image = src => Object.assign(new Image(), {src});
+const sheet = image('wristband-weapon-shapes.png');
+for (const pose of Object.values(poses)) {
+  pose.push(image('../../Assets/Sprites/DangDangRigPreview/NightCourier'+pose[0]+'.png'));
+}
+
+let selected = 0, position = 0, playing = true, previous = 0;
+const clamp = x => Math.max(0, Math.min(1, x));
+const smooth = x => { x = clamp(x); return x*x*(3-2*x); };
+const mix = (a,b,t) => a+(b-a)*t;
+const tau = 2*Math.PI;
+
+function select(index) {
+  selected = index;
+  position = 0;
+  caption.textContent = rows[index][1];
+  Array.from(nav.children).forEach((button,i) => button.setAttribute('aria-pressed', i === index));
+}
+rows.forEach(([name], i) => {
+  const button = document.createElement('button');
+  button.textContent = name;
+  button.onclick = () => select(i);
+  nav.append(button);
+});
+function setPlaying(value) {
+  playing = value;
+  play.textContent = playing ? 'Tạm dừng' : 'Phát';
+}
+play.onclick = () => setPlaying(!playing);
+scrub.oninput = () => { position = scrub.value/1000; setPlaying(false); };
+select(0);
+
+function weapon(crop, x, y, width, angle, alpha, anchor = .5) {
+  const height = width*crop[3]/crop[2];
+  ctx.save();
+  ctx.translate(x,y);
+  ctx.rotate(angle);
+  ctx.globalAlpha = clamp(alpha);
+  ctx.drawImage(sheet, ...crop, -width*anchor, -height/2, width, height);
+  ctx.restore();
+}
+function body(pose, x, y, angle) {
+  const [, wristX, wristY, height, sprite] = pose;
+  const width = sprite.naturalWidth*height/sprite.naturalHeight;
+  const px = (wristX-.5)*width, py = (wristY-1)*height;
+  ctx.save();
+  ctx.translate(x,y);
+  ctx.rotate(angle);
+  ctx.drawImage(sprite,-width/2,-height,width,height);
+  ctx.restore();
+  return [x+px*Math.cos(angle)-py*Math.sin(angle), y+px*Math.sin(angle)+py*Math.cos(angle)];
+}
+function sweep(x,y,r,a,b,color,alpha) {
+  ctx.save();
+  ctx.globalAlpha = clamp(alpha);
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 4;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.arc(x,y,r,a,b);
+  ctx.stroke();
+  ctx.restore();
+}
+function draw(t) {
+  const [name,,crop,size,color,action] = rows[selected];
+  const bg = ctx.createLinearGradient(0,0,0,380);
+  bg.addColorStop(0,'#242337');
+  bg.addColorStop(1,'#414052');
+  ctx.fillStyle = bg;
+  ctx.fillRect(0,0,840,380);
+  ctx.fillStyle = '#ffffff14';
+  ctx.fillRect(50,306,740,1);
+  ctx.fillStyle = '#f9f0e9';
+  ctx.font = '600 20px Segoe UI';
+  ctx.fillText(name,24,36);
+  const wind = smooth((t-.08)/.20);
+  const hit = smooth((t-.30)/.21);
+  const settle = smooth((t-.66)/.25);
+  const visible = smooth((t-.10)/.14)*(1-smooth((t-.83)/.13));
+  const throwOut = Math.sin(Math.PI*clamp((t-.31)/.48));
+  const x = 292-14*wind+(selected===0 ? 106 : 39)*hit-28*settle;
+  const y = 305+(action==='dash' ? -32*throwOut : 0);
+  const angle = -.10*wind+.26*hit-.16*settle;
+  const pose = poses[t < .12 || t > .92 ? 'idle' : t < .31 ? 'brace' : action];
+  ctx.fillStyle = '#0c0d1b55';
+  ctx.beginPath();
+  ctx.ellipse(x,306,64,10,0,0,tau);
+  ctx.fill();
+  const [wx,wy] = body(pose,x,y,angle);
+  let a = -1.35*wind+2.25*hit-.9*settle;
+  switch (selected) {
+    case 0:
+      weapon(crop,wx+16,wy+6,size,a,visible,.23);
+      if (t>.31 && t<.58) for (let i=0;i<3;i++) sweep(wx+33,wy,65+i*10,-1.05+hit,.15+hit,color,.75*(1-hit));
+      break;
+    case 1:
+      weapon(crop,wx+8,wy,size,a+Math.PI/4,visible,.10);
+      if (t>.31 && t<.63) sweep(wx,wy,151,-1.9+hit*1.6,-.85+hit*1.6,color,.75*(1-hit));
+      break;
+    case 2:
+      a = mix(-2.35,-.1,hit);
+      weapon(crop,wx+Math.cos(a)*74,wy+Math.sin(a)*74,size,a+Math.PI/2,visible,.5);
+      if(t>.47 && t<.66) sweep(wx+98,302,24+105*smooth((t-.47)/.19),Math.PI,0,color,.7*(1-smooth((t-.47)/.19)));
+      break;
+    case 3:
+      ctx.save();
+      ctx.globalAlpha = visible;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(wx,wy);
+      ctx.quadraticCurveTo(wx+80*throwOut,wy+55*throwOut,wx+28+235*throwOut,wy-28*throwOut);
+      ctx.stroke();
+      ctx.restore();
+      weapon(crop,wx+35+235*throwOut,wy-34*throwOut,size*(.78+.52*throwOut),-.25+.55*hit,visible,.1);
+      break;
+    case 4: {
+      const facets = [[135,396,97,155],[55,504,105,166],[202,511,107,168]];
+      facets.forEach((part,i) => {
+        const turn = t*tau*1.75+i*tau/3;
+        weapon(part,x+Math.cos(turn)*111,190+Math.sin(turn)*68,size,-.16*Math.sin(turn),visible);
+      });
+      break;
+    }
+    case 5:
+      weapon(crop,wx+73,wy-45,size,-.10,visible);
+      if(t>.41 && t<.73) weapon(rows[9][2],wx+95+400*smooth((t-.41)/.32),wy-44,75,Math.PI,1-smooth((t-.60)/.13));
+      break;
+    case 6:
+      weapon(crop,wx+110+37*hit,wy-49,size,-.17+.17*hit,visible);
+      if(t>.40 && t<.56) sweep(wx+133,wy-49,78,-1.25,1.06,color,.65*(1-smooth((t-.4)/.16)));
+      break;
+    case 7:
+      weapon(crop,wx+43+307*throwOut,wy-115*throwOut,size,t*tau*2,visible);
+      break;
+    case 8:
+      weapon(crop,wx+55+161*hit,wy+14,size*(.6+.65*hit-.3*settle),t*tau,visible);
+      break;
+    case 9:
+      weapon(crop,wx+43+308*throwOut,wy-28,size,t<.55 ? Math.PI : 0,visible);
+      break;
+    case 10:
+      weapon(crop,493,268,size,.62,visible*hit);
+      if(t>.58) weapon(crop,493,268-111*smooth((t-.58)/.21),size,-.36,visible*smooth((t-.58)/.08));
+      break;
+    case 11:
+      weapon(crop,493,193,size*(1.42-.42*hit+.35*settle),0,visible);
+      break;
+  }
+}
+function frame(now) {
+  if (playing && previous) position = (position+Math.min(50,now-previous)/2400*Number(speed.value))%1;
+  previous = now;
+  if (playing) scrub.value = Math.round(position*1000);
+  if (sheet.naturalWidth && Object.values(poses).every(p => p[4].naturalWidth)) draw(position);
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>

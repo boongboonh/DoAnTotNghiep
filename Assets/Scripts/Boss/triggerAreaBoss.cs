@@ -1,3 +1,4 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,7 @@ public class triggerAreaBoss : MonoBehaviour
 
     private void OnEnable()
     {
-        if (PlayerPrefs.GetInt("BoosDie") == 1)         //kiem tra boss da bi tieu diet lan nao chua
+        if (PlayerPrefsSaveSystem.LoadInt("BoosDie") == 1)         //kiem tra boss da bi tieu diet lan nao chua
         {
             activeBoss = false;
         }

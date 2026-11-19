@@ -1,8 +1,9 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyControll : MonoBehaviour
+public class KeyControll : InteractableZone
 {
 
     [SerializeField] string nameDoorPlayerPrefs = "doorKey1";
@@ -27,50 +28,39 @@ public class KeyControll : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        Debug.Log(PlayerPrefs.GetInt(nameDoorPlayerPrefs));   //loi
-        if (PlayerPrefs.GetInt(nameDoorPlayerPrefs) == 0) return;
+        Debug.Log(PlayerPrefsSaveSystem.LoadInt(nameDoorPlayerPrefs));   //loi
+        if (PlayerPrefsSaveSystem.LoadInt(nameDoorPlayerPrefs) == 0) return;
         isOpen = true;                                              //cua da mo
         animator.SetTrigger(nameAniKeyOpened);                      //chay ani mo
         door.GetComponent<Animator>().SetTrigger(nameAniDoorOpened);//chay ani mo
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override bool CanInteract => !isOpen;
+
+    protected override void OnPlayerEnter(Collider2D player)
     {
         if (isOpen) return;
-        if (collision.CompareTag("Player"))
-        {
-            clickButton.SetActive(true);
-        }
+        clickButton.SetActive(true);
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    protected override void OnInteract(Collider2D player)
     {
-        if (isOpen) return;
-        if (collision.CompareTag("Player"))
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                PlayerPrefs.SetInt(nameDoorPlayerPrefs, 1);
-                openDoor();
-            }
-        }
+        PlayerPrefsSaveSystem.SetInt(nameDoorPlayerPrefs, 1);
+        openDoor();
     }
 
     private void openDoor()
     {
-        KeyOpenSound.Play();
+        AudioManager.PlaySource(KeyOpenSound);
         animator.SetTrigger(nameAnimatorKey);//chay animation mo khoa
 
-        DoorOpenSound.Play();
+        AudioManager.PlaySource(DoorOpenSound);
         door.GetComponent<Animator>().SetTrigger(nameAnimatorDoor); //chay animation mo cua
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected override void OnPlayerExit(Collider2D player)
     {
-        if (collision.CompareTag("Player"))
-        {
-            clickButton.SetActive(false);
-        }
+        clickButton.SetActive(false);
     }
 
 

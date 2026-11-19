@@ -1,8 +1,14 @@
-using System;
-using System.Collections;
 using UnityEngine;
 
-public class EnemyJumpMove : MonoBehaviour
+/// <summary>
+/// AI enemy rush dang state machine:
+///   Patrol -> nhay qua lai giua LimitLeft / LimitRight.
+///   Leap   -> player trong tam (dang cham dat): nhay vot ve phia player. Qua dinh nhay (roi xuong) -> Hover.
+///   Hover  -> treo lo lung (gravity = 0) 1 giay de gong don (anim DelayAttack).
+///   Rush   -> lao thang toi vi tri player luc bat dau lao; toi noi / qua xa thi ve Patrol (roi Leap lai neu con trong tam).
+/// Ten field public giu nguyen de khong hong prefab/anim.
+/// </summary>
+public class EnemyJumpMove : StateMachineOwner<EnemyJumpMove>
 {
     [Header("setting jump move")]
     public float ForceJumpMovex = 2f;
@@ -14,14 +20,11 @@ public class EnemyJumpMove : MonoBehaviour
     private float direction = 1f;
     public float speedRushAttack = 10f;
     private Transform player;
-    bool isattack = false;
-    bool attackNow = false;
-    bool readyAttack = false;
     public Transform LimitRight;
     public Transform LimitLeft;
 
-    [HideInInspector] public bool inRange = false;
-    public float DelayAttack = 1f;
+    [HideInInspector] public bool inRange = false;      // EnemyJumptriggerAreaCheck set
+    public float DelayAttack = 1f;                      // (chua dung, giu lai de khong mat du lieu prefab)
 
     private float gravity;
 
@@ -35,63 +38,125 @@ public class EnemyJumpMove : MonoBehaviour
     [SerializeField] private AudioSource jumpMoveSound;
     [SerializeField] private AudioSource attackSound;
 
+    private const float HoverTime = 1f;
+    private const float LeapFallSpeed = -0.2f;
+    private const float RushReachDistance = 0.1f;
+    private const float RushMaxDistance = 13f;
 
-
-    void Start()
+    protected override void Awake()
     {
+        base.Awake();
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         colli = GetComponent<Collider2D>();
         gravity = _rb.gravityScale;
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
         player = null;
+        base.OnEnable();
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
-        _rb.gravityScale = gravity;
+        base.OnDisable();
+        if (_rb != null) _rb.gravityScale = gravity;
     }
-    void Update()
+
+    protected override void SetupStates(StateMachine<EnemyJumpMove> m)
     {
-        if (player == null && inRange)
-        {
-            player = GetPosPlayer.Instance.PlayerPos;
-            return;
-        }
+        m.AddState<PatrolState>();
+        m.AddState<LeapState>();
+        m.AddState<HoverState>();
+        m.AddState<RushState>();
+        m.SetInitialState<PatrolState>();
 
-        if (inRange && IsGround())//neu trong player trong khu vuc thi tan cong
-        {
-            player = GetPosPlayer.Instance.PlayerPos;
-            isattack = true;
-            JumpAttack();
-        }
+        m.AddTransition<PatrolState, LeapState>(() => inRange && IsGround());
+        m.AddTransition<LeapState, HoverState>(() => _rb.linearVelocity.y < LeapFallSpeed);
+        m.AddTransition<HoverState, RushState>(() => Machine.TimeInState >= HoverTime);
+        m.AddTransition<RushState, PatrolState>(RushFinished);
+    }
 
-        if (!inRange && IsGround())
-        {
-            if (transform.position.x - LimitLeft.position.x <= 0)
-            {
-                direction = Mathf.Abs(direction);
-            }
-            if (transform.position.x - LimitRight.position.x >= 0)
-            {
-                direction = -1f;
-            }
-            jumpNomal();
-        }
-
-        Attack();
-
-        if (attackNow)
-        {
-            transform.position = Vector2.MoveTowards(transform.position,playerPosClone, speedRushAttack * Time.deltaTime);
-        }
-
-        checkDistancePlayer();
-
+    protected override void Update()
+    {
+        base.Update();
         updateAnimation();
+    }
+
+    // ---------------- States ----------------
+
+    private class PatrolState : State<EnemyJumpMove>
+    {
+        public override void Tick()
+        {
+            if (!Owner.IsGround()) return;
+
+            if (Owner.transform.position.x - Owner.LimitLeft.position.x <= 0)
+            {
+                Owner.direction = Mathf.Abs(Owner.direction);
+            }
+            if (Owner.transform.position.x - Owner.LimitRight.position.x >= 0)
+            {
+                Owner.direction = -1f;
+            }
+            Owner.jumpNomal();
+        }
+    }
+
+    private class LeapState : State<EnemyJumpMove>
+    {
+        public override void Tick()
+        {
+            if (!Owner.IsGround()) return;
+
+            Owner.RefreshPlayer();
+            Owner.JumpAttack();
+        }
+    }
+
+    private class HoverState : State<EnemyJumpMove>
+    {
+        public override void Enter()
+        {
+            Owner._rb.linearVelocity = Vector2.zero;
+            Owner._rb.gravityScale = 0f;
+        }
+
+        public override void Exit()
+        {
+            Owner._rb.gravityScale = Owner.gravity;
+        }
+    }
+
+    private class RushState : State<EnemyJumpMove>
+    {
+        public override void Enter()
+        {
+            Owner.RefreshPlayer();
+            Owner.playerPosClone = Owner.player != null ? (Vector2)Owner.player.position : (Vector2)Owner.transform.position;
+
+            if (Owner.attackSound != null) AudioManager.PlaySource(Owner.attackSound);
+        }
+
+        public override void Tick()
+        {
+            Owner.transform.position = Vector2.MoveTowards(
+                Owner.transform.position, Owner.playerPosClone, Owner.speedRushAttack * Time.deltaTime);
+        }
+    }
+
+    // ---------------- Helpers ----------------
+
+    private bool RushFinished()
+    {
+        float dist = Vector2.Distance(transform.position, playerPosClone);
+        return dist < RushReachDistance || dist >= RushMaxDistance;
+    }
+
+    private void RefreshPlayer()
+    {
+        if (GetPosPlayer.Instance != null) player = GetPosPlayer.Instance.PlayerPos;
     }
 
     public bool IsGround()
@@ -100,48 +165,50 @@ public class EnemyJumpMove : MonoBehaviour
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(colli.bounds.center, colli.bounds.size, 0f, Vector2.down, ExtraHight, layerGround);
         return raycastHit2D.collider != null;
     }
-    void checkDistancePlayer()
-    {
-        if (Vector2.Distance(transform.position, playerPosClone) < 0.1f || Vector2.Distance(transform.position, playerPosClone) >= 13f)
-        {
-            attackNow = false;
-        }
-    }
+
     void jumpNomal()
     {
-        _rb.linearVelocity = new Vector2(ForceJumpMovex* direction, ForceJumpMovey);
+        _rb.linearVelocity = new Vector2(ForceJumpMovex * direction, ForceJumpMovey);
 
         //chay am thanh nhay
         playJumpMove();
     }
 
-    //am thanh
     private void playJumpMove()
     {
-        if (jumpMoveSound.isPlaying) return;
-        jumpMoveSound.Play();
+        AudioManager.PlaySource(jumpMoveSound, true);
     }
 
- 
     void JumpAttack()
     {
         _rb.linearVelocity = new Vector2(ForceJumpx * checkdirection(direction), ForceJumpy);
-
     }
-    
-     void updateAnimation()
+
+    float checkdirection(float direc)
     {
+        if (player == null || transform.position.x - player.position.x <= 0)
+        {
+            return Mathf.Abs(direc); // player o ben phai
+        }
+        return -1; // player o ben trai
+    }
+
+    void updateAnimation()
+    {
+        bool readyAttack = Machine.IsIn<HoverState>();
+        bool attackNow = Machine.IsIn<RushState>();
+
         if (_rb.linearVelocity.y > .1f)
         {
             _animator.SetBool("EnemyRushIdle", false);
-            _animator.SetBool("EnemyRushJump",true);
+            _animator.SetBool("EnemyRushJump", true);
         }
-        else if(_rb.linearVelocity.y<-.1f)
+        else if (_rb.linearVelocity.y < -.1f)
         {
             _animator.SetBool("EnemyRushIdle", true);
             _animator.SetBool("EnemyRushJump", false);
         }
-  
+
         if (readyAttack)
         {
             _animator.SetBool("EnemyRushDelayAttack", true);
@@ -152,52 +219,11 @@ public class EnemyJumpMove : MonoBehaviour
             _animator.SetBool("EnemyRushDelayAttack", false);
             _animator.SetBool("EnemyRushIdle", true);
         }
-
-    }
-
-    float checkdirection(float direc)
-    {
-        if (transform.position.x - player.position.x <= 0)
-        {
-            return Mathf.Abs(direc); // player o ben phai
-        }
-        else
-        {
-            return -1; // player o ben trai
-        }
-    }
-    void Attack()
-    {
-        if (_rb.linearVelocity.y < -0.2f && isattack)
-        {
-            isattack = false;
-            _rb.linearVelocity = Vector2.zero;
-            StartCoroutine(AttackRush());
-        }
-    }
-    IEnumerator AttackRush()
-    {
-        _rb.gravityScale = 0;
-        
-        readyAttack = true;
-        yield return new WaitForSeconds(1f);
-
-        playerPosClone = player.position;// lay vi tri player
-
-        //chay am thanh tan cong
-        attackSound.Play();
-
-
-        readyAttack = false;
-        attackNow = true;
-        _rb.gravityScale = gravity;
-        
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, 13f);
+        Gizmos.DrawWireSphere(transform.position, RushMaxDistance);
     }
-
 }

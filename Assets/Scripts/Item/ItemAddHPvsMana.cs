@@ -1,3 +1,4 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class ItemAddHPvsMana : MonoBehaviour
     AudioClip audioClipCollect;
     private void Start()
     {
-        if (PlayerPrefs.GetInt(nameItem) == 1)
+        if (PlayerPrefsSaveSystem.LoadInt(nameItem) == 1)
         {
             gameObject.SetActive(false);
         }  
@@ -28,10 +29,10 @@ public class ItemAddHPvsMana : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             //chay am thanh
-            AudioSource.PlayClipAtPoint(audioClipCollect, this.transform.position);
+            AudioManager.PlayClipAt(audioClipCollect, this.transform.position);
 
             //luu du lieu == 1 da collect
-            PlayerPrefs.SetInt(nameItem, 1);
+            PlayerPrefsSaveSystem.SetInt(nameItem, 1);
 
             collision.gameObject.GetComponent<HealthPlayer>().addHealth();
             collision.gameObject.GetComponent<ManaManager>().addMana();

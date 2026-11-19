@@ -1,3 +1,4 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -80,14 +81,14 @@ public class ManaManager : BinhBehaviour
     //kiem tra lan choi va cai mana cu
     private void setMPPlayeAgain()
     {
-        if (PlayerPrefs.GetInt(NumberPlay) != 1) //neu lan choi thu nhat
+        if (PlayerPrefsSaveSystem.LoadInt(NumberPlay) != 1) //neu lan choi thu nhat
         {
             nowMana = manaPlayerMax;
         }
         else
         {
-            nowMana = PlayerPrefs.GetInt(nameMPDataPlayerNow);
-            manaPlayerMax = PlayerPrefs.GetInt(nameMPDataPlayerMax);
+            nowMana = PlayerPrefsSaveSystem.LoadInt(nameMPDataPlayerNow);
+            manaPlayerMax = PlayerPrefsSaveSystem.LoadInt(nameMPDataPlayerMax);
         }
     }
 

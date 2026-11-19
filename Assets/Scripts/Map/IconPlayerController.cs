@@ -1,3 +1,4 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,9 +11,9 @@ public class IconPlayerController : MonoBehaviour
     private void OnEnable()
     {
         int mapCurrent = 1;
-        if (PlayerPrefs.HasKey("MapCurrent"))
+        if (PlayerPrefsSaveSystem.HasKey("MapCurrent"))
         {
-            mapCurrent = PlayerPrefs.GetInt("MapCurrent");          //lay vi tri nguoi choi
+            mapCurrent = PlayerPrefsSaveSystem.LoadInt("MapCurrent");          //lay vi tri nguoi choi
         }
 
         switch (mapCurrent)

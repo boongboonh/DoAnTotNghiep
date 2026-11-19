@@ -1,3 +1,4 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -94,8 +95,8 @@ public class LoadMapScene : MonoBehaviour
 
     private void openMiniMap()
     {
-        if (PlayerPrefs.GetInt(mapNameToMiniMap) == 1) return;  //neu bang 1 da kich hoat return
-        PlayerPrefs.SetInt(mapNameToMiniMap, 1);                //luu bang 1 kich hoat
+        if (PlayerPrefsSaveSystem.LoadInt(mapNameToMiniMap) == 1) return;  //neu bang 1 da kich hoat return
+        PlayerPrefsSaveSystem.SetInt(mapNameToMiniMap, 1);                //luu bang 1 kich hoat
     }
 
 }

@@ -46,8 +46,7 @@ public class ShootLaser : MonoBehaviour
     //chay am thanh
     private void playSoundLaser()
     {
-        if (laserSound.isPlaying) return;
-        laserSound.Play();
+        AudioManager.PlaySource(laserSound, true);
 
     }
     private void scaleLaser(RaycastHit2D hit)

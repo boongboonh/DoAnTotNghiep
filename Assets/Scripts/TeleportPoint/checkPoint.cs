@@ -1,3 +1,4 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,21 +12,21 @@ public class checkPoint : MonoBehaviour
 
     private void Start()
     {
-        if (!PlayerPrefs.HasKey(CheckPointPosX))
+        if (!PlayerPrefsSaveSystem.HasKey(CheckPointPosX))
         {
-            //transform.position = new Vector2(PlayerPrefs.GetFloat("FirstPlayPosX"), PlayerPrefs.GetFloat("FirstPlayPosY"));
+            //transform.position = new Vector2(PlayerPrefsSaveSystem.LoadFloat("FirstPlayPosX"), PlayerPrefsSaveSystem.LoadFloat("FirstPlayPosY"));
             updateNewPos();
         }
         else
         {
-            transform.position = new Vector2(PlayerPrefs.GetFloat(CheckPointPosX), PlayerPrefs.GetFloat(CheckPointPosY));
+            transform.position = new Vector2(PlayerPrefsSaveSystem.LoadFloat(CheckPointPosX), PlayerPrefsSaveSystem.LoadFloat(CheckPointPosY));
         }
     }
 
     private void FixedUpdate()
     {
-        if (PlayerPrefs.GetInt(isCreateCheckPoint) != 1) return;
-        PlayerPrefs.SetInt(isCreateCheckPoint, 0);                  //da cap nhat vi tri, reset bien 
+        if (PlayerPrefsSaveSystem.LoadInt(isCreateCheckPoint) != 1) return;
+        PlayerPrefsSaveSystem.SetInt(isCreateCheckPoint, 0);                  //da cap nhat vi tri, reset bien
         updateNewPos();
     }
 
@@ -34,9 +35,9 @@ public class checkPoint : MonoBehaviour
 
     private void updateNewPos()     //di chuyen diem luu game den vi tri nguowi choi luu
     {
-        transform.position = new Vector2(PlayerPrefs.GetFloat("FirstPlayPosX"), PlayerPrefs.GetFloat("FirstPlayPosY"));
-        PlayerPrefs.SetFloat(CheckPointPosX, PlayerPrefs.GetFloat("FirstPlayPosX"));        //luu vitri checkpoint x
-        PlayerPrefs.SetFloat(CheckPointPosY, PlayerPrefs.GetFloat("FirstPlayPosY"));        //luu vitri y
+        transform.position = new Vector2(PlayerPrefsSaveSystem.LoadFloat("FirstPlayPosX"), PlayerPrefsSaveSystem.LoadFloat("FirstPlayPosY"));
+        PlayerPrefsSaveSystem.SetFloat(CheckPointPosX, PlayerPrefsSaveSystem.LoadFloat("FirstPlayPosX"));        //luu vitri checkpoint x
+        PlayerPrefsSaveSystem.SetFloat(CheckPointPosY, PlayerPrefsSaveSystem.LoadFloat("FirstPlayPosY"));        //luu vitri y
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -1,0 +1,423 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa2bb554e3b4c1744b8875dfc58c87dc, type: 3}
+  m_Name: CrystalLocomotion
+  m_EditorClassIdentifier: Assembly-CSharp::PoseSet
+  poses:
+  - name: Idle
+    blendSpeed: 10
+    cycleHz: 0.64
+    bones:
+    - boneId: body
+      position: {x: 0, y: 0.01}
+      rotation: 0
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0.026}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: head
+      position: {x: 0, y: 0}
+      rotation: 0
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 2
+      swingPosition: {x: 0.014, y: 0.008}
+      swingPhase: 0.16
+      stepLift: 0
+    - boneId: handL
+      position: {x: -0.025, y: 0}
+      rotation: 0
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0.022, y: 0.025}
+      swingPhase: 0.3
+      stepLift: 0
+    - boneId: handR
+      position: {x: 0.025, y: 0}
+      rotation: 0
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0.019, y: 0.019}
+      swingPhase: 0.12
+      stepLift: 0
+  - name: Bored
+    blendSpeed: 12
+    cycleHz: 0.65
+    bones:
+    - boneId: head
+      position: {x: 0, y: 0}
+      rotation: -5
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 3
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: tail
+      position: {x: 0, y: 0}
+      rotation: 3
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 4
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+  - name: Run
+    blendSpeed: 17
+    cycleHz: 2.45
+    bones:
+    - boneId: body
+      position: {x: 0.07, y: -0.038}
+      rotation: -8
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0.012}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: head
+      position: {x: 0.045, y: 0.015}
+      rotation: 8
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 1
+      swingPosition: {x: 0.013, y: 0.018}
+      swingPhase: 0.18
+      stepLift: 0
+    - boneId: handL
+      position: {x: 0, y: 0.025}
+      rotation: 0
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 12
+      swingPosition: {x: 0.14, y: 0.032}
+      swingPhase: 0.5
+      stepLift: 0
+    - boneId: handR
+      position: {x: 0, y: 0.025}
+      rotation: 0
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 13
+      swingPosition: {x: 0.17, y: 0.035}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: shinL
+      position: {x: 0, y: -0.05}
+      rotation: 8
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 13
+      swingPosition: {x: 0.31, y: 0}
+      swingPhase: 0
+      stepLift: 0.19
+    - boneId: shinR
+      position: {x: 0, y: -0.05}
+      rotation: 8
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 13
+      swingPosition: {x: 0.31, y: 0}
+      swingPhase: 0.5
+      stepLift: 0.19
+  - name: Jump
+    blendSpeed: 18
+    cycleHz: 0.6
+    bones:
+    - boneId: body
+      position: {x: 0.02, y: 0.04}
+      rotation: -8
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0.015}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: head
+      position: {x: 0.02, y: 0.07}
+      rotation: 8
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0.014}
+      swingPhase: 0.2
+      stepLift: 0
+    - boneId: handL
+      position: {x: -0.13, y: -0.08}
+      rotation: -12
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: handR
+      position: {x: 0.12, y: 0.2}
+      rotation: 12
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: shinL
+      position: {x: -0.16, y: 0.23}
+      rotation: -24
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0.025}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: shinR
+      position: {x: 0.13, y: 0.45}
+      rotation: 29
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0.029}
+      swingPhase: 0.2
+      stepLift: 0
+  - name: Fall
+    blendSpeed: 11
+    cycleHz: 0.82
+    bones:
+    - boneId: body
+      position: {x: 0, y: -0.035}
+      rotation: 5
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0.012, y: 0.018}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: head
+      position: {x: 0, y: -0.04}
+      rotation: -7
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0.018}
+      swingPhase: 0.25
+      stepLift: 0
+    - boneId: handL
+      position: {x: -0.21, y: 0.24}
+      rotation: -26
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 4
+      swingPosition: {x: 0.027, y: 0.025}
+      swingPhase: 0.2
+      stepLift: 0
+    - boneId: handR
+      position: {x: 0.22, y: 0.29}
+      rotation: 26
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 4
+      swingPosition: {x: 0.023, y: 0.028}
+      swingPhase: 0.6
+      stepLift: 0
+    - boneId: shinL
+      position: {x: -0.1, y: 0.045}
+      rotation: -12
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0.021, y: 0.02}
+      swingPhase: 0.2
+      stepLift: 0
+    - boneId: shinR
+      position: {x: 0.11, y: 0.1}
+      rotation: 13
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0.022, y: 0.023}
+      swingPhase: 0.65
+      stepLift: 0
+  - name: Land
+    blendSpeed: 26
+    cycleHz: 0
+    bones:
+    - boneId: body
+      position: {x: 0, y: -0.1}
+      rotation: -5
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: legR
+      position: {x: 0, y: 0}
+      rotation: 14
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: shinR
+      position: {x: 0, y: 0}
+      rotation: -20
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+  - name: Dash
+    blendSpeed: 24
+    cycleHz: 0
+    bones:
+    - boneId: body
+      position: {x: 0, y: -0.06}
+      rotation: -18
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: head
+      position: {x: 0, y: 0}
+      rotation: 12
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: armR
+      position: {x: 0, y: 0}
+      rotation: -23
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: legR
+      position: {x: 0, y: 0}
+      rotation: -14
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+  - name: Hurt
+    blendSpeed: 25
+    cycleHz: 0
+    bones:
+    - boneId: body
+      position: {x: 0, y: 0}
+      rotation: 16
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: head
+      position: {x: 0, y: 0}
+      rotation: 8
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+  - name: Attack1
+    blendSpeed: 25
+    cycleHz: 0
+    bones:
+    - boneId: body
+      position: {x: 0, y: 0}
+      rotation: -5
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: armR
+      position: {x: 0, y: 0}
+      rotation: 57
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: forearmR
+      position: {x: 0, y: 0}
+      rotation: 25
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+  - name: Attack2
+    blendSpeed: 25
+    cycleHz: 0
+    bones:
+    - boneId: body
+      position: {x: 0, y: 0}
+      rotation: -10
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: armR
+      position: {x: 0, y: 0}
+      rotation: 72
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: forearmR
+      position: {x: 0, y: 0}
+      rotation: 25
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+  - name: Attack3
+    blendSpeed: 25
+    cycleHz: 0
+    bones:
+    - boneId: body
+      position: {x: 0, y: 0}
+      rotation: -15
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: armR
+      position: {x: 0, y: 0}
+      rotation: 87
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: forearmR
+      position: {x: 0, y: 0}
+      rotation: 25
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+  - name: Cast
+    blendSpeed: 18
+    cycleHz: 0
+    bones:
+    - boneId: armR
+      position: {x: 0, y: 0}
+      rotation: 55
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: forearmR
+      position: {x: 0, y: 0}
+      rotation: 25
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0
+    - boneId: head
+      position: {x: 0, y: 0}
+      rotation: 4
+      scaleAdd: {x: 0, y: 0}
+      swingRotation: 0
+      swingPosition: {x: 0, y: 0}
+      swingPhase: 0
+      stepLift: 0

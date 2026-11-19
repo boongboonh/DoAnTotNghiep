@@ -1,3 +1,4 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,7 @@ public class DoorBoss : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        if (PlayerPrefs.GetInt("BoosDie") == 1)
+        if (PlayerPrefsSaveSystem.LoadInt("BoosDie") == 1)
         {
             canActive = false;
             OpenedDoorBoss();                   //neu boss da bi tieu diet thi mo cua
@@ -62,18 +63,16 @@ public class DoorBoss : MonoBehaviour
 
     private void SoundOpen()
     {
-        if (OpenDoorSound.isPlaying) return;
-        OpenDoorSound.Play();
+        AudioManager.PlaySource(OpenDoorSound, true);
     }
     private void SoundClose()
     {
-        if (CloseDoorSound.isPlaying) return;
-        CloseDoorSound.Play();
+        AudioManager.PlaySource(CloseDoorSound, true);
     }
 
     private bool checkBoss()
     {
-        if (PlayerPrefs.GetInt("BoosDie") == 1) return false;
+        if (PlayerPrefsSaveSystem.LoadInt("BoosDie") == 1) return false;
         else return true;
     }
 }

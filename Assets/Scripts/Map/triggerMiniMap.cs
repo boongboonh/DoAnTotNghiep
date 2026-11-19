@@ -1,3 +1,4 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,8 +14,8 @@ public class triggerMiniMap : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            PlayerPrefs.SetInt(mapPlayerprefs, NumberMap);
-            PlayerPrefs.SetString("nameMapCurrent", "Map" + NumberMap);
+            PlayerPrefsSaveSystem.SetInt(mapPlayerprefs, NumberMap);
+            PlayerPrefsSaveSystem.SetString("nameMapCurrent", "Map" + NumberMap);
         }
     }
 }

@@ -1,79 +1,76 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShootAlway : MonoBehaviour
+/// <summary>
+/// Enemy ban lien tuc dang state machine:
+///   Shoot    -> chay anim ban (state 1); ket thuc bang animation event stopAttack.
+///   Cooldown -> nghi delayBetweenShoot giay (anim 0, phat am idle) roi ban tiep.
+/// Ten field va ham animation event (AttackNow, stopAttack) giu nguyen de khong hong prefab/anim.
+/// </summary>
+public class EnemyShootAlway : StateMachineOwner<EnemyShootAlway>
 {
-
     [SerializeField] private GameObject BulletNomal;
     [SerializeField] private Transform pointShoot;
     [SerializeField] private float delayBetweenShoot = 1f;
-    private float timer = 0f;
-    private bool shoot = true;
     private Animator animator;
 
     [Header("audio sound")]
     [SerializeField] private AudioSource shootSound;
     [SerializeField] private AudioSource idleSound;
 
-    private void Start()
+    private static readonly int StateParam = Animator.StringToHash("state");
+
+    protected override void Awake()
     {
+        base.Awake();
         animator = GetComponent<Animator>();
     }
 
-
-    private void FixedUpdate()
+    protected override void SetupStates(StateMachine<EnemyShootAlway> m)
     {
-        updateAnimation();
-        if (shoot) return;
-        coolDown();
-        if (timer >= delayBetweenShoot)
-        {
-            shoot = true;
-            timer = 0f;
-        }
+        m.AddState<ShootState>();
+        m.AddState<CooldownState>();
+        m.SetInitialState<ShootState>();
 
+        // Shoot -> Cooldown do animation event stopAttack
+        m.AddTransition<CooldownState, ShootState>(() => Machine.TimeInState >= delayBetweenShoot);
     }
 
-    public void coolDown()
+    // ---------------- States ----------------
+
+    private class ShootState : State<EnemyShootAlway>
     {
-        timer += Time.fixedDeltaTime;
+        public override void Enter() => Owner.SetAnim(1);
     }
 
-    private void playIdleSound()
+    private class CooldownState : State<EnemyShootAlway>
     {
-        if (idleSound.isPlaying) return;
-        idleSound.Play();
-    }
-   
+        public override void Enter() => Owner.SetAnim(0);
 
-    private void updateAnimation()
-    {
-        if (shoot)
+        public override void Tick()
         {
-            animator.SetInteger("state", 1);
-        }
-        else
-        {
-            //chay am thanh idle khi khoong tan cong
-            playIdleSound();
-
-            animator.SetInteger("state", 0);
+            //chay am thanh idle khi khong tan cong
+            AudioManager.PlaySource(Owner.idleSound, true);
         }
     }
 
+    private void SetAnim(int value)
+    {
+        if (animator != null) animator.SetInteger(StateParam, value);
+    }
 
-    // cacs ham kich hoat ben animation
+    // ---------------- Ham goi tu animation event ----------------
+
     public void stopAttack()
     {
-        shoot = false;
+        if (Machine.IsIn<ShootState>()) Machine.ChangeState<CooldownState>();
     }
 
     public void AttackNow()
     {
         //chay am thanh ban
-        shootSound.Play();
+        if (shootSound != null) AudioManager.PlaySource(shootSound);
 
-        Instantiate(BulletNomal, pointShoot.position, transform.parent.rotation);
+        Quaternion rotation = transform.parent != null ? transform.parent.rotation : transform.rotation;
+        Instantiate(BulletNomal, pointShoot.position, rotation);
     }
 }

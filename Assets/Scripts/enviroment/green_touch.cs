@@ -19,7 +19,7 @@ public class green_touch : MonoBehaviour
             animator.SetTrigger("Green_Touch");
 
             //am thanh co
-            grassSound.Play();
+            AudioManager.PlaySource(grassSound);
         }
     }
 }

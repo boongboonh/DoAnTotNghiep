@@ -1,3 +1,4 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -115,7 +116,7 @@ public class TeleButton : MonoBehaviour
     //dich chuyen doi tuong tim duoc den vi tri
     private void transformObject(GameObject other, string posX, string posY)
     {
-        other.transform.position = new Vector2(PlayerPrefs.GetFloat(posX), PlayerPrefs.GetFloat(posY));
+        other.transform.position = new Vector2(PlayerPrefsSaveSystem.LoadFloat(posX), PlayerPrefsSaveSystem.LoadFloat(posY));
     }
 
     //an nut dich chuyen

@@ -1,20 +1,26 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class NPC : MonoBehaviour
+/// <summary>
+/// NPC hoi thoai dang state machine (dung StateMachine theo kieu composition vi NPC da ke thua InteractableZone):
+///   Idle     -> player o ngoai vung.
+///   Prompt   -> player trong vung, hien icon "bam F de noi chuyen".
+///   Typing   -> go chu tung ky tu cho dong thoai hien tai.
+///   LineDone -> go xong dong, hien nut tiep tuc (NextLine).
+///   Choice   -> dong tiep theo la "" => hien cau hoi lua chon (Agree / Reject).
+///   Talked   -> da noi xong, player van trong vung; khong cho bam F lai cho den khi player roi vung.
+/// Ten field public va ham goi tu button (NextLine, RemoveText, AgreeOptionButton, RejectOptionButton) giu nguyen.
+/// </summary>
+public class NPC : InteractableZone
 {
     public GameObject dialoguePanel;
-    public TextMeshProUGUI dialogueText; // vawn banr ddoi thoai
+    public TextMeshProUGUI dialogueText; // van ban doi thoai
     [SerializeField] List<string> dialogue;
 
     private int numberTalk = 0;         //so lan noi chuyen
 
     private int index = 0;              //chi so dong dang hien thi
-
-    //[SerializeField] private int numberShowOption;
-    //[SerializeField] private GameObject optionChoose;
 
     [SerializeField] List<string> dialogueOption1;
     [SerializeField] List<string> dialogueOption2;
@@ -23,12 +29,7 @@ public class NPC : MonoBehaviour
 
     List<string> currenDialogue;                        //luu danh sach thoai chay hien tai
 
-    bool isClicked = false;
-
     public float wordSpeed;
-    private bool playerIsClose;
-
-    private bool hideContinue = true;
 
     public GameObject continueButton;
     public GameObject IconTalk;
@@ -40,127 +41,210 @@ public class NPC : MonoBehaviour
 
     [SerializeField] private GameObject player;
 
+    private StateMachine<NPC> machine;
+    private PlayerMoveStory playerMove;
+
+    private PlayerMoveStory PlayerMove
+    {
+        get
+        {
+            if (playerMove == null && player != null) playerMove = player.GetComponent<PlayerMoveStory>();
+            return playerMove;
+        }
+    }
+
+    // chi cho bam F khi dang o Prompt (khong dang noi chuyen / da noi xong cho den khi player roi vung roi quay lai)
+    protected override bool CanInteract => machine != null && machine.IsIn<PromptState>();
+
+    private void Awake()
+    {
+        machine = new StateMachine<NPC>(this);
+        machine.AddState<IdleState>();
+        machine.AddState<PromptState>();
+        machine.AddState<TypingState>();
+        machine.AddState<LineDoneState>();
+        machine.AddState<ChoiceState>();
+        machine.AddState<TalkedState>();
+        machine.SetInitialState<IdleState>();
+        // Cac state chuyen qua nhau bang su kien: OnPlayerEnter/Exit, OnInteract, NextLine, nut lua chon.
+    }
+
+    private void OnEnable()
+    {
+        machine.Start();
+    }
+
     void Start()
     {
         dialogueText.text = "";
     }
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();      // doc phim tuong tac
+        machine.Tick();
+    }
 
-        if (!playerIsClose) return;
-        if (isClicked) return;
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        if (InConversation()) SetPlayerMove(true);      // tat NPC giua luc noi chuyen: khong de player bi khoa
+        machine.Stop();
+    }
 
+    // ---------------- States ----------------
+
+    private class IdleState : State<NPC> { }
+
+    private class PromptState : State<NPC>
+    {
+        public override void Enter() => Owner.IconTalk.SetActive(true);
+    }
+
+    private class TypingState : State<NPC>
+    {
+        private int typed;
+        private float timer;
+        private float nextCharTime;
+
+        public override void Enter()
+        {
+            Owner.dialogueText.text = "";
+            typed = 0;
+            timer = 0f;
+            nextCharTime = 0f;
+        }
+
+        public override void Tick()
+        {
+            string line = Owner.currenDialogue[Owner.index];
+
+            timer += Time.deltaTime;
+            bool changed = false;
+            while (typed < line.Length && timer >= nextCharTime)
+            {
+                typed++;
+                nextCharTime += Owner.wordSpeed;
+                changed = true;
+            }
+            if (changed) Owner.dialogueText.text = line.Substring(0, typed);
+
+            //go het chu thi cho phep bam tiep tuc
+            if (typed >= line.Length) Machine.ChangeState<LineDoneState>();
+        }
+    }
+
+    private class LineDoneState : State<NPC>
+    {
+        public override void Enter() => Owner.continueButton.SetActive(true);
+        public override void Exit() => Owner.continueButton.SetActive(false);
+    }
+
+    private class ChoiceState : State<NPC>
+    {
+        public override void Enter() => Owner.optionQuestion.SetActive(true);
+        public override void Exit() => Owner.optionQuestion.SetActive(false);
+    }
+
+    private class TalkedState : State<NPC>
+    {
+        public override void Enter() => Owner.SetPlayerMove(true);
+    }
+
+    // ---------------- Interaction ----------------
+
+    protected override void OnPlayerEnter(Collider2D playerCol)
+    {
+        if (machine.IsIn<IdleState>()) machine.ChangeState<PromptState>();
+    }
+
+    protected override void OnPlayerExit(Collider2D playerCol)
+    {
+        if (PlayerInside) return;               // con collider khac cua player trong vung
+
+        exitButton.SetActive(true);             //hien thi lai
+        ResetDialogueUI();
+        IconTalk.SetActive(false);
+        SetPlayerMove(true);
+        machine.ChangeState<IdleState>();
+    }
+
+    protected override void OnInteract(Collider2D playerCol)
+    {
         switch (numberTalk)
         {
             case 0:
-                {
-                    currenDialogue = dialogue;  //truyen danh sach vao
-                    break;
-                }
+                currenDialogue = dialogue;      //truyen danh sach vao
+                break;
             case 1:
-                {
-                    currenDialogue = dialogueEnd;  //truyen hoi thoai ket thuc vao
-                    break;
-                }
+                currenDialogue = dialogueEnd;   //truyen hoi thoai ket thuc vao
+                break;
             default:
-                {
-                    Debug.Log("loi so lan noi chuyen");
-                    break;
-                }
+                Debug.Log("loi so lan noi chuyen");
+                break;
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            
-            numberTalk = 1; //so lan noi chuyen la 1
-            player.GetComponent<PlayerMoveStory>().isMove = false;  //khong cho nguwoi choi di chuyen
-            hideContinue = false;
-            exitButton.SetActive(false);//khong cho thoat
+        numberTalk = 1; //so lan noi chuyen la 1
+        SetPlayerMove(false);                   //khong cho nguoi choi di chuyen
+        exitButton.SetActive(false);            //khong cho thoat
+        IconTalk.SetActive(false);
 
-            isClicked = true;
-            IconTalk.SetActive(false);
-            RunText();
-        }
+        StartConversation();
     }
 
-
-    private void RunText()
+    private void StartConversation()
     {
-        RemoveText();   //lam moi bang ghi
-
-        if (!dialoguePanel.activeInHierarchy)
-        {
-            dialoguePanel.SetActive(true);
-
-            StartCoroutine(Typing());
-        }
-        else if (dialogueText.text == currenDialogue[index])
-        {
-            NextLine();
-        }
+        ResetDialogueUI();
+        dialoguePanel.SetActive(true);
+        machine.ChangeState<TypingState>(true);
     }
 
-    private void FixedUpdate()
+    private void SetPlayerMove(bool value)
     {
-        if (!playerIsClose) return;
-
-        if (!dialoguePanel.activeInHierarchy)
-        {
-            player.GetComponent<PlayerMoveStory>().isMove = true;
-        }
-
-        if (hideContinue) return;
-        //neu chay het chu thi hien thi nut tiep tuc
-        if (dialogueText.text == currenDialogue[index])
-        {
-            continueButton.SetActive(true);
-        }
+        if (PlayerMove != null) PlayerMove.isMove = value;
     }
 
-    bool checkOpenOption()
+    // dong thoai tiep theo la "" => mo cau hoi lua chon
+    private bool checkOpenOption()
     {
-        if (currenDialogue[index + 1] != "") return false;
-        
-        
-        return true;
- 
+        return currenDialogue[index + 1] == "";
     }
 
-    //tat hoi thoai
-    public void RemoveText()
+    private void ResetDialogueUI()
     {
         dialogueText.text = "";
         index = 0;
         dialoguePanel.SetActive(false);
     }
 
-    //tao chu hien thi tu tu
-    IEnumerator Typing()
+    private bool InConversation()
     {
-        foreach (char letter in currenDialogue[index].ToCharArray())
-        {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(wordSpeed);
-        }
+        return machine.IsIn<TypingState>() || machine.IsIn<LineDoneState>() || machine.IsIn<ChoiceState>();
+    }
+
+    // ---------------- Ham goi trong button ----------------
+
+    //tat hoi thoai
+    public void RemoveText()
+    {
+        ResetDialogueUI();
+        if (InConversation()) machine.ChangeState<TalkedState>();
     }
 
     public void NextLine() // chuyen sang cau tiep theo
     {
-        continueButton.SetActive(false);
+        if (!machine.IsIn<LineDoneState>()) return;
+
         if (index < currenDialogue.Count - 1)
         {
-            if (checkOpenOption()) {
-                hideContinue = true;
-                continueButton.SetActive(false);
-                optionQuestion.SetActive(true);
-                Debug.Log("Chay lua chon");
+            if (checkOpenOption())
+            {
+                machine.ChangeState<ChoiceState>();
                 return;
             }
 
             index++;
-            dialogueText.text = "";
-            StartCoroutine(Typing());
+            machine.ChangeState<TypingState>();
         }
         else
         {
@@ -168,66 +252,31 @@ public class NPC : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log(collision.name);
-
-        if (collision.CompareTag("Player"))
-        {
-            playerIsClose = true;
-            IconTalk.SetActive(true);
-        }
-    }
-
-
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            isClicked = false;
-            exitButton.SetActive(true);     //hien thi lai
-            playerIsClose = false;
-            RemoveText();
-            IconTalk.SetActive(false);
-        }
-    }
-
-    //goi trong button
-
     public void AgreeOptionButton()       //dong y nhan nhiem vu
     {
+        if (!machine.IsIn<ChoiceState>()) return;
 
-        hideContinue = false;
         currenDialogue = dialogueOption1;
         ActiveTeleBoxStart();
-        RunText();
-
-
-        optionQuestion.SetActive(false);
+        StartConversation();
     }
 
     public void RejectOptionButton()        //tu choi nhan nhiem vu
     {
+        if (!machine.IsIn<ChoiceState>()) return;
 
-        hideContinue = false;
         currenDialogue = dialogueOption2;
         ActiveTeleBoxEnd();
-        RunText();
-
-
-        optionQuestion.SetActive(false);
+        StartConversation();
     }
 
     private void ActiveTeleBoxEnd()     //truyen tham so ket thuc truyen
     {
         teleBox.GetComponent<TeleBoxStory>().statusBox = 2;
-        Debug.Log("Cong ket thuc game");
     }
 
     private void ActiveTeleBoxStart()   //truyen tham so bat dau game
     {
         teleBox.GetComponent<TeleBoxStory>().statusBox = 1;
-        Debug.Log("cong dich chuyen game");
     }
 }

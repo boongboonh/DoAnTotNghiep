@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: 9886d167b07826843b9848e2072ab1ba
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2918523941988954955
+    second: NightCourierJump_0
+  - first:
+      213: -2776639569955614327
+    second: NightCourierJump_1
+  - first:
+      213: 1233573764378852317
+    second: NightCourierJump_2
+  - first:
+      213: 4611752938384032026
+    second: NightCourierJump_3
+  - first:
+      213: -5860086169165435746
+    second: NightCourierJump_4
+  - first:
+      213: -1506876784112536582
+    second: NightCourierJump_5
+  - first:
+      213: -6448095005044675968
+    second: NightCourierJump_6
+  - first:
+      213: 1184383065245660337
+    second: NightCourierJump_7
+  - first:
+      213: 897081265985901795
+    second: NightCourierJump_8
+  - first:
+      213: 5724154062785691713
+    second: NightCourierJump_9
+  - first:
+      213: 3022257106483845149
+    second: NightCourierJump_10
+  - first:
+      213: 8484935610075202818
+    second: NightCourierJump_11
+  - first:
+      213: 2243237627324598602
+    second: NightCourierJump_12
+  - first:
+      213: 7458393815546617356
+    second: NightCourierJump_13
+  - first:
+      213: -6378786337219405961
+    second: NightCourierJump_14
+  - first:
+      213: -1598529102541872930
+    second: NightCourierJump_15
+  - first:
+      213: -5078311181082203706
+    second: NightCourierJump_16
+  - first:
+      213: 4026510022820365263
+    second: NightCourierJump_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.564024, y: 0.04}
+  spritePixelsToUnits: 249
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NightCourierJump_0
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 551
+        height: 597
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4379beef0ea08820800000000000000
+      internalID: 2918523941988954955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierJump_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 311
+        width: 63
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 981908bb5056779d0800000000000000
+      internalID: -2776639569955614327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierJump_2
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 440
+        width: 57
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddbfa0e8dc88e1110800000000000000
+      internalID: 1233573764378852317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierJump_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 438
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a118e340ddc300040800000000000000
+      internalID: 4611752938384032026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierJump_4
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 186
+        width: 69
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9ce6bd5daaccaea0800000000000000
+      internalID: -5860086169165435746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierJump_5
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 139
+        width: 33
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af370b27c8f761be0800000000000000
+      internalID: -1506876784112536582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierJump_6
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 386
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08a6752a1c3c386a0800000000000000
+      internalID: -6448095005044675968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierJump_7
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 216
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b4b4f96f16cf6010800000000000000
+      internalID: 1184383065245660337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierJump_8
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 183
+        width: 108
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e45fb198a2137c00800000000000000
+      internalID: 897081265985901795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierJump_9
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 84
+        width: 72
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14043ffcac7407f40800000000000000
+      internalID: 5724154062785691713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierJump_10
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 70
+        width: 11
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d189ed363d631f920800000000000000
+      internalID: 3022257106483845149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierJump_11
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 97
+        width: 48
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20548947bfb80c570800000000000000
+      internalID: 8484935610075202818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierJump_12
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 70
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a490973acb4912f10800000000000000
+      internalID: 2243237627324598602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierJump_13
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 52
+        width: 39
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0e50a2b8a9818760800000000000000
+      internalID: 7458393815546617356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierJump_14
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 16
+        width: 21
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7771cef5f9ff977a0800000000000000
+      internalID: -6378786337219405961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierJump_15
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 27
+        width: 29
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed02ed72042e0d9e0800000000000000
+      internalID: -1598529102541872930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierJump_16
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 0
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c963b803e63689b0800000000000000
+      internalID: -5078311181082203706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierJump_17
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 39
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc302ca488901e730800000000000000
+      internalID: 4026510022820365263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      NightCourierJump_0: 2918523941988954955
+      NightCourierJump_1: -2776639569955614327
+      NightCourierJump_10: 3022257106483845149
+      NightCourierJump_11: 8484935610075202818
+      NightCourierJump_12: 2243237627324598602
+      NightCourierJump_13: 7458393815546617356
+      NightCourierJump_14: -6378786337219405961
+      NightCourierJump_15: -1598529102541872930
+      NightCourierJump_16: -5078311181082203706
+      NightCourierJump_17: 4026510022820365263
+      NightCourierJump_2: 1233573764378852317
+      NightCourierJump_3: 4611752938384032026
+      NightCourierJump_4: -5860086169165435746
+      NightCourierJump_5: -1506876784112536582
+      NightCourierJump_6: -6448095005044675968
+      NightCourierJump_7: 1184383065245660337
+      NightCourierJump_8: 897081265985901795
+      NightCourierJump_9: 5724154062785691713
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

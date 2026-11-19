@@ -1,3 +1,4 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +21,7 @@ public class RevivalPlayer : MonoBehaviour
 
     private void Start()
     {
-        gameObject.transform.position = new Vector2(PlayerPrefs.GetFloat("FirstPlayPosX"), PlayerPrefs.GetFloat("FirstPlayPosY") + 1f);// nang do cao len
-        soul.transform.position = gameObject.transform.position;
+        gameObject.transform.position = new Vector2(PlayerPrefsSaveSystem.LoadFloat("FirstPlayPosX"), PlayerPrefsSaveSystem.LoadFloat("FirstPlayPosY") + 1f);// nang do cao len
+        if (soul != null) soul.transform.position = gameObject.transform.position;
     }
 }

@@ -1,8 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCuaNhayMiniAI : MonoBehaviour
+/// <summary>
+/// AI cua nhay mini dang state machine. Chi co mot hanh vi (luon nhay ve phia player) nen chi co state Chase;
+/// them state moi (vd Idle, Stunned) bang AddState / AddTransition trong SetupStates.
+/// </summary>
+public class EnemyCuaNhayMiniAI : StateMachineOwner<EnemyCuaNhayMiniAI>
 {
     [Header("setting jump move")]
     public float ForceJumpMovex = 2f;
@@ -10,6 +12,8 @@ public class EnemyCuaNhayMiniAI : MonoBehaviour
     private float direction = 1f;
 
     private Transform targetObj;
+
+    private static readonly int StateParam = Animator.StringToHash("state");
 
     Animator _animator;
     private Rigidbody2D _rb;
@@ -19,25 +23,43 @@ public class EnemyCuaNhayMiniAI : MonoBehaviour
     [Header("audio sound")]
     [SerializeField] private AudioSource jumpEnemyMove;
 
-    void Start()
+    protected override void Awake()
     {
+        base.Awake();
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         colli = GetComponent<Collider2D>();
     }
 
+    protected override void SetupStates(StateMachine<EnemyCuaNhayMiniAI> m)
+    {
+        m.AddState<ChaseState>();
+        m.SetInitialState<ChaseState>();
+    }
 
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
         updateAnimation();
-
-        if (!IsGround()) return;
-
-        targetObj = GetPosPlayer.Instance.PlayerPos;
-        if (targetObj == null) return;
-
-        jump(checkDirectionTarget(direction));
+        base.FixedUpdate();
     }
+
+    // ---------------- States ----------------
+
+    private class ChaseState : State<EnemyCuaNhayMiniAI>
+    {
+        public override void FixedTick()
+        {
+            if (!Owner.IsGround()) return;
+            if (GetPosPlayer.Instance == null) return;
+
+            Owner.targetObj = GetPosPlayer.Instance.PlayerPos;
+            if (Owner.targetObj == null) return;
+
+            Owner.jump(Owner.checkDirectionTarget(Owner.direction));
+        }
+    }
+
+    // ---------------- Helpers ----------------
 
     private bool IsGround()
     {
@@ -56,38 +78,33 @@ public class EnemyCuaNhayMiniAI : MonoBehaviour
 
     private void playSoundJump()
     {
-        if (jumpEnemyMove.isPlaying) return;
-        jumpEnemyMove.Play();
+        AudioManager.PlaySource(jumpEnemyMove, true);
     }
 
     private void updateAnimation()
     {
         if (_rb.linearVelocity.y > .1f)
         {
-            _animator.SetInteger("state", 0);
+            _animator.SetInteger(StateParam, 0);
         }
 
         if (_rb.linearVelocity.y < -.1f)
         {
-            _animator.SetInteger("state", 1);
+            _animator.SetInteger(StateParam, 1);
         }
     }
-
 
     // kiem tra huong doi tuong nhay den
     private float checkDirectionTarget(float direction)
     {
-
         if (transform.position.x - targetObj.position.x > 0)
         {
             return -Mathf.Abs(direction); // player o ben trai
         }
         if (transform.position.x - targetObj.position.x < 0)
         {
-            return Mathf.Abs(direction); // player o ben trai
+            return Mathf.Abs(direction); // player o ben phai
         }
         return direction;
     }
-
-
 }

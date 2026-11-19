@@ -22,7 +22,7 @@ public class RockDropTrap : MonoBehaviour
 
     private void PlayRockMoveAudio()
     {
-        rockMoveAudio.Play();
+        AudioManager.PlaySource(rockMoveAudio);
     }
     private void logic()
     {

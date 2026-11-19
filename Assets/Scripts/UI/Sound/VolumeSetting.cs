@@ -1,63 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
+using GF.Save;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
+/// <summary>Slider am luong trong menu. Luu va ap dung qua AudioManager (cung key PlayerPrefs cu).</summary>
 public class VolumeSetting : MonoBehaviour
 {
-    //ham goi trong menu
-
-    [SerializeField] AudioMixer musicMixer;
+    [SerializeField] AudioMixer musicMixer;         // giu field cu (khong con dung, AudioManager giu mixer)
     [SerializeField] Slider backgroundSlider;
     [SerializeField] Slider effectSlider;
 
     [SerializeField] float volumeStart = 1f;
 
-    [SerializeField] string nameBackgroundSound = "soundBackgroundMix";
-    [SerializeField] string nameEffectSound = "soundEffectMix";
     void Start()
     {
-        //kiem tra bien ton tai chua
-        if (PlayerPrefs.HasKey("soundBackgroundMix"))
-        {
-            //load du lieu
-            loadVolume();
-        }
-        else
-        {
-            // khoi tao gia tri ban dau la .5f;
+        float music = PlayerPrefsSaveSystem.HasKey(AudioManager.KeyMusic) ? AudioManager.GetVolume(SoundBus.Music) : volumeStart;
+        float effect = PlayerPrefsSaveSystem.HasKey(AudioManager.KeyEffect) ? AudioManager.GetVolume(SoundBus.Effect) : volumeStart;
 
-            PlayerPrefs.SetFloat(nameBackgroundSound, volumeStart);
-            PlayerPrefs.SetFloat(nameEffectSound, volumeStart);
-            loadVolume();
-        }
+        // dat gia tri slider truoc khi gan su kien de khong luu de gia tri ngoai y muon
+        backgroundSlider.SetValueWithoutNotify(music);
+        effectSlider.SetValueWithoutNotify(effect);
+        AudioManager.SetVolume(SoundBus.Music, music);
+        AudioManager.SetVolume(SoundBus.Effect, effect);
     }
 
-    //gouj trong slider background sound
+    //goi trong slider background sound
     public void setBackgroundSound()
     {
-        float volume = backgroundSlider.value;
-        musicMixer.SetFloat(nameBackgroundSound, Mathf.Log(volume)*20);         //chuyen doi logarit ve tuyen tinh
-        PlayerPrefs.SetFloat(nameBackgroundSound, volume);
+        AudioManager.SetVolume(SoundBus.Music, backgroundSlider.value);
     }
 
     //goi trong slider effect sound
     public void setEffectSound()
     {
-        float volume = effectSlider.value;
-        musicMixer.SetFloat(nameEffectSound, Mathf.Log(volume)*20);         //chuyen doi logarit ve tuyen tinh
-        PlayerPrefs.SetFloat(nameEffectSound, volume);
+        AudioManager.SetVolume(SoundBus.Effect, effectSlider.value);
     }
-
-    //load am thanh khi moi vao
-    private void loadVolume()
-    {
-        backgroundSlider.value = PlayerPrefs.GetFloat(nameBackgroundSound);
-        setBackgroundSound();
-        
-        effectSlider.value = PlayerPrefs.GetFloat(nameEffectSound);
-        setEffectSound();
-    }
-   
 }

@@ -11,9 +11,7 @@ public class ExitController : MonoBehaviour
     //goi trong button icon exit
     public void OpentConfirm()
     {
-        confirmExit.transform.localScale = new Vector3(0, 1, 1);
-        confirmExit.SetActive(true);
-        LeanTween.scale(confirmExit, new Vector3(1, 1, 1), 0.2f).setOnComplete(shockConfirmEffect).setIgnoreTimeScale(true);
+        UIPanelTween.Show(confirmExit);
 
     
         iconList.SetActive(false);
@@ -43,7 +41,7 @@ public class ExitController : MonoBehaviour
     {
         iconList.SetActive(true);
 
-        LeanTween.scale(confirmExit, new Vector3(0, 1, 1), 0.2f).setOnComplete(hideConfirm).setIgnoreTimeScale(true);
+        UIPanelTween.Hide(confirmExit);
 
 
         EventManager.Instance.OnShowInfor();        //hien thi thong tin mau va mana

@@ -10,9 +10,9 @@ public class EnemyCuaNhayHealth : EnemyHealth
     [Header("pos play sound death")]
     [SerializeField] private Transform pointPlayDeathSound;
 
-    protected override void dropItem()
+    protected override void DropItem()
     {
-        base.dropItem();
+        base.DropItem();
 
 
         for (int i = 0; i < enemyDrop.Length; i++)
@@ -26,7 +26,7 @@ public class EnemyCuaNhayHealth : EnemyHealth
 
     protected override void PlayDieSound(AudioClip clip)
     {
-        AudioSource.PlayClipAtPoint(clip, pointPlayDeathSound.position);
+        AudioManager.PlayClipAt(clip, pointPlayDeathSound.position);
     }
 
 }

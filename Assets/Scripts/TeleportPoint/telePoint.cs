@@ -1,8 +1,9 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class telePoint : MonoBehaviour
+public class telePoint : InteractableZone
 {
     [Header("name data")]
     [SerializeField] string nameTele = "teleTree1";     //ten luu du lieu
@@ -20,49 +21,37 @@ public class telePoint : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerPrefs.GetInt(nameTele) != 1) return;
+        if (PlayerPrefsSaveSystem.LoadInt(nameTele) != 1) return;
         isActive = true;
         EffectPower.SetActive(true);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-       
-        if (isActive) return;
-        if (collision.CompareTag("Player"))
-        {
-            clickTuto.SetActive(true);
-        }
-    }
+    protected override bool CanInteract => !isActive;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    protected override void OnPlayerEnter(Collider2D player)
     {
         if (isActive) return;
-        if (!collision.CompareTag("Player")) return;
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            isActive = true;
-            EffectPower.SetActive(true);
-            PlayerPrefs.SetInt(nameTele, 1);
-
-            //chay am thanh
-            openTree.Play();
-
-            clickTuto.SetActive(false);
-
-            //luu thong tin vi tri cay de teleport
-            PlayerPrefs.SetFloat(TelePostX, transform.parent.position.x);
-            PlayerPrefs.SetFloat(TelePostY, transform.parent.position.y + 1);
-        }
+        clickTuto.SetActive(true);
     }
 
-
-    
-    private void OnTriggerExit2D(Collider2D collision)
+    protected override void OnInteract(Collider2D player)
     {
-        if (collision.CompareTag("Player"))
-        {
-            clickTuto.SetActive(false);
-        }
+        isActive = true;
+        EffectPower.SetActive(true);
+        PlayerPrefsSaveSystem.SetInt(nameTele, 1);
+
+        //chay am thanh
+        AudioManager.PlaySource(openTree);
+
+        clickTuto.SetActive(false);
+
+        //luu thong tin vi tri cay de teleport
+        PlayerPrefsSaveSystem.SetFloat(TelePostX, transform.parent.position.x);
+        PlayerPrefsSaveSystem.SetFloat(TelePostY, transform.parent.position.y + 1);
+    }
+
+    protected override void OnPlayerExit(Collider2D player)
+    {
+        clickTuto.SetActive(false);
     }
 }

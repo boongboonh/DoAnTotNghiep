@@ -9,7 +9,7 @@ public class EnemyDashHealth : EnemyHealth
 
     protected override void PlayDieSound(AudioClip clip)
     {
-        AudioSource.PlayClipAtPoint(clip, pointPlayDeathSound.position);
+        AudioManager.PlayClipAt(clip, pointPlayDeathSound.position);
     }
 
     public override void EnemyTakeDame(int damePlayer)

@@ -1,0 +1,468 @@
+fileFormatVersion: 2
+guid: 9d46e5b592f15d2469b135d154b97351
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3286334134602148004
+    second: NightCourierLeftRun03_0
+  - first:
+      213: 3913583698414893477
+    second: NightCourierLeftRun03_1
+  - first:
+      213: -514747453838447545
+    second: NightCourierLeftRun03_2
+  - first:
+      213: 4646410619068910531
+    second: NightCourierLeftRun03_3
+  - first:
+      213: 3163323742188335715
+    second: NightCourierLeftRun03_4
+  - first:
+      213: -7171797537491711860
+    second: NightCourierLeftRun03_5
+  - first:
+      213: 7010436595800450663
+    second: NightCourierLeftRun03_6
+  - first:
+      213: 6986325198964721260
+    second: NightCourierLeftRun03_7
+  - first:
+      213: 1930136745601215959
+    second: NightCourierLeftRun03_8
+  - first:
+      213: -2711976253679615216
+    second: NightCourierLeftRun03_9
+  - first:
+      213: 8910530915896213371
+    second: NightCourierLeftRun03_10
+  - first:
+      213: 3397574570299588969
+    second: NightCourierLeftRun03_11
+  - first:
+      213: 654234962647412124
+    second: NightCourierLeftRun03_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.453125, y: 0.052734}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NightCourierLeftRun03_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 471
+        width: 21
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c575ccd24889462d0800000000000000
+      internalID: -3286334134602148004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLeftRun03_1
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 21
+        width: 486
+        height: 491
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a977ce73a7df4630800000000000000
+      internalID: 3913583698414893477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLeftRun03_2
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 439
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74c2ce00bef3bd8f0800000000000000
+      internalID: -514747453838447545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLeftRun03_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 439
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cb843e17dd5b7040800000000000000
+      internalID: 4646410619068910531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLeftRun03_4
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 425
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 362f1bafe2266eb20800000000000000
+      internalID: 3163323742188335715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLeftRun03_5
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 411
+        width: 40
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8809c03328a87c90800000000000000
+      internalID: -7171797537491711860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLeftRun03_6
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 431
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 766a515e0f21a4160800000000000000
+      internalID: 7010436595800450663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLeftRun03_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 387
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6607a9d0c964f060800000000000000
+      internalID: 6986325198964721260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLeftRun03_8
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 370
+        width: 21
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dd2d71d42939ca10800000000000000
+      internalID: 1930136745601215959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLeftRun03_9
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 385
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 013c12847ff1d5ad0800000000000000
+      internalID: -2711976253679615216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLeftRun03_10
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 385
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7f312278a098ab70800000000000000
+      internalID: 8910530915896213371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLeftRun03_11
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 329
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9618b90121c962f20800000000000000
+      internalID: 3397574570299588969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLeftRun03_12
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 303
+        width: 40
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9d6d347b3f441900800000000000000
+      internalID: 654234962647412124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      NightCourierLeftRun03_0: -3286334134602148004
+      NightCourierLeftRun03_1: 3913583698414893477
+      NightCourierLeftRun03_10: 8910530915896213371
+      NightCourierLeftRun03_11: 3397574570299588969
+      NightCourierLeftRun03_12: 654234962647412124
+      NightCourierLeftRun03_2: -514747453838447545
+      NightCourierLeftRun03_3: 4646410619068910531
+      NightCourierLeftRun03_4: 3163323742188335715
+      NightCourierLeftRun03_5: -7171797537491711860
+      NightCourierLeftRun03_6: 7010436595800450663
+      NightCourierLeftRun03_7: 6986325198964721260
+      NightCourierLeftRun03_8: 1930136745601215959
+      NightCourierLeftRun03_9: -2711976253679615216
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

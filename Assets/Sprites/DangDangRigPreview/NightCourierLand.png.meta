@@ -1,0 +1,858 @@
+fileFormatVersion: 2
+guid: e36d5500228ae564ba90ed92f22f160f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7593812460159685570
+    second: NightCourierLand_0
+  - first:
+      213: -7551283317251779077
+    second: NightCourierLand_1
+  - first:
+      213: -4067825463329227646
+    second: NightCourierLand_2
+  - first:
+      213: 5306058321241841152
+    second: NightCourierLand_3
+  - first:
+      213: 4666247870508400196
+    second: NightCourierLand_4
+  - first:
+      213: -4584722687383305566
+    second: NightCourierLand_5
+  - first:
+      213: -4229004808759739079
+    second: NightCourierLand_6
+  - first:
+      213: 1008143514157480413
+    second: NightCourierLand_7
+  - first:
+      213: 1253491778685975006
+    second: NightCourierLand_8
+  - first:
+      213: -4751113384094035399
+    second: NightCourierLand_9
+  - first:
+      213: 4031601217173755282
+    second: NightCourierLand_10
+  - first:
+      213: 369198023404558581
+    second: NightCourierLand_11
+  - first:
+      213: 7657764540526285352
+    second: NightCourierLand_12
+  - first:
+      213: 7033342167322724622
+    second: NightCourierLand_13
+  - first:
+      213: 5143323496973628501
+    second: NightCourierLand_14
+  - first:
+      213: -7592784910560413635
+    second: NightCourierLand_15
+  - first:
+      213: 6078471988292102858
+    second: NightCourierLand_16
+  - first:
+      213: 4016860737605011954
+    second: NightCourierLand_17
+  - first:
+      213: 4339287597069207491
+    second: NightCourierLand_18
+  - first:
+      213: 953477621966636405
+    second: NightCourierLand_19
+  - first:
+      213: 1197951427986966169
+    second: NightCourierLand_20
+  - first:
+      213: -2932360113180912665
+    second: NightCourierLand_21
+  - first:
+      213: -1740296182413108322
+    second: NightCourierLand_22
+  - first:
+      213: 5723247961052159506
+    second: NightCourierLand_23
+  - first:
+      213: -311391279484887978
+    second: NightCourierLand_24
+  - first:
+      213: 8841004398583713840
+    second: NightCourierLand_25
+  - first:
+      213: 4061127971375357889
+    second: NightCourierLand_26
+  - first:
+      213: -2596436497069386828
+    second: NightCourierLand_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.553354, y: 0.10453}
+  spritePixelsToUnits: 249
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NightCourierLand_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 641
+        height: 574
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c3d0c2e234a26960800000000000000
+      internalID: 7593812460159685570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_1
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 501
+        width: 109
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf5dfd4d4d3743790800000000000000
+      internalID: -7551283317251779077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_2
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 566
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28cf8f91b4e2c87c0800000000000000
+      internalID: -4067825463329227646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_3
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 564
+        width: 71
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00e10233ee7e2a940800000000000000
+      internalID: 5306058321241841152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_4
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 566
+        width: 35
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44e739327b7d1c040800000000000000
+      internalID: 4666247870508400196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_5
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 558
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a208d8b10bcf50c0800000000000000
+      internalID: -4584722687383305566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_6
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 558
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93df47c588e8f45c0800000000000000
+      internalID: -4229004808759739079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_7
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 556
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd978fb4f25adfd00800000000000000
+      internalID: 1008143514157480413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_8
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 533
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed93375a12c456110800000000000000
+      internalID: 1253491778685975006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_9
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 534
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9329875bc87a01eb0800000000000000
+      internalID: -4751113384094035399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_10
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 485
+        width: 51
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2959ca952ff13f730800000000000000
+      internalID: 4031601217173755282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_11
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 420
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f81ecc65a7af1500800000000000000
+      internalID: 369198023404558581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_12
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 216
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 822d6abe648d54a60800000000000000
+      internalID: 7657764540526285352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 127
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e090c0bdf637b9160800000000000000
+      internalID: 7033342167322724622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_14
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 119
+        width: 9
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55478025871c06740800000000000000
+      internalID: 5143323496973628501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_15
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 94
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d38b9162a5201a690800000000000000
+      internalID: -7592784910560413635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_16
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 100
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aca205771121b5450800000000000000
+      internalID: 6078471988292102858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_17
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 109
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f909210f81ceb730800000000000000
+      internalID: 4016860737605011954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_18
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 72
+        width: 21
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c78199341f383c30800000000000000
+      internalID: 4339287597069207491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_19
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 102
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5750b9e68de6b3d00800000000000000
+      internalID: 953477621966636405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_20
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 107
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 996c55b0a7aff9010800000000000000
+      internalID: 1197951427986966169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_21
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 98
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e3d35c630a2e47d0800000000000000
+      internalID: -2932360113180912665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_22
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 73
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9b5c43b7d939d7e0800000000000000
+      internalID: -1740296182413108322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_23
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 39
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21e1eff82bf0d6f40800000000000000
+      internalID: 5723247961052159506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_24
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 34
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65c1628f747bdabf0800000000000000
+      internalID: -311391279484887978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_25
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 18
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0309f3ba8ae81ba70800000000000000
+      internalID: 8841004398583713840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_26
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 23
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cf1b398f560c5830800000000000000
+      internalID: 4061127971375357889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightCourierLand_27
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 17
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b3d15e23ca97fbd0800000000000000
+      internalID: -2596436497069386828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      NightCourierLand_0: 7593812460159685570
+      NightCourierLand_1: -7551283317251779077
+      NightCourierLand_10: 4031601217173755282
+      NightCourierLand_11: 369198023404558581
+      NightCourierLand_12: 7657764540526285352
+      NightCourierLand_13: 7033342167322724622
+      NightCourierLand_14: 5143323496973628501
+      NightCourierLand_15: -7592784910560413635
+      NightCourierLand_16: 6078471988292102858
+      NightCourierLand_17: 4016860737605011954
+      NightCourierLand_18: 4339287597069207491
+      NightCourierLand_19: 953477621966636405
+      NightCourierLand_2: -4067825463329227646
+      NightCourierLand_20: 1197951427986966169
+      NightCourierLand_21: -2932360113180912665
+      NightCourierLand_22: -1740296182413108322
+      NightCourierLand_23: 5723247961052159506
+      NightCourierLand_24: -311391279484887978
+      NightCourierLand_25: 8841004398583713840
+      NightCourierLand_26: 4061127971375357889
+      NightCourierLand_27: -2596436497069386828
+      NightCourierLand_3: 5306058321241841152
+      NightCourierLand_4: 4666247870508400196
+      NightCourierLand_5: -4584722687383305566
+      NightCourierLand_6: -4229004808759739079
+      NightCourierLand_7: 1008143514157480413
+      NightCourierLand_8: 1253491778685975006
+      NightCourierLand_9: -4751113384094035399
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,3 +1,5 @@
+using GF.Save;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,9 +14,13 @@ public class HealthPlayer : BinhBehaviour
     [SerializeField] private GameObject ringWavePlayerDie; // hieu ung chet
     [SerializeField] private GameObject ringRevivalPlayer; // hieuj ung hoi sinh
 
-    private bool canTakeDamage = true;
-    [Header("sprite player")]
-    [SerializeField] SpriteRenderer sprite;
+    /// <summary>Bat tu: takeDame bi bo qua (do PlayerHurt bat trong luc nhap nhay sau khi bi thuong).</summary>
+    public bool Invincible { get; set; }
+
+    /// <summary>Vua mat mau nhung chua chet (tham so: luong sat thuong).</summary>
+    public event Action<int> Damaged;
+    /// <summary>Het mau, truoc khi object bi tat.</summary>
+    public event Action Died;
 
 
     private static HealthPlayer instance;
@@ -95,7 +101,12 @@ public class HealthPlayer : BinhBehaviour
 
     public void takeDame(int dameTake)
     {
-        if (!canTakeDamage) return;
+        TakeDamageInternal(dameTake, false);
+    }
+
+    private void TakeDamageInternal(int dameTake, bool ignoreInvincible)
+    {
+        if (Invincible && !ignoreInvincible) return;
 
         if (checkHealth(dameTake))
         {
@@ -103,7 +114,7 @@ public class HealthPlayer : BinhBehaviour
             PlayerSounds.instance.HurtPlayerAudio();
           
             nowHeal-= dameTake;
-            StartCoroutine(DamageFlicker());
+            Damaged?.Invoke(dameTake);
         }
         else
         {
@@ -116,21 +127,9 @@ public class HealthPlayer : BinhBehaviour
             PlayerSounds.instance.DeathPlayerAudio();
 
             nowHeal = 0;
+            Died?.Invoke();
             diePlayer();
         }
-    }
-
-    IEnumerator DamageFlicker()
-    {
-        canTakeDamage = false;
-        for (int i = 0; i < 4; i++)
-        {
-            sprite.color = new Color(1f, 1f, 1f, .5f);
-            yield return new WaitForSeconds(.1f);
-            sprite.color = Color.white;
-            yield return new WaitForSeconds(.1f);
-        }
-        canTakeDamage = true;
     }
 
     public void addHealth()
@@ -145,7 +144,7 @@ public class HealthPlayer : BinhBehaviour
 
     public void diePlayer()
     {
-        soul.SetActive(false);
+        if (soul != null) soul.SetActive(false);
         gameObject.SetActive(false);
         GameObject EffectPlayerDieClone = Instantiate(ringWavePlayerDie, transform.position, Quaternion.identity);
         Destroy(EffectPlayerDieClone, 1f);
@@ -158,16 +157,16 @@ public class HealthPlayer : BinhBehaviour
     //delay chuyen man
     private void playerDieIvokeCall()
     {
-        gameObject.transform.position = new Vector2(PlayerPrefs.GetFloat("checkPointPosX"), PlayerPrefs.GetFloat("checkPointPosY") +1f);        //dich chuyen den vi tri da luu
-        soul.transform.position = gameObject.transform.position;
+        gameObject.transform.position = new Vector2(PlayerPrefsSaveSystem.LoadFloat("checkPointPosX"), PlayerPrefsSaveSystem.LoadFloat("checkPointPosY") +1f);        //dich chuyen den vi tri da luu
+        if (soul != null) soul.transform.position = gameObject.transform.position;
         gameObject.SetActive(true);
-        soul.SetActive(true);
+        if (soul != null) soul.SetActive(true);
     }
 
     //dung cho cacs ddoi tuwong tieu diet player ngay lap tuc
     public void killPlayer()
     {
-        takeDame(nowHeal);
+        TakeDamageInternal(nowHeal, true);   //bo qua bat tu
     }
 
     //hoi toan bo hp khi o tru
@@ -180,14 +179,14 @@ public class HealthPlayer : BinhBehaviour
     //kiem tra lan choi va cai hp cu
     private void setHPPlayeAgain()
     {
-        if (PlayerPrefs.GetInt(NumberPlay) != 1) //neu lan choi thu nhat
+        if (PlayerPrefsSaveSystem.LoadInt(NumberPlay) != 1) //neu lan choi thu nhat
         {
             nowHeal = healthPlayerMax;
         }
         else
         {
-            nowHeal = PlayerPrefs.GetInt(nameHPDataPlayerNow);
-            healthPlayerMax = PlayerPrefs.GetInt(nameHPDataPlayerMax);
+            nowHeal = PlayerPrefsSaveSystem.LoadInt(nameHPDataPlayerNow);
+            healthPlayerMax = PlayerPrefsSaveSystem.LoadInt(nameHPDataPlayerMax);
         }
     }
 }

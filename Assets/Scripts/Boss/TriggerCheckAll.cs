@@ -1,3 +1,4 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class TriggerCheckAll : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerPrefs.GetInt("BoosDie") == 1)         //kiem tra boss da bi tieu diet lan nao chua
+        if (PlayerPrefsSaveSystem.LoadInt("BoosDie") == 1)         //kiem tra boss da bi tieu diet lan nao chua
         {
             gameObject.SetActive(false);
         }
@@ -58,7 +59,7 @@ public class TriggerCheckAll : MonoBehaviour
 
     private bool checkBoss()
     {
-        if (PlayerPrefs.GetInt("BoosDie") == 1)         //kiem tra boss da bi tieu diet lan nao chua
+        if (PlayerPrefsSaveSystem.LoadInt("BoosDie") == 1)         //kiem tra boss da bi tieu diet lan nao chua
         {
             return true;
         }

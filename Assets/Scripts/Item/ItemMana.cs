@@ -21,7 +21,7 @@ public class ItemMana : MonoBehaviour
             collision.gameObject.GetComponent<ManaManager>().ManaHealing();
 
             //chay am thanh
-            AudioSource.PlayClipAtPoint(audioClipCollect, this.transform.position);
+            AudioManager.PlayClipAt(audioClipCollect, this.transform.position);
 
             Destroy(gameObject);
         }

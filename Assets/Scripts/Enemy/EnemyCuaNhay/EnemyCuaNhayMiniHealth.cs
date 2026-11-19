@@ -28,7 +28,7 @@ public class EnemyCuaNhayMiniHealth : EnemyHealth
         }
     }
 
-    protected override void dropItem()
+    protected override void DropItem()
     {
         for (int i = 0; i < ItemsDrop.Length; i++)
         {

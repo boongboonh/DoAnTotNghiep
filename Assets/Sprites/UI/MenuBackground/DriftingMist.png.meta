@@ -1,0 +1,988 @@
+fileFormatVersion: 2
+guid: 978fd0ec040a7274b831de57c4b4e388
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6918697149797242813
+    second: DriftingMist_0
+  - first:
+      213: -6520638786946335742
+    second: DriftingMist_1
+  - first:
+      213: -1582684906421470648
+    second: DriftingMist_2
+  - first:
+      213: -7550856365585038438
+    second: DriftingMist_3
+  - first:
+      213: -8864984310777617262
+    second: DriftingMist_4
+  - first:
+      213: 8829377188295187073
+    second: DriftingMist_5
+  - first:
+      213: -4865943973213104413
+    second: DriftingMist_6
+  - first:
+      213: -6787520109927225958
+    second: DriftingMist_7
+  - first:
+      213: -5139941933720266104
+    second: DriftingMist_8
+  - first:
+      213: -8764273753815785655
+    second: DriftingMist_9
+  - first:
+      213: 860967901296660716
+    second: DriftingMist_10
+  - first:
+      213: 3433975899862714495
+    second: DriftingMist_11
+  - first:
+      213: -6866936454233708588
+    second: DriftingMist_12
+  - first:
+      213: -6427007537746646391
+    second: DriftingMist_13
+  - first:
+      213: 7280331343114611238
+    second: DriftingMist_14
+  - first:
+      213: 7147625507789027324
+    second: DriftingMist_15
+  - first:
+      213: -7192548546359136270
+    second: DriftingMist_16
+  - first:
+      213: 8810319913032088991
+    second: DriftingMist_17
+  - first:
+      213: -3007717835300228594
+    second: DriftingMist_18
+  - first:
+      213: 2654924756895555369
+    second: DriftingMist_19
+  - first:
+      213: 525237723711754095
+    second: DriftingMist_20
+  - first:
+      213: -5283750522205660916
+    second: DriftingMist_21
+  - first:
+      213: 7103764519683940782
+    second: DriftingMist_22
+  - first:
+      213: -2928761794282151440
+    second: DriftingMist_23
+  - first:
+      213: -3232314786187545555
+    second: DriftingMist_24
+  - first:
+      213: 8071831503253046754
+    second: DriftingMist_25
+  - first:
+      213: 3078126837446516828
+    second: DriftingMist_26
+  - first:
+      213: -1637047662600639554
+    second: DriftingMist_27
+  - first:
+      213: -2638653374470547736
+    second: DriftingMist_28
+  - first:
+      213: -4056736469285182043
+    second: DriftingMist_29
+  - first:
+      213: -8857528567816898919
+    second: DriftingMist_30
+  - first:
+      213: 5237180657158234196
+    second: DriftingMist_31
+  - first:
+      213: -7052378720112611842
+    second: DriftingMist_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DriftingMist_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 350
+        width: 757
+        height: 573
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db71c22a666240060800000000000000
+      internalID: 6918697149797242813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1672
+        height: 359
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20cfd6332990285a0800000000000000
+      internalID: -6520638786946335742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_2
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 374
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84a3069867c290ae0800000000000000
+      internalID: -1582684906421470648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_3
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 404
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a938e434428f53790800000000000000
+      internalID: -7550856365585038438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_4
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 393
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29460b0fcbf39f480800000000000000
+      internalID: -8864984310777617262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_5
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 559
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18a9540d5cf388a70800000000000000
+      internalID: 8829377188295187073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_6
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 688
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e61eabbcb1b87cb0800000000000000
+      internalID: -4865943973213104413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_7
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 374
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a95a7fdfb62edc1a0800000000000000
+      internalID: -6787520109927225958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_8
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 451
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88a187a3b024ba8b0800000000000000
+      internalID: -5139941933720266104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_9
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 379
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94fd78db47b0f5680800000000000000
+      internalID: -8764273753815785655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_10
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 356
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce01dcf9eb5c2fb00800000000000000
+      internalID: 860967901296660716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_11
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 374
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f78c19e03eee7af20800000000000000
+      internalID: 3433975899862714495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_12
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 445
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d7283e6dadb3b0a0800000000000000
+      internalID: -6866936454233708588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_13
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 370
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98a6ad732beaec6a0800000000000000
+      internalID: -6427007537746646391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_14
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 358
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62a2d71a8cee80560800000000000000
+      internalID: 7280331343114611238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_15
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 366
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf739439787713360800000000000000
+      internalID: 7147625507789027324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_16
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 793
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ffe280743fee2c90800000000000000
+      internalID: -7192548546359136270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_17
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 656
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9df3d5284b844a70800000000000000
+      internalID: 8810319913032088991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_18
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 626
+        width: 221
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e02b25a70907246d0800000000000000
+      internalID: -3007717835300228594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_19
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 520
+        width: 58
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92f5620000038d420800000000000000
+      internalID: 2654924756895555369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_20
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 350
+        width: 45
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6f49784de40a4700800000000000000
+      internalID: 525237723711754095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_21
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 336
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c09952205e85ca6b0800000000000000
+      internalID: -5283750522205660916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_22
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 329
+        width: 11
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea1e8cb7134a59260800000000000000
+      internalID: 7103764519683940782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_23
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 340
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f1a3145aa2fa57d0800000000000000
+      internalID: -2928761794282151440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_24
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 469
+        width: 70
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d247c07d3d28423d0800000000000000
+      internalID: -3232314786187545555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_25
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 388
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e5843e5cf7e40070800000000000000
+      internalID: 8071831503253046754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_26
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 348
+        width: 743
+        height: 555
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c50a89fcc04b7ba20800000000000000
+      internalID: 3078126837446516828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_27
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 372
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebb2e4603d90849e0800000000000000
+      internalID: -1637047662600639554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_28
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 515
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e61c417cbe916bd0800000000000000
+      internalID: -2638653374470547736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_29
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 504
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a562e8bca393b7c0800000000000000
+      internalID: -4056736469285182043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_30
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 680
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 996366f52bcb31580800000000000000
+      internalID: -8857528567816898919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_31
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 544
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 450a6765f043ea840800000000000000
+      internalID: 5237180657158234196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DriftingMist_32
+      rect:
+        serializedVersion: 2
+        x: 1640
+        y: 526
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efde92e4beae02e90800000000000000
+      internalID: -7052378720112611842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      DriftingMist_0: 6918697149797242813
+      DriftingMist_1: -6520638786946335742
+      DriftingMist_10: 860967901296660716
+      DriftingMist_11: 3433975899862714495
+      DriftingMist_12: -6866936454233708588
+      DriftingMist_13: -6427007537746646391
+      DriftingMist_14: 7280331343114611238
+      DriftingMist_15: 7147625507789027324
+      DriftingMist_16: -7192548546359136270
+      DriftingMist_17: 8810319913032088991
+      DriftingMist_18: -3007717835300228594
+      DriftingMist_19: 2654924756895555369
+      DriftingMist_2: -1582684906421470648
+      DriftingMist_20: 525237723711754095
+      DriftingMist_21: -5283750522205660916
+      DriftingMist_22: 7103764519683940782
+      DriftingMist_23: -2928761794282151440
+      DriftingMist_24: -3232314786187545555
+      DriftingMist_25: 8071831503253046754
+      DriftingMist_26: 3078126837446516828
+      DriftingMist_27: -1637047662600639554
+      DriftingMist_28: -2638653374470547736
+      DriftingMist_29: -4056736469285182043
+      DriftingMist_3: -7550856365585038438
+      DriftingMist_30: -8857528567816898919
+      DriftingMist_31: 5237180657158234196
+      DriftingMist_32: -7052378720112611842
+      DriftingMist_4: -8864984310777617262
+      DriftingMist_5: 8829377188295187073
+      DriftingMist_6: -4865943973213104413
+      DriftingMist_7: -6787520109927225958
+      DriftingMist_8: -5139941933720266104
+      DriftingMist_9: -8764273753815785655
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

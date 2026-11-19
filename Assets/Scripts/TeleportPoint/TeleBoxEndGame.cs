@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TeleBoxEndGame : MonoBehaviour
+public class TeleBoxEndGame : InteractableZone
 {
     [SerializeField] private GameObject TextTuto;
 
@@ -11,45 +11,32 @@ public class TeleBoxEndGame : MonoBehaviour
     [SerializeField] AudioSource closeBoxSound;
     private bool isActive = false;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            TextTuto.SetActive(true);
+    protected override bool CanInteract => !isActive;
 
-            //am thanh
-            playSoundOpen();
-        }
+    protected override void OnPlayerEnter(Collider2D player)
+    {
+        TextTuto.SetActive(true);
+
+        //am thanh
+        playSoundOpen();
     }
 
-
-    private void OnTriggerStay2D(Collider2D collision)
+    protected override void OnInteract(Collider2D player)
     {
-        
-        if (collision.CompareTag("Player"))
-        {
-            if (isActive) return;
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                isActive = true;
-                TextTuto.SetActive(false);
-                collision.GetComponent<PlayerMove>().canMove = false;
-                Invoke("loadEndGame2", 3f);
+        isActive = true;
+        TextTuto.SetActive(false);
+        player.GetComponent<PlayerMove>().canMove = false;
+        Invoke("loadEndGame2", 3f);
 
-                Debug.Log(" chay story 2");
-            }
-        }
+        Debug.Log(" chay story 2");
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected override void OnPlayerExit(Collider2D player)
     {
-        if (collision.CompareTag("Player"))
-        {
-            TextTuto.SetActive(false);
+        TextTuto.SetActive(false);
 
-            //am thanh
-            playSoundClose();
-        }
+        //am thanh
+        playSoundClose();
     }
     private void loadEndGame2()
     {
@@ -60,12 +47,10 @@ public class TeleBoxEndGame : MonoBehaviour
     //am thanh
     private void playSoundOpen()
     {
-        if (openBoxSound.isPlaying) return;
-        openBoxSound.Play();
+        AudioManager.PlaySource(openBoxSound, true);
     }
     private void playSoundClose()
     {
-        if (closeBoxSound.isPlaying) return;
-        closeBoxSound.Play();
+        AudioManager.PlaySource(closeBoxSound, true);
     }
 }

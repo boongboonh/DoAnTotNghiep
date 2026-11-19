@@ -1,3 +1,4 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -57,10 +58,10 @@ public class CreateCheckPoint : MonoBehaviour
             
             //luu vi tri 
 
-            PlayerPrefs.SetFloat("FirstPlayPosX", gameObject.transform.position.x);
-            PlayerPrefs.SetFloat("FirstPlayPosY", gameObject.transform.position.y);
+            PlayerPrefsSaveSystem.SetFloat("FirstPlayPosX", gameObject.transform.position.x);
+            PlayerPrefsSaveSystem.SetFloat("FirstPlayPosY", gameObject.transform.position.y);
 
-            PlayerPrefs.SetInt(isCreateCheckPoint, 1);              //luu bien da tao diem luu game de checkpoin script tinh toan
+            PlayerPrefsSaveSystem.SetInt(isCreateCheckPoint, 1);              //luu bien da tao diem luu game de checkpoin script tinh toan
 
 
             //chay am thanh

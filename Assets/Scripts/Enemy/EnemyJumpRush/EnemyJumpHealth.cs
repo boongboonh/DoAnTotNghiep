@@ -9,6 +9,6 @@ public class EnemyJumpHealth : EnemyHealth
 
     protected override void PlayDieSound(AudioClip clip)
     {
-        AudioSource.PlayClipAtPoint(clip, pointPlayDeathSound.position);
+        AudioManager.PlayClipAt(clip, pointPlayDeathSound.position);
     }
 }

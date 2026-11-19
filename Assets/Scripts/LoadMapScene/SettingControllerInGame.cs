@@ -12,9 +12,7 @@ public class SettingControllerInGame : MonoBehaviour
     public void OpenSetting()
     {
 
-        settingBoard.transform.localScale = new Vector3(0, 1, 1);
-        settingBoard.SetActive(true);
-        LeanTween.scale(settingBoard, new Vector3(1, 1, 1), 0.2f).setOnComplete(shockSettingEffect).setIgnoreTimeScale(true);
+        UIPanelTween.Show(settingBoard);
 
         iconList.SetActive(false);
 
@@ -33,7 +31,7 @@ public class SettingControllerInGame : MonoBehaviour
     {
         iconList.SetActive(true);
         //settingBoard.SetActive(false);
-        LeanTween.scale(settingBoard, new Vector3(0, 1, 1), 0.2f).setOnComplete(hideSettingBoard).setIgnoreTimeScale(true);
+        UIPanelTween.Hide(settingBoard);
 
         EventManager.Instance.OnShowInfor();        //hien thi mau va mana
         

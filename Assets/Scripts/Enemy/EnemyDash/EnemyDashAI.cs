@@ -1,103 +1,114 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDashAI : MonoBehaviour
+/// <summary>
+/// AI enemy dash dang state machine:
+///   Patrol  -> di tuan giua LimitLeft / LimitRight.
+///   Windup  -> (player vao tam) dung lai, quay ve phia player, chay anim delay attack.
+///              Ket thuc bang animation event endDelayAttack.
+///   Dash    -> lao ve phia gioi han doi dien; toi noi thi quay lai Windup (neu player con trong tam) hoac Patrol.
+/// Ten field public va 2 ham animation event (startDelayAttack / endDelayAttack) giu nguyen de khong hong prefab/anim.
+/// </summary>
+public class EnemyDashAI : StateMachineOwner<EnemyDashAI>
 {
-
     [Header("setting dash attack")]
     public float speedDashAttack = 10f;
     public float speedDashMove = 2f;
-    private float speed;
-    private float newSpeed;
 
-    
     public Transform LimitRight;
     public Transform LimitLeft;
 
-    [HideInInspector] public bool inRange = false;
-    public float cooldowAttack = 1.5f;
-    
-    private bool isAttack = false;
-    private bool delayAttack = false;
-    private Transform target;
-    private Transform playerPos;
-
-    Animator _animator;
+    [HideInInspector] public bool inRange = false;     // TriggerAreaDashCheck set
+    public float cooldowAttack = 1.5f;                 // (chua dung, giu lai de khong mat du lieu prefab)
 
     [Header("attack sound")]
     [SerializeField] private AudioSource enemyDashAttack;
 
-    private void Awake()
+    private const float ReachDistance = 0.1f;
+    private static readonly int StateParam = Animator.StringToHash("state");
+
+    private Transform target;
+    private Animator _animator;
+
+    protected override void Awake()
     {
+        base.Awake();
         _animator = GetComponent<Animator>();
-        //_animator.keepAnimatorControllerStateOnDisable = true;
-    }
-    private void OnEnable()
-    {
-        playerPos = null;
-        target = LimitLeft;
-
-        speed = speedDashMove;
-
     }
 
-    void Start()
+    protected override void OnEnable()
     {
         target = LimitLeft;
-        speed = speedDashMove;
+        base.OnEnable();
     }
 
-    void Update()
+    protected override void SetupStates(StateMachine<EnemyDashAI> m)
     {
-        if (playerPos == null && inRange)
-        {
-            playerPos = GetPosPlayer.Instance.PlayerPos;
-            return;
-        }
+        m.AddState<PatrolState>();
+        m.AddState<WindupState>();
+        m.AddState<DashState>();
+        m.SetInitialState<PatrolState>();
 
-        if (!inRange)
-        {
-            newSpeed = speedDashMove;
-            changeObjectTarget();
-            TypeMove(speed);
-        }
-        else
-        {
-            gameLogic();
-        }
-
-        checkTouchTarget();
-        updateAnimation();
+        m.AddTransition<PatrolState, WindupState>(() => inRange);
+        m.AddTransition<DashState, WindupState>(() => inRange && ReachedTarget());
+        m.AddTransition<DashState, PatrolState>(() => !inRange && ReachedTarget());
+        // Windup -> Dash do animation event endDelayAttack
     }
 
-    void gameLogic()
+    // ---------------- States ----------------
+
+    private class PatrolState : State<EnemyDashAI>
     {
+        public override void Enter() => Owner.SetAnim(0);
 
-        if (!isAttack)
+        public override void Tick()
         {
-            playerPos = GetPosPlayer.Instance.PlayerPos;
-            changeOBjectTargetAttack();
-            delayAttack = true;
-        }
-        else
-        {
-            TypeMove(speed);
+            Owner.UpdatePatrolTarget();
+            Owner.MoveToTarget(Owner.speedDashMove);
         }
     }
 
-    void updateAnimation()
+    private class WindupState : State<EnemyDashAI>
     {
-        if (delayAttack)
+        public override void Enter() => Owner.SetAnim(1);
+
+        public override void Tick()
         {
-            _animator.SetInteger("state", 1);
-        }
-        else
-        {
-            _animator.SetInteger("state", 0);
+            // Player co the doi phia trong luc gong -> luon quay ve phia player (giong logic cu)
+            Owner.UpdateAttackTarget();
         }
     }
-    private void changeObjectTarget()
+
+    private class DashState : State<EnemyDashAI>
+    {
+        public override void Enter() => Owner.SetAnim(0);
+
+        public override void Tick()
+        {
+            Owner.MoveToTarget(Owner.speedDashAttack);
+        }
+    }
+
+    // ---------------- Helpers ----------------
+
+    private void SetAnim(int value)
+    {
+        if (_animator != null) _animator.SetInteger(StateParam, value);
+    }
+
+    private bool ReachedTarget()
+    {
+        return Mathf.Abs(transform.position.x - target.position.x) <= ReachDistance;
+    }
+
+    private void MoveToTarget(float speed)
+    {
+        transform.position = Vector2.MoveTowards(
+            transform.position,
+            new Vector2(target.position.x, transform.position.y),
+            speed * Time.deltaTime);
+    }
+
+    private void UpdatePatrolTarget()
     {
         if (transform.position.x - LimitLeft.position.x <= 0)
         {
@@ -110,60 +121,32 @@ public class EnemyDashAI : MonoBehaviour
         Flip();
     }
 
-    private void TypeMove(float moveType)
+    private void UpdateAttackTarget()
     {
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), moveType * Time.deltaTime);
-    }
-   
-    void checkTouchTarget()
-    {
-        if (Mathf.Abs(transform.position.x - target.position.x) <= 0.1f)
-        {
-            speed = newSpeed;
-            isAttack = false;
-            
-        }
-    }
+        if (GetPosPlayer.Instance == null) return;
+        var player = GetPosPlayer.Instance.PlayerPos;
+        if (player == null) return;
 
-    private void changeOBjectTargetAttack()
-    {
-        if (transform.position.x - playerPos.position.x <= 0 && !isAttack)
-        {
-            target = LimitRight;
-        }
-        else if (transform.position.x - playerPos.position.x >= 0 && !isAttack)
-        {
-            target = LimitLeft;
-        }
+        target = transform.position.x - player.position.x <= 0 ? LimitRight : LimitLeft;
         Flip();
     }
 
     public void Flip()
     {
         Vector2 rotation = transform.eulerAngles;
-        if (transform.position.x > target.position.x)
-        {
-            rotation.y = 0f;
-        }
-        else
-        {
-            rotation.y = 180f;
-        }
+        rotation.y = transform.position.x > target.position.x ? 0f : 180f;
         transform.eulerAngles = rotation;
     }
 
-    //ham goij ben animation
+    // ---------------- Ham goi tu animation event (EnemyDashDelayAttack) ----------------
 
     public void startDelayAttack()
     {
-        speed = 0f;
-        enemyDashAttack.Play();
+        if (enemyDashAttack != null) AudioManager.PlaySource(enemyDashAttack);
     }
 
     public void endDelayAttack()
     {
-        speed = speedDashAttack;
-        isAttack = true;
-        delayAttack = false;
+        if (Machine.IsIn<WindupState>()) Machine.ChangeState<DashState>();
     }
 }

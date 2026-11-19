@@ -1,0 +1,2080 @@
+fileFormatVersion: 2
+guid: 03ce4c4ceb6acce448dcf6d4569ee5f9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8925726333917758714
+    second: CoralMist_0
+  - first:
+      213: 4922144780836448040
+    second: CoralMist_1
+  - first:
+      213: 3160083399691706522
+    second: CoralMist_2
+  - first:
+      213: -2906285403361877113
+    second: CoralMist_3
+  - first:
+      213: -4320103608531668531
+    second: CoralMist_4
+  - first:
+      213: -9069198817655315379
+    second: CoralMist_5
+  - first:
+      213: -2060621862620682991
+    second: CoralMist_6
+  - first:
+      213: 5760854725082118100
+    second: CoralMist_7
+  - first:
+      213: 9220465251481822796
+    second: CoralMist_8
+  - first:
+      213: -3449666024938775857
+    second: CoralMist_9
+  - first:
+      213: 4875149659966961777
+    second: CoralMist_10
+  - first:
+      213: 2565521423023056992
+    second: CoralMist_11
+  - first:
+      213: -1565593539816234109
+    second: CoralMist_12
+  - first:
+      213: -8241176335358863775
+    second: CoralMist_13
+  - first:
+      213: -1793643877222312833
+    second: CoralMist_14
+  - first:
+      213: -1265692351515947022
+    second: CoralMist_15
+  - first:
+      213: 4745145777853924980
+    second: CoralMist_16
+  - first:
+      213: 5218084684517711241
+    second: CoralMist_17
+  - first:
+      213: 2304220479811819676
+    second: CoralMist_18
+  - first:
+      213: 8650620978372809641
+    second: CoralMist_19
+  - first:
+      213: -1087618379221083262
+    second: CoralMist_20
+  - first:
+      213: 3290534071837493804
+    second: CoralMist_21
+  - first:
+      213: 22444227491063297
+    second: CoralMist_22
+  - first:
+      213: -5264003009882414070
+    second: CoralMist_23
+  - first:
+      213: -3500571565421654740
+    second: CoralMist_24
+  - first:
+      213: 1487039574330455287
+    second: CoralMist_25
+  - first:
+      213: 5318815097587506533
+    second: CoralMist_26
+  - first:
+      213: -7155811753570890941
+    second: CoralMist_27
+  - first:
+      213: 4561679132630472134
+    second: CoralMist_28
+  - first:
+      213: -7610387686244509006
+    second: CoralMist_29
+  - first:
+      213: 7916577366509439245
+    second: CoralMist_30
+  - first:
+      213: -7112674651925852000
+    second: CoralMist_31
+  - first:
+      213: -359137179484362161
+    second: CoralMist_32
+  - first:
+      213: -7224904764920549291
+    second: CoralMist_33
+  - first:
+      213: 1528583094198300789
+    second: CoralMist_34
+  - first:
+      213: 2632871399114600106
+    second: CoralMist_35
+  - first:
+      213: -8904812656368452098
+    second: CoralMist_36
+  - first:
+      213: -1506520602666793742
+    second: CoralMist_37
+  - first:
+      213: 6776363713491576315
+    second: CoralMist_38
+  - first:
+      213: -5120473236298703385
+    second: CoralMist_39
+  - first:
+      213: 5634050758111632163
+    second: CoralMist_40
+  - first:
+      213: 2356386512336252593
+    second: CoralMist_41
+  - first:
+      213: 8174046771586726975
+    second: CoralMist_42
+  - first:
+      213: 1104015274735137489
+    second: CoralMist_43
+  - first:
+      213: -1614908883824341040
+    second: CoralMist_44
+  - first:
+      213: -7984087466414099661
+    second: CoralMist_45
+  - first:
+      213: -177899156584439106
+    second: CoralMist_46
+  - first:
+      213: -4153386413390022922
+    second: CoralMist_47
+  - first:
+      213: -1552517596649417916
+    second: CoralMist_48
+  - first:
+      213: 523645638852532706
+    second: CoralMist_49
+  - first:
+      213: -986817575985322525
+    second: CoralMist_50
+  - first:
+      213: 3347515315570674203
+    second: CoralMist_51
+  - first:
+      213: 5952078154093870993
+    second: CoralMist_52
+  - first:
+      213: -6298033725043995471
+    second: CoralMist_53
+  - first:
+      213: 2607572845257601228
+    second: CoralMist_54
+  - first:
+      213: 1408964728684572578
+    second: CoralMist_55
+  - first:
+      213: -1058389958803235163
+    second: CoralMist_56
+  - first:
+      213: 6597699520952577582
+    second: CoralMist_57
+  - first:
+      213: 4713082009542388387
+    second: CoralMist_58
+  - first:
+      213: 50721110691973170
+    second: CoralMist_59
+  - first:
+      213: 1410892459292092720
+    second: CoralMist_60
+  - first:
+      213: 7705431502219545653
+    second: CoralMist_61
+  - first:
+      213: 1338821462611409563
+    second: CoralMist_62
+  - first:
+      213: -4134550491709141023
+    second: CoralMist_63
+  - first:
+      213: -1117497634279200347
+    second: CoralMist_64
+  - first:
+      213: -8262095944191461056
+    second: CoralMist_65
+  - first:
+      213: 9186864896806150174
+    second: CoralMist_66
+  - first:
+      213: 6644157421927272203
+    second: CoralMist_67
+  - first:
+      213: 2048504961333734455
+    second: CoralMist_68
+  - first:
+      213: -7730283803577637896
+    second: CoralMist_69
+  - first:
+      213: -4917664669537161210
+    second: CoralMist_70
+  - first:
+      213: -682465976426679603
+    second: CoralMist_71
+  - first:
+      213: 2491044851257910760
+    second: CoralMist_72
+  - first:
+      213: -769517990131730113
+    second: CoralMist_73
+  - first:
+      213: 5973144096846790215
+    second: CoralMist_74
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CoralMist_0
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 705
+        width: 82
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60b7b789033712480800000000000000
+      internalID: -8925726333917758714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_1
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 423
+        width: 450
+        height: 490
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 827acca7998fe4440800000000000000
+      internalID: 4922144780836448040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_2
+      rect:
+        serializedVersion: 2
+        x: 1391
+        y: 899
+        width: 45
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a90ab33fb1fdadb20800000000000000
+      internalID: 3160083399691706522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 582
+        width: 33
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78366b4e2dccaa7d0800000000000000
+      internalID: -2906285403361877113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 502
+        width: 110
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc1369c28a8eb04c0800000000000000
+      internalID: -4320103608531668531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_5
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 567
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d44234cd9bbb32280800000000000000
+      internalID: -9069198817655315379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_6
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 608
+        width: 92
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 115271665533763e0800000000000000
+      internalID: -2060621862620682991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_7
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 590
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d77623a9daa2ff40800000000000000
+      internalID: 5760854725082118100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_8
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 583
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c46286a4b4ca5ff70800000000000000
+      internalID: 9220465251481822796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_9
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 583
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fca5ac507035020d0800000000000000
+      internalID: -3449666024938775857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_10
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 551
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 178723d39c208a340800000000000000
+      internalID: 4875149659966961777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_11
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 427
+        width: 44
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 068a1fa34209a9320800000000000000
+      internalID: 2565521423023056992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_12
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 540
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3836b9c68f4e54ae0800000000000000
+      internalID: -1565593539816234109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_13
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 536
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 166549f59c571ad80800000000000000
+      internalID: -8241176335358863775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_14
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 565
+        width: 76
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f741c949562bb17e0800000000000000
+      internalID: -1793643877222312833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_15
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 818
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ff86f0238b5f6ee0800000000000000
+      internalID: -1265692351515947022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_16
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 518
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4768d60b1f42ad140800000000000000
+      internalID: 4745145777853924980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_17
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 804
+        width: 55
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98d959cbf5c5a6840800000000000000
+      internalID: 5218084684517711241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_18
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 644
+        width: 35
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c981d5f615c3aff10800000000000000
+      internalID: 2304220479811819676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_19
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 469
+        width: 73
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a3147662fd2d0870800000000000000
+      internalID: 8650620978372809641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_20
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 564
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28b5757b8d008e0f0800000000000000
+      internalID: -1087618379221083262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_21
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 547
+        width: 33
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2a8139ed435aad20800000000000000
+      internalID: 3290534071837493804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_22
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 429
+        width: 174
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 106ecdee7ecbf4000800000000000000
+      internalID: 22444227491063297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_23
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 559
+        width: 37
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a042f53072182f6b0800000000000000
+      internalID: -5264003009882414070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_24
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 479
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2d853445b87b6fc0800000000000000
+      internalID: -3500571565421654740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_25
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 455
+        width: 42
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f43aea3d9603a410800000000000000
+      internalID: 1487039574330455287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_26
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 458
+        width: 83
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56d10b5a62a30d940800000000000000
+      internalID: 5318815097587506533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_27
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 656
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34b87dc8f1371bc90800000000000000
+      internalID: -7155811753570890941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_28
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 445
+        width: 29
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c550c790075e4f30800000000000000
+      internalID: 4561679132630472134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_29
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 465
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ba936e88b8726690800000000000000
+      internalID: -7610387686244509006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_30
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 447
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0941b7cb255ddd60800000000000000
+      internalID: 7916577366509439245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_31
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 449
+        width: 29
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a0d801b614ba4d90800000000000000
+      internalID: -7112674651925852000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_32
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 451
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4ae23753a6140bf0800000000000000
+      internalID: -359137179484362161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_33
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 436
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55032ee356bfbbb90800000000000000
+      internalID: -7224904764920549291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_34
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 422
+        width: 557
+        height: 474
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5707b53b93e963510800000000000000
+      internalID: 1528583094198300789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_35
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 658
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaee2838696d98420800000000000000
+      internalID: 2632871399114600106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_36
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 542
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efd71c99110cb6480800000000000000
+      internalID: -8904812656368452098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_37
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 567
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f40d376e73c71be0800000000000000
+      internalID: -1506520602666793742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_38
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 486
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf5238b05ea7a0e50800000000000000
+      internalID: 6776363713491576315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_39
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 445
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ed558498bc60f8b0800000000000000
+      internalID: -5120473236298703385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_40
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 456
+        width: 285
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32b93c3605b203e40800000000000000
+      internalID: 5634050758111632163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_41
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 459
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bee25d5c0193b020800000000000000
+      internalID: 2356386512336252593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_42
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 461
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3cfad51b3c007170800000000000000
+      internalID: 8174046771586726975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_43
+      rect:
+        serializedVersion: 2
+        x: 1389
+        y: 443
+        width: 9
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d271350b00425f00800000000000000
+      internalID: 1104015274735137489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_44
+      rect:
+        serializedVersion: 2
+        x: 1477
+        y: 502
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0df07032de0b699e0800000000000000
+      internalID: -1614908883824341040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_45
+      rect:
+        serializedVersion: 2
+        x: 1493
+        y: 508
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3333db430c2d23190800000000000000
+      internalID: -7984087466414099661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_46
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 772
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb261fdd8a9f78df0800000000000000
+      internalID: -177899156584439106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_47
+      rect:
+        serializedVersion: 2
+        x: 1509
+        y: 524
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f634f600153c56c0800000000000000
+      internalID: -4153386413390022922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_48
+      rect:
+        serializedVersion: 2
+        x: 1515
+        y: 501
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4431b20b879547ae0800000000000000
+      internalID: -1552517596649417916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_49
+      rect:
+        serializedVersion: 2
+        x: 1543
+        y: 542
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e9dcf32fec544700800000000000000
+      internalID: 523645638852532706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_50
+      rect:
+        serializedVersion: 2
+        x: 1557
+        y: 542
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e5684d94ae1e42f0800000000000000
+      internalID: -986817575985322525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_51
+      rect:
+        serializedVersion: 2
+        x: 1575
+        y: 551
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1a05c09173c47e20800000000000000
+      internalID: 3347515315570674203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_52
+      rect:
+        serializedVersion: 2
+        x: 1598
+        y: 557
+        width: 25
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19fb022bb870a9250800000000000000
+      internalID: 5952078154093870993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_53
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 538
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bc825b02b3e898a0800000000000000
+      internalID: -6298033725043995471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_54
+      rect:
+        serializedVersion: 2
+        x: 1622
+        y: 536
+        width: 50
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc0b88fefa5ff2420800000000000000
+      internalID: 2607572845257601228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_55
+      rect:
+        serializedVersion: 2
+        x: 1646
+        y: 534
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2af6c4aa4f5ad8310800000000000000
+      internalID: 1408964728684572578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_56
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 423
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ae51b7a0f7df41f0800000000000000
+      internalID: -1058389958803235163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_57
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 428
+        width: 39
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2ea42912ccbf8b50800000000000000
+      internalID: 6597699520952577582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_58
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 431
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aaee00ed1b386140800000000000000
+      internalID: 4713082009542388387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_59
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 427
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2388869d49234b000800000000000000
+      internalID: 50721110691973170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_60
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 405
+        width: 9
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 039e16c673f749310800000000000000
+      internalID: 1410892459292092720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_61
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 402
+        width: 124
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53c86ea40213fea60800000000000000
+      internalID: 7705431502219545653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_62
+      rect:
+        serializedVersion: 2
+        x: 1270
+        y: 423
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9a3f90e603749210800000000000000
+      internalID: 1338821462611409563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1672
+        height: 426
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ef82cbcb302f96c0800000000000000
+      internalID: -4134550491709141023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_64
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 416
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a9e27782d9dd70f0800000000000000
+      internalID: -1117497634279200347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_65
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 411
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 049b5426383275d80800000000000000
+      internalID: -8262095944191461056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_66
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 409
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e10e2a513fc4e7f70800000000000000
+      internalID: 9186864896806150174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_67
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 411
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0f00c519f9c43c50800000000000000
+      internalID: 6644157421927272203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_68
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 405
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73c2ceca860cd6c10800000000000000
+      internalID: 2048504961333734455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_69
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 388
+        width: 11
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f3acc266d388b490800000000000000
+      internalID: -7730283803577637896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_70
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 409
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 600bfb7b902f0cbb0800000000000000
+      internalID: -4917664669537161210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_71
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 411
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc23ccf6fc46786f0800000000000000
+      internalID: -682465976426679603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_72
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 382
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e52bc61818f19220800000000000000
+      internalID: 2491044851257910760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_73
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 370
+        width: 81
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f39fced077f1255f0800000000000000
+      internalID: -769517990131730113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CoralMist_74
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 386
+        width: 23
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74e36c4b8eed4e250800000000000000
+      internalID: 5973144096846790215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      CoralMist_0: -8925726333917758714
+      CoralMist_1: 4922144780836448040
+      CoralMist_10: 4875149659966961777
+      CoralMist_11: 2565521423023056992
+      CoralMist_12: -1565593539816234109
+      CoralMist_13: -8241176335358863775
+      CoralMist_14: -1793643877222312833
+      CoralMist_15: -1265692351515947022
+      CoralMist_16: 4745145777853924980
+      CoralMist_17: 5218084684517711241
+      CoralMist_18: 2304220479811819676
+      CoralMist_19: 8650620978372809641
+      CoralMist_2: 3160083399691706522
+      CoralMist_20: -1087618379221083262
+      CoralMist_21: 3290534071837493804
+      CoralMist_22: 22444227491063297
+      CoralMist_23: -5264003009882414070
+      CoralMist_24: -3500571565421654740
+      CoralMist_25: 1487039574330455287
+      CoralMist_26: 5318815097587506533
+      CoralMist_27: -7155811753570890941
+      CoralMist_28: 4561679132630472134
+      CoralMist_29: -7610387686244509006
+      CoralMist_3: -2906285403361877113
+      CoralMist_30: 7916577366509439245
+      CoralMist_31: -7112674651925852000
+      CoralMist_32: -359137179484362161
+      CoralMist_33: -7224904764920549291
+      CoralMist_34: 1528583094198300789
+      CoralMist_35: 2632871399114600106
+      CoralMist_36: -8904812656368452098
+      CoralMist_37: -1506520602666793742
+      CoralMist_38: 6776363713491576315
+      CoralMist_39: -5120473236298703385
+      CoralMist_4: -4320103608531668531
+      CoralMist_40: 5634050758111632163
+      CoralMist_41: 2356386512336252593
+      CoralMist_42: 8174046771586726975
+      CoralMist_43: 1104015274735137489
+      CoralMist_44: -1614908883824341040
+      CoralMist_45: -7984087466414099661
+      CoralMist_46: -177899156584439106
+      CoralMist_47: -4153386413390022922
+      CoralMist_48: -1552517596649417916
+      CoralMist_49: 523645638852532706
+      CoralMist_5: -9069198817655315379
+      CoralMist_50: -986817575985322525
+      CoralMist_51: 3347515315570674203
+      CoralMist_52: 5952078154093870993
+      CoralMist_53: -6298033725043995471
+      CoralMist_54: 2607572845257601228
+      CoralMist_55: 1408964728684572578
+      CoralMist_56: -1058389958803235163
+      CoralMist_57: 6597699520952577582
+      CoralMist_58: 4713082009542388387
+      CoralMist_59: 50721110691973170
+      CoralMist_6: -2060621862620682991
+      CoralMist_60: 1410892459292092720
+      CoralMist_61: 7705431502219545653
+      CoralMist_62: 1338821462611409563
+      CoralMist_63: -4134550491709141023
+      CoralMist_64: -1117497634279200347
+      CoralMist_65: -8262095944191461056
+      CoralMist_66: 9186864896806150174
+      CoralMist_67: 6644157421927272203
+      CoralMist_68: 2048504961333734455
+      CoralMist_69: -7730283803577637896
+      CoralMist_7: 5760854725082118100
+      CoralMist_70: -4917664669537161210
+      CoralMist_71: -682465976426679603
+      CoralMist_72: 2491044851257910760
+      CoralMist_73: -769517990131730113
+      CoralMist_74: 5973144096846790215
+      CoralMist_8: 9220465251481822796
+      CoralMist_9: -3449666024938775857
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

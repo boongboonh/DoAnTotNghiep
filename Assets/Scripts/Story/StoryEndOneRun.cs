@@ -1,3 +1,4 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,7 +42,7 @@ public class StoryEndOneRun : MonoBehaviour
         {
 
             //chay am thanh
-            textSound.Play();
+            AudioManager.PlaySource(textSound);
 
 
             LeanTween.value(text.gameObject, (val) => updateValueExampleCallback(val, text), new Color(0, 0, 0, 0), new Color(0, 0, 0, 1), timeTextAppear)
@@ -71,15 +72,18 @@ public class StoryEndOneRun : MonoBehaviour
 
     IEnumerator LoadingScreen()
     {
-        float totalProgress = 0;
-        for (int i = 0; i < scenesToLoad.Count; i++)
+        while (true)
         {
-            while (!scenesToLoad[i].isDone)
+            float sum = 0f;
+            bool done = true;
+            foreach (var op in scenesToLoad)
             {
-                totalProgress += scenesToLoad[i].progress;
-                sliderLoading.fillAmount = totalProgress / scenesToLoad.Count;
-                yield return null;
+                sum += Mathf.Clamp01(op.progress / 0.9f);     // progress dung o 0.9 khi chua kich hoat
+                if (!op.isDone) done = false;
             }
+            sliderLoading.fillAmount = scenesToLoad.Count > 0 ? sum / scenesToLoad.Count : 1f;
+            if (done) break;
+            yield return null;
         }
 
         //yield return new WaitForSeconds(1f);
@@ -88,15 +92,15 @@ public class StoryEndOneRun : MonoBehaviour
     public void ButtonBackToMenu()
     {
         ShowLoadingScreen();
-        float volumeBackground = PlayerPrefs.GetFloat("soundBackgroundMix");
-        float volumeEffect = PlayerPrefs.GetFloat("soundEffectMix");
+        float volumeBackground = PlayerPrefsSaveSystem.LoadFloat("soundBackgroundMix");
+        float volumeEffect = PlayerPrefsSaveSystem.LoadFloat("soundEffectMix");
 
         //xoa toan bo du lieu
-        PlayerPrefs.DeleteAll();                          // xoa toan bo du lieu truoc do 
+        PlayerPrefsSaveSystem.ClearAll();                          // xoa toan bo du lieu truoc do
 
         //lu lai gia tri am thanh
-        PlayerPrefs.SetFloat("soundBackgroundMix", volumeBackground);
-        PlayerPrefs.SetFloat("soundEffectMix", volumeEffect);
+        PlayerPrefsSaveSystem.SetFloat("soundBackgroundMix", volumeBackground);
+        PlayerPrefsSaveSystem.SetFloat("soundEffectMix", volumeEffect);
 
         Debug.Log("chuyen ve menu- ket thuc end story 1");
         scenesToLoad.Add(SceneManager.LoadSceneAsync("Menu"));

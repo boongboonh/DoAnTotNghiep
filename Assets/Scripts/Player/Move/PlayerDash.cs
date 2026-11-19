@@ -1,101 +1,69 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Ability dash cua player (thu dong): giu du lieu cau hinh, hieu ung, gravity va thoi gian hoi.
+/// KHONG tu doc input hay tu chay coroutine; PlayerMove (state machine) goi BeginDash / EndDash qua DashState.
+/// Ten field serialized giu nguyen de khong mat du lieu o scene/prefab.
+/// </summary>
 public class PlayerDash : MonoBehaviour
 {
-
-    private Rigidbody2D _rb;
-    private PlayerMove _player;
     [SerializeField] private GameObject EffectDash;
-    bool inputON = false;
-
-    private float _baseGravity;
-
 
     [Header("Setting Dash")]
     [SerializeField] private float _dashingTime = 0.3f;
     [SerializeField] private float _dashForce = 20f;
     [SerializeField] private float _timeCanDash = 0.5f;
-    
 
-    private bool _isDashing;
-    private bool _canDash = true;
-    public bool IsDashing => _isDashing;
+    private Rigidbody2D _rb;
+    private float _baseGravity;
+    private float _nextDashTime;
 
+    public bool IsDashing { get; private set; }
+    public float DashingTime => _dashingTime;
 
-
-    private void OnEnable()
-    {
-        endDash();
-    }
-
+    /// <summary>Het hoi chieu va khong dang dash.</summary>
+    public bool CanDash => !IsDashing && Time.time >= _nextDashTime;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _player = GetComponent<PlayerMove>();
         _baseGravity = _rb.gravityScale;
-
-    }
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(1)&& _canDash)
-        {
-            //StartCoroutine(Dash());
-            inputON = true;
-        }
     }
 
-    private void FixedUpdate()
+    private void OnEnable()
     {
-        if (!inputON) return;
-        StartCoroutine(Dash());
-        
+        _nextDashTime = 0f;
+        ResetState();
     }
-    private int playerDirection(bool faceRight)
-    {
-        if (faceRight)
-        {
-            return 1;
-        }
-        else
-        {
-            return -1;
-        }
-    }
-    private IEnumerator Dash()
-    {
-        //chay am thanh dash
-        effecSoundDash();
 
-         inputON = false;
-        EffectDash.SetActive(true);
-        _isDashing = true;
-        _canDash = false;
+    private void OnDisable()
+    {
+        ResetState();
+    }
+
+    /// <param name="direction">+1 sang phai, -1 sang trai.</param>
+    public void BeginDash(int direction)
+    {
+        if (PlayerSounds.instance != null) PlayerSounds.instance.PlayDashAudio();
+
+        if (EffectDash != null) EffectDash.SetActive(true);
+        IsDashing = true;
         _rb.gravityScale = 0f;
-        _rb.linearVelocity = new Vector2(playerDirection(_player.Direction) * _dashForce, 0f);
-        yield return new WaitForSeconds(_dashingTime);
-
-        endDash();
-
-        yield return new WaitForSeconds(_timeCanDash);
-        
-        _canDash = true;
-
+        _rb.linearVelocity = new Vector2(direction * _dashForce, 0f);
     }
 
-    private void endDash()
+    public void EndDash()
     {
-        _canDash = true;
-        EffectDash.SetActive(false);
-        _isDashing = false;
-        if (_rb.gravityScale != 0) return;
-        _rb.gravityScale = _baseGravity;
+        if (IsDashing) _nextDashTime = Time.time + _timeCanDash;
+        ResetState();
     }
 
-    private void effecSoundDash()
+    private void ResetState()
     {
-        PlayerSounds.instance.PlayDashAudio();
+        if (EffectDash != null) EffectDash.SetActive(false);
+        IsDashing = false;
+
+        // chi tra gravity khi dang bi dash tat (tranh de len gravity do knockback dat)
+        if (_rb != null && _rb.gravityScale == 0f) _rb.gravityScale = _baseGravity;
     }
 }

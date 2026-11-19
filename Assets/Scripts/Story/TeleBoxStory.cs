@@ -1,9 +1,10 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-public class TeleBoxStory : MonoBehaviour
+public class TeleBoxStory : InteractableZone
 {
     [SerializeField] private GameObject TextTuto;
     
@@ -23,53 +24,45 @@ public class TeleBoxStory : MonoBehaviour
 
     public int statusBox = 0;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    // statusBox == 0: chua xong cot chuyen => chua cho tuong tac
+    protected override bool CanInteract => !isActive && statusBox != 0;
+
+    protected override void OnPlayerEnter(Collider2D player)
     {
         if (statusBox == 0) return;
 
-        if (collision.CompareTag("Player"))
-        {
-            TextTuto.SetActive(true);
+        TextTuto.SetActive(true);
 
-            //am thanh
-            playSoundOpen();
-        }
+        //am thanh
+        playSoundOpen();
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    protected override void OnInteract(Collider2D player)
     {
-        if (isActive) return;           //chua duoc kich hoat
-        if (statusBox == 0) return;     //chua xong coot chuyen bo qua
-        if (collision.CompareTag("Player"))
+        isActive = true;
+        player.GetComponent<PlayerMoveStory>().isMove = false;       //dung di chuyen
+        TextTuto.SetActive(false);
+
+        switch (statusBox)
         {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                isActive = true;
-                collision.GetComponent<PlayerMoveStory>().isMove = false;       //dung di chuyen
-                TextTuto.SetActive(false);
-                
-                switch (statusBox)
+            case 1:
                 {
-                    case 1:
-                        {
-                            Invoke("LoadGame", 2f);
-                            Debug.Log("chay game");
-                            break;
-                        }
-                    case 2:
-                        {
-                            Invoke("loadEndGame1", 2f);
-                            Debug.Log("Ket chuyen 1");
-                            break;
-                        }
-                    default:
-                        {
-                            Debug.Log("loi khong co gia tri dung status");
-                            break;
-                        }
+                    Invoke("LoadGame", 2f);
+                    Debug.Log("chay game");
+                    break;
                 }
-            } //kiem tra click button
-        }//kiem tra nguwoi chowi
+            case 2:
+                {
+                    Invoke("loadEndGame1", 2f);
+                    Debug.Log("Ket chuyen 1");
+                    break;
+                }
+            default:
+                {
+                    Debug.Log("loi khong co gia tri dung status");
+                    break;
+                }
+        }
     }
 
 
@@ -77,20 +70,19 @@ public class TeleBoxStory : MonoBehaviour
     private void LoadGame()
     {
         //lay thong so am thanh
-        float volumeBackground = PlayerPrefs.GetFloat("soundBackgroundMix");
-        float volumeEffect = PlayerPrefs.GetFloat("soundEffectMix");
+        float volumeBackground = PlayerPrefsSaveSystem.LoadFloat("soundBackgroundMix");
+        float volumeEffect = PlayerPrefsSaveSystem.LoadFloat("soundEffectMix");
 
         //xoa toan bo du lieu
-        PlayerPrefs.DeleteAll();                          // xoa toan bo du lieu truoc do 
+        PlayerPrefsSaveSystem.ClearAll();                          // xoa toan bo du lieu truoc do
 
         //lu lai gia tri am thanh
-        PlayerPrefs.SetFloat("soundBackgroundMix", volumeBackground);
-        PlayerPrefs.SetFloat("soundEffectMix", volumeEffect);
+        PlayerPrefsSaveSystem.SetFloat("soundBackgroundMix", volumeBackground);
+        PlayerPrefsSaveSystem.SetFloat("soundEffectMix", volumeEffect);
 
         //cai dat thong tin moi
-        PlayerPrefs.SetInt(FirstPlay, 1);                 //neu choi game lan dau thi la 1
-        PlayerPrefs.SetFloat("FirstPlayPosX", -34.42f);
-        PlayerPrefs.SetFloat("FirstPlayPosY", -5f);
+        PlayerPrefsSaveSystem.SetInt(FirstPlay, 1);                 //neu choi game lan dau thi la 1
+        UpdatedWorld.StartNewGame();
 
         //hien thi man hinh load game
         HideIconOut();
@@ -98,11 +90,7 @@ public class TeleBoxStory : MonoBehaviour
         
 
         //load scene khong dong bo
-        scenesToLoad.Add(SceneManager.LoadSceneAsync("Map1"));
-        scenesToLoad.Add(SceneManager.LoadSceneAsync("LoadMapScene", LoadSceneMode.Additive));
-        scenesToLoad.Add(SceneManager.LoadSceneAsync("PlayerScene", LoadSceneMode.Additive));
-
-        scenesToLoad.Add(SceneManager.LoadSceneAsync("UIScene", LoadSceneMode.Additive));
+        scenesToLoad.Add(SceneManager.LoadSceneAsync(UpdatedWorld.SceneName));
 
         StartCoroutine(LoadingScreen());
     }
@@ -130,42 +118,39 @@ public class TeleBoxStory : MonoBehaviour
 
     IEnumerator LoadingScreen()
     {
-        float totalProgress = 0;
-        for (int i = 0; i < scenesToLoad.Count; i++)
+        while (true)
         {
-            while (!scenesToLoad[i].isDone)
+            float sum = 0f;
+            bool done = true;
+            foreach (var op in scenesToLoad)
             {
-                totalProgress += scenesToLoad[i].progress;
-                fillLoading.fillAmount = totalProgress / scenesToLoad.Count;
-                yield return null;
+                sum += Mathf.Clamp01(op.progress / 0.9f);     // progress dung o 0.9 khi chua kich hoat
+                if (!op.isDone) done = false;
             }
+            fillLoading.fillAmount = scenesToLoad.Count > 0 ? sum / scenesToLoad.Count : 1f;
+            if (done) break;
+            yield return null;
         }
 
         //yield return new WaitForSeconds(1f);
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected override void OnPlayerExit(Collider2D player)
     {
         if (statusBox == 0) return;
 
-
-        if (collision.CompareTag("Player"))
-        {
-            TextTuto.SetActive(false);
-            //am thanh
-            playSoundClose();
-        }
+        TextTuto.SetActive(false);
+        //am thanh
+        playSoundClose();
     }
 
 
     private void playSoundOpen()
     {
-        if (openBoxSound.isPlaying) return;
-        openBoxSound.Play();
+        AudioManager.PlaySource(openBoxSound, true);
     }
     private void playSoundClose()
     {
-        if (closeBoxSound.isPlaying) return;
-        closeBoxSound.Play();
+        AudioManager.PlaySource(closeBoxSound, true);
     }
 }

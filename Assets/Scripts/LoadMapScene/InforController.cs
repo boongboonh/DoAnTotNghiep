@@ -11,7 +11,7 @@ public class InforController : MonoBehaviour
     //goi trong button icon infor
     public void OpenInforGame()
     {
-        inforGame.SetActive(true);
+        UIPanelTween.Show(inforGame);
         iconList.SetActive(false);
 
         EventManager.Instance.OnHideInfor();        //tat hien thi thong tin mau va mana
@@ -24,7 +24,7 @@ public class InforController : MonoBehaviour
     public void CloseInforGame()
     {
         iconList.SetActive(true);
-        inforGame.SetActive(false);
+        UIPanelTween.Hide(inforGame);
 
         EventManager.Instance.OnShowInfor();        //hien thi lai mau va mana
 

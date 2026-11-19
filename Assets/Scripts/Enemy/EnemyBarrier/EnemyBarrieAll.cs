@@ -11,19 +11,18 @@ public class EnemyBarrieAll : EnemyHealth
 
     private void FixedUpdate()
     {
-        idleEnemySoundRun();
+        IdleEnemySoundRun();
     }
 
-    private void idleEnemySoundRun()
+    private void IdleEnemySoundRun()
     {
-        if (idleEnemySound.isPlaying) return;  //kiem tra am thanh co dang duoc phat hay khong
-        idleEnemySound.Play();
+        AudioManager.PlaySource(idleEnemySound, true);
     }
 
 
     protected override void PlayDieSound(AudioClip clip)
     {
-        AudioSource.PlayClipAtPoint(clip, pointPlayDeathSound.position);
+        AudioManager.PlayClipAt(clip, pointPlayDeathSound.position);
         //enemyDeathSound.Play();
     }
 

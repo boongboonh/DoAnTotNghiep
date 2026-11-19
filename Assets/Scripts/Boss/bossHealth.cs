@@ -1,14 +1,18 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bossHealth : MonoBehaviour
+public class bossHealth : MonoBehaviour, IDamageable
 {
     [SerializeField] private GameObject effectBossDie;
     [SerializeField] private int healthBossMax = 5;
     [SerializeField] private GameObject triggerBoss;
 
     public int HealthBossMax => healthBossMax;
+
+    /// <summary>Ban khi boss chet (SapDirector nghe de roi nhua thoi gian).</summary>
+    public static event System.Action<bossHealth> Died;
 
     public int healthBoss;
     [SerializeField] protected GameObject[] ItemsDrop;
@@ -38,6 +42,9 @@ public class bossHealth : MonoBehaviour
         }
     }*/
 
+    /// <summary>IDamageable: combat moi goi vao day, chuyen ve EnemyTakeDame.</summary>
+    public void TakeDamage(int amount, Vector2 hitPoint) => EnemyTakeDame(amount);
+
     public void EnemyTakeDame(int damePlayer)
     {
         //am thanh
@@ -65,9 +72,10 @@ public class bossHealth : MonoBehaviour
         Destroy(EffectEnemyClone, 2f);
         gameObject.SetActive(false);
         dropItem();
+        Died?.Invoke(this);
         triggerBoss.SetActive(false);
 
-        PlayerPrefs.SetInt("BoosDie", 1);           //luu gia tri boss da bi tieu diet 1 lan
+        PlayerPrefsSaveSystem.SetInt("BoosDie", 1);           //luu gia tri boss da bi tieu diet 1 lan
         EventManager.Instance.OpenDoor();           //goi su kien mo cua khi boss chet
     }
 
@@ -81,13 +89,12 @@ public class bossHealth : MonoBehaviour
 
     private void soundHurt()
     {
-        if (hurtBossSound.isPlaying) return;
-        hurtBossSound.Play();
+        AudioManager.PlaySource(hurtBossSound, true);
     }
 
     private void soundDie()
     {
-        AudioSource.PlayClipAtPoint(audioClipDeathClip, gameObject.transform.position);
+        AudioManager.PlayClipAt(audioClipDeathClip, gameObject.transform.position);
     }
 
 }

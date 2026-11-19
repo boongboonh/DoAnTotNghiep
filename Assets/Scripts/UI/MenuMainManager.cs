@@ -1,3 +1,4 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,7 +26,7 @@ public class MenuMainManager : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerPrefs.GetInt(FirstPlay) != 1) return;
+        if (PlayerPrefsSaveSystem.LoadInt(FirstPlay) != 1) return;
         continuteButton.SetActive(true);                        //neu da choi truoc do => hien thi nut tiep tuc de choi
     }
 
@@ -37,17 +38,9 @@ public class MenuMainManager : MonoBehaviour
         HideTween(buttonMenu);
         ShowLoadingScreen();
 
-        PlayerPrefs.SetInt(NumberPlay, 1);          //tang so lan choi
+        PlayerPrefsSaveSystem.SetInt(NumberPlay, 1);          //tang so lan choi
 
-        scenesToLoad.Add(SceneManager.LoadSceneAsync("LoadMapScene"));                                  //load giao dien game 
-        scenesToLoad.Add(SceneManager.LoadSceneAsync("PlayerScene", LoadSceneMode.Additive));           //load nhan vat
-        scenesToLoad.Add(SceneManager.LoadSceneAsync("UIScene", LoadSceneMode.Additive));               //load giao dien HP MP
-        if (PlayerPrefs.HasKey("nameMapCurrent"))
-        {
-            string name = PlayerPrefs.GetString("nameMapCurrent");
-            Debug.Log(name);
-            scenesToLoad.Add(SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive));        //load map hien tai
-        }
+        scenesToLoad.Add(SceneManager.LoadSceneAsync(UpdatedWorld.SceneName));
 
         StartCoroutine(LoadingScreen());
         
@@ -56,21 +49,12 @@ public class MenuMainManager : MonoBehaviour
 
     private void HideTween(GameObject gameObject)
     {
-        LeanTween.scale(gameObject, new Vector3(0, 1, 1), 0.25f).setOnComplete(() => Hide(gameObject));
-    }
-    
-    private void ShowTween(GameObject gameObject)
-    {
-        LeanTween.scale(gameObject, new Vector3(1, 1, 1), 0.25f).setOnComplete(() => Show(gameObject));
-    }
-    private void Hide(GameObject gameObject)
-    {
-        gameObject.SetActive(false);
+        UIPanelTween.Hide(gameObject);
     }
 
-    private void Show(GameObject gameObject)
+    private void ShowTween(GameObject gameObject)
     {
-        gameObject.SetActive(true);
+        UIPanelTween.Show(gameObject);
     }
 
     private void ShowLoadingScreen()
@@ -83,29 +67,29 @@ public class MenuMainManager : MonoBehaviour
     {
         Debug.Log("scene Can load " + scenesToLoad.Count);
 
-        float totalProgress = 0f;
-        for (int i = 0; i < scenesToLoad.Count; ++i)
+        while (true)
         {
-            Debug.Log("scene " + i);
-            while (!scenesToLoad[i].isDone)
+            float sum = 0f;
+            bool done = true;
+            foreach (var op in scenesToLoad)
             {
-                totalProgress += scenesToLoad[i].progress;
-
-                sliderLoading.fillAmount = totalProgress / scenesToLoad.Count;
-
-                yield return null;
+                sum += Mathf.Clamp01(op.progress / 0.9f);     // progress dung o 0.9 khi chua kich hoat
+                if (!op.isDone) done = false;
             }
+            sliderLoading.fillAmount = scenesToLoad.Count > 0 ? sum / scenesToLoad.Count : 1f;
+            if (done) break;
+            yield return null;
         }
     }
 
 
     /*private void startGame()
     {
-        PlayerPrefs.DeleteAll();                          // xoa toan bo du lieu truoc do 
+        PlayerPrefsSaveSystem.ClearAll();                          // xoa toan bo du lieu truoc do
 
-        PlayerPrefs.SetInt(FirstPlay, 1);                 //neu choi game lan dau thi la 1
-        PlayerPrefs.SetFloat("FirstPlayPosX", -34.42f);
-        PlayerPrefs.SetFloat("FirstPlayPosY", -5f);
+        PlayerPrefsSaveSystem.SetInt(FirstPlay, 1);                 //neu choi game lan dau thi la 1
+        PlayerPrefsSaveSystem.SetFloat("FirstPlayPosX", -34.42f);
+        PlayerPrefsSaveSystem.SetFloat("FirstPlayPosY", -5f);
 
 
         scenesToLoad.Add(SceneManager.LoadSceneAsync("Map1"));
@@ -120,7 +104,7 @@ public class MenuMainManager : MonoBehaviour
 
     public void startButton()                   // gan trong button start
     {
-        if(PlayerPrefs.GetInt(FirstPlay) != 1)  //neu nguoi choi chua choi thi bat dau game;
+        if(PlayerPrefsSaveSystem.LoadInt(FirstPlay) != 1)  //neu nguoi choi chua choi thi bat dau game;
         {
             //startGame();
             startStory();
@@ -166,8 +150,8 @@ public class MenuMainManager : MonoBehaviour
     //gan trong button dong y choi moi
     public void YesStartConfirm()
     {
-        PlayerPrefs.DeleteAll();                // xoa toan bo du lieu truoc do 
-        PlayerPrefs.SetInt(FirstPlay,0);        //dat lan choi ve 0 
+        PlayerPrefsSaveSystem.ClearAll();                // xoa toan bo du lieu truoc do
+        PlayerPrefsSaveSystem.SetInt(FirstPlay,0);        //dat lan choi ve 0
         continuteButton.SetActive(false);       //an nut tiep tuc choi
 
         HideTween(confirmStartNewGame);

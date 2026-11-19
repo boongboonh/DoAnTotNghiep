@@ -20,7 +20,7 @@ public class ItemHealing : MonoBehaviour
             collision.gameObject.GetComponent<HealthPlayer>().healing();
 
             //chay am thanh
-            AudioSource.PlayClipAtPoint(audioClipCollect, this.transform.position);
+            AudioManager.PlayClipAt(audioClipCollect, this.transform.position);
 
             Destroy(gameObject);
         }

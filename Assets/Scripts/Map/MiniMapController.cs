@@ -1,3 +1,4 @@
+using GF.Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,7 @@ public class MiniMapController : MonoBehaviour
         //hien thi map
         for (int i = 0; i < mapPiece.Count; i++)
         {
-            if (PlayerPrefs.GetInt(nameMap[i]) == 1)
+            if (PlayerPrefsSaveSystem.LoadInt(nameMap[i]) == 1)
             {
                 mapPiece[i].SetActive(true);
             }
@@ -26,7 +27,7 @@ public class MiniMapController : MonoBehaviour
         //hien thi cay
         for (int i = 0; i < treeIconTele.Count; i++)
         {
-            if (PlayerPrefs.GetInt(nameTree[i]) == 1)
+            if (PlayerPrefsSaveSystem.LoadInt(nameTree[i]) == 1)
             {
                 treeIconTele[i].SetActive(true);
             }

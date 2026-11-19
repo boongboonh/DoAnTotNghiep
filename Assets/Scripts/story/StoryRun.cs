@@ -50,7 +50,7 @@ public class StoryRun : MonoBehaviour
             dialogueText.text += letter;
 
             // am thanh chay chu
-            textSound.Play();
+            AudioManager.PlaySource(textSound);
 
             yield return new WaitForSeconds(wordSpeed);
         }
@@ -105,15 +105,18 @@ public class StoryRun : MonoBehaviour
 
     IEnumerator LoadingScreen()
     {
-        float totalProgress = 0;
-        for (int i = 0; i < scenesToLoad.Count; i++)
+        while (true)
         {
-            while (!scenesToLoad[i].isDone)
+            float sum = 0f;
+            bool done = true;
+            foreach (var op in scenesToLoad)
             {
-                totalProgress += scenesToLoad[i].progress;
-                sliderLoading.fillAmount = totalProgress / scenesToLoad.Count;
-                yield return null;
+                sum += Mathf.Clamp01(op.progress / 0.9f);     // progress dung o 0.9 khi chua kich hoat
+                if (!op.isDone) done = false;
             }
+            sliderLoading.fillAmount = scenesToLoad.Count > 0 ? sum / scenesToLoad.Count : 1f;
+            if (done) break;
+            yield return null;
         }
 
         //yield return new WaitForSeconds(1f);

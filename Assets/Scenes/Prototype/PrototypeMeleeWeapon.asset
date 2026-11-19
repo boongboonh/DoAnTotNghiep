@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa99597282dd3a46a18ac401787f89a, type: 3}
+  m_Name: PrototypeMeleeWeapon
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  displayName: Prototype Melee
+  icon: {fileID: 0}
+  description: 'Three-hit combo: Slash > Backhand > Finisher. Click to queue the
+    next attack; dash cancels.'
+  combo: {fileID: 11400000, guid: 7908c5a2c7daf6946af27fcad2c12f5f, type: 2}
+  bonusDamage: 0
+  defaultHitEffect: {fileID: 0}
+  heldVisual: {fileID: 0}

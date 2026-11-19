@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class EnemyHealth : MonoBehaviour
+public abstract class EnemyHealth : MonoBehaviour, IDamageable
 {
     [SerializeField] private int healthEnemyMax = 10;
 
@@ -27,13 +27,17 @@ public abstract class EnemyHealth : MonoBehaviour
     }
   
     //khi quai chet tao hieu ung song no. tat quai, doi vat pham
-    protected virtual void enemyDie()
+    protected virtual void EnemyDie()
     {
         GameObject EffectEnemyClone = Instantiate(EffectRingEnemyDie, transform.position, Quaternion.identity);
         Destroy(EffectEnemyClone, 2f);
         gameObject.SetActive(false);
-        dropItem();
+        DropItem();
+        Died?.Invoke(this);
     }
+
+    /// <summary>Ban khi bat ky quai nao chet (SapDirector va he thong khac nghe de thuong/roi do).</summary>
+    public static event System.Action<EnemyHealth> Died;
 
    /* private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -42,6 +46,9 @@ public abstract class EnemyHealth : MonoBehaviour
             EnemyTakeDame(dameTake);
         }
     }*/
+
+    /// <summary>IDamageable: combat moi goi vao day, chuyen ve EnemyTakeDame (cac lop con van override nhu cu).</summary>
+    public void TakeDamage(int amount, Vector2 hitPoint) => EnemyTakeDame(amount);
 
     public virtual void EnemyTakeDame(int damePlayer)
     {
@@ -52,12 +59,12 @@ public abstract class EnemyHealth : MonoBehaviour
             PlayDieSound(audioClipDeathClip);
 
             healthEnemy -= damePlayer;
-            enemyDie();
+            EnemyDie();
         }
         else
         {
             //am thanh take dame
-            enemyHurtSound.Play();
+            AudioManager.PlaySource(enemyHurtSound);
 
             healthEnemy -= damePlayer;
         }
@@ -65,10 +72,10 @@ public abstract class EnemyHealth : MonoBehaviour
 
     protected virtual void PlayDieSound(AudioClip clip)
     {
-        AudioSource.PlayClipAtPoint(clip, this.gameObject.transform.position);
+        AudioManager.PlayClipAt(clip, this.gameObject.transform.position);
     }
 
-    protected virtual void dropItem()
+    protected virtual void DropItem()
     {
         for (int i = 0; i < ItemsDrop.Length; i++)
         {
