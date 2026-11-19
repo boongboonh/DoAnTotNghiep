@@ -16,6 +16,7 @@ public sealed class PrototypeSpiritSmash : MonoBehaviour
     private enum Phase { None, Windup, Strike, Recovery }
 
     private PlayerController player;
+    private PrototypeSpiritSlots slots;
     private Sprite square;
     private SpriteRenderer handle;
     private SpriteRenderer head;
@@ -35,6 +36,8 @@ public sealed class PrototypeSpiritSmash : MonoBehaviour
     public void Initialize(PlayerController owner, Sprite shapeSprite)
     {
         player = owner; square = shapeSprite;
+        slots = player.GetComponent<PrototypeSpiritSlots>();
+        if (slots != null) slots.Changed += Cancel;
         handle = PrototypeGeometry.Rectangle(null, square, "Smash Handle", new Vector2(1.5f, .12f), Vector2.zero, new Color(.7f, .5f, .3f), 18);
         head = PrototypeGeometry.Rectangle(null, square, "Smash Head", new Vector2(.6f, .5f), Vector2.zero, new Color(.85f, .9f, 1f), 19);
         wave = PrototypeGeometry.Rectangle(null, square, "Smash Wave", HitSize, Vector2.zero, new Color(1f, .9f, .6f, .35f), 17);
@@ -44,6 +47,7 @@ public sealed class PrototypeSpiritSmash : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (slots != null) slots.Changed -= Cancel;
         if (handle != null) Destroy(handle.gameObject);
         if (head != null) Destroy(head.gameObject);
         if (wave != null) Destroy(wave.gameObject);
@@ -82,7 +86,7 @@ public sealed class PrototypeSpiritSmash : MonoBehaviour
 
         if (phase == Phase.None)
         {
-            if (player.Controls.SmashPressed && Free() && Time.time >= cooldownUntil && Time.timeScale > 0f) Begin();
+            if (slots != null && slots.Pressed(SpiritId.Smash) && Free() && Time.time >= cooldownUntil && Time.timeScale > 0f) Begin();
             return;
         }
 

@@ -54,6 +54,8 @@ public sealed class PrototypePlayground : MonoBehaviour
 
     private PrototypeSpiritArc arc;
     public PrototypeSpiritArc Arc => arc;
+    private PrototypeSpiritSlots spiritSlots;
+    public PrototypeSpiritSlots Slots => spiritSlots;
     private PrototypeSpiritSmash smash;
     public PrototypeSpiritSmash Smash => smash;
     private PrototypeHazards hazards;
@@ -112,6 +114,9 @@ public sealed class PrototypePlayground : MonoBehaviour
         if (bash == null) bash = player.gameObject.AddComponent<PrototypeBash>();
         bash.Initialize(player, followCamera, square);
         player.SetBash(bash);
+        spiritSlots = player.GetComponent<PrototypeSpiritSlots>();
+        if (spiritSlots == null) spiritSlots = player.gameObject.AddComponent<PrototypeSpiritSlots>();
+        spiritSlots.Initialize(player.Controls);
         arc = player.GetComponent<PrototypeSpiritArc>();
         if (arc == null) arc = player.gameObject.AddComponent<PrototypeSpiritArc>();
         arc.Initialize(player, followCamera, square);

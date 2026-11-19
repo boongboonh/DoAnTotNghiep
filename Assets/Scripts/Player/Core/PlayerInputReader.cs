@@ -73,13 +73,15 @@ public class PlayerInputReader : MonoBehaviour
     public bool BashPressed => AcceptInput && ((Keyboard.current != null
             && (Keyboard.current.rKey.wasPressedThisFrame || Keyboard.current.cKey.wasPressedThisFrame))
         || (Gamepad.current != null && Gamepad.current.buttonNorth.wasPressedThisFrame));
-    /// <summary>Spirit Arc (ban cung): giu Q hoac LT tay cam de ngam, tha de ban.</summary>
-    public bool ArcHeld => AcceptInput && ((Keyboard.current != null && Keyboard.current.qKey.isPressed)
+    /// <summary>O Spirit 1 (Q / LT tay cam): gan Spirit nao thi dung cho Spirit do. Giu de ngam, tha de ban/danh.</summary>
+    public bool Slot1Held => AcceptInput && ((Keyboard.current != null && Keyboard.current.qKey.isPressed)
         || (Gamepad.current != null && Gamepad.current.leftTrigger.isPressed));
-    public bool ArcPressed => AcceptInput && ((Keyboard.current != null && Keyboard.current.qKey.wasPressedThisFrame)
+    public bool Slot1Pressed => AcceptInput && ((Keyboard.current != null && Keyboard.current.qKey.wasPressedThisFrame)
         || (Gamepad.current != null && Gamepad.current.leftTrigger.wasPressedThisFrame));
-    /// <summary>Spirit Smash (bua): F hoac nut B tay cam.</summary>
-    public bool SmashPressed => AcceptInput && ((Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame)
+    /// <summary>O Spirit 2 (F / nut B tay cam).</summary>
+    public bool Slot2Held => AcceptInput && ((Keyboard.current != null && Keyboard.current.fKey.isPressed)
+        || (Gamepad.current != null && Gamepad.current.buttonEast.isPressed));
+    public bool Slot2Pressed => AcceptInput && ((Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame)
         || (Gamepad.current != null && Gamepad.current.buttonEast.wasPressedThisFrame));
     /// <summary>Bam tuong (Climb, kieu Ori): giu Shift hoac RT tay cam.</summary>
     public bool GrabHeld => AcceptInput && ((Keyboard.current != null

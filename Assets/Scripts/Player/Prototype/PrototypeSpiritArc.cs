@@ -13,6 +13,7 @@ public sealed class PrototypeSpiritArc : MonoBehaviour
     private const float Cooldown = .22f;
 
     private PlayerController player;
+    private PrototypeSpiritSlots slots;
     private PlayerCombat combat;
     private Camera aimCamera;
     private Sprite square;
@@ -34,6 +35,8 @@ public sealed class PrototypeSpiritArc : MonoBehaviour
         player = owner; aimCamera = camera; square = shapeSprite;
         combat = player.GetComponent<PlayerCombat>();
         if (combat != null) combat.HitLanded += OnMeleeHit;
+        slots = player.GetComponent<PrototypeSpiritSlots>();
+        if (slots != null) slots.Changed += Cancel;
         line = PrototypeGeometry.Rectangle(null, square, "Arc Aim Line", new Vector2(2.2f, .06f), Vector2.zero,
             new Color(1f, .85f, .4f, .9f), 18);
         tip = PrototypeGeometry.Rectangle(null, square, "Arc Aim Tip", new Vector2(.26f, .26f), Vector2.zero,
@@ -44,6 +47,7 @@ public sealed class PrototypeSpiritArc : MonoBehaviour
     private void OnDestroy()
     {
         if (combat != null) combat.HitLanded -= OnMeleeHit;
+        if (slots != null) slots.Changed -= Cancel;
         if (line != null) Destroy(line.gameObject);
         if (tip != null) Destroy(tip.gameObject);
     }
@@ -89,10 +93,10 @@ public sealed class PrototypeSpiritArc : MonoBehaviour
     private void Update()
     {
         if (player == null) return;
-        bool held = player.Controls.ArcHeld;
+        bool held = slots != null && slots.Held(SpiritId.Arc);
         if (!Aiming)
         {
-            if (held && player.Controls.ArcPressed && Free() && CanAfford && Time.time >= cooldownUntil && Time.timeScale > 0f)
+            if (held && slots.Pressed(SpiritId.Arc) &&Free() && CanAfford && Time.time >= cooldownUntil && Time.timeScale > 0f)
             {
                 Aiming = true;
                 aim = player.Motor.FacingRight ? Vector2.right : Vector2.left;

@@ -35,6 +35,9 @@ public sealed class PrototypeHud : MonoBehaviour
         small.normal.textColor = new Color(.85f, .85f, .85f);
     }
 
+    private static string SlotLegend(PrototypePlayground arena, bool pad) =>
+        arena != null && arena.Slots != null ? arena.Slots.Legend(pad) : "";
+
     private static void Box(Rect r, Color c)
     {
         var old = GUI.color;
@@ -79,7 +82,7 @@ public sealed class PrototypeHud : MonoBehaviour
         {
             Box(new Rect(w - 312, 62, 300, 54), new Color(0f, 0f, 0f, .55f));
             var energyLabel = new GUIStyle(small) { fontStyle = FontStyle.Bold };
-            GUI.Label(new Rect(w - 306, 66, 120, 24), arcSystem.Aiming ? "ARC AIM" : "ARC  Q/LT", energyLabel);
+            GUI.Label(new Rect(w - 306, 66, 120, 24), arcSystem.Aiming ? "ARC AIM" : "ARC  " + (arena.Slots != null ? arena.Slots.KeyHint(SpiritId.Arc) : "Q/LT"), energyLabel);
             for (int cell = 0; cell < 3; cell++)
             {
                 float fill = Mathf.Clamp01(arcSystem.Energy - cell);
@@ -96,7 +99,7 @@ public sealed class PrototypeHud : MonoBehaviour
             Box(new Rect(w - 312, 120, 300, 26), new Color(0f, 0f, 0f, .55f));
             float ready = smashSystem.Active ? 1f : 1f - Mathf.Clamp01(smashSystem.CooldownRemaining / 1.4f);
             Box(new Rect(w - 192, 126, 174 * ready, 14), smashSystem.Active ? new Color(1f, .8f, .4f) : (ready >= 1f ? new Color(.9f, .75f, .5f) : new Color(.5f, .4f, .3f)));
-            GUI.Label(new Rect(w - 306, 122, 110, 24), "SMASH  F/B", new GUIStyle(small) { fontStyle = FontStyle.Bold });
+            GUI.Label(new Rect(w - 306, 122, 110, 24), "SMASH  " + (arena.Slots != null ? arena.Slots.KeyHint(SpiritId.Smash) : "F/B"), new GUIStyle(small) { fontStyle = FontStyle.Bold });
         }
 
         // --- Thoi gian va muc tieu ---
@@ -106,8 +109,8 @@ public sealed class PrototypeHud : MonoBehaviour
         // --- Phim (khop binding hien tai) ---
         GUI.Label(new Rect(24, h - 44, w - 48, 34),
             PlayerInputReader.GamepadConnected
-                ? "PAD  Stick/D-pad Move   A Jump (x2, wall)   RB Dash   X Edge (Up/Down+X)   LT Arc   B Smash   Y hold Bash (stick aim)   RT hold Grab (climb)   LB Interact   Down+A Drop   Start Pause"
-                : "A/D Move   Space Jump (x2, wall)   Ctrl/RMB Dash   LMB Edge x5 (W up / S down)   Q Arc   F Smash   R/C Bash   Shift Grab + W/S Climb   E Interact   S+Space Drop   Esc Pause   F3 Debug",
+                ? "PAD  Stick/D-pad Move   A Jump (x2, wall)   RB Dash   X Edge (Up/Down+X)   " + SlotLegend(arena, true) + "Y hold Bash (stick aim)   RT hold Grab (climb)   LB Interact   Down+A Drop   Start Pause"
+                : "A/D Move   Space Jump (x2, wall)   Ctrl/RMB Dash   LMB Edge x5 (W up / S down)   " + SlotLegend(arena, false) + "R/C Bash   Shift Grab + W/S Climb   E Interact   S+Space Drop   Esc Pause   F3 Debug",
             small);
 
         if (arena.Completed)

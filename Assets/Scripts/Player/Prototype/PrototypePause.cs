@@ -89,5 +89,19 @@ public sealed class PrototypePause : MonoBehaviour
         }
         GUI.Label(new Rect(x, h / 2f + 180, 600, 60),
             "Restart clears Bash, items, doors and checkpoint of the prototype save.", note);
+
+        // Cac o Spirit: bam de doi Spirit (Arc / Smash / trong). Spirit dang o o kia se doi cho.
+        var slots = arena.Slots;
+        if (slots != null)
+        {
+            GUI.Label(new Rect(x, h / 2f + 240, 600, 40), "SPIRIT SLOTS (click to change)", note);
+            var small = new GUIStyle(GUI.skin.button) { fontSize = 26 };
+            for (int i = 0; i < PrototypeSpiritSlots.SlotCount; i++)
+            {
+                string text = "[" + PrototypeSpiritSlots.KeyName(i, false) + " / " + PrototypeSpiritSlots.KeyName(i, true) + "]  "
+                    + PrototypeSpiritSlots.DisplayName(slots.Get(i));
+                if (GUI.Button(new Rect(x + i * 310, h / 2f + 284, 290, 64), text, small)) slots.CycleSlot(i);
+            }
+        }
     }
 }
