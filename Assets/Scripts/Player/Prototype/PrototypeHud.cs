@@ -112,6 +112,20 @@ public sealed class PrototypeHud : MonoBehaviour
             GUI.Label(new Rect(w - 306, 152, 290, 24), "SENTRY  " + key + "  " + state, new GUIStyle(small) { fontStyle = FontStyle.Bold });
         }
 
+        // Spirit nang luong khac (Blaze / Spike / Flash): hien dong cho nhung cai dang gan o.
+        if (arena.Slots != null)
+        {
+            string extra = "";
+            foreach (var id in new[] { SpiritId.Blaze, SpiritId.Spike, SpiritId.Flash })
+                if (arena.Slots.IsEquipped(id))
+                    extra += id.ToString().ToUpper() + " " + arena.Slots.KeyHint(id) + " (" + PrototypeSpiritCasts.Cost(id).ToString("0.##") + ")   ";
+            if (extra.Length > 0)
+            {
+                Box(new Rect(w - 312, 180, 300, 26), new Color(0f, 0f, 0f, .55f));
+                GUI.Label(new Rect(w - 306, 182, 290, 24), extra, new GUIStyle(small) { fontStyle = FontStyle.Bold });
+            }
+        }
+
         // --- Thoi gian va muc tieu ---
         GUI.Label(new Rect(w - 300, 16, 280, 40), "TIME " + Clock(arena.RunTime), label);
         GUI.Label(new Rect(24, 196, w - 48, 34), "GOAL: " + arena.ObjectiveText, small);

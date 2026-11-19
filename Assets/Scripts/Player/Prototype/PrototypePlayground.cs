@@ -80,6 +80,8 @@ public sealed class PrototypePlayground : MonoBehaviour
     public PrototypeSpiritArc Arc => arc;
     private PrototypeSpiritSlots spiritSlots;
     public PrototypeSpiritSlots Slots => spiritSlots;
+    private PrototypeSpiritCasts casts;
+    public PrototypeSpiritCasts Casts => casts;
     private PrototypeSpiritSentry sentry;
     public PrototypeSpiritSentry Sentry => sentry;
     private PrototypeSpiritSmash smash;
@@ -152,6 +154,9 @@ public sealed class PrototypePlayground : MonoBehaviour
         sentry = player.GetComponent<PrototypeSpiritSentry>();
         if (sentry == null) sentry = player.gameObject.AddComponent<PrototypeSpiritSentry>();
         sentry.Initialize(player, square, arc);
+        casts = player.GetComponent<PrototypeSpiritCasts>();
+        if (casts == null) casts = player.gameObject.AddComponent<PrototypeSpiritCasts>();
+        casts.Initialize(player, square, arc);
         progress = gameObject.AddComponent<PrototypeProgress>();
         progress.Load();
         bashCourse = gameObject.AddComponent<PrototypeBashCourse>();
