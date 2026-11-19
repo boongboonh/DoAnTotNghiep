@@ -2,7 +2,7 @@ using UnityEngine;
 
 /// <summary>
 /// Boss thu 3 "Gloomroot" (graybox, khu rieng): boss ban re, dung yen, co VO. Khi con vo thi don nhe (Edge, Arc, Sentry)
-/// bi doi lai; chi sat thuong nang (&gt;= 3: Spirit Smash, Bash vao boss, dan Bash tra lai) moi pha vo va mo "loi" 4.5 giay,
+/// bi doi lai; chi sat thuong nang (&gt;= 3: Spirit Smash, Bash vao boss, dan Bash tra lai) moi pha vo va mo "loi" 3 giay,
 /// luc do moi don deu gay sat thuong. Don: Spikes (cot gai moc len theo bao hieu) va Seeds (dan nhan Bash duoc).
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
@@ -25,7 +25,7 @@ public sealed class PrototypeRootBoss : MonoBehaviour, ICombatReceiver, IBashTar
 
     public const int MaxHealth = 36;
     public const int HeavyHit = 3;
-    private const float OpenTime = 4.5f;
+    private const float OpenTime = 3f;
     private const float GroundTop = -.15f;
     private const float ColumnWidth = 1f, ColumnHeight = 3.2f, ColumnStep = 2.6f;
     private const int MaxColumns = 5;
