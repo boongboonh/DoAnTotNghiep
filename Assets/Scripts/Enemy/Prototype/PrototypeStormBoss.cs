@@ -25,6 +25,8 @@ public sealed class PrototypeStormBoss : MonoBehaviour, ICombatReceiver, IBashTa
 
     public const int MaxHealth = 30;
     private const int HeavyHit = 3;
+    private const float StaggerCooldown = 3f;
+    private float staggerReadyAt;
     private const float HoverY = 5f, GroundY = .45f, RainSpawnY = 7f;
 
     private PlayerController target;
@@ -230,10 +232,13 @@ public sealed class PrototypeStormBoss : MonoBehaviour, ICombatReceiver, IBashTa
             cycle = 0;
             ClearShots();
             Set(Mode.Stagger, 1.8f);
+            staggerReadyAt = Time.time + 1.8f + StaggerCooldown;
         }
-        else if (amount >= HeavyHit && Current != Mode.Stagger)
+        else if (amount >= HeavyHit && Current != Mode.Stagger && Time.time >= staggerReadyAt)
         {
+            // Choang chi lap lai sau khoang nghi: tranh khoa choang bang Smash / dan Bash lien tuc.
             Set(Mode.Stagger, 1.4f);
+            staggerReadyAt = Time.time + 1.4f + StaggerCooldown;
         }
         return true;
     }
@@ -258,6 +263,7 @@ public sealed class PrototypeStormBoss : MonoBehaviour, ICombatReceiver, IBashTa
         Phase = 1;
         cycle = 0;
         flashUntil = 0f;
+        staggerReadyAt = 0f;
         CurrentAttack = Attack.None;
         body.position = home;
         transform.position = new Vector3(home.x, home.y, transform.position.z);

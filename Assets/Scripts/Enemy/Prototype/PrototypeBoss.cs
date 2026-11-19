@@ -25,6 +25,8 @@ public sealed class PrototypeBoss : MonoBehaviour, ICombatReceiver, IBashTarget
 
     public const int MaxHealth = 24;
     private const int HeavyHit = 3;
+    private const float StaggerCooldown = 3f;
+    private float staggerReadyAt;
 
     private PlayerController target;
     private PrototypePlayerHealth vitality;
@@ -219,11 +221,13 @@ public sealed class PrototypeBoss : MonoBehaviour, ICombatReceiver, IBashTarget
             cycle = 0;
             ClearShots();
             Set(Mode.Stagger, 1.6f);
+            staggerReadyAt = Time.time + 1.6f + StaggerCooldown;
         }
-        else if (amount >= HeavyHit && Current != Mode.Stagger)
+        else if (amount >= HeavyHit && Current != Mode.Stagger && Time.time >= staggerReadyAt)
         {
-            // Dan phan lai bang Bash: choang ngan, tao cua so phan cong.
+            // Dan phan lai bang Bash / Smash: choang ngan, roi co khoang nghi truoc khi choang lai.
             Set(Mode.Stagger, 1.3f);
+            staggerReadyAt = Time.time + 1.3f + StaggerCooldown;
         }
         return true;
     }
@@ -248,6 +252,7 @@ public sealed class PrototypeBoss : MonoBehaviour, ICombatReceiver, IBashTarget
         Phase = 1;
         cycle = 0;
         flashUntil = 0f;
+        staggerReadyAt = 0f;
         CurrentAttack = Attack.None;
         body.position = home;
         transform.position = new Vector3(home.x, home.y, transform.position.z);
