@@ -145,7 +145,7 @@ public sealed class PrototypeSentryTurret : MonoBehaviour
         var shot = new GameObject("Sentry Shot");
         shot.transform.position = origin + dir * .5f;
         PrototypeGeometry.Rectangle(shot.transform, square, "Shot", new Vector2(.4f, .1f), Vector2.zero, new Color(.7f, 1f, .75f), 12);
-        shot.AddComponent<PrototypeArcShot>().Initialize(dir, Damage);
+        shot.AddComponent<PrototypeArcShot>().Initialize(dir, Damage + PrototypeShards.EnergyDamageBonus);
     }
 
     private void Aim(Vector2 dir)

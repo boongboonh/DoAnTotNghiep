@@ -103,5 +103,19 @@ public sealed class PrototypePause : MonoBehaviour
                 if (GUI.Button(new Rect(x + i * 310, h / 2f + 284, 290, 64), text, small)) slots.CycleSlot(i);
             }
         }
+
+        // Cac o Spirit Shard (nang cap bi dong).
+        var shards = arena.Shards;
+        if (shards != null)
+        {
+            GUI.Label(new Rect(x, h / 2f + 352, 600, 40), "SPIRIT SHARDS (click to change)", note);
+            var shardStyle = new GUIStyle(GUI.skin.button) { fontSize = 22 };
+            for (int i = 0; i < PrototypeShards.SlotCount; i++)
+            {
+                var id = shards.Get(i);
+                string text = PrototypeShards.DisplayName(id) + (id == PrototypeShardId.None ? "" : "\n" + PrototypeShards.Description(id));
+                if (GUI.Button(new Rect(x + i * 310, h / 2f + 396, 290, 70), text, shardStyle)) shards.CycleSlot(i);
+            }
+        }
     }
 }

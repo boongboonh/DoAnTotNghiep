@@ -29,7 +29,7 @@ public sealed class PrototypePlayground : MonoBehaviour
     {
         if (progress == null) return;
         if (bash != null) bash.Unlocked = progress.BashAvailable;
-        if (health != null) health.SetMaxBonus(progress.MaxHealthBonus);
+        if (health != null) health.SetMaxBonus(progress.MaxHealthBonus + PrototypeShards.VitalityBonus);
         if (bashCourse != null) bashCourse.RefreshProgress();
     }
 
@@ -80,6 +80,8 @@ public sealed class PrototypePlayground : MonoBehaviour
     public PrototypeSpiritArc Arc => arc;
     private PrototypeSpiritSlots spiritSlots;
     public PrototypeSpiritSlots Slots => spiritSlots;
+    private PrototypeShards shards;
+    public PrototypeShards Shards => shards;
     private PrototypeSpiritCasts casts;
     public PrototypeSpiritCasts Casts => casts;
     private PrototypeSpiritSentry sentry;
@@ -145,6 +147,9 @@ public sealed class PrototypePlayground : MonoBehaviour
         spiritSlots = player.GetComponent<PrototypeSpiritSlots>();
         if (spiritSlots == null) spiritSlots = player.gameObject.AddComponent<PrototypeSpiritSlots>();
         spiritSlots.Initialize(player.Controls);
+        shards = player.GetComponent<PrototypeShards>();
+        if (shards == null) shards = player.gameObject.AddComponent<PrototypeShards>();
+        shards.Initialize();
         arc = player.GetComponent<PrototypeSpiritArc>();
         if (arc == null) arc = player.gameObject.AddComponent<PrototypeSpiritArc>();
         arc.Initialize(player, followCamera, square);
@@ -330,6 +335,8 @@ public sealed class PrototypePlayground : MonoBehaviour
             var stop = GetComponent<DangDang.Combat.HitStop>();
             if (stop != null) stop.Release();
             foreach (var dummy in dummies) if (dummy != null) dummy.ResetDummy();
+            // Shard Vitality doi luc nao thi chi co hieu luc tu lan hoi sinh nay.
+            if (health != null && progress != null) health.SetMaxBonus(progress.MaxHealthBonus + PrototypeShards.VitalityBonus);
             if (health != null) health.ResetHealth();
             if (enemy != null) enemy.ResetEnemy();
             if (combatRoom != null) combatRoom.ResetRoom(false);

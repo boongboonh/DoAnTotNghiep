@@ -102,7 +102,7 @@ public sealed class PrototypeSpiritCasts : MonoBehaviour
     {
         FlashCount++;
         Vector2 center = player.Motor.Position + Vector2.up * .1f;
-        PrototypeSpiritCasts.DealRadius(center, 3.4f, 2, null);
+        PrototypeSpiritCasts.DealRadius(center, 3.4f, 2 + PrototypeShards.EnergyDamageBonus, null);
         foreach (var shot in FindObjectsByType<PrototypeProjectile>(FindObjectsSortMode.None))
             if (shot != null && shot.Faction == CombatFaction.Enemy && !shot.Bashed
                 && Vector2.Distance(shot.transform.position, center) <= 3.4f) shot.Despawn();
@@ -191,7 +191,7 @@ public sealed class PrototypeFireball : MonoBehaviour
             if (c == null) continue;
             var receiver = c.GetComponentInParent<ICombatReceiver>();
             if (receiver == null || receiver.Faction == CombatFaction.Player || !done.Add(receiver)) continue;
-            if (!receiver.ReceiveHit(ExplosionDamage, center, c.ClosestPoint(center), CombatFaction.Player)) continue;
+            if (!receiver.ReceiveHit(ExplosionDamage + PrototypeShards.EnergyDamageBonus, center, c.ClosestPoint(center), CombatFaction.Player)) continue;
             var host = ((Component)receiver).gameObject;
             var burn = host.GetComponent<PrototypeBurn>();
             if (burn == null) burn = host.AddComponent<PrototypeBurn>();
@@ -280,7 +280,7 @@ public sealed class PrototypeSpikeWave : MonoBehaviour
             if (up && !fired[i])
             {
                 fired[i] = true;
-                PrototypeSpiritCasts.DealRadius(new Vector2(x[i], groundY[i] + .7f), .7f, 2, done);
+                PrototypeSpiritCasts.DealRadius(new Vector2(x[i], groundY[i] + .7f), .7f, 2 + PrototypeShards.EnergyDamageBonus, done);
             }
         }
         if (age >= (Count - 1) * Delay + Hold) Destroy(gameObject);

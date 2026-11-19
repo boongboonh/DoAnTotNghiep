@@ -83,13 +83,15 @@ public sealed class PrototypeHud : MonoBehaviour
             Box(new Rect(w - 312, 62, 300, 54), new Color(0f, 0f, 0f, .55f));
             var energyLabel = new GUIStyle(small) { fontStyle = FontStyle.Bold };
             GUI.Label(new Rect(w - 306, 66, 120, 24), arcSystem.Aiming ? "ARC AIM" : "ARC  " + (arena.Slots != null ? arena.Slots.KeyHint(SpiritId.Arc) : "Q/LT"), energyLabel);
-            for (int cell = 0; cell < 3; cell++)
+            int cells = Mathf.CeilToInt(PrototypeSpiritArc.Capacity);
+            float cw = 282f / cells - 6f;
+            for (int cell = 0; cell < cells; cell++)
             {
                 float fill = Mathf.Clamp01(arcSystem.Energy - cell);
-                float cx = w - 300 + cell * 96;
-                Box(new Rect(cx, 92, 90, 18), new Color(.15f, .15f, .15f));
-                Box(new Rect(cx, 92, 90 * fill, 18), arcSystem.Aiming ? new Color(1f, .9f, .45f) : new Color(.35f, .85f, 1f));
-                for (int q = 1; q < 4; q++) Box(new Rect(cx + 90 * q / 4f - 1, 92, 2, 18), new Color(0f, 0f, 0f, .6f));
+                float cx = w - 300 + cell * (cw + 6f);
+                Box(new Rect(cx, 92, cw, 18), new Color(.15f, .15f, .15f));
+                Box(new Rect(cx, 92, cw * fill, 18), arcSystem.Aiming ? new Color(1f, .9f, .45f) : new Color(.35f, .85f, 1f));
+                for (int q = 1; q < 4; q++) Box(new Rect(cx + cw * q / 4f - 1, 92, 2, 18), new Color(0f, 0f, 0f, .6f));
             }
         }
 
@@ -123,6 +125,18 @@ public sealed class PrototypeHud : MonoBehaviour
             {
                 Box(new Rect(w - 312, 180, 300, 26), new Color(0f, 0f, 0f, .55f));
                 GUI.Label(new Rect(w - 306, 182, 290, 24), extra, new GUIStyle(small) { fontStyle = FontStyle.Bold });
+            }
+        }
+
+        if (arena.Shards != null)
+        {
+            string shardText = "";
+            for (int i = 0; i < PrototypeShards.SlotCount; i++)
+                if (arena.Shards.Get(i) != PrototypeShardId.None) shardText += PrototypeShards.DisplayName(arena.Shards.Get(i)) + "  ";
+            if (shardText.Length > 0)
+            {
+                Box(new Rect(w - 312, 210, 300, 26), new Color(0f, 0f, 0f, .55f));
+                GUI.Label(new Rect(w - 306, 212, 290, 24), "SHARDS  " + shardText, new GUIStyle(small) { fontStyle = FontStyle.Bold });
             }
         }
 

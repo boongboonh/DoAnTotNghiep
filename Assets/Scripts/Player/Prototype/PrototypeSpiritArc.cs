@@ -54,7 +54,10 @@ public sealed class PrototypeSpiritArc : MonoBehaviour
 
     private void OnMeleeHit(AttackStep step, Collider2D target) => AddEnergy(HitGain);
 
-    public void AddEnergy(float amount) => Energy = Mathf.Clamp(Energy + amount, 0f, MaxEnergy);
+    /// <summary>So o nang luong toi da hien tai (shard Energy them 1 o).</summary>
+    public static float Capacity => MaxEnergy + (PrototypeShards.Has(PrototypeShardId.Energy) ? 1f : 0f);
+
+    public void AddEnergy(float amount) => Energy = Mathf.Clamp(Energy + amount, 0f, Capacity);
 
     /// <summary>Tru nang luong cho Spirit khac (vd Sentry). Tra ve false neu khong du.</summary>
     public bool TrySpend(float amount)
@@ -66,7 +69,7 @@ public sealed class PrototypeSpiritArc : MonoBehaviour
 
     public void ResetEnergy()
     {
-        Energy = MaxEnergy;
+        Energy = Capacity;
         Cancel();
     }
 
@@ -101,6 +104,7 @@ public sealed class PrototypeSpiritArc : MonoBehaviour
     private void Update()
     {
         if (player == null) return;
+        if (Energy > Capacity) Energy = Capacity;
         bool held = slots != null && slots.Held(SpiritId.Arc);
         if (!Aiming)
         {
@@ -157,10 +161,21 @@ public sealed class PrototypeSpiritArc : MonoBehaviour
         Energy = Mathf.Max(0f, Energy - ShotCost);
         cooldownUntil = Time.time + Cooldown;
         ShotCount++;
+        SpawnShot(aim, 2 + PrototypeShards.EnergyDamageBonus, 1f);
+        // Shard Splinter: hai mui phu toa ra hai ben, sat thuong 1.
+        if (PrototypeShards.Has(PrototypeShardId.Splinter))
+        {
+            SpawnShot(Quaternion.Euler(0f, 0f, 12f) * aim, 1, .7f);
+            SpawnShot(Quaternion.Euler(0f, 0f, -12f) * aim, 1, .7f);
+        }
+    }
+
+    private void SpawnShot(Vector2 heading, int damage, float scale)
+    {
         var root = new GameObject("Spirit Arc Shot");
-        root.transform.position = player.Motor.Position + Vector2.up * .15f + aim * .7f;
-        PrototypeGeometry.Rectangle(root.transform, square, "Shot", new Vector2(.55f, .12f), Vector2.zero, new Color(1f, .9f, .5f), 12);
-        root.AddComponent<PrototypeArcShot>().Initialize(aim);
+        root.transform.position = player.Motor.Position + Vector2.up * .15f + heading * .7f;
+        PrototypeGeometry.Rectangle(root.transform, square, "Shot", new Vector2(.55f, .12f) * scale, Vector2.zero, new Color(1f, .9f, .5f), 12);
+        root.AddComponent<PrototypeArcShot>().Initialize(heading, damage);
     }
 }
 

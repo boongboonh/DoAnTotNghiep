@@ -51,6 +51,12 @@ public sealed class PrototypeHealPickup : MonoBehaviour
         bar.transform.localPosition = new Vector3(0f, bob, 0f);
         cross.transform.localPosition = new Vector3(0f, bob, 0f);
         Vector2 delta = player.Motor.Position - (Vector2)transform.position;
+        // Shard Magnet: bay ve phia Player khi trong 6 don vi (chi khi mau chua day, de khong lang phi).
+        if (PrototypeShards.Has(PrototypeShardId.Magnet) && delta.magnitude < 6f && delta.magnitude > .05f && health.Health < health.Maximum)
+        {
+            transform.position += (Vector3)(delta.normalized * Mathf.Min(7f * Time.deltaTime, delta.magnitude));
+            delta = player.Motor.Position - (Vector2)transform.position;
+        }
         if (Mathf.Abs(delta.x) > .7f || Mathf.Abs(delta.y) > 1.1f) return;
         if (!health.TryHeal(1))
         {
