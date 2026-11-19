@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public enum SpiritId { None = 0, Arc = 1, Smash = 2 }
+public enum SpiritId { None = 0, Arc = 1, Smash = 2, Sentry = 3 }
 
 /// <summary>
 /// He o Spirit (kieu Ori 2): 2 o gan vao 2 nut (o 1: Q / LT, o 2: F / B). Moi Spirit nam toi da 1 o;
@@ -11,7 +11,7 @@ public sealed class PrototypeSpiritSlots : MonoBehaviour
 {
     public const int SlotCount = 2;
     private const string SaveKey = "DangDangPrototype.Slots";
-    private static readonly SpiritId[] Cycle = { SpiritId.Arc, SpiritId.Smash, SpiritId.None };
+    private static readonly SpiritId[] Cycle = { SpiritId.Arc, SpiritId.Smash, SpiritId.Sentry, SpiritId.None };
 
     private PlayerInputReader controls;
     private readonly SpiritId[] slots = { SpiritId.Arc, SpiritId.Smash };
@@ -65,6 +65,7 @@ public sealed class PrototypeSpiritSlots : MonoBehaviour
         {
             case SpiritId.Arc: return "Spirit Arc";
             case SpiritId.Smash: return "Spirit Smash";
+            case SpiritId.Sentry: return "Spirit Sentry";
             default: return "(empty)";
         }
     }
@@ -78,7 +79,7 @@ public sealed class PrototypeSpiritSlots : MonoBehaviour
         for (int i = 0; i < SlotCount; i++)
         {
             if (slots[i] == SpiritId.None) continue;
-            text += KeyName(i, pad) + " " + (slots[i] == SpiritId.Arc ? "Arc" : "Smash") + "   ";
+            text += KeyName(i, pad) + " " + slots[i].ToString() + "   ";
         }
         return text;
     }
@@ -110,7 +111,7 @@ public sealed class PrototypeSpiritSlots : MonoBehaviour
             if (parts.Length != SlotCount) return;
             int a, b;
             if (!int.TryParse(parts[0], out a) || !int.TryParse(parts[1], out b)) return;
-            if (a < 0 || a > 2 || b < 0 || b > 2 || (a != 0 && a == b)) return;
+            if (a < 0 || a > 3 || b < 0 || b > 3 || (a != 0 && a == b)) return;
             slots[0] = (SpiritId)a; slots[1] = (SpiritId)b;
         }
         catch (Exception) { }

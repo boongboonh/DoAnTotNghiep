@@ -102,6 +102,16 @@ public sealed class PrototypeHud : MonoBehaviour
             GUI.Label(new Rect(w - 306, 122, 110, 24), "SMASH  " + (arena.Slots != null ? arena.Slots.KeyHint(SpiritId.Smash) : "F/B"), new GUIStyle(small) { fontStyle = FontStyle.Bold });
         }
 
+        var sentrySystem = arena.Sentry;
+        if (sentrySystem != null)
+        {
+            Box(new Rect(w - 312, 150, 300, 26), new Color(0f, 0f, 0f, .55f));
+            string state = sentrySystem.TurretActive ? "ACTIVE " + sentrySystem.TurretRemaining.ToString("0.0") + "s"
+                : sentrySystem.CanAfford ? "READY (1 cell)" : "NEED 1 CELL";
+            string key = arena.Slots != null ? arena.Slots.KeyHint(SpiritId.Sentry) : "--";
+            GUI.Label(new Rect(w - 306, 152, 290, 24), "SENTRY  " + key + "  " + state, new GUIStyle(small) { fontStyle = FontStyle.Bold });
+        }
+
         // --- Thoi gian va muc tieu ---
         GUI.Label(new Rect(w - 300, 16, 280, 40), "TIME " + Clock(arena.RunTime), label);
         GUI.Label(new Rect(24, 196, w - 48, 34), "GOAL: " + arena.ObjectiveText, small);

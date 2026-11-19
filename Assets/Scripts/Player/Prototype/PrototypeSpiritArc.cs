@@ -56,6 +56,14 @@ public sealed class PrototypeSpiritArc : MonoBehaviour
 
     public void AddEnergy(float amount) => Energy = Mathf.Clamp(Energy + amount, 0f, MaxEnergy);
 
+    /// <summary>Tru nang luong cho Spirit khac (vd Sentry). Tra ve false neu khong du.</summary>
+    public bool TrySpend(float amount)
+    {
+        if (Energy < amount - .0001f) return false;
+        Energy = Mathf.Max(0f, Energy - amount);
+        return true;
+    }
+
     public void ResetEnergy()
     {
         Energy = MaxEnergy;
@@ -160,13 +168,14 @@ public sealed class PrototypeSpiritArc : MonoBehaviour
 public sealed class PrototypeArcShot : MonoBehaviour
 {
     private const float Speed = 18f, Life = 1.1f, Radius = .12f;
-    private const int Damage = 2;
+    private int Damage = 2;
     private Vector2 direction;
     private float age;
     private readonly RaycastHit2D[] hits = new RaycastHit2D[32];
 
-    public void Initialize(Vector2 heading)
+    public void Initialize(Vector2 heading, int damage = 2)
     {
+        Damage = damage;
         direction = heading.sqrMagnitude > .001f ? heading.normalized : Vector2.right;
         transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
     }
